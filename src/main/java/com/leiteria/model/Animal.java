@@ -30,14 +30,14 @@ public class Animal {
 	@ManyToOne
 	@JoinColumn(name="id_raca")
 	private Raca raca;
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_pai", insertable = true, updatable = true, nullable = true)
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-	private Animal idPai;
-	@ManyToOne(fetch = FetchType.LAZY)
+	private Animal id_pai;
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_mae", insertable = true, updatable = true, nullable = true)
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-	private Animal idMae;
+	private Animal id_mae;
 	
 	
 	
@@ -87,8 +87,8 @@ public class Animal {
 		this.dataNasc = dataNasc;
 		this.registro = registro;
 		this.sexo = sexo;
-		this.idPai = pai;
-		this.idMae = mae;
+		this.id_pai = pai;
+		this.id_mae = mae;
 		this.propriedade = propriedade;
 		this.raca = raca;
 	}
@@ -143,17 +143,17 @@ public class Animal {
 	public void setRaca(Raca raca) {
 		this.raca = raca;
 	}
-	public Animal getIdPai() {
-		return idPai;
+	public Animal getId_pai() {
+		return id_pai;
 	}
-	public void setIdPai(Animal idPai) {
-		this.idPai = idPai;
+	public void setId_pai(Animal idPai) {
+		this.id_pai = idPai;
 	}
-	public Animal getIdMae() {
-		return idMae;
+	public Animal getId_mae() {
+		return id_mae;
 	}
-	public void setIdMae(Animal idMae) {
-		this.idMae = idMae;
+	public void setId_mae(Animal idMae) {
+		this.id_mae = idMae;
 	}
 	public Propriedade getPropriedade() {
 		return propriedade;

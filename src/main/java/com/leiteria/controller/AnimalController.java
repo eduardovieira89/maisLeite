@@ -2,10 +2,14 @@ package com.leiteria.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,19 +32,28 @@ public class AnimalController {
 	PropriedadeRepository propriedadeRepository;
 	
 	@GetMapping
-	public List<Animal> listarTodosDaPropriedade(@RequestParam("idpropriedade") String idPropriedade){
-		try {
-		int id = Integer.parseInt(idPropriedade);
-		Propriedade propriedade = propriedadeRepository.findById(id)
+	public List<Animal> listarTodosDaPropriedade(@RequestParam("idpropriedade") int idPropriedade){
+		
+		Propriedade propriedade = propriedadeRepository.findById(idPropriedade)
 				.orElseThrow(() -> new ResourceNotFoundException(
-					"Propriedade com id: "+id+" não encontrada" ));
+					"Propriedade com id: "+idPropriedade+" não encontrada" ));
 		
 		return animalRepository.findByPropriedade(propriedade);
 		
-		} catch (NumberFormatException e) {
-			System.out.println("id da propriedade é um número inválido!");
-			return null;
-		}
+		
+	}
+	
+	@GetMapping("/{id}")
+	public ResponseEntity<Animal> selecionarPorId(@PathVariable(value="id") int idAnimal) throws ResourceNotFoundException{
+		Animal animal = animalRepository.findById(idAnimal)
+				.orElseThrow(() -> new ResourceNotFoundException(
+						"Animal com id "+idAnimal+" não encontrado"));
+		return ResponseEntity.ok().body(animal);
+	}
+	
+	@PostMapping
+	public Animal novoAnimal(@RequestBody @Valid Animal animal) {
+		return animalRepository.save(animal);
 	}
 
 }
