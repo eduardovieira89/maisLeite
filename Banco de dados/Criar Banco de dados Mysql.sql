@@ -5,36 +5,36 @@ CREATE TABLE `raca` (
 );
 
 CREATE TABLE `propriedade` (
-	`id_propriedade` int NOT NULL AUTO_INCREMENT,
+	`id_propriedade` bigint NOT NULL AUTO_INCREMENT,
 	`nome` varchar(60),
 	`localidade` varchar(60),
 	`municipio` varchar(60),
-	`id_proprietario` int NOT NULL,
+	`id_proprietario` bigint NOT NULL,
 	PRIMARY KEY (`id_propriedade`)
 );
 
 CREATE TABLE `animal` (
-	`id_animal` int NOT NULL AUTO_INCREMENT,
+	`id_animal` bigint NOT NULL AUTO_INCREMENT,
 	`nome` varchar(50),
 	`brinco` int NOT NULL,
 	`data_nasc` DATE NOT NULL,
-	`registro` int,
+	`registro` bigint NOT NULL,
 	`sexo` char NOT NULL,
 	`pai` varchar(60),
 	`mae` varchar(60),
 	`id_raca` int NOT NULL,
-	`id_propriedade` int NOT NULL,
-	`id_pai` int,
-	`id_mae` int,
+	`id_propriedade` bigint NOT NULL,
+	`id_pai` bigint,
+	`id_mae` bigint,
 	PRIMARY KEY (`id_animal`)
 );
 
 CREATE TABLE `usuario` (
-	`id_usuario` int NOT NULL AUTO_INCREMENT,
+	`id_usuario` bigint NOT NULL AUTO_INCREMENT,
 	`nome` varchar(60) NOT NULL,
 	`email` varchar(60) NOT NULL UNIQUE,
 	`senha` varchar(60) NOT NULL,
-	`chefe` int,
+	`chefe` bigint,
 	PRIMARY KEY (`id_usuario`)
 );
 
@@ -44,7 +44,7 @@ CREATE TABLE `regra` (
 );
 
 CREATE TABLE `usuario_regras` (
-	`id_usuario` int NOT NULL,
+	`id_usuario` bigint NOT NULL,
 	`id_regra` varchar(60) NOT NULL
 );
 
@@ -63,6 +63,7 @@ ALTER TABLE `usuario` ADD CONSTRAINT `usuario_fk0` FOREIGN KEY (`chefe`) REFEREN
 ALTER TABLE `usuario_regras` ADD CONSTRAINT `usuario_regras_fk0` FOREIGN KEY (`id_usuario`) REFERENCES `usuario`(`id_usuario`);
 
 ALTER TABLE `usuario_regras` ADD CONSTRAINT `usuario_regras_fk1` FOREIGN KEY (`id_regra`) REFERENCES `regra`(`nome_regra`);
+
 
 INSERT INTO `regra` (`nome_regra`) VALUES ('ROLE_ADMIN');
 INSERT INTO `regra` (`nome_regra`) VALUES ('ROLE_FUNCIONARIO');
