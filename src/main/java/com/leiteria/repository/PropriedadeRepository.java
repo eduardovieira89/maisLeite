@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.leiteria.model.Propriedade;
 import com.leiteria.model.Usuario;
 
-public interface PropriedadeRepository extends JpaRepository<Propriedade, Integer> {
+public interface PropriedadeRepository extends JpaRepository<Propriedade, Long> {
 	List<Propriedade> findByProprietario(Usuario usuario);
 
 }

@@ -12,7 +12,7 @@ public class Propriedade{
 	
 	@Id
 	@Column(name = "id_propriedade")
-	private int id_propriedade;
+	private long id_propriedade;
 	private String nome;
 	private String localidade;
 	private String municipio;
@@ -40,7 +40,7 @@ public class Propriedade{
 	public Propriedade() {
 		
 	}
-	public int getId_propriedade() {
+	public long getId_propriedade() {
 		return id_propriedade;
 	}
 	public String getNome() {
@@ -69,11 +69,12 @@ public class Propriedade{
 	}
 	
 	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + id_propriedade;
+		result = prime * result + (int) (id_propriedade ^ (id_propriedade >>> 32));
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		return result;
 	}

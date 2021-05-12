@@ -4,7 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.leiteria.model.Usuario;
 
-public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
+public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 	
 	Usuario findByEmail(String login);
 	Usuario findByEmailAndSenha(String email, String password);

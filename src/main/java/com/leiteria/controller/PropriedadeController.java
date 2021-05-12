@@ -41,7 +41,7 @@ public class PropriedadeController {
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Propriedade> selecionaPorId(@PathVariable(value= "id") int propriedadeId) 
+	public ResponseEntity<Propriedade> selecionaPorId(@PathVariable(value= "id") long propriedadeId) 
 		throws ResourceNotFoundException{
 		Propriedade propriedade = repository.findById(propriedadeId)
 				.orElseThrow(() -> new ResourceNotFoundException(
@@ -59,7 +59,7 @@ public class PropriedadeController {
 	
 	@PutMapping("/{id}")
 	@PreAuthorize("hasRole('PRODUTOR')")
-	public ResponseEntity<Propriedade> atualizarPropriedade(@PathVariable(value= "id") int propriedadeId,
+	public ResponseEntity<Propriedade> atualizarPropriedade(@PathVariable(value= "id") long propriedadeId,
 			@Valid @RequestBody Propriedade detalhesPropriedade)throws ResourceNotFoundException {
 		Propriedade propriedade = repository.findById(propriedadeId)
 				.orElseThrow(() -> new ResourceNotFoundException("Propriedade com id: "+propriedadeId+" não encontrada" ));
@@ -75,7 +75,7 @@ public class PropriedadeController {
 	
 	@DeleteMapping("/{id}")
 	@PreAuthorize("hasRole('PRODUTOR')")
-	public Map<String, Boolean> deletarPropriedade(@PathVariable(value = "id") int propriedadeId)
+	public Map<String, Boolean> deletarPropriedade(@PathVariable(value = "id") long propriedadeId)
 		throws ResourceNotFoundException {
 		
 		Propriedade propriedade = repository.findById(propriedadeId)

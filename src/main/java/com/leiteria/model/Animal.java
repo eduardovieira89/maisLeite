@@ -9,18 +9,20 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class Animal {
 	
 	@Id
-	private int id_animal;
+	private long id_animal;
 	private String nome;
 	private int brinco;
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@Column(name="data_nasc")
 	private LocalDate dataNasc;
-	private int registro;
+	private long registro;
 	private char sexo;
 	private String pai;
 	private String mae;
@@ -92,7 +94,7 @@ public class Animal {
 		this.propriedade = propriedade;
 		this.raca = raca;
 	}
-	public int getId_animal() {
+	public long getId_animal() {
 		return id_animal;
 	}
 	public String getNome() {
@@ -113,7 +115,7 @@ public class Animal {
 	public void setDataNasc(LocalDate dataNasc) {
 		this.dataNasc = dataNasc;
 	}
-	public int getRegistro() {
+	public long getRegistro() {
 		return registro;
 	}
 	public void setRegistro(int registro) {
@@ -161,13 +163,15 @@ public class Animal {
 	public void setPropriedade(Propriedade propriedade) {
 		this.propriedade = propriedade;
 	}
+
+	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + brinco;
-		result = prime * result + id_animal;
-		result = prime * result + registro;
+		result = prime * result + (int) (id_animal ^ (id_animal >>> 32));
 		return result;
 	}
 	@Override
@@ -182,8 +186,6 @@ public class Animal {
 		if (brinco != other.brinco)
 			return false;
 		if (id_animal != other.id_animal)
-			return false;
-		if (registro != other.registro)
 			return false;
 		return true;
 	}

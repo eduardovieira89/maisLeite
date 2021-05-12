@@ -22,7 +22,7 @@ public class Usuario{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_usuario;
+	private long id_usuario;
 	@NotBlank
 	private String nome;
 	@NotBlank
@@ -55,7 +55,7 @@ public class Usuario{
 	
 	public Usuario() {	}
 
-	public int getId_usuario() {
+	public long getId_usuario() {
 		return id_usuario;
 	}
 

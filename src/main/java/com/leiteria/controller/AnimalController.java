@@ -2,8 +2,6 @@ package com.leiteria.controller;
 
 import java.util.List;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.http.ResponseEntity;
@@ -34,17 +32,17 @@ public class AnimalController {
 	@GetMapping
 	public List<Animal> listarTodosDaPropriedade(@RequestParam("idpropriedade") int idPropriedade){
 		
-		Propriedade propriedade = propriedadeRepository.findById(idPropriedade)
-				.orElseThrow(() -> new ResourceNotFoundException(
-					"Propriedade com id: "+idPropriedade+" não encontrada" ));
+		Propriedade propriedade = findPropriedade(idPropriedade);
 		
 		return animalRepository.findByPropriedade(propriedade);
 		
 		
 	}
+
+	
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Animal> selecionarPorId(@PathVariable(value="id") int idAnimal) throws ResourceNotFoundException{
+	public ResponseEntity<Animal> selecionarPorId(@PathVariable(value="id") long idAnimal) throws ResourceNotFoundException{
 		Animal animal = animalRepository.findById(idAnimal)
 				.orElseThrow(() -> new ResourceNotFoundException(
 						"Animal com id "+idAnimal+" não encontrado"));
@@ -52,8 +50,22 @@ public class AnimalController {
 	}
 	
 	@PostMapping
-	public Animal novoAnimal(@RequestBody @Valid Animal animal) {
+	public Animal novoAnimal(@RequestBody Animal animal) {
 		return animalRepository.save(animal);
+	}
+	
+	@GetMapping("/genero")
+	public List<Animal> listarPorGenero(@RequestParam ("idpropriedade") int idPropriedade, @RequestParam("genero") char genero){
+		Propriedade propriedade = findPropriedade(idPropriedade);
+		
+		return animalRepository.findByPropriedadeAndSexo(propriedade, genero);
+	}
+	
+	private Propriedade findPropriedade(long idPropriedade) {
+		Propriedade propriedade = propriedadeRepository.findById(idPropriedade)
+				.orElseThrow(() -> new ResourceNotFoundException(
+					"Propriedade com id: "+idPropriedade+" não encontrada" ));
+		return propriedade;
 	}
 
 }
