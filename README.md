@@ -1,7 +1,33 @@
 <h1 align="center">Sistema MaisLeite</h1>
 <div align="center">
-Sistema sendo desenvolvido para controle de leitarias juntamente com front-end em angular https://github.com/eduardovieira89/maisLeiteAngular
+Sistema sendo desenvolvido para gestão de leitarias juntamente com front-end em angular https://github.com/eduardovieira89/maisLeiteAngular. O principal propósito do sistema é para estudos da linguagem java, do framework spring e do Angular.
 </div>
+
+## Requisitos
+- Deve permitir o acesso ao sistema somente com usuário e senha;
+- Deve permitir o cadastro de novo proprietário;
+- Deve permitir que o proprietário crie funcionários;
+- Deve permitir que o proprietário cadastre propriedades;
+- Deve permitir o cadastro de animais;
+- Deve permitir o cadastro e controle de cobertura/inseminação e lactação dos animais;
+- Deve manter o registro de alimentação dos animais;
+- Deve manter o registro de medicamentos dos animais;
+- Deve manter o controle de baixas de animais mortos e vendidos;
+- Deve permitir o cadastro de leite diario da propriedade;
+- Deve permitir o cadastro de receitas e despesas da propriedade.
+
+## Andamento do projeto
+### Já feito
+- Acesso ao sistema permitido somente com usuario e senha;
+- Cadastrando proprietário com senha para acesso;
+- Proprietário pode cadastrar propriedade;
+- Cadastro de animal;
+
+### Próximas etapas
+- Permitir que o proprietário cadastre funcionários;
+- Realizar a validação dos campos informados no cadastro do animal;
+- Criar regra para que um proprietário não possa ver animais e propriedades de outros produtores ao realizar busca por id na url;
+- Continuar com os outros requisitos do sistema.
  
  ## Compilando e executando o sistema
  ### Ferramentas necessárias
@@ -34,13 +60,11 @@ $cd target
 #Execute o arquivo jar
 $java -jar maisLeite-0.0.1-SNAPSHOT.jar
 
-#O Spring estará rodando, baixe e execute o projeto angular para acessar o sistema
+#O Spring estará rodando, baixe e execute o projeto angular e acesse via web.
 
 ```
 ```bash
 Ou pode rodar a aplicação a partir da IDE
 ```
-
-## Continua...
 
 
