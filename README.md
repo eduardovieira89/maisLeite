@@ -1,7 +1,7 @@
 <h1 align="center">Sistema MaisLeite</h1>
-<div align="center">
-Sistema sendo desenvolvido para gestão de leitarias juntamente com front-end em angular https://github.com/eduardovieira89/maisLeiteAngular. O principal propósito do sistema é para estudos da linguagem java, do framework spring e do Angular.
-</div>
+<p>
+Sistema sendo desenvolvido para gestão de leitarias juntamente com front-end em angular https://github.com/eduardovieira89/maisLeiteAngular.git O principal propósito do sistema é para estudos da linguagem java, do framework spring e do Angular.
+</p>
 
 ## Requisitos
 - Deve permitir o acesso ao sistema somente com usuário e senha;
