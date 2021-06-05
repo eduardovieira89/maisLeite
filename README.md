@@ -25,8 +25,6 @@ Sistema sendo desenvolvido para gestão de leitarias juntamente com front-end em
 
 ### Próximas etapas
 - Permitir que o proprietário cadastre funcionários;
-- Realizar a validação dos campos informados no cadastro do animal;
-- Criar regra para que um proprietário não possa ver animais e propriedades de outros produtores ao realizar busca por id na url;
 - Continuar com os outros requisitos do sistema.
  
  ## Compilando e executando o sistema
