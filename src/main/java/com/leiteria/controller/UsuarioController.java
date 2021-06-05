@@ -79,7 +79,7 @@ public class UsuarioController {
 	}
 
 	@PostMapping("/novo")
-	public ResponseEntity<?> registrarUsuario(@Valid @RequestBody SignupRequest novoUser) {
+	public ResponseEntity<?> registrarProdutor(@Valid @RequestBody SignupRequest novoUser) {
 		if(userRepository.existsByEmail(novoUser.getEmail())) {
 			return ResponseEntity.badRequest()
 					.body(new MessageResponse("Erro: Esse email já está cadastrado"));
@@ -96,6 +96,11 @@ public class UsuarioController {
 			Regra regraUsuario = regraRepository.findBynomeRegra(ERegra.ROLE_PRODUTOR)
 									.orElseThrow(() -> new RuntimeException("Erro: Regra não encontrada."));
 			regras.add(regraUsuario);
+			
+			regraUsuario = regraRepository.findBynomeRegra(ERegra.ROLE_FUNCIONARIO)
+									.orElseThrow(() -> new RuntimeException("Erro: Regra não encontrada."));
+			regras.add(regraUsuario);
+			
 		} else {
 			strRegras.forEach(regra -> {
 				switch(regra) {

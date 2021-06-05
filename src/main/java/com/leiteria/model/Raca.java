@@ -2,12 +2,14 @@ package com.leiteria.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class Raca {
 
 	@Id
 	private int id_raca;
+	@NotEmpty(message = "Descrição é um campo obrigatório")
 	private String descricao;
 	public Raca(int id_raca, String descricao) {
 		super();

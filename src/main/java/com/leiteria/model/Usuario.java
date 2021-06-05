@@ -14,7 +14,9 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @Entity
@@ -23,12 +25,12 @@ public class Usuario{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id_usuario;
-	@NotBlank
+	@NotEmpty
 	private String nome;
-	@NotBlank
+	@NotEmpty
 	@Email
 	private String email;
-	@NotBlank
+	@NotEmpty
 	private String senha;
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name="usuario_regras", joinColumns = 
@@ -81,6 +83,10 @@ public class Usuario{
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+	@JsonIgnore
+	public List<Propriedade> getPropriedades(){
+		return this.propriedades;
 	}
 	
 	

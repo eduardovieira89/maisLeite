@@ -9,5 +9,7 @@ import com.leiteria.model.Usuario;
 
 public interface PropriedadeRepository extends JpaRepository<Propriedade, Long> {
 	List<Propriedade> findByProprietario(Usuario usuario);
+	Propriedade findByIdAndProprietario(long id, Usuario proprietario);
+	
 
 }

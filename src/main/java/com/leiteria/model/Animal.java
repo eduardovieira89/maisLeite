@@ -8,34 +8,56 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class Animal {
 	
 	@Id
-	private long id_animal;
+	@Column(name="id_animal")
+	private long id;
+	
 	private String nome;
+	
+	@NotNull(message = "Número do brinco é um campo obrigatório")
+	@Min(value = 1, message = "Brinco deve estar preenchido e ser maior que 0" )
 	private int brinco;
+	
+	@NotNull(message = "Data de nascimento é um campo obrigatório")
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@Column(name="data_nasc")
 	private LocalDate dataNasc;
+	
 	private long registro;
+	
+	@NotNull(message = "Sexo é um campo obrigatório")
 	private char sexo;
+	
 	private String pai;
+	
 	private String mae;
+	
+	@NotNull(message = "Propriedade é um campo obrigatório")
 	@ManyToOne
 	@JoinColumn(name="id_propriedade")
 	private Propriedade propriedade;
+	
+	@NotNull(message = "Raça é um campo obrigatório")
 	@ManyToOne
 	@JoinColumn(name="id_raca")
 	private Raca raca;
+	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_pai", insertable = true, updatable = true, nullable = true)
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Animal id_pai;
+	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_mae", insertable = true, updatable = true, nullable = true)
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
@@ -79,7 +101,6 @@ public class Animal {
 		this.raca = raca;
 	}
 	public Animal() {
-		super();
 	}
 	public Animal(String nome, int brinco, LocalDate dataNasc, int registro, char sexo, Animal pai,
 			Animal mae, Propriedade propriedade, Raca raca) {
@@ -94,8 +115,8 @@ public class Animal {
 		this.propriedade = propriedade;
 		this.raca = raca;
 	}
-	public long getId_animal() {
-		return id_animal;
+	public long getId() {
+		return id;
 	}
 	public String getNome() {
 		return nome;
@@ -118,7 +139,7 @@ public class Animal {
 	public long getRegistro() {
 		return registro;
 	}
-	public void setRegistro(int registro) {
+	public void setRegistro(long registro) {
 		this.registro = registro;
 	}
 	public char getSexo() {
@@ -171,7 +192,7 @@ public class Animal {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + brinco;
-		result = prime * result + (int) (id_animal ^ (id_animal >>> 32));
+		result = prime * result + (int) (id ^ (id >>> 32));
 		return result;
 	}
 	@Override
@@ -185,7 +206,7 @@ public class Animal {
 		Animal other = (Animal) obj;
 		if (brinco != other.brinco)
 			return false;
-		if (id_animal != other.id_animal)
+		if (id != other.id)
 			return false;
 		return true;
 	}

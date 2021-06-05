@@ -1,0 +1,10 @@
+id_usuario,nome,email,senha,chefe
+1,Moacir,moacir@gmail.com,$2a$10$lTFvkD4N7frAwdzoyDljLu/nPvQUKTNEWXZ96e19WG.ke4vXU9Kou,NULL
+2,Matulle,anderson@gmail.com,$2a$10$lTFvkD4N7frAwdzoyDljLu/nPvQUKTNEWXZ96e19WG.ke4vXU9Kou,NULL
+3,Paulo,paulo@gmail.com,$2a$10$lTFvkD4N7frAwdzoyDljLu/nPvQUKTNEWXZ96e19WG.ke4vXU9Kou,NULL
+4,Elsio,elsio@gmail.com,$2a$10$lTFvkD4N7frAwdzoyDljLu/nPvQUKTNEWXZ96e19WG.ke4vXU9Kou,NULL
+5,Carlos,carlos@gmail.com,$2a$10$lTFvkD4N7frAwdzoyDljLu/nPvQUKTNEWXZ96e19WG.ke4vXU9Kou,NULL
+6,Rodrigo,rodrigo@gmail.com,$2a$10$lTFvkD4N7frAwdzoyDljLu/nPvQUKTNEWXZ96e19WG.ke4vXU9Kou,NULL
+7,Eduardo,eduardo@gmail.com,$2a$10$Y1fDrAYcJ7mQajUIHGUFnOuCK.nbWhwuLvElTDg0m4ZvP6aEgKCCm,NULL
+8,João,joao@gmail.com,$2a$10$UxeE3oFA4E.SyfchphfPmujuGKX8IWXU05IgsgbMAR6UGzPvRMhVO,NULL
+9,"Andreia Koch Vieira",andreia@gmail.com,$2a$10$l0q9Pfbzc9Ji0qi4vJKF2.fEltorLobOEjia3KUeG5h1tQTADmXjq,NULL
