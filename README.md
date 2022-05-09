@@ -45,8 +45,7 @@ Sistema sendo desenvolvido para gestão de leitarias juntamente com front-end em
 $ git clone <https://github.com/eduardovieira89/maisLeite.git>
 
 # Acesse a pasta do projeto no terminal/cmd
-$cd maisLeite
-Onde o arquivo pom.xml se encontra
+$cd maisLeite (Onde o arquivo pom.xml se encontra)
 
 #Execute os seguintes comandos para o Maven baixar as bibliotecas e gerar o arquivo jar
 $mvn clean
