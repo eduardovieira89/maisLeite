@@ -25,7 +25,7 @@ Sistema sendo desenvolvido para gestão de leitarias juntamente com front-end em
 
 ### Próximas etapas
 - Permitir que o proprietário cadastre funcionários;
-- Continuar com os outros requisitos do sistema.
+- Corrigir alguns bugs no front;
  
  ## Compilando e executando o sistema
  ### Ferramentas necessárias
