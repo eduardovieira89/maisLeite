@@ -42,6 +42,7 @@ public class Usuario{
 	@OneToMany(mappedBy = "proprietario", targetEntity = Propriedade.class, 
 				fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Propriedade> propriedades;
+	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "chefe", insertable = true, updatable = true, nullable = true)
 	private Usuario chefe;

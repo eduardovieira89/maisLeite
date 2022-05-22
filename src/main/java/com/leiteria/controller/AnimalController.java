@@ -25,7 +25,7 @@ import com.leiteria.repository.AnimalRepository;
 
 @RestController
 @RequestMapping("/animal")
-@CrossOrigin(origins ="http://localhost:4200")
+@CrossOrigin
 public class AnimalController {
 	
 	@Autowired

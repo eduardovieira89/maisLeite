@@ -6,13 +6,9 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
-import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import com.leiteria.model.Propriedade;
-import com.leiteria.model.Usuario;
 import com.leiteria.repository.PropriedadeRepository;
 import com.leiteria.repository.UsuarioRepository;
 
@@ -21,25 +17,12 @@ public class ServicePropriedade {
 	
 	@Autowired UsuarioRepository userRepository;
 	@Autowired PropriedadeRepository propriedadeRepository;
-	
-	private Usuario getUsuarioAutenticado() {
-		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		if(principal == null) throw new AuthenticationCredentialsNotFoundException("Usuario não logado");
-		String nome;		
-		
-		if (principal instanceof UserDetails) {
-		    nome = ((UserDetails)principal).getUsername();
-		     return userRepository.findByEmail(nome);		    
-		} else {		    
-		    return null;
-		}
-	}
-	
+	@Autowired ServiceUsuario serviceUsuario;
 	
 	
 	public Propriedade salvar(Propriedade propriedade) {
 		
-		propriedade.setproprietario(getUsuarioAutenticado());
+		propriedade.setproprietario(serviceUsuario.getUsuarioAutenticado());
 		
 		return propriedadeRepository.save(propriedade);
 	}
@@ -59,13 +42,13 @@ public class ServicePropriedade {
 	
 	
 	public List<Propriedade> listarPropriedades(){	
-		return propriedadeRepository.findByProprietario(getUsuarioAutenticado());
+		return propriedadeRepository.findByProprietario(serviceUsuario.getUsuarioAutenticado());
 	}
 	
 	
 	public Propriedade buscar(long propriedadeId){
 		
-			 return propriedadeRepository.findByIdAndProprietario(propriedadeId, getUsuarioAutenticado());
+			 return propriedadeRepository.findByIdAndProprietario(propriedadeId, serviceUsuario.getUsuarioAutenticado());
 					
 	}
 	

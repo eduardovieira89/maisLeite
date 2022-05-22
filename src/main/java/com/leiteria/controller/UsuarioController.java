@@ -10,12 +10,15 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,8 +37,8 @@ import com.leiteria.security.CustomUserDetails;
 import com.leiteria.security.jwt.JwtUtils;
 
 @RestController
-@RequestMapping("/autenticar")
-@CrossOrigin(origins ="http://localhost:4200")
+@RequestMapping("/usuario")
+@CrossOrigin
 public class UsuarioController {
 	
 	@Autowired
@@ -50,6 +53,14 @@ public class UsuarioController {
 	RegraRepository regraRepository;
 	
 	
+	
+	@GetMapping("/funcionarios")
+	public List<String> listarFuncionarios(){
+		Usuario proprietario = getUsuarioAutenticado();
+		
+		List<String> funcionarios = userRepository.buscarFuncionarios(proprietario);
+		return funcionarios;
+	}
 	
 	@PostMapping
 	public ResponseEntity<?> autenticarUsuario(@Valid @RequestBody LoginRequest loginRequest) {
@@ -78,7 +89,7 @@ public class UsuarioController {
 		
 	}
 
-	@PostMapping("/novo")
+	@PostMapping("/proprietario")
 	public ResponseEntity<?> registrarProdutor(@Valid @RequestBody SignupRequest novoUser) {
 		if(userRepository.existsByEmail(novoUser.getEmail())) {
 			return ResponseEntity.badRequest()
@@ -129,6 +140,72 @@ public class UsuarioController {
 		
 		userRepository.save(user);
 		return ResponseEntity.ok(new MessageResponse("Usuario registrado com sucesso"));
+	}
+	
+	
+	@PostMapping("/funcionario")
+	public ResponseEntity<?> registrarFuncionario(@Valid @RequestBody SignupRequest novoUser) {
+		if(userRepository.existsByEmail(novoUser.getEmail())) {
+			return ResponseEntity.badRequest()
+					.body(new MessageResponse("Erro: Esse email já está cadastrado"));
+		}
+		
+		Usuario user = new Usuario(novoUser.getUsername(),
+								   novoUser.getEmail(),
+								   encoder.encode(novoUser.getPassword()));
+		
+		Set<String> strRegras = novoUser.getRole();
+		List<Regra> regras = new ArrayList<>();
+		
+		
+		if(strRegras == null) {
+			Regra regraUsuario =  regraRepository.findBynomeRegra(ERegra.ROLE_FUNCIONARIO)
+									.orElseThrow(() -> new RuntimeException("Erro: Regra não encontrada."));
+			regras.add(regraUsuario);
+			
+		} else {
+			strRegras.forEach(regra -> {
+				switch(regra) {
+				case "admin":
+					Regra regraAdmin = regraRepository.findBynomeRegra(ERegra.ROLE_ADMIN)
+					  					.orElseThrow(() -> new RuntimeException("Erro: Regra não encontrada."));
+					regras.add(regraAdmin);
+					
+					break;
+				case "funcionario":
+					Regra regraFunc = regraRepository.findBynomeRegra(ERegra.ROLE_FUNCIONARIO)
+										.orElseThrow(() -> new RuntimeException("Erro: Regra não encontrada."));
+					regras.add(regraFunc);
+				
+					break;
+				default:
+					Regra regraProdutor = regraRepository.findBynomeRegra(ERegra.ROLE_PRODUTOR)
+											.orElseThrow(() -> new RuntimeException("Erro: Regra não encontrada"));
+					regras.add(regraProdutor);
+					
+				}
+			});
+		}
+		
+		user.setRegras(regras);
+		user.setChefe(getUsuarioAutenticado());
+		
+		userRepository.save(user);
+		return ResponseEntity.ok(new MessageResponse("Funcionario registrado com sucesso"));
+	}
+	
+	
+	private Usuario getUsuarioAutenticado() {
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		if(principal == null) throw new AuthenticationCredentialsNotFoundException("Usuario não logado");
+		String nome;		
+		
+		if (principal instanceof UserDetails) {
+		    nome = ((UserDetails)principal).getUsername();
+		     return userRepository.findByEmail(nome);		    
+		} else {		    
+		    return null;
+		}
 	}
 	
 	
