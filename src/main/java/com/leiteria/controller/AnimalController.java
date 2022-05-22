@@ -36,6 +36,7 @@ public class AnimalController {
 	@GetMapping
 	public List<Animal> listarTodosDaPropriedade(@RequestParam("idpropriedade") long idPropriedade){
 		
+		//retorna a lista de animais da propriedade selecionada
 		return animalService.listByPropriedade(idPropriedade);
 	}
 	
