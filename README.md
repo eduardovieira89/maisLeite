@@ -25,9 +25,7 @@ Sistema sendo desenvolvido para gestão de leitarias juntamente com front-end em
 
 ### Próximas etapas
 - Permitir que o proprietário cadastre funcionários;
-- Realizar a validação dos campos informados no cadastro do animal;
-- Criar regra para que um proprietário não possa ver animais e propriedades de outros produtores ao realizar busca por id na url;
-- Continuar com os outros requisitos do sistema.
+- Corrigir alguns bugs no front;
  
  ## Compilando e executando o sistema
  ### Ferramentas necessárias
@@ -47,8 +45,7 @@ Sistema sendo desenvolvido para gestão de leitarias juntamente com front-end em
 $ git clone <https://github.com/eduardovieira89/maisLeite.git>
 
 # Acesse a pasta do projeto no terminal/cmd
-$cd maisLeite
-Onde o arquivo pom.xml se encontra
+$cd maisLeite (Onde o arquivo pom.xml se encontra)
 
 #Execute os seguintes comandos para o Maven baixar as bibliotecas e gerar o arquivo jar
 $mvn clean
