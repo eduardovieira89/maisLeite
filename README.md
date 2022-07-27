@@ -9,7 +9,8 @@ Sistema sendo desenvolvido para gestão de leitarias juntamente com front-end em
 - Deve permitir que o proprietário crie funcionários;
 - Deve permitir que o proprietário cadastre propriedades;
 - Deve permitir o cadastro de animais;
-- Deve permitir o cadastro e controle de cobertura/inseminação e lactação dos animais;
+- Deve permitir o manejo reprodutivo do animal (controle de cobertura/inseminação e partos);
+- Deve permitir o controle de lactação do animal;
 - Deve manter o registro de alimentação dos animais;
 - Deve manter o registro de medicamentos dos animais;
 - Deve manter o controle de baixas de animais mortos e vendidos;
@@ -22,10 +23,11 @@ Sistema sendo desenvolvido para gestão de leitarias juntamente com front-end em
 - Cadastrando proprietário com senha para acesso;
 - Proprietário pode cadastrar propriedade;
 - Cadastro de animal;
+- Permitir que o proprietário cadastre funcionários;
 
 ### Próximas etapas
-- Permitir que o proprietário cadastre funcionários;
-- Corrigir alguns bugs no front;
+- Trabalhar no manejo reprodutivo;
+- Corrigir alguns bugs no front (ex: nome do usuario não aparece após fazer login, somente após recarregar a página);
  
  ## Compilando e executando o sistema
  ### Ferramentas necessárias
