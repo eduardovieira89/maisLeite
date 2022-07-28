@@ -6,7 +6,7 @@ Sistema sendo desenvolvido para gestão de leitarias juntamente com front-end em
 ## Requisitos
 - Deve permitir o acesso ao sistema somente com usuário e senha;
 - Deve permitir o cadastro de novo proprietário;
-- Deve permitir que o proprietário crie funcionários;
+- Deve permitir que o proprietário gerencie funcionários;
 - Deve permitir que o proprietário cadastre propriedades;
 - Deve permitir o cadastro de animais;
 - Deve permitir o manejo reprodutivo do animal (controle de cobertura/inseminação e partos);
