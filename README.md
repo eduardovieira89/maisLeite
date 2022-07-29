@@ -13,6 +13,7 @@ Sistema sendo desenvolvido para gestão de leitarias juntamente com front-end em
 - Deve permitir o controle de lactação do animal;
 - Deve manter o registro de alimentação dos animais;
 - Deve manter o registro de medicamentos dos animais;
+- Deve manter o registro de vacinas dos animais;
 - Deve manter o controle de baixas de animais mortos e vendidos;
 - Deve permitir o cadastro de leite diario da propriedade;
 - Deve permitir o cadastro de receitas e despesas da propriedade.
@@ -25,8 +26,9 @@ Sistema sendo desenvolvido para gestão de leitarias juntamente com front-end em
 - Cadastro de animal;
 - Permitir que o proprietário cadastre funcionários;
 
-### Próximas etapas
-- Construir o requisito: manejo reprodutivo;
+### Próximas etapas, em andamento...
+- Construindo o requisito: manejo reprodutivo;
+- Construindo o requisito: vacinas;
 - Corrigir alguns bugs no front (ex: nome do usuario não aparece após fazer login, somente após recarregar a página);
 - Quando funcionário loga no sistema não aparece as propriedades, fazer aparecer as propriedades do chefe;
  
