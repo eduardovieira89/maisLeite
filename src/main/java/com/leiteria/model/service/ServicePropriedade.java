@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.leiteria.model.Propriedade;
+import com.leiteria.model.Propriedades;
 import com.leiteria.repository.PropriedadeRepository;
 import com.leiteria.repository.UsuarioRepository;
 
@@ -20,7 +20,7 @@ public class ServicePropriedade {
 	@Autowired ServiceUsuario serviceUsuario;
 	
 	
-	public Propriedade salvar(Propriedade propriedade) {
+	public Propriedades salvar(Propriedades propriedade) {
 		
 		propriedade.setproprietario(serviceUsuario.getUsuarioAutenticado());
 		
@@ -32,7 +32,7 @@ public class ServicePropriedade {
 	public Map<String, Boolean> deletar(long propriedadeId)
 			throws ResourceNotFoundException {
 			
-			Propriedade propriedade = this.buscar(propriedadeId);
+			Propriedades propriedade = this.buscar(propriedadeId);
 			
 			propriedadeRepository.delete(propriedade);
 			Map<String, Boolean> response = new HashMap<>();
@@ -41,24 +41,27 @@ public class ServicePropriedade {
 	}
 	
 	
-	public List<Propriedade> listarPropriedades(){	
-		return propriedadeRepository.findByProprietario(serviceUsuario.getUsuarioAutenticado());
+	public List<Propriedades> listarPropriedades(){	
+		return propriedadeRepository.findByProprietario(serviceUsuario.getProprietario());
 	}
 	
 	
-	public Propriedade buscar(long propriedadeId){
+	public Propriedades buscar(long propriedadeId){
 		
 			 return propriedadeRepository.findByIdAndProprietario(propriedadeId, serviceUsuario.getUsuarioAutenticado());
 					
 	}
 	
-	public Propriedade atualizar(long propriedadeId, Propriedade detalhesPropriedade) {
-		Propriedade propriedade = this.buscar(propriedadeId);
+	public Propriedades atualizar(long propriedadeId, Propriedades detalhesPropriedade) {
+		
+		//É necessário verificar se a propriedade pertence ao usuário antes de atualizar
+		
+		Propriedades propriedade = this.buscar(propriedadeId);
 		propriedade.setLocalidade(detalhesPropriedade.getLocalidade());
 		propriedade.setMunicipio(detalhesPropriedade.getMunicipio());
 		propriedade.setNome(detalhesPropriedade.getNome());
 
-		final Propriedade propriedadeAtualizada = propriedadeRepository.save(propriedade);
+		final Propriedades propriedadeAtualizada = propriedadeRepository.save(propriedade);
 
 		return propriedadeAtualizada;
 	}

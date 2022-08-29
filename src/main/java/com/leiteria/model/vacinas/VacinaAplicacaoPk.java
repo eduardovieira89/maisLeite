@@ -1,4 +1,4 @@
-package com.leiteria.model.vacina;
+package com.leiteria.model.vacinas;
 
 import java.io.Serializable;
 
@@ -7,7 +7,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
-import com.leiteria.model.Animal;
+import com.leiteria.model.Animais;
 
 @Embeddable
 public class VacinaAplicacaoPk implements Serializable {
@@ -18,16 +18,16 @@ public class VacinaAplicacaoPk implements Serializable {
 	@ManyToOne
 	@NotNull(message="Animal é um campo obrigatório")
 	@JoinColumn(name="id_animal")
-	private Animal animal;
+	private Animais animal;
 	
 	@ManyToOne 
 	@NotNull(message="Vacina é um campo obrigatório")
-	private Vacina vacina;
+	private Vacinas vacina;
 	
 	@NotNull(message="Dose é um campo obrigatório")
 	private int dose;
 
-	public VacinaAplicacaoPk(Animal animal, Vacina vacina, int dose) {
+	public VacinaAplicacaoPk(Animais animal, Vacinas vacina, int dose) {
 		this.animal = animal;
 		this.vacina = vacina;
 		this.dose = dose;
@@ -36,19 +36,19 @@ public class VacinaAplicacaoPk implements Serializable {
 	public VacinaAplicacaoPk() {
 	}
 
-	public Animal getAnimal() {
+	public Animais getAnimal() {
 		return animal;
 	}
 
-	public void setAnimal(Animal animal) {
+	public void setAnimal(Animais animal) {
 		this.animal = animal;
 	}
 
-	public Vacina getVacina() {
+	public Vacinas getVacina() {
 		return vacina;
 	}
 
-	public void setVacina(Vacina vacina) {
+	public void setVacina(Vacinas vacina) {
 		this.vacina = vacina;
 	}
 

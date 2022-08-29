@@ -1,3 +1,5 @@
+// Generated with g9.
+
 package com.leiteria.model;
 
 import java.time.LocalDate;
@@ -17,9 +19,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@Entity
-public class Animal {
-	
+@Entity(name="animais")
+public class Animais {
+
 	@Id
 	@Column(name="id_animal")
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -45,32 +47,32 @@ public class Animal {
 	
 	private String mae;
 	
-	@NotNull(message = "Propriedade é um campo obrigatório")
 	@ManyToOne
 	@JoinColumn(name="id_propriedade")
-	private Propriedade propriedade;
+	private Propriedades propriedade;
 	
 	@NotNull(message = "Raça é um campo obrigatório")
 	@ManyToOne
 	@JoinColumn(name="id_raca")
-	private Raca raca;
+	private Racas raca;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_pai", insertable = true, updatable = true, nullable = true)
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-	private Animal id_pai;
+	private Animais id_pai;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_mae", insertable = true, updatable = true, nullable = true)
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-	private Animal id_mae;
+	private Animais id_mae;
 	
 	
 	
 	
 	
 	
-	public Animal(String nome, int brinco, LocalDate dataNasc, int registro, char sexo, Propriedade propriedade, Raca raca) {
+	
+	public Animais(String nome, int brinco, LocalDate dataNasc, int registro, char sexo, Propriedades propriedade, Racas raca) {
 		super();
 		this.nome = nome;
 		this.brinco = brinco;
@@ -80,7 +82,7 @@ public class Animal {
 		this.propriedade = propriedade;
 		this.raca = raca;
 	}
-	public Animal(int brinco, LocalDate dataNasc, int registro, char sexo, Propriedade propriedade, Raca raca) {
+	public Animais(int brinco, LocalDate dataNasc, int registro, char sexo, Propriedades propriedade, Racas raca) {
 		super();
 		this.brinco = brinco;
 		this.dataNasc = dataNasc;
@@ -89,8 +91,8 @@ public class Animal {
 		this.propriedade = propriedade;
 		this.raca = raca;
 	}
-	public Animal(String nome, int brinco, LocalDate dataNasc, int registro, char sexo, String pai, String mae,
-			Propriedade propriedade, Raca raca) {
+	public Animais(String nome, int brinco, LocalDate dataNasc, int registro, char sexo, String pai, String mae,
+			Propriedades propriedade, Racas raca) {
 		super();
 		this.nome = nome;
 		this.brinco = brinco;
@@ -102,10 +104,10 @@ public class Animal {
 		this.propriedade = propriedade;
 		this.raca = raca;
 	}
-	public Animal() {
+	public Animais() {
 	}
-	public Animal(String nome, int brinco, LocalDate dataNasc, int registro, char sexo, Animal pai,
-			Animal mae, Propriedade propriedade, Raca raca) {
+	public Animais(String nome, int brinco, LocalDate dataNasc, int registro, char sexo, Animais pai,
+			Animais mae, Propriedades propriedade, Racas raca) {
 				
 		this.nome = nome;
 		this.brinco = brinco;
@@ -162,31 +164,30 @@ public class Animal {
 	public void setMae(String mae) {
 		this.mae = mae;
 	}
-	public Raca getRaca() {
+	public Racas getRaca() {
 		return raca;
 	}
-	public void setRaca(Raca raca) {
+	public void setRaca(Racas raca) {
 		this.raca = raca;
 	}
-	public Animal getId_pai() {
+	public Animais getId_pai() {
 		return id_pai;
 	}
-	public void setId_pai(Animal idPai) {
+	public void setId_pai(Animais idPai) {
 		this.id_pai = idPai;
 	}
-	public Animal getId_mae() {
+	public Animais getId_mae() {
 		return id_mae;
 	}
-	public void setId_mae(Animal idMae) {
+	public void setId_mae(Animais idMae) {
 		this.id_mae = idMae;
 	}
-	public Propriedade getPropriedade() {
+	public Propriedades getPropriedades() {
 		return propriedade;
 	}
-	public void setPropriedade(Propriedade propriedade) {
+	public void setPropriedades(Propriedades propriedade) {
 		this.propriedade = propriedade;
 	}
-
 	
 	
 	@Override
@@ -205,7 +206,7 @@ public class Animal {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Animal other = (Animal) obj;
+		Animais other = (Animais) obj;
 		if (brinco != other.brinco)
 			return false;
 		if (id != other.id)

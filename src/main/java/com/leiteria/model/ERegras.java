@@ -1,6 +1,6 @@
 package com.leiteria.model;
 
-public enum ERegra {
+public enum ERegras {
 	ROLE_ADMIN,
 	ROLE_FUNCIONARIO,
 	ROLE_PRODUTOR

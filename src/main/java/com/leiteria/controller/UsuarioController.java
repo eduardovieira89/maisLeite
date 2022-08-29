@@ -10,12 +10,10 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,9 +22,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.leiteria.model.ERegra;
-import com.leiteria.model.Regra;
-import com.leiteria.model.Usuario;
+import com.leiteria.model.ERegras;
+import com.leiteria.model.Regras;
+import com.leiteria.model.Usuarios;
+import com.leiteria.model.service.ServiceUsuario;
 import com.leiteria.payload.request.LoginRequest;
 import com.leiteria.payload.request.SignupRequest;
 import com.leiteria.payload.response.JwtResponse;
@@ -51,12 +50,14 @@ public class UsuarioController {
 	PasswordEncoder encoder;
 	@Autowired
 	RegraRepository regraRepository;
+	@Autowired
+	ServiceUsuario serviceUsuario;
 	
 	
 	
 	@GetMapping("/funcionarios")
 	public List<String> listarFuncionarios(){
-		Usuario proprietario = getUsuarioAutenticado();
+		Usuarios proprietario = serviceUsuario.getUsuarioAutenticado();
 		
 		List<String> funcionarios = userRepository.buscarFuncionarios(proprietario);
 		return funcionarios;
@@ -96,19 +97,19 @@ public class UsuarioController {
 					.body(new MessageResponse("Erro: Esse email já está cadastrado"));
 		}
 		
-		Usuario user = new Usuario(novoUser.getUsername(),
+		Usuarios user = new Usuarios(novoUser.getUsername(),
 								   novoUser.getEmail(),
 								   encoder.encode(novoUser.getPassword()));
 		
 		Set<String> strRegras = novoUser.getRole();
-		List<Regra> regras = new ArrayList<>();
+		List<Regras> regras = new ArrayList<>();
 		
 		if(strRegras == null) {
-			Regra regraUsuario = regraRepository.findBynomeRegra(ERegra.ROLE_PRODUTOR)
+			Regras regraUsuario = regraRepository.findBynomeRegra(ERegras.ROLE_PRODUTOR)
 									.orElseThrow(() -> new RuntimeException("Erro: Regra não encontrada."));
 			regras.add(regraUsuario);
 			
-			regraUsuario = regraRepository.findBynomeRegra(ERegra.ROLE_FUNCIONARIO)
+			regraUsuario = regraRepository.findBynomeRegra(ERegras.ROLE_FUNCIONARIO)
 									.orElseThrow(() -> new RuntimeException("Erro: Regra não encontrada."));
 			regras.add(regraUsuario);
 			
@@ -116,19 +117,19 @@ public class UsuarioController {
 			strRegras.forEach(regra -> {
 				switch(regra) {
 				case "admin":
-					Regra regraAdmin = regraRepository.findBynomeRegra(ERegra.ROLE_ADMIN)
+					Regras regraAdmin = regraRepository.findBynomeRegra(ERegras.ROLE_ADMIN)
 					  					.orElseThrow(() -> new RuntimeException("Erro: Regra não encontrada."));
 					regras.add(regraAdmin);
 					
 					break;
 				case "funcionario":
-					Regra regraFunc = regraRepository.findBynomeRegra(ERegra.ROLE_FUNCIONARIO)
+					Regras regraFunc = regraRepository.findBynomeRegra(ERegras.ROLE_FUNCIONARIO)
 										.orElseThrow(() -> new RuntimeException("Erro: Regra não encontrada."));
 					regras.add(regraFunc);
 				
 					break;
 				default:
-					Regra regraProdutor = regraRepository.findBynomeRegra(ERegra.ROLE_PRODUTOR)
+					Regras regraProdutor = regraRepository.findBynomeRegra(ERegras.ROLE_PRODUTOR)
 											.orElseThrow(() -> new RuntimeException("Erro: Regra não encontrada"));
 					regras.add(regraProdutor);
 					
@@ -150,16 +151,16 @@ public class UsuarioController {
 					.body(new MessageResponse("Erro: Esse email já está cadastrado"));
 		}
 		
-		Usuario user = new Usuario(novoUser.getUsername(),
+		Usuarios user = new Usuarios(novoUser.getUsername(),
 								   novoUser.getEmail(),
 								   encoder.encode(novoUser.getPassword()));
 		
 		Set<String> strRegras = novoUser.getRole();
-		List<Regra> regras = new ArrayList<>();
+		List<Regras> regras = new ArrayList<>();
 		
 		
 		if(strRegras == null) {
-			Regra regraUsuario =  regraRepository.findBynomeRegra(ERegra.ROLE_FUNCIONARIO)
+			Regras regraUsuario =  regraRepository.findBynomeRegra(ERegras.ROLE_FUNCIONARIO)
 									.orElseThrow(() -> new RuntimeException("Erro: Regra não encontrada."));
 			regras.add(regraUsuario);
 			
@@ -167,19 +168,19 @@ public class UsuarioController {
 			strRegras.forEach(regra -> {
 				switch(regra) {
 				case "admin":
-					Regra regraAdmin = regraRepository.findBynomeRegra(ERegra.ROLE_ADMIN)
+					Regras regraAdmin = regraRepository.findBynomeRegra(ERegras.ROLE_ADMIN)
 					  					.orElseThrow(() -> new RuntimeException("Erro: Regra não encontrada."));
 					regras.add(regraAdmin);
 					
 					break;
 				case "funcionario":
-					Regra regraFunc = regraRepository.findBynomeRegra(ERegra.ROLE_FUNCIONARIO)
+					Regras regraFunc = regraRepository.findBynomeRegra(ERegras.ROLE_FUNCIONARIO)
 										.orElseThrow(() -> new RuntimeException("Erro: Regra não encontrada."));
 					regras.add(regraFunc);
 				
 					break;
 				default:
-					Regra regraProdutor = regraRepository.findBynomeRegra(ERegra.ROLE_PRODUTOR)
+					Regras regraProdutor = regraRepository.findBynomeRegra(ERegras.ROLE_PRODUTOR)
 											.orElseThrow(() -> new RuntimeException("Erro: Regra não encontrada"));
 					regras.add(regraProdutor);
 					
@@ -188,24 +189,10 @@ public class UsuarioController {
 		}
 		
 		user.setRegras(regras);
-		user.setChefe(getUsuarioAutenticado());
+		user.setChefe(serviceUsuario.getUsuarioAutenticado());
 		
 		userRepository.save(user);
 		return ResponseEntity.ok(new MessageResponse("Funcionario registrado com sucesso"));
-	}
-	
-	
-	private Usuario getUsuarioAutenticado() {
-		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		if(principal == null) throw new AuthenticationCredentialsNotFoundException("Usuario não logado");
-		String nome;		
-		
-		if (principal instanceof UserDetails) {
-		    nome = ((UserDetails)principal).getUsername();
-		     return userRepository.findByEmail(nome);		    
-		} else {		    
-		    return null;
-		}
 	}
 	
 	

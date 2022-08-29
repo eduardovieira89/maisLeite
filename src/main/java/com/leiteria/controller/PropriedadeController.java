@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.leiteria.model.Propriedade;
+import com.leiteria.model.Propriedades;
 import com.leiteria.model.service.ServicePropriedade;
 import com.leiteria.payload.response.MessageResponse;
 import com.leiteria.repository.PropriedadeRepository;
@@ -35,15 +35,15 @@ public class PropriedadeController {
 	private PropriedadeRepository propriedadeRepository;
 
 	@GetMapping
-	public List<Propriedade> minhasPropriedades() {
-		List<Propriedade> propriedades = servicoPropriedade.listarPropriedades();
+	public List<Propriedades> minhasPropriedades() {
+		List<Propriedades> propriedades = servicoPropriedade.listarPropriedades();
 		return propriedades;
 	}
 
 	@GetMapping("/{id}")
 	public ResponseEntity<?> selecionaPorId(@PathVariable(value = "id") long propriedadeId)
 			throws ResourceNotFoundException {
-		Propriedade propriedade = servicoPropriedade.buscar(propriedadeId);
+		Propriedades propriedade = servicoPropriedade.buscar(propriedadeId);
 		if (propriedade != null) {
 			return ResponseEntity.ok().body(propriedade);
 		} else {
@@ -53,15 +53,16 @@ public class PropriedadeController {
 
 	@PostMapping
 	@PreAuthorize("hasRole('PRODUTOR')")
-	public Propriedade novaPropriedade(@RequestBody Propriedade propriedade) {
-
+	public Propriedades novaPropriedade(@RequestBody Propriedades propriedade) {
+		
+		System.out.println(propriedade);
 		return servicoPropriedade.salvar(propriedade);
 	}
 
 	@PutMapping("/{id}")
 	@PreAuthorize("hasRole('PRODUTOR')")
 	public ResponseEntity<?> atualizarPropriedade(@PathVariable long id,
-			@Valid @RequestBody Propriedade detalhesPropriedade) throws ResourceNotFoundException {
+			@Valid @RequestBody Propriedades detalhesPropriedade) throws ResourceNotFoundException {
 		/**
 		Propriedade propriedadeAtualizada = servicoPropriedade.atualizar(propriedadeId, detalhesPropriedade);
 
@@ -77,7 +78,7 @@ public class PropriedadeController {
 					record.setLocalidade(detalhesPropriedade.getLocalidade());
 					record.setMunicipio(detalhesPropriedade.getMunicipio());
 					
-					Propriedade atualizada = propriedadeRepository.save(record);
+					Propriedades atualizada = propriedadeRepository.save(record);
 					return ResponseEntity.ok().body(atualizada);
 					
 				}).orElse(ResponseEntity.notFound().build());

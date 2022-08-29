@@ -9,11 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.leiteria.model.Animal;
-import com.leiteria.model.Propriedade;
-import com.leiteria.model.Raca;
-import com.leiteria.model.Usuario;
-import com.leiteria.repository.AnimalRepository;
+import com.leiteria.model.Animais;
+import com.leiteria.model.Propriedades;
+import com.leiteria.model.Racas;
+import com.leiteria.model.Usuarios;
+import com.leiteria.repository.AnimaisRepository;
 import com.leiteria.repository.PropriedadeRepository;
 import com.leiteria.repository.RacaRepository;
 import com.leiteria.repository.UsuarioRepository;
@@ -23,7 +23,7 @@ import com.leiteria.repository.UsuarioRepository;
 public class AnimalRepositoryTest {
 	
 	@Autowired
-	AnimalRepository animalRepository;
+	AnimaisRepository animalRepository;
 	@Autowired
 	RacaRepository racaRepository;
 	@Autowired
@@ -33,16 +33,16 @@ public class AnimalRepositoryTest {
 	
 	@Test
 	public void createShoulPersistData() {
-		Usuario user = new Usuario("João", "joao@leite.com", "123456");
+		Usuarios user = new Usuarios("João", "joao@leite.com", "123456");
 		usuarioRepository.save(user);
 		
-		Propriedade propriedade = new Propriedade("Prop teste", "loc teste", "mun teste", user);
+		Propriedades propriedade = new Propriedades("Prop teste", "loc teste", "mun teste", user);
 		propriedadeRepository.save(propriedade);
 		
-		Raca raca = new Raca("Nelore");
+		Racas raca = new Racas("Nelore");
 		racaRepository.save(raca);
 		
-		Animal animal = new Animal();
+		Animais animal = new Animais();
 		animal.setNome("Vaca teste");
 		//animal.setBrinco(15);
 		animal.setDataNasc(LocalDate.now());

@@ -8,17 +8,17 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.leiteria.model.Usuario;
+import com.leiteria.model.Usuarios;
 
 @SuppressWarnings("serial")
 public class CustomUserDetails implements UserDetails {
 	
-	private Usuario user;
+	private Usuarios user;
 	private Collection<? extends GrantedAuthority> authorities;
 	
 	
 
-	public CustomUserDetails(Usuario user) {
+	public CustomUserDetails(Usuarios user) {
 		List<GrantedAuthority> authorities = user.getRegras().stream()
 				.map(role -> new SimpleGrantedAuthority(role.getNomeRegra().name()))
 				.collect(Collectors.toList());

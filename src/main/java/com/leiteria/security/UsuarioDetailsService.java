@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.leiteria.model.Usuario;
+import com.leiteria.model.Usuarios;
 import com.leiteria.repository.UsuarioRepository;
 
 @Repository
@@ -19,7 +19,7 @@ public class UsuarioDetailsService implements UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
-		Usuario user = usuarioRepository.findByEmail(login);
+		Usuarios user = usuarioRepository.findByEmail(login);
 
 		if (user == null) {
 			throw new UsernameNotFoundException("Usuário com email: "+ login +" não encontrado");

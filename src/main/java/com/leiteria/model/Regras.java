@@ -1,5 +1,6 @@
 package com.leiteria.model;
 
+
 import java.util.List;
 
 import javax.persistence.Column;
@@ -11,17 +12,18 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
+
 import org.springframework.security.core.GrantedAuthority;
 
 @SuppressWarnings("serial")
-@Entity
-public class Regra  implements GrantedAuthority{
 
-	
+@Entity(name="regras")
+public class Regras implements GrantedAuthority{
+
 	@Id
 	@Column(name = "nome_regra")
 	@Enumerated(EnumType.STRING)
-	private ERegra nomeRegra;
+	private ERegras nomeRegra;
 	
 	@ManyToMany
 	@JoinTable(
@@ -29,15 +31,15 @@ public class Regra  implements GrantedAuthority{
 						name="id_regra", referencedColumnName = "nome_regra"),
 				inverseJoinColumns = @JoinColumn(
 						name="id_usuario", referencedColumnName = "id_usuario"))
-	private List<Usuario> usuarios;
+	private List<Usuarios> usuarios;
 	
 	
-	public ERegra getNomeRegra() {
+	public ERegras getNomeRegra() {
 		return this.nomeRegra;
 	}
 
 
-	public void setNomeRegra(ERegra nomeRegra) {
+	public void setNomeRegra(ERegras nomeRegra) {
 		this.nomeRegra = nomeRegra;
 	}
 

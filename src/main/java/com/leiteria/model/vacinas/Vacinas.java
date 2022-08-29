@@ -1,4 +1,4 @@
-package com.leiteria.model.vacina;
+package com.leiteria.model.vacinas;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-public class Vacina {
+public class Vacinas {
 	
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -26,7 +26,7 @@ public class Vacina {
 	private String reacoesPosVacinais;
 	
 	
-	public Vacina(@NotNull(message = "Nome é um campo obrigatório") String nome, String indicacao, String modoDeUso,
+	public Vacinas(@NotNull(message = "Nome é um campo obrigatório") String nome, String indicacao, String modoDeUso,
 			String esquemaDeVacincao, String reacoesPosVacinais) {
 		this.nome = nome;
 		this.indicacao = indicacao;
@@ -36,12 +36,12 @@ public class Vacina {
 	}
 
 
-	public Vacina(@NotNull(message = "Nome é um campo obrigatório") String nome) {
+	public Vacinas(@NotNull(message = "Nome é um campo obrigatório") String nome) {
 		this.nome = nome;
 	}
 
 
-	public Vacina() {
+	public Vacinas() {
 	}
 
 
@@ -113,7 +113,7 @@ public class Vacina {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Vacina other = (Vacina) obj;
+		Vacinas other = (Vacinas) obj;
 		if (id != other.id)
 			return false;
 		if (nome == null) {

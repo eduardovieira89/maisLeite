@@ -5,16 +5,16 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.leiteria.model.Animal;
-import com.leiteria.model.Propriedade;
-import com.leiteria.repository.AnimalRepository;
+import com.leiteria.model.Animais;
+import com.leiteria.model.Propriedades;
+import com.leiteria.repository.AnimaisRepository;
 import com.leiteria.repository.PropriedadeRepository;
 
 @Service
 public class ServiceAnimal {
 
 	@Autowired
-	private AnimalRepository animalRepository;
+	private AnimaisRepository animalRepository;
 	@Autowired
 	private PropriedadeRepository propriedadeRepository;
 	@Autowired
@@ -22,8 +22,9 @@ public class ServiceAnimal {
 	
 	
 	
-	public List<Animal> listByPropriedade(long idPropriedade) {
-		Propriedade propriedade = propriedadeRepository.findById(idPropriedade).get();
+	public List<Animais> listByPropriedade(long idPropriedade) {
+		
+		Propriedades propriedade = propriedadeRepository.findById(idPropriedade).get();
 		if(serviceUsuario.getUsuarioAutenticado().getPropriedades().contains(propriedade)) {
 			return animalRepository.findByPropriedade(propriedade);
 		}
@@ -32,11 +33,11 @@ public class ServiceAnimal {
 		
 	}
 
-	public Animal findById(long idAnimal) {
+	public Animais findById(long idAnimal) {
 		
-		Animal animal =  animalRepository.findById(idAnimal).get();
+		Animais animal =  animalRepository.findById(idAnimal).orElse(null);
 		if (animal != null) {
-			Propriedade propriedade = animal.getPropriedade();
+			Propriedades propriedade = animal.getPropriedades();
 			if(serviceUsuario.getUsuarioAutenticado().getPropriedades().contains(propriedade)) {
 				return animal;
 			}
@@ -44,8 +45,8 @@ public class ServiceAnimal {
 		return null;
 	}
 
-	public List<Animal> findByPropriedadeAndGenero(long idPropriedade, char genero) {
-		Propriedade propriedade = propriedadeRepository.findById(idPropriedade).get();
+	public List<Animais> findByPropriedadeAndGenero(long idPropriedade, char genero) {
+		Propriedades propriedade = propriedadeRepository.findById(idPropriedade).get();
 		return animalRepository.findByPropriedadeAndSexo(propriedade, genero);
 	}
 

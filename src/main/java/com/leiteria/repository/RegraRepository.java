@@ -4,10 +4,10 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.leiteria.model.ERegra;
-import com.leiteria.model.Regra;
+import com.leiteria.model.ERegras;
+import com.leiteria.model.Regras;
 
-public interface RegraRepository extends JpaRepository<Regra, Long> {
-	Optional<Regra> findBynomeRegra(ERegra nome);
+public interface RegraRepository extends JpaRepository<Regras, Long> {
+	Optional<Regras> findBynomeRegra(ERegras nome);
 
 }

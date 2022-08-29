@@ -1,4 +1,4 @@
-package com.leiteria.model.vacina;
+package com.leiteria.model.vacinas;
 
 import java.time.LocalDate;
 
@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
-import com.leiteria.model.Usuario;
+import com.leiteria.model.Usuarios;
 
 @Entity
 public class VacinaAplicacao {
@@ -19,11 +19,11 @@ public class VacinaAplicacao {
 	private LocalDate dataAplicacao;
 	
 	@ManyToOne
-	private Usuario aplicador;
+	private Usuarios aplicador;
 
 
 
-	public VacinaAplicacao(VacinaAplicacaoPk aplicacaoPk, LocalDate dataAplicacao, Usuario aplicador) {
+	public VacinaAplicacao(VacinaAplicacaoPk aplicacaoPk, LocalDate dataAplicacao, Usuarios aplicador) {
 		this.aplicacaoPk = aplicacaoPk;
 		this.dataAplicacao = dataAplicacao;
 		this.aplicador = aplicador;
@@ -54,11 +54,11 @@ public class VacinaAplicacao {
 		this.dataAplicacao = dataAplicacao;
 	}
 
-	public Usuario getAplicador() {
+	public Usuarios getAplicador() {
 		return aplicador;
 	}
 
-	public void setAplicador(Usuario aplicador) {
+	public void setAplicador(Usuarios aplicador) {
 		this.aplicador = aplicador;
 	}
 	

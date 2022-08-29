@@ -1,4 +1,7 @@
+// Generated with g9.
+
 package com.leiteria.model;
+
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -6,24 +9,29 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
 
-@Entity
-public class Raca {
+
+@Entity(name="racas")
+public class Racas {
 
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private int id_raca;
+	
 	@NotEmpty(message = "Descrição é um campo obrigatório")
 	private String descricao;
-	public Raca(int id_raca, String descricao) {
+	
+	
+	
+	public Racas(int id_raca, String descricao) {
 		super();
 		this.id_raca = id_raca;
 		this.descricao = descricao;
 	}
-	public Raca(String descricao) {
+	public Racas(String descricao) {
 		super();
 		this.descricao = descricao;
 	}
-	public Raca() {
+	public Racas() {
 		super();
 	}
 	public int getId_raca() {
@@ -51,7 +59,7 @@ public class Raca {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Raca other = (Raca) obj;
+		Racas other = (Racas) obj;
 		if (descricao == null) {
 			if (other.descricao != null)
 				return false;

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
-import com.leiteria.model.Raca;
+import com.leiteria.model.Racas;
 import com.leiteria.repository.RacaRepository;
 
 @RestController
@@ -23,12 +23,12 @@ public class RacaController {
 	private RacaRepository repository;
 	
 	@PostMapping
-	public Raca addRaca(@RequestBody Raca raca) {
+	public Racas addRaca(@RequestBody Racas raca) {
 		return repository.save(raca);
 	}
 	
 	@GetMapping
-	public List<Raca> listarTodos(){
+	public List<Racas> listarTodos(){
 		return repository.findAll();
 	}
 }

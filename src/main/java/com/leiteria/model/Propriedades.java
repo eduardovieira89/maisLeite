@@ -1,4 +1,7 @@
+
 package com.leiteria.model;
+
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,10 +10,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
 import javax.validation.constraints.NotNull;
 
-@Entity
-public class Propriedade {
+
+@Entity(name="propriedades")
+public class Propriedades {
 
 	@Id
 	@Column(name = "id_propriedade")
@@ -28,9 +33,9 @@ public class Propriedade {
 	@NotNull(message = "Proprietário é um campo obrigatório")
 	@ManyToOne
 	@JoinColumn(name = "id_proprietario")
-	private Usuario proprietario;
+	private Usuarios proprietario;
 
-	public Propriedade(int idPropriedade, String nome, String localidade, String municipio, Usuario proprietario) {
+	public Propriedades(int idPropriedade, String nome, String localidade, String municipio, Usuarios proprietario) {
 		super();
 		this.id = idPropriedade;
 		this.nome = nome;
@@ -39,7 +44,7 @@ public class Propriedade {
 		this.proprietario = proprietario;
 	}
 
-	public Propriedade(String nome, String localidade, String municipio, Usuario proprietario) {
+	public Propriedades(String nome, String localidade, String municipio, Usuarios proprietario) {
 
 		this.nome = nome;
 		this.localidade = localidade;
@@ -48,7 +53,7 @@ public class Propriedade {
 
 	}
 
-	public Propriedade() {
+	public Propriedades() {
 
 	}
 
@@ -64,11 +69,11 @@ public class Propriedade {
 		this.nome = nome;
 	}
 
-	public Usuario getProprietario() {
+	public Usuarios getProprietario() {
 		return proprietario;
 	}
 
-	public void setproprietario(Usuario proprietario) {
+	public void setproprietario(Usuarios proprietario) {
 		this.proprietario = proprietario;
 	}
 
@@ -105,7 +110,7 @@ public class Propriedade {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Propriedade other = (Propriedade) obj;
+		Propriedades other = (Propriedades) obj;
 		if (id != other.id)
 			return false;
 		if (nome == null) {

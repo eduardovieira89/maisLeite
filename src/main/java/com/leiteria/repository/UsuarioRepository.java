@@ -5,17 +5,17 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import com.leiteria.model.Propriedade;
-import com.leiteria.model.Usuario;
+import com.leiteria.model.Propriedades;
+import com.leiteria.model.Usuarios;
 
-public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
+public interface UsuarioRepository extends JpaRepository<Usuarios, Long> {
 	
-	Usuario findByEmail(String login);
-	Usuario findByEmailAndSenha(String email, String password);
+	Usuarios findByEmail(String login);
+	Usuarios findByEmailAndSenha(String email, String password);
 	Boolean existsByEmail(String email);
-	Boolean existsBypropriedades(Propriedade propriedade);
+	Boolean existsBypropriedades(Propriedades propriedade);
 	
-	@Query("SELECT u.nome FROM Usuario u WHERE u.chefe=?1")
-	List<String> buscarFuncionarios(Usuario proprietario);
+	@Query("SELECT u.nome FROM Usuarios u WHERE u.chefe=?1")
+	List<String> buscarFuncionarios(Usuarios proprietario);
 
 }

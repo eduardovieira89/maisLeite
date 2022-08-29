@@ -1,3 +1,5 @@
+// Generated with g9.
+
 package com.leiteria.model;
 
 import java.util.List;
@@ -8,20 +10,22 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Index;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-
 @Entity
-public class Usuario{
-	
+@Table(name="usuarios", indexes={@Index(name="usuarios_email_IX", columnList="email", unique=true)})
+public class Usuarios{
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id_usuario;
@@ -37,26 +41,26 @@ public class Usuario{
 				@JoinColumn(name="id_usuario", referencedColumnName = "id_usuario"),
 				inverseJoinColumns = @JoinColumn(
 				name= "id_regra", referencedColumnName = "nome_regra"))
-	private List<Regra> regras;
+	private List<Regras> regras;
 	
-	@OneToMany(mappedBy = "proprietario", targetEntity = Propriedade.class, 
+	@OneToMany(mappedBy = "proprietario", targetEntity = Propriedades.class, 
 				fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private List<Propriedade> propriedades;
+	private List<Propriedades> propriedades;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "chefe", insertable = true, updatable = true, nullable = true)
-	private Usuario chefe;
+	private Usuarios chefe;
 	
 	
 	
-	public Usuario(String nome, String email, String senha) {
+	public Usuarios(String nome, String email, String senha) {
 		super();
 		this.nome = nome;
 		this.email = email;
 		this.senha = senha;
 	}
 	
-	public Usuario() {	}
+	public Usuarios() {	}
 
 	public long getId_usuario() {
 		return id_usuario;
@@ -86,25 +90,25 @@ public class Usuario{
 		this.senha = senha;
 	}
 	@JsonIgnore
-	public List<Propriedade> getPropriedades(){
+	public List<Propriedades> getPropriedades(){
 		return this.propriedades;
 	}
 	
 	
 
-	public List<Regra> getRegras() {
+	public List<Regras> getRegras() {
 		return regras;
 	}
 
-	public void setRegras(List<Regra> regras) {
+	public void setRegras(List<Regras> regras) {
 		this.regras = regras;
 	}
 
-	public Usuario getChefe() {
+	public Usuarios getChefe() {
 		return chefe;
 	}
 
-	public void setChefe(Usuario chefe) {
+	public void setChefe(Usuarios chefe) {
 		this.chefe = chefe;
 	}
 	

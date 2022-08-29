@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.leiteria.model.service.ServiceVacina;
-import com.leiteria.model.vacina.Vacina;
-import com.leiteria.model.vacina.VacinaAplicacao;
+import com.leiteria.model.vacinas.VacinaAplicacao;
+import com.leiteria.model.vacinas.Vacinas;
 import com.leiteria.repository.VacinaRepository;
 
 @RestController
@@ -30,18 +30,18 @@ public class VacinaController {
 	@Autowired ServiceVacina serviceVacina;
 	
 	@GetMapping
-	public List<Vacina> listarVacinas(){
+	public List<Vacinas> listarVacinas(){
 		return vacinaRepository.findAll();
 	}
 	
 	@PostMapping
-	public Vacina nova(@Valid @RequestBody Vacina vacina) {
+	public Vacinas nova(@Valid @RequestBody Vacinas vacina) {
 		return vacinaRepository.save(vacina);
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<Vacina> atualizar(@PathVariable long id,
-							@Valid @RequestBody Vacina detalhesVacina) throws ResourceNotFoundException{
+	public ResponseEntity<Vacinas> atualizar(@PathVariable long id,
+							@Valid @RequestBody Vacinas detalhesVacina) throws ResourceNotFoundException{
 		
 		return vacinaRepository.findById(id).map(record -> {
 			record.setNome(detalhesVacina.getNome());
@@ -50,7 +50,7 @@ public class VacinaController {
 			record.setModoDeUso(detalhesVacina.getModoDeUso());
 			record.setReacoesPosVacinais(detalhesVacina.getReacoesPosVacinais());
 			
-			Vacina atualizada = vacinaRepository.save(record);
+			Vacinas atualizada = vacinaRepository.save(record);
 			return ResponseEntity.ok().body(atualizada);
 		}).orElse(ResponseEntity.notFound().build());
 	}
