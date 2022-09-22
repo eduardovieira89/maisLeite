@@ -2,7 +2,6 @@
 
 package com.leiteria.model;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import javax.persistence.Column;
@@ -32,11 +31,11 @@ public class Coberturas{
     @Column(nullable=false)
     private LocalDate data;
     
-    @Column(name="monta_controlada", precision=3)
-    private short montaControlada;
+    @Column(name="monta_controlada")
+    private Boolean montaControlada;
     
-    @Column(name="escore_corporal", precision=2, scale=2)
-    private BigDecimal escoreCorporal;
+    @Column(name="escore_corporal")
+    private float escoreCorporal;
     
     @Column(length=255)
     private String observacao;
@@ -88,18 +87,18 @@ public class Coberturas{
     }
 
 
-    public short getMontaControlada() {
+    public Boolean getMontaControlada() {
         return montaControlada;
     }
-    public void setMontaControlada(short aMontaControlada) {
+    public void setMontaControlada(Boolean aMontaControlada) {
         montaControlada = aMontaControlada;
     }
 
 
-    public BigDecimal getEscoreCorporal() {
+    public float getEscoreCorporal() {
         return escoreCorporal;
     }
-    public void setEscoreCorporal(BigDecimal aEscoreCorporal) {
+    public void setEscoreCorporal(float aEscoreCorporal) {
         escoreCorporal = aEscoreCorporal;
     }
 

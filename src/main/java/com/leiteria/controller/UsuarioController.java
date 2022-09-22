@@ -53,14 +53,16 @@ public class UsuarioController {
 	@Autowired
 	ServiceUsuario serviceUsuario;
 	
-	
+	@GetMapping
+	public List<Usuarios> listPropAndFunc(){
+		return serviceUsuario.listPropAndFunc();
+	}
 	
 	@GetMapping("/funcionarios")
-	public List<String> listarFuncionarios(){
-		Usuarios proprietario = serviceUsuario.getUsuarioAutenticado();
+	public List<Usuarios> listarFuncionarios(){
+		return serviceUsuario.listarFuncionarios();
 		
-		List<String> funcionarios = userRepository.buscarFuncionarios(proprietario);
-		return funcionarios;
+		
 	}
 	
 	@PostMapping

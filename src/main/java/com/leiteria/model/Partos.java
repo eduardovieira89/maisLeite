@@ -2,7 +2,6 @@
 
 package com.leiteria.model;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -25,23 +24,31 @@ public class Partos {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="id_parto", unique=true, nullable=false, precision=19)
     private long idParto;
+    
     @Column(nullable=false)
     private LocalDate data;
+    
     @Column(name="escore_corporal", precision=2, scale=2)
-    private BigDecimal escoreCorporal;
+    private float escoreCorporal;
+    
     @Column(name="qtde_crias", nullable=false, precision=10)
     private int qtdeCrias;
+    
     @Column(length=255)
     private String observacao;
+    
     @ManyToOne(optional=false)
     @JoinColumn(name="tipo_parto", nullable=false)
     private TiposParto tiposParto;
+    
     @ManyToOne(optional=false)
     @JoinColumn(name="vaca", nullable=false)
-    private Animais animais;
+    private Animais vaca;
+    
     @ManyToOne
     @JoinColumn(name="cobertura")
     private Coberturas coberturas;
+    
     @ManyToOne
     @JoinColumn(name="prenhez")
     private DiagnosticosPrenhez diagnosticosPrenhez;
@@ -51,168 +58,76 @@ public class Partos {
         super();
     }
 
-    /**
-     * Access method for idParto.
-     *
-     * @return the current value of idParto
-     */
+
     public long getIdParto() {
         return idParto;
     }
 
-    /**
-     * Setter method for idParto.
-     *
-     * @param aIdParto the new value for idParto
-     */
-    public void setIdParto(long aIdParto) {
-        idParto = aIdParto;
-    }
 
-    /**
-     * Access method for data.
-     *
-     * @return the current value of data
-     */
     public LocalDate getData() {
         return data;
     }
-
-    /**
-     * Setter method for data.
-     *
-     * @param aData the new value for data
-     */
     public void setData(LocalDate aData) {
         data = aData;
     }
 
-    /**
-     * Access method for escoreCorporal.
-     *
-     * @return the current value of escoreCorporal
-     */
-    public BigDecimal getEscoreCorporal() {
+
+    public float getEscoreCorporal() {
         return escoreCorporal;
     }
-
-    /**
-     * Setter method for escoreCorporal.
-     *
-     * @param aEscoreCorporal the new value for escoreCorporal
-     */
-    public void setEscoreCorporal(BigDecimal aEscoreCorporal) {
+    public void setEscoreCorporal(float aEscoreCorporal) {
         escoreCorporal = aEscoreCorporal;
     }
 
-    /**
-     * Access method for qtdeCrias.
-     *
-     * @return the current value of qtdeCrias
-     */
+
     public int getQtdeCrias() {
         return qtdeCrias;
     }
-
-    /**
-     * Setter method for qtdeCrias.
-     *
-     * @param aQtdeCrias the new value for qtdeCrias
-     */
     public void setQtdeCrias(int aQtdeCrias) {
         qtdeCrias = aQtdeCrias;
     }
 
-    /**
-     * Access method for observacao.
-     *
-     * @return the current value of observacao
-     */
+
     public String getObservacao() {
         return observacao;
     }
-
-    /**
-     * Setter method for observacao.
-     *
-     * @param aObservacao the new value for observacao
-     */
     public void setObservacao(String aObservacao) {
         observacao = aObservacao;
     }
 
-    /**
-     * Access method for tiposParto.
-     *
-     * @return the current value of tiposParto
-     */
+
     public TiposParto getTiposParto() {
         return tiposParto;
     }
-
-    /**
-     * Setter method for tiposParto.
-     *
-     * @param aTiposParto the new value for tiposParto
-     */
     public void setTiposParto(TiposParto aTiposParto) {
         tiposParto = aTiposParto;
     }
 
-    /**
-     * Access method for animais.
-     *
-     * @return the current value of animais
-     */
-    public Animais getAnimais() {
-        return animais;
+
+    public Animais getVaca() {
+        return vaca;
+    }
+    public void setVaca(Animais aVaca) {
+        vaca = aVaca;
     }
 
-    /**
-     * Setter method for animais.
-     *
-     * @param aAnimais the new value for animais
-     */
-    public void setAnimais(Animais aAnimais) {
-        animais = aAnimais;
-    }
 
-    /**
-     * Access method for coberturas.
-     *
-     * @return the current value of coberturas
-     */
     public Coberturas getCoberturas() {
         return coberturas;
     }
-
-    /**
-     * Setter method for coberturas.
-     *
-     * @param aCoberturas the new value for coberturas
-     */
     public void setCoberturas(Coberturas aCoberturas) {
         coberturas = aCoberturas;
     }
 
-    /**
-     * Access method for diagnosticosPrenhez.
-     *
-     * @return the current value of diagnosticosPrenhez
-     */
+
     public DiagnosticosPrenhez getDiagnosticosPrenhez() {
         return diagnosticosPrenhez;
     }
-
-    /**
-     * Setter method for diagnosticosPrenhez.
-     *
-     * @param aDiagnosticosPrenhez the new value for diagnosticosPrenhez
-     */
     public void setDiagnosticosPrenhez(DiagnosticosPrenhez aDiagnosticosPrenhez) {
         diagnosticosPrenhez = aDiagnosticosPrenhez;
     }
 
+    
     /**
      * Compares the key for this instance with another Partos.
      *

@@ -56,4 +56,18 @@ public class ServiceUsuario {
 		return false;
 	}
 
+	public List<Usuarios> listPropAndFunc() {
+		
+		List<Usuarios> propFuncionarios = this.listarFuncionarios();
+		propFuncionarios.add(this.getProprietario());
+		return propFuncionarios;
+	}
+
+	public List<Usuarios> listarFuncionarios() {
+
+		Usuarios proprietario = this.getProprietario();
+		List<Usuarios> funcionarios = userRepository.buscarFuncionarios(proprietario);
+		return funcionarios;
+	}
+
 }

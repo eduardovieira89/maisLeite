@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.leiteria.model.Coberturas;
+import com.leiteria.model.TiposCobertura;
 import com.leiteria.model.service.ServiceCoberturas;
 import com.leiteria.payload.response.MessageResponse;
 
@@ -36,22 +37,28 @@ public class CoberturasController {
 		return coberturaService.listByVaca(idVaca);
 	}
 	
-	//Não Deixa fazer 2 getMapping com @RequestParam difetentes
-	//@GetMapping
-	//public List<Coberturas> listByInseminador(@RequestParam("idinseminador")long idInseminador){
-	//	
-	//	//Retorna todas as coberturas realizadas pelo inseminador (Usuário) selecionado
-	//	return coberturaService.listByInseminador(idInseminador);
-	//}
-	//
+	
+	@GetMapping("/inseminador/{id}")
+	public List<Coberturas> listByInseminador(@RequestParam("idinseminador")long idInseminador){
+		
+		//Retorna todas as coberturas realizadas pelo inseminador (Usuário) selecionado
+		return coberturaService.listByInseminador(idInseminador);
+	}
+	
+	
 	@GetMapping("/{id}")
-	public ResponseEntity<?> selectById(@PathVariable(value="id") long idVaca)throws ResourceNotFoundException{
-		Coberturas cobertura = coberturaService.findById(idVaca);
+	public ResponseEntity<?> selectById(@PathVariable(value="id") long idCobertura)throws ResourceNotFoundException{
+		Coberturas cobertura = coberturaService.findById(idCobertura);
 		if(cobertura != null) {
 			return ResponseEntity.ok().body(cobertura);
 		}else {
 			return ResponseEntity.badRequest().body(new MessageResponse("Cobertura não encontrada"));
 		}
+	}
+	
+	@GetMapping("/tipos")
+	public List<TiposCobertura> listTiposCobertura(){
+		return coberturaService.listTiposCoberturas();
 	}
 	
 	@PostMapping

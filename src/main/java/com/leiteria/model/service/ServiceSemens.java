@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.leiteria.model.Coberturas;
 import com.leiteria.model.Semens;
 import com.leiteria.repository.SemensRepository;
 
@@ -23,7 +24,6 @@ public class ServiceSemens {
 
 	public Semens salvar(@Valid Semens semens) {
 		// Salvando temporariamente sem realizar verificações
-		System.out.println("Salvando semen");
 		return semensRepository.save(semens);
 	}
 
@@ -35,6 +35,24 @@ public class ServiceSemens {
 	public ResponseEntity<?> deletar(long id) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public boolean baixaEstoqueDose(@Valid Coberturas cobertura) {
+		if(cobertura.getQtdeDoseSemen() <= 0 ) {
+			return false;
+		}
+		Semens estoqueSemen = semensRepository.findById(cobertura.getSemens().getIdSemen()).orElse(null);
+		if(estoqueSemen !=null) {
+			int estoqueBaixado = estoqueSemen.getQuantidade() - cobertura.getQtdeDoseSemen();
+			if(estoqueBaixado < 0) {
+				return false;
+			}
+			estoqueSemen.setQuantidade(estoqueBaixado);
+			semensRepository.save(estoqueSemen);
+			return true;
+		}
+		return false;
+		
 	}
 
 }

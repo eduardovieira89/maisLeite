@@ -15,7 +15,7 @@ public interface UsuarioRepository extends JpaRepository<Usuarios, Long> {
 	Boolean existsByEmail(String email);
 	Boolean existsBypropriedades(Propriedades propriedade);
 	
-	@Query("SELECT u.nome FROM Usuarios u WHERE u.chefe=?1")
-	List<String> buscarFuncionarios(Usuarios proprietario);
+	@Query("SELECT u FROM Usuarios u WHERE u.chefe=?1")
+	List<Usuarios> buscarFuncionarios(Usuarios proprietario);
 
 }

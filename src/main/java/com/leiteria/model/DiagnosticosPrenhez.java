@@ -3,9 +3,6 @@
 package com.leiteria.model;
 
 import java.time.LocalDate;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,7 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
 
 @Entity(name="diagnosticos_prenhez")
 public class DiagnosticosPrenhez {
@@ -26,171 +23,89 @@ public class DiagnosticosPrenhez {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="id_diagnostico", unique=true, nullable=false, precision=19)
     private long idDiagnostico;
+    
+    @NotNull(message = "Data do diagnóstico é um campo obrigatório")
     @Column(nullable=false)
     private LocalDate data;
+    
+    @NotNull(message = "O resultado do diagnóstico é um campo obrigatório")
     @Column(nullable=false, precision=3)
-    private short diagnostico;
-    @Column(length=255)
-    private String observacao;
+    private Boolean diagnostico;
+    
+    
+    @NotNull(message = "Vaca é um campo obrigatório")
     @ManyToOne(optional=false)
     @JoinColumn(name="vaca", nullable=false)
-    private Animais animais;
+    private Animais vaca;
+    
     @ManyToOne
     @JoinColumn(name="cobertura")
-    private Coberturas coberturas;
+    private Coberturas cobertura;
+    
+    @NotNull(message = "Método de diagnóstico é um campo obrigatório")
     @ManyToOne(optional=false)
     @JoinColumn(name="metodo_prenhez", nullable=false)
-    private MetodosPrenhez metodosPrenhez;
-    @OneToMany(mappedBy="diagnosticosPrenhez")
-    private Set<Partos> partos;
+    private MetodosPrenhez metodoDiagnostico;
+    
+    @Column(length=255)
+    private String observacao;
 
     /** Default constructor. */
     public DiagnosticosPrenhez() {
         super();
     }
 
-    /**
-     * Access method for idDiagnostico.
-     *
-     * @return the current value of idDiagnostico
-     */
+
     public long getIdDiagnostico() {
         return idDiagnostico;
     }
 
-    /**
-     * Setter method for idDiagnostico.
-     *
-     * @param aIdDiagnostico the new value for idDiagnostico
-     */
-    public void setIdDiagnostico(long aIdDiagnostico) {
-        idDiagnostico = aIdDiagnostico;
-    }
 
-    /**
-     * Access method for data.
-     *
-     * @return the current value of data
-     */
     public LocalDate getData() {
         return data;
     }
-
-    /**
-     * Setter method for data.
-     *
-     * @param aData the new value for data
-     */
     public void setData(LocalDate aData) {
         data = aData;
     }
 
-    /**
-     * Access method for diagnostico.
-     *
-     * @return the current value of diagnostico
-     */
-    public short getDiagnostico() {
+
+    public Boolean getDiagnostico() {
         return diagnostico;
     }
-
-    /**
-     * Setter method for diagnostico.
-     *
-     * @param aDiagnostico the new value for diagnostico
-     */
-    public void setDiagnostico(short aDiagnostico) {
+    public void setDiagnostico(Boolean aDiagnostico) {
         diagnostico = aDiagnostico;
     }
 
-    /**
-     * Access method for observacao.
-     *
-     * @return the current value of observacao
-     */
+
     public String getObservacao() {
         return observacao;
     }
-
-    /**
-     * Setter method for observacao.
-     *
-     * @param aObservacao the new value for observacao
-     */
     public void setObservacao(String aObservacao) {
         observacao = aObservacao;
     }
 
-    /**
-     * Access method for animais.
-     *
-     * @return the current value of animais
-     */
-    public Animais getAnimais() {
-        return animais;
+
+    public Animais getVaca() {
+        return vaca;
+    }
+    public void setVaca(Animais aVaca) {
+        vaca = aVaca;
     }
 
-    /**
-     * Setter method for animais.
-     *
-     * @param aAnimais the new value for animais
-     */
-    public void setAnimais(Animais aAnimais) {
-        animais = aAnimais;
+
+    public Coberturas getCobertura() {
+        return cobertura;
+    }
+    public void setCobertura(Coberturas aCobertura) {
+        cobertura = aCobertura;
     }
 
-    /**
-     * Access method for coberturas.
-     *
-     * @return the current value of coberturas
-     */
-    public Coberturas getCoberturas() {
-        return coberturas;
-    }
 
-    /**
-     * Setter method for coberturas.
-     *
-     * @param aCoberturas the new value for coberturas
-     */
-    public void setCoberturas(Coberturas aCoberturas) {
-        coberturas = aCoberturas;
+    public MetodosPrenhez getMetodoDiagnostico() {
+        return metodoDiagnostico;
     }
-
-    /**
-     * Access method for metodosPrenhez.
-     *
-     * @return the current value of metodosPrenhez
-     */
-    public MetodosPrenhez getMetodosPrenhez() {
-        return metodosPrenhez;
-    }
-
-    /**
-     * Setter method for metodosPrenhez.
-     *
-     * @param aMetodosPrenhez the new value for metodosPrenhez
-     */
-    public void setMetodosPrenhez(MetodosPrenhez aMetodosPrenhez) {
-        metodosPrenhez = aMetodosPrenhez;
-    }
-
-    /**
-     * Access method for partos.
-     *
-     * @return the current value of partos
-     */
-    public Set<Partos> getPartos() {
-        return partos;
-    }
-
-    /**
-     * Setter method for partos.
-     *
-     * @param aPartos the new value for partos
-     */
-    public void setPartos(Set<Partos> aPartos) {
-        partos = aPartos;
+    public void setMetodoDiagnostico(MetodosPrenhez aMetodoPrenhez) {
+        metodoDiagnostico = aMetodoPrenhez;
     }
 
     /**
@@ -250,17 +165,6 @@ public class DiagnosticosPrenhez {
         sb.append(" idDiagnostico=").append(getIdDiagnostico());
         sb.append("]");
         return sb.toString();
-    }
-
-    /**
-     * Return all elements of the primary key.
-     *
-     * @return Map of key names to values
-     */
-    public Map<String, Object> getPrimaryKey() {
-        Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("idDiagnostico", Long.valueOf(getIdDiagnostico()));
-        return ret;
     }
 
 }

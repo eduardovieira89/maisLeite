@@ -9,7 +9,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.leiteria.model.Coberturas;
+import com.leiteria.model.TiposCobertura;
 import com.leiteria.repository.CoberturasRepository;
+import com.leiteria.repository.TiposCoberturasRepository;
 
 @Service
 public class ServiceCoberturas {
@@ -18,6 +20,15 @@ public class ServiceCoberturas {
 	private CoberturasRepository coberturasRepository;
 	@Autowired
 	private ServiceUsuario usuarioService;
+	@Autowired
+	private TiposCoberturasRepository tiposCoberturasRepository;
+	@Autowired
+	private ServiceSemens semensService;
+	
+	
+	public List<TiposCobertura> listTiposCoberturas() {
+		return tiposCoberturasRepository.findAll();
+	}
 
 	public List<Coberturas> listByVaca(Long idVaca) {
 		return null;
@@ -29,20 +40,26 @@ public class ServiceCoberturas {
 	}
 
 	public Coberturas save(@Valid Coberturas cobertura) {
+		
 
-		return coberturasRepository.save(cobertura);
+		if(usuarioService.animalBelongsMe(cobertura.getVaca())) {
+			//Ao ser feito inseminação o campo "Monta controlada" deve ser nulo, mas está vindo como false
+			//Esse if é para setar como null quando a cobertura é feita via inseminação
+			//e para dar baixa no estoque de doses de sêmen.
+			TiposCobertura tipoInseminacao = tiposCoberturasRepository.findByDescricao("Inseminação");
+			if(cobertura.getTipoCobertura().equals(tipoInseminacao)) {
+				cobertura.setMontaControlada(null);
+				//Fazer uma validação para quando não tiver doses em estoque.
+				semensService.baixaEstoqueDose(cobertura);
+			}
+			return coberturasRepository.save(cobertura);
+		}else {
+			return null;
+		}
 
 	}
 
-	public ResponseEntity<?> delete(long id) {
-
-		return coberturasRepository.findById(id).map(record -> {
-			coberturasRepository.deleteById(id);
-			return ResponseEntity.ok().build();
-		}).orElse(ResponseEntity.notFound().build());
-	}
-
-	public ResponseEntity<?> update(long id, Coberturas cobertura) {
+	public ResponseEntity<?> update(long id, @Valid Coberturas cobertura) {
 
 		// .....verificar como fica se atualizar as doses de sêmen, se vai atualizar a quantidade
 		// .....Verificar se deixa atualizar tudo ou so alguns campos.
@@ -70,11 +87,23 @@ public class ServiceCoberturas {
 		}
 		return ResponseEntity.notFound().build();
 	}
+	
+	public ResponseEntity<?> delete(long id) {
+
+		return coberturasRepository.findById(id).map(record -> {
+			if(usuarioService.animalBelongsMe(record.getVaca())) {
+			coberturasRepository.deleteById(id);
+			return ResponseEntity.ok().build();
+			}else {
+				return null;
+			}
+		}).orElse(ResponseEntity.notFound().build());
+	}
 
 	public Coberturas findById(long idCobertura) {
 		
 		Coberturas cobertura = coberturasRepository.findById(idCobertura).orElse(null);
-		if(cobertura != null) {
+		if(cobertura != null && usuarioService.animalBelongsMe(cobertura.getVaca())) {
 			
 			// Verifica se a cobertura pertence ao proprietário através da vaca
 			if (usuarioService.animalBelongsMe(cobertura.getVaca())) {
@@ -83,5 +112,7 @@ public class ServiceCoberturas {
 		}		
 		return null;
 	}
+
+
 
 }

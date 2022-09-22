@@ -111,6 +111,13 @@ public class Usuarios{
 	public void setChefe(Usuarios chefe) {
 		this.chefe = chefe;
 	}
+
+	@Override
+	public String toString() {
+		return this.nome;
+	}
+	
+	
 	
 	
 	

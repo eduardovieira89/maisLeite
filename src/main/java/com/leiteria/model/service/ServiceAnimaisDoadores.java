@@ -25,6 +25,17 @@ public class ServiceAnimaisDoadores {
 		
 		return animaisDRepository.findByUsuarios(serviceUsuario.getProprietario());
 	}
+	
+	public AnimaisDoadores findById(long idAnimal) {
+		AnimaisDoadores doador = animaisDRepository.findById(idAnimal).orElse(null);
+		if(doador != null){
+			Usuarios dono = serviceUsuario.getProprietario();
+			if(doador.getUsuarios() == dono ) {
+				return doador;
+			}
+		}
+		return null;
+	}
 
 
 	public AnimaisDoadores salvar(@Valid AnimaisDoadores doador) {
@@ -34,17 +45,6 @@ public class ServiceAnimaisDoadores {
 		doador.setUsuarios(dono);
 		return animaisDRepository.save(doador);
 		
-	}
-
-
-	public ResponseEntity<?> deletar(long id) {
-		// precisa fazer verificação se não tem esse animal em semens para poder excluir
-		
-		return animaisDRepository.findById(id)
-				.map(record ->{
-					animaisDRepository.deleteById(id);
-					return ResponseEntity.ok().build();
-				}).orElse(ResponseEntity.notFound().build());
 	}
 
 
@@ -68,16 +68,14 @@ public class ServiceAnimaisDoadores {
 			return ResponseEntity.notFound().build();
 		}
 	}
-
-
-	public AnimaisDoadores findById(long idAnimal) {
-		AnimaisDoadores doador = animaisDRepository.findById(idAnimal).orElse(null);
-		if(doador != null){
-			Usuarios dono = serviceUsuario.getProprietario();
-			if(doador.getUsuarios() == dono ) {
-				return doador;
-			}
-		}
-		return null;
+	
+	public ResponseEntity<?> deletar(long id) {
+		// precisa fazer verificação se não tem esse animal em semens para poder excluir
+		
+		return animaisDRepository.findById(id)
+				.map(record ->{
+					animaisDRepository.deleteById(id);
+					return ResponseEntity.ok().build();
+				}).orElse(ResponseEntity.notFound().build());
 	}
 }

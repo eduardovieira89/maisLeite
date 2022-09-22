@@ -4,14 +4,12 @@ package com.leiteria.model;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 @Entity(name="metodos_prenhez")
 public class MetodosPrenhez {
@@ -23,11 +21,10 @@ public class MetodosPrenhez {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="id_metodos_prenhez", unique=true, nullable=false, precision=10)
     private int idMetodosPrenhez;
+    
     @Column(nullable=false, length=45)
     private String descricao;
-    @OneToMany(mappedBy="metodosPrenhez")
-    private Set<DiagnosticosPrenhez> diagnosticosPrenhez;
-
+    
     /** Default constructor. */
     public MetodosPrenhez() {
         super();
@@ -67,24 +64,6 @@ public class MetodosPrenhez {
      */
     public void setDescricao(String aDescricao) {
         descricao = aDescricao;
-    }
-
-    /**
-     * Access method for diagnosticosPrenhez.
-     *
-     * @return the current value of diagnosticosPrenhez
-     */
-    public Set<DiagnosticosPrenhez> getDiagnosticosPrenhez() {
-        return diagnosticosPrenhez;
-    }
-
-    /**
-     * Setter method for diagnosticosPrenhez.
-     *
-     * @param aDiagnosticosPrenhez the new value for diagnosticosPrenhez
-     */
-    public void setDiagnosticosPrenhez(Set<DiagnosticosPrenhez> aDiagnosticosPrenhez) {
-        diagnosticosPrenhez = aDiagnosticosPrenhez;
     }
 
     /**
