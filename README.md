@@ -33,7 +33,7 @@ Sistema sendo desenvolvido para gestão de leitarias juntamente com front-end em
 ### Correção de alguns itens
 - Corrigir alguns bugs no front (ex: nome do usuario não aparece após fazer login, somente após recarregar a página);
 - Quando funcionário loga no sistema não aparece as propriedades, fazer aparecer as propriedades do chefe;
-- Quando o spring está rodando mas o sql não, no angular não aparece nenhuma mensagem de erro.
+- Quando o spring está rodando mas o banco de dados não, no angular não aparece nenhuma mensagem de erro.
 
  ## Compilando e executando o sistema
  ### Ferramentas necessárias
