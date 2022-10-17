@@ -1,12 +1,8 @@
 package com.leiteria.controller;
 
 import java.util.List;
-import java.util.Map;
-
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -21,8 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.leiteria.model.Propriedades;
 import com.leiteria.model.service.ServicePropriedade;
-import com.leiteria.payload.response.MessageResponse;
-import com.leiteria.repository.PropriedadeRepository;
 
 @RestController
 @RequestMapping("/propriedade")
@@ -30,68 +24,35 @@ import com.leiteria.repository.PropriedadeRepository;
 public class PropriedadeController {
 
 	@Autowired
-	private ServicePropriedade servicoPropriedade;
-	@Autowired
-	private PropriedadeRepository propriedadeRepository;
+	private ServicePropriedade propriedadeService;
 
 	@GetMapping
-	public List<Propriedades> minhasPropriedades() {
-		List<Propriedades> propriedades = servicoPropriedade.listarPropriedades();
+	public List<Propriedades> listMyPropriedades() {
+		List<Propriedades> propriedades = propriedadeService.listPropriedades();
 		return propriedades;
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<?> selecionaPorId(@PathVariable(value = "id") long propriedadeId)
-			throws ResourceNotFoundException {
-		Propriedades propriedade = servicoPropriedade.buscar(propriedadeId);
-		if (propriedade != null) {
-			return ResponseEntity.ok().body(propriedade);
-		} else {
-			return ResponseEntity.badRequest().body(new MessageResponse("Erro: propriedade não encontrada"));
-		}
+	public ResponseEntity<?> findById(@PathVariable(value = "id") long propriedadeId) {
+		return propriedadeService.findById(propriedadeId);
 	}
 
 	@PostMapping
 	@PreAuthorize("hasRole('PRODUTOR')")
-	public Propriedades novaPropriedade(@RequestBody Propriedades propriedade) {
-		
-		System.out.println(propriedade);
-		return servicoPropriedade.salvar(propriedade);
+	public Propriedades save(@RequestBody Propriedades propriedade) {
+		return propriedadeService.save(propriedade);
 	}
 
 	@PutMapping("/{id}")
 	@PreAuthorize("hasRole('PRODUTOR')")
-	public ResponseEntity<?> atualizarPropriedade(@PathVariable long id,
-			@Valid @RequestBody Propriedades detalhesPropriedade) throws ResourceNotFoundException {
-		/**
-		Propriedade propriedadeAtualizada = servicoPropriedade.atualizar(propriedadeId, detalhesPropriedade);
-
-		if(propriedadeAtualizada != null) {
-			return ResponseEntity.ok(propriedadeAtualizada);
-		}else {
-			return ResponseEntity.badRequest().build();
-		}
-		**/
-		return propriedadeRepository.findById(id).
-				map(record -> {
-					record.setNome(detalhesPropriedade.getNome());
-					record.setLocalidade(detalhesPropriedade.getLocalidade());
-					record.setMunicipio(detalhesPropriedade.getMunicipio());
-					
-					Propriedades atualizada = propriedadeRepository.save(record);
-					return ResponseEntity.ok().body(atualizada);
-					
-				}).orElse(ResponseEntity.notFound().build());
-				
-		
+	public ResponseEntity<?> atualizarPropriedade(@PathVariable long id, @RequestBody Propriedades propriedade){
+		return propriedadeService.update(id, propriedade);
 	}
 
 	@DeleteMapping("/{id}")
 	@PreAuthorize("hasRole('PRODUTOR')")
-	public Map<String, Boolean> deletarPropriedade(@PathVariable(value = "id") long propriedadeId)
-			throws ResourceNotFoundException {
-
-		return servicoPropriedade.deletar(propriedadeId);
+	public ResponseEntity<?> delete(@PathVariable(value = "id") long propriedadeId){
+		return propriedadeService.delete(propriedadeId);
 	}
 
 }

@@ -3,7 +3,6 @@ package com.leiteria.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -32,17 +31,17 @@ public class SemensController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<Semens> salvar (@RequestBody Semens semens) {
-		return new ResponseEntity<>(semensService.salvar(semens), HttpStatus.CREATED);
+	public Semens save(@RequestBody Semens semens) {
+		return semensService.save(semens);
 	}
 	
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<?> atualizar(@PathVariable long id, @RequestBody Semens semen){
+	public ResponseEntity<?> update(@PathVariable long id, @RequestBody Semens semen){
 		return semensService.atualizar(id, semen);
 	}
 	
 	@DeleteMapping("/{id}")
-	public ResponseEntity<?> delete (@PathVariable long id){
+	public ResponseEntity<?> delete(@PathVariable long id){
 		return semensService.deletar(id);
 	}
 }

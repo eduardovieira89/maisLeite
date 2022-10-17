@@ -31,24 +31,12 @@ public class ServiceParto {
 	@Autowired
 	private DiagnosticosPrenhezRepository diagnosticoPrenhezRepository;
 	
-	public Partos findById(long idParto) {
-		Partos parto =  partosRepository.findById(idParto).orElse(null);
-		if(parto != null && usuarioService.animalBelongsMe(parto.getVaca())) {
-			return parto;
-		}else {
-			return null;
-		}
-		
-	}
-
 	public List<Partos> listByVaca(long idVaca){
 		Animais vaca = animaisRepository.findById(idVaca).orElse(null);
 		if(vaca != null && usuarioService.animalBelongsMe(vaca) && vaca.getSexo() == 'f' ) {
 			return partosRepository.findByVaca(vaca);
 		}
-		
 		return null;
-		
 	}
 	
 	public List<TiposParto> listTiposPartos() {
@@ -60,7 +48,6 @@ public class ServiceParto {
 		 Se o diagnóstico for positivo ele compara a data do diagnóstico com a data do último parto
 		 Se a data do diagnóstico for maior que a data do parto, retorna esse diagnóstico
 		 Se não retorna nulo */
-		 
 		 Animais vaca = animaisRepository.findById(idVaca).orElse(null);
 		 if(vaca != null && usuarioService.animalBelongsMe(vaca)) {
 			 DiagnosticosPrenhez diagnostico = diagnosticoPrenhezRepository.findLastByVacaOrderByData(vaca);
@@ -75,23 +62,37 @@ public class ServiceParto {
 				 }
 			 }
 		 }
-		
-		
-		return null;
+		 return ResponseEntity.notFound().build();
+	}
+	
+	public ResponseEntity<?> findById(long idParto) {
+		return partosRepository.findById(idParto)
+				.map(record ->
+					{
+					if(usuarioService.animalBelongsMe(record.getVaca())) {
+						return ResponseEntity.ok().body(record);
+					}
+					return ResponseEntity.notFound().build();
+				}).orElse(ResponseEntity.notFound().build());
+		/**
+		Partos parto =  partosRepository.findById(idParto).orElse(null);
+		if(parto != null && usuarioService.animalBelongsMe(parto.getVaca())) {
+			return parto;
+		}else {
+			return null;
+		}
+		**/
 	}
 	
 	public Partos save(@Valid Partos parto) {
-
 		if(usuarioService.animalBelongsMe(parto.getVaca())) {
 			return partosRepository.save(parto);
 		}else {
 			return null;
 		}
-		
 	}
 
 	public ResponseEntity<?> update(long id, @Valid Partos parto) {
-
 		//Verifica se a vaca pertence ao Usuario logado
 		if(usuarioService.animalBelongsMe(parto.getVaca())) {
 			return partosRepository.findById(id).map(record -> {
@@ -106,25 +107,19 @@ public class ServiceParto {
 				
 				Partos atualizado = partosRepository.save(record);
 				return ResponseEntity.ok().body(atualizado);
-				
 			}).orElse(ResponseEntity.notFound().build());
 		}
 		return ResponseEntity.notFound().build();
 	}
 
 	public ResponseEntity<?> delete(long id) {
-		
 		return partosRepository.findById(id).map(record -> {
 			if(usuarioService.animalBelongsMe(record.getVaca())) {
 				partosRepository.deleteById(id);
 				return ResponseEntity.ok().build();
 			}else {
-				return null;
+				return ResponseEntity.notFound().build();
 			}
-			
 		}).orElse(ResponseEntity.notFound().build()); 
-
 	}
-
-
 }

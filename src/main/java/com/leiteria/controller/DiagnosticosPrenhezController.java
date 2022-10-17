@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -21,7 +20,6 @@ import com.leiteria.model.Coberturas;
 import com.leiteria.model.DiagnosticosPrenhez;
 import com.leiteria.model.MetodosPrenhez;
 import com.leiteria.model.service.ServiceDiagnosticosPrenhez;
-import com.leiteria.payload.response.MessageResponse;
 
 @RestController
 @RequestMapping("/diagnosticoprenhez")
@@ -51,18 +49,13 @@ public class DiagnosticosPrenhezController {
 	}
 	
 	@GetMapping("{/id}")
-	public ResponseEntity<?> selectById(@PathVariable(value="id") long id) throws ResourceNotFoundException{
-		DiagnosticosPrenhez diagnostico = diagnosticoService.findById(id);
-		if (diagnostico != null) {
-			return ResponseEntity.ok().body(diagnostico);
-		}else {
-			return ResponseEntity.badRequest().body(new MessageResponse("Diagnóstico de prenhez não encontrado"));
-		}
+	public ResponseEntity<DiagnosticosPrenhez> findById(@PathVariable(value="id") long id) throws ResourceNotFoundException{
+		return diagnosticoService.findById(id);
 	}
 	
 	@PostMapping
-	public ResponseEntity<DiagnosticosPrenhez> save (@RequestBody DiagnosticosPrenhez diagnostico){
-		return new ResponseEntity<>(diagnosticoService.save(diagnostico), HttpStatus.CREATED);
+	public DiagnosticosPrenhez save (@RequestBody DiagnosticosPrenhez diagnostico){
+		return diagnosticoService.save(diagnostico);
 	}
 	
 	@PutMapping(value="/{id}")

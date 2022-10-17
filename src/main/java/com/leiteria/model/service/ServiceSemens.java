@@ -22,7 +22,7 @@ public class ServiceSemens {
 		return semensRepository.findAll();
 	}
 
-	public Semens salvar(@Valid Semens semens) {
+	public Semens save(@Valid Semens semens) {
 		// Salvando temporariamente sem realizar verificações
 		return semensRepository.save(semens);
 	}

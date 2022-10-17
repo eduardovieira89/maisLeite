@@ -45,11 +45,9 @@ public class ServiceDiagnosticosPrenhez {
 			return diagnosticoRepository.findByVaca(vaca);
 		}
 		return null;
-		
 	}
 	
 	public List<MetodosPrenhez> listMetodosPrenhez() {
-		
 		return metodosPrenhezRepository.findAll();
 	}
 	
@@ -75,37 +73,22 @@ public class ServiceDiagnosticosPrenhez {
 						}
 					}
 				}
-				
-					
 			}
-			
 		}
 		return null;
-		
-		
-		
 	}
 
-	public DiagnosticosPrenhez findById(long id) {
-		
-		DiagnosticosPrenhez diag = diagnosticoRepository.findById(id).orElse(null);
-		
-		//verifica se o diagnóstico não é nulo e se pertence a este proprietário através da vaca
-		if(diag != null && usuarioService.animalBelongsMe(diag.getVaca())) {
-			return diag;
-		}
-		return null;
+	public ResponseEntity<DiagnosticosPrenhez> findById(long id) {
+		return diagnosticoRepository.findById(id)
+				.map(record -> ResponseEntity.ok().body(record))
+				.orElse(ResponseEntity.notFound().build());
 	}
 	
 	public DiagnosticosPrenhez save(@Valid DiagnosticosPrenhez diagnostico) {
-		
 		return diagnosticoRepository.save(diagnostico);
-		
 	}
 
-
 	public ResponseEntity<?> update(long id, DiagnosticosPrenhez diagnostico) {
-		
 		//Verifica se o diagnóstico pertence ao usuario
 		if(usuarioService.animalBelongsMe(diagnostico.getVaca())) {
 			return diagnosticoRepository.findById(id)
@@ -123,9 +106,7 @@ public class ServiceDiagnosticosPrenhez {
 		}else {
 			return ResponseEntity.notFound().build();
 		}
-		
 	}
-
 
 	public ResponseEntity<?> delete(long id) {
 		
@@ -135,7 +116,4 @@ public class ServiceDiagnosticosPrenhez {
 					return ResponseEntity.ok().build();
 				}).orElse(ResponseEntity.notFound().build());
 	}
-
-	
-
 }

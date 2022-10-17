@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -19,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.leiteria.model.AnimaisDoadores;
 import com.leiteria.model.service.ServiceAnimaisDoadores;
-import com.leiteria.payload.response.MessageResponse;
 
 @RestController
 @RequestMapping("/animaldoador")
@@ -36,20 +34,20 @@ public class AnimaisDoadoresController {
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<?> selecionarPorId(@PathVariable(value="id") long idAnimal) throws ResourceNotFoundException{
-		AnimaisDoadores animal = animaisDoadoresService.findById(idAnimal);
+	public ResponseEntity<?> findById(@PathVariable(value="id") long idAnimal) throws ResourceNotFoundException{
+		return animaisDoadoresService.findById(idAnimal);
+		/**AnimaisDoadores animal = animaisDoadoresService.findById(idAnimal);
 		if(animal != null) {
 			return ResponseEntity.ok().body(animal);
 		}else {
 			return ResponseEntity.badRequest().body(new MessageResponse("Animal doador não encontrado"));
 		}
-		
-		
+		**/
 	}
 	
 	@PostMapping
-	public ResponseEntity<AnimaisDoadores> salvar( @RequestBody AnimaisDoadores doador) {	
-		return new ResponseEntity<>(animaisDoadoresService.salvar(doador), HttpStatus.CREATED);		
+	public AnimaisDoadores salvar( @RequestBody AnimaisDoadores doador) {	
+		return animaisDoadoresService.salvar(doador);		
 	}
 	
 	@PutMapping(value="/{id}")

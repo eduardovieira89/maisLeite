@@ -1,11 +1,11 @@
 package com.leiteria.model.service;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.rest.webmvc.ResourceNotFoundException;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.leiteria.model.Propriedades;
@@ -20,54 +20,69 @@ public class ServicePropriedade {
 	@Autowired ServiceUsuario serviceUsuario;
 	
 	
-	public Propriedades salvar(Propriedades propriedade) {
-		
-		propriedade.setproprietario(serviceUsuario.getUsuarioAutenticado());
-		
-		return propriedadeRepository.save(propriedade);
+	public boolean propriedadeBelongsMe(Propriedades propriedade) {
+		if(this.listPropriedades().contains(propriedade)) {
+			return true;
+		}
+		return false;
 	}
 	
-	
-	
-	public Map<String, Boolean> deletar(long propriedadeId)
-			throws ResourceNotFoundException {
-			
-			Propriedades propriedade = this.buscar(propriedadeId);
-			
-			propriedadeRepository.delete(propriedade);
-			Map<String, Boolean> response = new HashMap<>();
-			response.put("deletado", Boolean.TRUE);
-			return response;
-	}
-	
-	
-	public List<Propriedades> listarPropriedades(){	
+	public List<Propriedades> listPropriedades(){	
 		return propriedadeRepository.findByProprietario(serviceUsuario.getProprietario());
 	}
 	
-	
-	public Propriedades buscar(long propriedadeId){
+	public Propriedades findPropriedade(long id) {
+		return propriedadeRepository.findById(id)
+		.map(record -> {
+			if(this.propriedadeBelongsMe(record)) {
+				return record;
+			}
+			return null;
+		}).get();
 		
-			 return propriedadeRepository.findByIdAndProprietario(propriedadeId, serviceUsuario.getUsuarioAutenticado());
-					
 	}
 	
-	public Propriedades atualizar(long propriedadeId, Propriedades detalhesPropriedade) {
-		
-		//É necessário verificar se a propriedade pertence ao usuário antes de atualizar
-		
-		Propriedades propriedade = this.buscar(propriedadeId);
-		propriedade.setLocalidade(detalhesPropriedade.getLocalidade());
-		propriedade.setMunicipio(detalhesPropriedade.getMunicipio());
-		propriedade.setNome(detalhesPropriedade.getNome());
-
-		final Propriedades propriedadeAtualizada = propriedadeRepository.save(propriedade);
-
-		return propriedadeAtualizada;
+	public ResponseEntity<?> findById(long propriedadeId){
+		 return propriedadeRepository.findById(propriedadeId)
+				 .map(record -> {
+					 if(this.propriedadeBelongsMe(record)) {
+						 return ResponseEntity.ok().body(record);
+					 }
+					 return ResponseEntity.notFound().build();
+				 }).orElse(ResponseEntity.notFound().build());
 	}
 	
+	public Propriedades save(@Valid Propriedades propriedade) {
+		propriedade.setProprietario(serviceUsuario.getUsuarioAutenticado());
+		return propriedadeRepository.save(propriedade);
+	}
 	
+	public ResponseEntity<?> update(long id, @Valid Propriedades detalhesPropriedade) {
+		if(propriedadeBelongsMe(detalhesPropriedade)) {
+			return propriedadeRepository.findById(id).
+					map(record -> {
+						record.setNome(detalhesPropriedade.getNome());
+						record.setLocalidade(detalhesPropriedade.getLocalidade());
+						record.setMunicipio(detalhesPropriedade.getMunicipio());
+						
+						Propriedades atualizada = propriedadeRepository.save(record);
+						return ResponseEntity.ok().body(atualizada);
+						
+					}).orElse(ResponseEntity.notFound().build());
+		}
+		return ResponseEntity.notFound().build();
+	}
 	
-	
-
+	public ResponseEntity<?> delete(long propriedadeId){
+		//Fazer a verificação se não há nenhum animal na propriedade para poder excluir
+		//Não deixar  excluir se hover animal na propriedade
+		return propriedadeRepository.findById(propriedadeId).map(record -> {
+			if(this.propriedadeBelongsMe(record)) {
+				propriedadeRepository.deleteById(propriedadeId);
+				return ResponseEntity.ok().build();
+			}else {
+				return null;
+			}
+		}).orElse(ResponseEntity.notFound().build());
+	}
 }

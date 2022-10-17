@@ -35,13 +35,16 @@ public class ServiceCoberturas {
 	}
 	
 	public List<Coberturas> listByInseminador(long idInseminador) {
-
 		return null;
+	}
+	
+	public ResponseEntity<Coberturas> findById(long idCobertura) {
+		return coberturasRepository.findById(idCobertura)
+				.map(record -> ResponseEntity.ok().body(record))
+				.orElse(ResponseEntity.notFound().build());
 	}
 
 	public Coberturas save(@Valid Coberturas cobertura) {
-		
-
 		if(usuarioService.animalBelongsMe(cobertura.getVaca())) {
 			//Ao ser feito inseminação o campo "Monta controlada" deve ser nulo, mas está vindo como false
 			//Esse if é para setar como null quando a cobertura é feita via inseminação
@@ -56,11 +59,9 @@ public class ServiceCoberturas {
 		}else {
 			return null;
 		}
-
 	}
 
 	public ResponseEntity<?> update(long id, @Valid Coberturas cobertura) {
-
 		// .....verificar como fica se atualizar as doses de sêmen, se vai atualizar a quantidade
 		// .....Verificar se deixa atualizar tudo ou so alguns campos.
 		
@@ -89,29 +90,17 @@ public class ServiceCoberturas {
 	}
 	
 	public ResponseEntity<?> delete(long id) {
-
 		return coberturasRepository.findById(id).map(record -> {
 			if(usuarioService.animalBelongsMe(record.getVaca())) {
 			coberturasRepository.deleteById(id);
 			return ResponseEntity.ok().build();
 			}else {
-				return null;
+				return ResponseEntity.notFound().build();
 			}
 		}).orElse(ResponseEntity.notFound().build());
 	}
 
-	public Coberturas findById(long idCobertura) {
-		
-		Coberturas cobertura = coberturasRepository.findById(idCobertura).orElse(null);
-		if(cobertura != null && usuarioService.animalBelongsMe(cobertura.getVaca())) {
-			
-			// Verifica se a cobertura pertence ao proprietário através da vaca
-			if (usuarioService.animalBelongsMe(cobertura.getVaca())) {
-				return cobertura;
-			}
-		}		
-		return null;
-	}
+	
 
 
 

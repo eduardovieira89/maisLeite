@@ -66,10 +66,18 @@ public class Animais {
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Animais id_mae;
 	
+	@NotNull(message = "O Campo ativo é obrigatório")
+	@Column(nullable=false, precision=3)
+	private Boolean ativo;
 	
+	@ManyToOne
+	@JoinColumn(name="id_motivos_baixa")
+	private MotivosBaixa motivosBaixa;
 	
-	
-	
+	@NotNull(message = "A origem do animal é um campo obrigatório")
+	@ManyToOne
+	@JoinColumn(name="id_origem_animal")
+	private OrigemAnimal origemAnimal;
 	
 	
 	public Animais(String nome, int brinco, LocalDate dataNasc, int registro, char sexo, Propriedades propriedade, Racas raca) {
@@ -82,43 +90,10 @@ public class Animais {
 		this.propriedade = propriedade;
 		this.raca = raca;
 	}
-	public Animais(int brinco, LocalDate dataNasc, int registro, char sexo, Propriedades propriedade, Racas raca) {
-		super();
-		this.brinco = brinco;
-		this.dataNasc = dataNasc;
-		this.registro = registro;
-		this.sexo = sexo;
-		this.propriedade = propriedade;
-		this.raca = raca;
-	}
-	public Animais(String nome, int brinco, LocalDate dataNasc, int registro, char sexo, String pai, String mae,
-			Propriedades propriedade, Racas raca) {
-		super();
-		this.nome = nome;
-		this.brinco = brinco;
-		this.dataNasc = dataNasc;
-		this.registro = registro;
-		this.sexo = sexo;
-		this.pai = pai;
-		this.mae = mae;
-		this.propriedade = propriedade;
-		this.raca = raca;
-	}
+
 	public Animais() {
 	}
-	public Animais(String nome, int brinco, LocalDate dataNasc, int registro, char sexo, Animais pai,
-			Animais mae, Propriedades propriedade, Racas raca) {
-				
-		this.nome = nome;
-		this.brinco = brinco;
-		this.dataNasc = dataNasc;
-		this.registro = registro;
-		this.sexo = sexo;
-		this.id_pai = pai;
-		this.id_mae = mae;
-		this.propriedade = propriedade;
-		this.raca = raca;
-	}
+
 	public long getId() {
 		return id;
 	}
@@ -182,14 +157,31 @@ public class Animais {
 	public void setId_mae(Animais idMae) {
 		this.id_mae = idMae;
 	}
-	public Propriedades getPropriedades() {
+	public Propriedades getPropriedade() {
 		return propriedade;
 	}
-	public void setPropriedades(Propriedades propriedade) {
+	public void setPropriedade(Propriedades propriedade) {
 		this.propriedade = propriedade;
+	}	
+	public Boolean getAtivo() {
+		return ativo;
 	}
-	
-	
+	public void setAtivo(Boolean ativo) {
+		this.ativo = ativo;
+	}
+	public MotivosBaixa getMotivosBaixa() {
+		return motivosBaixa;
+	}
+	public void setMotivosBaixa(MotivosBaixa motivosBaixa) {
+		this.motivosBaixa = motivosBaixa;
+	}
+	public OrigemAnimal getOrigemAnimal() {
+		return origemAnimal;
+	}
+	public void setOrigemAnimal(OrigemAnimal origemAnimal) {
+		this.origemAnimal = origemAnimal;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

@@ -73,7 +73,7 @@ public class Propriedades {
 		return proprietario;
 	}
 
-	public void setproprietario(Usuarios proprietario) {
+	public void setProprietario(Usuarios proprietario) {
 		this.proprietario = proprietario;
 	}
 

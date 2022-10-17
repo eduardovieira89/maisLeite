@@ -26,7 +26,11 @@ public class ServiceAnimaisDoadores {
 		return animaisDRepository.findByUsuarios(serviceUsuario.getProprietario());
 	}
 	
-	public AnimaisDoadores findById(long idAnimal) {
+	public ResponseEntity<?> findById(long idAnimal) {
+		return animaisDRepository.findById(idAnimal)
+				.map(record -> ResponseEntity.ok().body(record))
+				.orElse(ResponseEntity.notFound().build());
+		/**
 		AnimaisDoadores doador = animaisDRepository.findById(idAnimal).orElse(null);
 		if(doador != null){
 			Usuarios dono = serviceUsuario.getProprietario();
@@ -35,21 +39,19 @@ public class ServiceAnimaisDoadores {
 			}
 		}
 		return null;
+		**/
 	}
 
 
 	public AnimaisDoadores salvar(@Valid AnimaisDoadores doador) {
-		
 		//Verificar como retornar mensagem que não tem dados de animal doador;
 		Usuarios dono = serviceUsuario.getProprietario();
 		doador.setUsuarios(dono);
 		return animaisDRepository.save(doador);
-		
 	}
 
 
 	public ResponseEntity<?> atualizar(long id, AnimaisDoadores doador) {
-		
 		//verifica se o animal pertence ao usuario
 		// .....Ver se é melhor fazer o IF pelo id ou pelo animal
 		if(doador.getUsuarios().equals(serviceUsuario.getProprietario())) {

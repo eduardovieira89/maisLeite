@@ -3,8 +3,6 @@ package com.leiteria.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.rest.webmvc.ResourceNotFoundException;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -20,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.leiteria.model.Coberturas;
 import com.leiteria.model.TiposCobertura;
 import com.leiteria.model.service.ServiceCoberturas;
-import com.leiteria.payload.response.MessageResponse;
 
 @RestController
 @RequestMapping("/cobertura")
@@ -32,28 +29,14 @@ public class CoberturasController {
 	
 	@GetMapping
 	public  List<Coberturas> listByVaca(@RequestParam("idvaca")long idVaca){
-		
 		//Retorna todas as coberturas da vaca selecionada
 		return coberturaService.listByVaca(idVaca);
 	}
 	
-	
 	@GetMapping("/inseminador/{id}")
 	public List<Coberturas> listByInseminador(@RequestParam("idinseminador")long idInseminador){
-		
 		//Retorna todas as coberturas realizadas pelo inseminador (Usuário) selecionado
 		return coberturaService.listByInseminador(idInseminador);
-	}
-	
-	
-	@GetMapping("/{id}")
-	public ResponseEntity<?> selectById(@PathVariable(value="id") long idCobertura)throws ResourceNotFoundException{
-		Coberturas cobertura = coberturaService.findById(idCobertura);
-		if(cobertura != null) {
-			return ResponseEntity.ok().body(cobertura);
-		}else {
-			return ResponseEntity.badRequest().body(new MessageResponse("Cobertura não encontrada"));
-		}
 	}
 	
 	@GetMapping("/tipos")
@@ -61,9 +44,14 @@ public class CoberturasController {
 		return coberturaService.listTiposCoberturas();
 	}
 	
+	@GetMapping("/{id}")
+	public ResponseEntity<?> findById(@PathVariable(value="id") long idCobertura){
+		return coberturaService.findById(idCobertura);
+	}
+	
 	@PostMapping
-	public ResponseEntity<Coberturas> save(@RequestBody Coberturas cobertura){
-		return new ResponseEntity<>(coberturaService.save(cobertura), HttpStatus.CREATED);
+	public Coberturas save(@RequestBody Coberturas cobertura){
+		return coberturaService.save(cobertura);
 	}
 	
 	@PutMapping(value="/{id}")

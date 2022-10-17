@@ -22,11 +22,7 @@ public class Racas {
 	
 	
 	
-	public Racas(int id_raca, String descricao) {
-		super();
-		this.id_raca = id_raca;
-		this.descricao = descricao;
-	}
+
 	public Racas(String descricao) {
 		super();
 		this.descricao = descricao;
