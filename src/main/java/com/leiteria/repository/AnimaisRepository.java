@@ -8,7 +8,7 @@ import com.leiteria.model.Animais;
 import com.leiteria.model.Propriedades;
 
 public interface AnimaisRepository extends JpaRepository<Animais, Long>{
-	List<Animais> findByPropriedade(Propriedades propriedade);
-	List<Animais> findByPropriedadeAndSexo(Propriedades propriedade, char sexo);
+	List<Animais> findByPropriedadeAndAtivo(Propriedades propriedade, Boolean ativo);
+	List<Animais> findByPropriedadeAndSexoAndAtivo(Propriedades propriedade, char sexo, Boolean ativo);
 
 }

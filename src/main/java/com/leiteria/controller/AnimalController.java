@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.leiteria.model.Animais;
+import com.leiteria.model.MotivosBaixa;
 import com.leiteria.model.service.ServiceAnimal;
 
 @RestController
@@ -53,6 +54,12 @@ public class AnimalController {
 	public ResponseEntity<?> update(@PathVariable long id, @RequestBody Animais animal){
 		return animalService.update(id, animal);
 	}
+	
+	@PutMapping(value="/baixa/{id}")
+	public ResponseEntity<?>baixaAnimal(@PathVariable long id, @RequestBody MotivosBaixa motivo){
+		return animalService.baixa(id, motivo);
+	}
+	
 	
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> delete(@PathVariable long id){

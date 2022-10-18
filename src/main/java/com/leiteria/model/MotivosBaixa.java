@@ -13,7 +13,7 @@ public class MotivosBaixa {
 	@Id
 	@Column(name="id_motivos_baixa")
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
-	private int id;
+	private int id_motivos_baixa;
 	
 	@NotEmpty(message = "Descrição é um campo obrigatório")
 	private String descricao;
@@ -26,7 +26,7 @@ public class MotivosBaixa {
 	}
 
 	public int getId_motivos_baixa() {
-		return id;
+		return id_motivos_baixa;
 	}
 
 	public String getDescricao() {
@@ -41,7 +41,7 @@ public class MotivosBaixa {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((descricao == null) ? 0 : descricao.hashCode());
-		result = prime * result + id;
+		result = prime * result + id_motivos_baixa;
 		return result;
 	}
 	@Override
@@ -58,7 +58,7 @@ public class MotivosBaixa {
 				return false;
 		} else if (!descricao.equals(other.descricao))
 			return false;
-		if (id != other.id)
+		if (id_motivos_baixa != other.id_motivos_baixa)
 			return false;
 		return true;
 	}

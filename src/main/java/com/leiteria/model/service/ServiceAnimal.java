@@ -7,8 +7,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.leiteria.model.Animais;
+import com.leiteria.model.MotivosBaixa;
 import com.leiteria.model.Propriedades;
 import com.leiteria.repository.AnimaisRepository;
+import com.leiteria.repository.MotivosBaixaRepository;
 
 @Service
 public class ServiceAnimal {
@@ -19,12 +21,14 @@ public class ServiceAnimal {
 	private ServiceUsuario usuarioService;
 	@Autowired
 	private ServicePropriedade propriedadeService;
+	@Autowired
+	private MotivosBaixaRepository motivosBaixaRepository;
 	
 	
 	public List<Animais> listByPropriedade(long idPropriedade) {
 		Propriedades propriedade = propriedadeService.findPropriedade(idPropriedade);
 		if(usuarioService.getUsuarioAutenticado().getPropriedades().contains(propriedade)) {
-			return animalRepository.findByPropriedade(propriedade);
+			return animalRepository.findByPropriedadeAndAtivo(propriedade, true);
 		}
 		return null;
 	}
@@ -34,7 +38,7 @@ public class ServiceAnimal {
 	public List<Animais> findByPropriedadeAndGenero(long idPropriedade, char genero) {
 		Propriedades propriedade = propriedadeService.findPropriedade(idPropriedade);
 		if(propriedade != null && propriedadeService.propriedadeBelongsMe(propriedade)) {
-			return animalRepository.findByPropriedadeAndSexo(propriedade, genero);
+			return animalRepository.findByPropriedadeAndSexoAndAtivo(propriedade, genero, true);
 		}
 		return null;
 	}
@@ -99,6 +103,19 @@ public class ServiceAnimal {
 				.map(record ->{
 					animalRepository.deleteById(id);
 					return ResponseEntity.ok().build();
+				}).orElse(ResponseEntity.notFound().build());
+	}
+
+
+
+	public ResponseEntity<?> baixa(long id, MotivosBaixa motivo) {
+		MotivosBaixa motivoEncontrado = motivosBaixaRepository.findById(motivo.getId_motivos_baixa()).get();
+		return animalRepository.findById(id)
+				.map(record -> {
+					record.setMotivosBaixa(motivoEncontrado);
+					record.setAtivo(false);
+					Animais baixado = animalRepository.save(record);
+					return ResponseEntity.ok().body(baixado);
 				}).orElse(ResponseEntity.notFound().build());
 	}
 
