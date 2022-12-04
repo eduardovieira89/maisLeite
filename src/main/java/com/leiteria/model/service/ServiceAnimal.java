@@ -27,13 +27,11 @@ public class ServiceAnimal {
 	
 	public List<Animais> listByPropriedade(long idPropriedade) {
 		Propriedades propriedade = propriedadeService.findPropriedade(idPropriedade);
-		if(usuarioService.getUsuarioAutenticado().getPropriedades().contains(propriedade)) {
+		if(propriedadeService.propriedadeBelongsMe(propriedade)) {
 			return animalRepository.findByPropriedadeAndAtivo(propriedade, true);
 		}
 		return null;
 	}
-
-	
 
 	public List<Animais> findByPropriedadeAndGenero(long idPropriedade, char genero) {
 		Propriedades propriedade = propriedadeService.findPropriedade(idPropriedade);
@@ -62,13 +60,6 @@ public class ServiceAnimal {
 						}
 						return ResponseEntity.notFound().build();
 					}).orElse(ResponseEntity.notFound().build());
-		
-		/**Animais animal =  animalRepository.findById(idAnimal).orElse(null);
-		if ((animal != null) && (usuarioService.animalBelongsMe(animal))) {
-				return animal;
-		}
-		return null;
-		**/
 	}
 
 	public Animais save(Animais animal) {
@@ -80,29 +71,37 @@ public class ServiceAnimal {
 	}
 
 	public ResponseEntity<?> update(long id, Animais animal) {
-		return animalRepository.findById(id).
-				map(record -> {
-					record.setNome(animal.getNome());
-					record.setBrinco(animal.getBrinco());
-					record.setRegistro(animal.getRegistro());
-					record.setDataNasc(animal.getDataNasc());
-					record.setRaca(animal.getRaca());
-					record.setSexo(animal.getSexo());
-					record.setId_pai(animal.getId_pai());
-					record.setId_mae(animal.getId_mae());
-					record.setPai(animal.getPai());
-					record.setMae(animal.getMae());
-					Animais atualizado = animalRepository.save(record);
-					
-					return ResponseEntity.ok().body(atualizado);
-				}).orElse(ResponseEntity.notFound().build());
+		if(usuarioService.animalBelongsMe(animal)) {
+			return animalRepository.findById(id).
+					map(record -> {
+						record.setNome(animal.getNome());
+						record.setBrinco(animal.getBrinco());
+						record.setRegistro(animal.getRegistro());
+						record.setDataNasc(animal.getDataNasc());
+						record.setRaca(animal.getRaca());
+						record.setSexo(animal.getSexo());
+						record.setId_pai(animal.getId_pai());
+						record.setId_mae(animal.getId_mae());
+						record.setPai(animal.getPai());
+						record.setMae(animal.getMae());
+						Animais atualizado = animalRepository.save(record);
+						
+						return ResponseEntity.ok().body(atualizado);
+					}).orElse(ResponseEntity.notFound().build());
+		}
+		return ResponseEntity.notFound().build();
+		
 	}
 
 	public ResponseEntity<?> delete(long id) {
 		return animalRepository.findById(id)
 				.map(record ->{
-					animalRepository.deleteById(id);
-					return ResponseEntity.ok().build();
+					if(usuarioService.animalBelongsMe(record)) {
+						animalRepository.deleteById(id);
+						return ResponseEntity.ok().build();
+					}
+					return ResponseEntity.notFound().build();
+					
 				}).orElse(ResponseEntity.notFound().build());
 	}
 
@@ -112,10 +111,13 @@ public class ServiceAnimal {
 		MotivosBaixa motivoEncontrado = motivosBaixaRepository.findById(motivo.getId_motivos_baixa()).get();
 		return animalRepository.findById(id)
 				.map(record -> {
-					record.setMotivosBaixa(motivoEncontrado);
-					record.setAtivo(false);
-					Animais baixado = animalRepository.save(record);
-					return ResponseEntity.ok().body(baixado);
+					if(usuarioService.animalBelongsMe(record)) {
+						record.setMotivosBaixa(motivoEncontrado);
+						record.setAtivo(false);
+						Animais baixado = animalRepository.save(record);
+						return ResponseEntity.ok().body(baixado);
+					}
+					return ResponseEntity.notFound().build();
 				}).orElse(ResponseEntity.notFound().build());
 	}
 

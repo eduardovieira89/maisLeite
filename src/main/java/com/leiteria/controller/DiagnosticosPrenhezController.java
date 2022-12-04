@@ -30,15 +30,19 @@ public class DiagnosticosPrenhezController {
 	private ServiceDiagnosticosPrenhez diagnosticoService;
 	
 	@GetMapping
+	public List<DiagnosticosPrenhez> listEmAndamento(@RequestParam("idpropriedade") long idPropriedade){
+		//Lista os diagnósticos que não tenham sido realizado parto.
+		return diagnosticoService.listEmAndamento(idPropriedade);
+	}
+	
+	@GetMapping("/vaca")
 	public List<DiagnosticosPrenhez> listByVaca(@RequestParam("idvaca") long idVaca){
-		
 		//Retorna todos os diagnósticos da vaca selecionada
-		return diagnosticoService.list(idVaca);
+		return diagnosticoService.listByVaca(idVaca);
 	}
 	
 	@GetMapping("/cobertura")
 	public ResponseEntity<Coberturas> lastCobertura(@RequestParam("idvaca") long idVaca){
-		
 		// Retorna a coberura do animal selecionado com a data mais recente que não tenha diagnóstico
 		return diagnosticoService.lastCobertura(idVaca);
 	}

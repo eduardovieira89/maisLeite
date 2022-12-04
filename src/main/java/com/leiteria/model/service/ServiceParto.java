@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.leiteria.model.Animais;
+import com.leiteria.model.Coberturas;
 import com.leiteria.model.DiagnosticosPrenhez;
 import com.leiteria.model.Partos;
 import com.leiteria.model.TiposParto;
@@ -30,6 +31,13 @@ public class ServiceParto {
 	private TiposPartoRepository tiposPartosRepository;
 	@Autowired
 	private DiagnosticosPrenhezRepository diagnosticoPrenhezRepository;
+	
+	public Boolean existsCobertura(Coberturas cobertura) {
+		return partosRepository.existsByCoberturas(cobertura);
+	}
+	public Boolean existsDiagnosticoPrenhez(DiagnosticosPrenhez diagnostico) {
+		return partosRepository.existsByDiagnosticosPrenhez(diagnostico);
+	}
 	
 	public List<Partos> listByVaca(long idVaca){
 		Animais vaca = animaisRepository.findById(idVaca).orElse(null);
@@ -63,6 +71,10 @@ public class ServiceParto {
 			 }
 		 }
 		 return ResponseEntity.notFound().build();
+	}
+	
+	public Partos findLastPartoVaca(Animais vaca) {
+		return partosRepository.findLastByVacaOrderByData(vaca);
 	}
 	
 	public ResponseEntity<?> findById(long idParto) {

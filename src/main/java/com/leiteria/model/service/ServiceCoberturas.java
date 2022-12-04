@@ -1,5 +1,6 @@
 package com.leiteria.model.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -9,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.leiteria.model.Coberturas;
+import com.leiteria.model.Propriedades;
 import com.leiteria.model.TiposCobertura;
 import com.leiteria.repository.CoberturasRepository;
 import com.leiteria.repository.TiposCoberturasRepository;
@@ -24,7 +26,25 @@ public class ServiceCoberturas {
 	private TiposCoberturasRepository tiposCoberturasRepository;
 	@Autowired
 	private ServiceSemens semensService;
+	@Autowired
+	private ServicePropriedade propriedadeService;
+	@Autowired
+	private ServiceParto partoService;
 	
+	public List<Coberturas> listEmAndamento(long idPropriedade) {
+		/** 
+		    O Método findByVacaPropriedade retorna todas as coberturas da propriedade.
+			É realizado um forEach nessa lista para localizar quais coberturas já possuem partos realizados
+			depois é removido da lista todas as coberturas que possuem parto para retornar somente as que estão em andamento 
+		**/ 
+		Propriedades propriedade = propriedadeService.findPropriedade(idPropriedade);
+		List<Coberturas> coberturasEmAndamento =  coberturasRepository.findByVacaPropriedade(propriedade);
+		List<Coberturas> coberturaPartos = new ArrayList<>();
+		coberturasEmAndamento.forEach(temParto -> { if (partoService.existsCobertura(temParto)) {
+																coberturaPartos.add(temParto);}} );
+		coberturasEmAndamento.removeAll(coberturaPartos);
+		return coberturasEmAndamento;
+	}
 	
 	public List<TiposCobertura> listTiposCoberturas() {
 		return tiposCoberturasRepository.findAll();
@@ -46,9 +66,9 @@ public class ServiceCoberturas {
 
 	public Coberturas save(@Valid Coberturas cobertura) {
 		if(usuarioService.animalBelongsMe(cobertura.getVaca())) {
-			//Ao ser feito inseminação o campo "Monta controlada" deve ser nulo, mas está vindo como false
-			//Esse if é para setar como null quando a cobertura é feita via inseminação
-			//e para dar baixa no estoque de doses de sêmen.
+		/** Ao ser feito inseminação o campo "Monta controlada" deve ser nulo, mas está vindo como false
+			Esse if é para setar como null quando a cobertura é feita via inseminação
+			e para dar baixa no estoque de doses de sêmen. **/
 			TiposCobertura tipoInseminacao = tiposCoberturasRepository.findByDescricao("Inseminação");
 			if(cobertura.getTipoCobertura().equals(tipoInseminacao)) {
 				cobertura.setMontaControlada(null);
@@ -66,8 +86,8 @@ public class ServiceCoberturas {
 		// .....Verificar se deixa atualizar tudo ou so alguns campos.
 		
 
-		// Verifica se a vaca que está sendo realizada a cobertura pertence ao proprietário
-		// .....Ver se é melhor fazer o if pelo id ou pela cobertura
+		/** Esse if verifica se a vaca que está sendo realizada a cobertura pertence ao usuário requisitante
+		 .....Ver se é melhor fazer o if pelo id ou pela cobertura **/
 		if (usuarioService.animalBelongsMe(cobertura.getVaca())) {
 			return coberturasRepository.findById(id).map(record -> {
 				record.setData(cobertura.getData());
@@ -99,6 +119,8 @@ public class ServiceCoberturas {
 			}
 		}).orElse(ResponseEntity.notFound().build());
 	}
+
+	
 
 	
 

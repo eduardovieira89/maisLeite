@@ -28,6 +28,12 @@ public class CoberturasController {
 	ServiceCoberturas coberturaService;
 	
 	@GetMapping
+	public List<Coberturas> list(@RequestParam("idpropriedade") long idPropriedade){
+		//Lista todas as coberturas que não tenham sido realizado parto.
+		return coberturaService.listEmAndamento(idPropriedade);
+	}
+	
+	@GetMapping("/vaca/{id}")
 	public  List<Coberturas> listByVaca(@RequestParam("idvaca")long idVaca){
 		//Retorna todas as coberturas da vaca selecionada
 		return coberturaService.listByVaca(idVaca);

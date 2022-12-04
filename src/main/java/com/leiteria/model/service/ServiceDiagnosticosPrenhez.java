@@ -1,5 +1,6 @@
 package com.leiteria.model.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -13,11 +14,11 @@ import com.leiteria.model.Coberturas;
 import com.leiteria.model.DiagnosticosPrenhez;
 import com.leiteria.model.MetodosPrenhez;
 import com.leiteria.model.Partos;
+import com.leiteria.model.Propriedades;
 import com.leiteria.repository.AnimaisRepository;
 import com.leiteria.repository.CoberturasRepository;
 import com.leiteria.repository.DiagnosticosPrenhezRepository;
 import com.leiteria.repository.MetodosPrenhezRepository;
-import com.leiteria.repository.PartosRepositoy;
 
 @Service
 public class ServiceDiagnosticosPrenhez {
@@ -31,12 +32,25 @@ public class ServiceDiagnosticosPrenhez {
 	@Autowired	
 	private CoberturasRepository coberturaRepository;
 	@Autowired
-	private PartosRepositoy partosRepository;
-	@Autowired
 	private MetodosPrenhezRepository metodosPrenhezRepository;
+	@Autowired
+	private ServicePropriedade propriedadeService;
+	@Autowired
+	private ServiceParto partoService;
 	
+	public List<DiagnosticosPrenhez> listEmAndamento(long idPropriedade) {
+		Propriedades propriedade = propriedadeService.findPropriedade(idPropriedade);
+		List<DiagnosticosPrenhez> diagEmAndamento = diagnosticoRepository.findByVacaPropriedade(propriedade);
+		List<DiagnosticosPrenhez> diagPartos = new ArrayList<>();
+		diagEmAndamento.forEach(temParto -> {
+			if(partoService.existsDiagnosticoPrenhez(temParto)) {
+				diagPartos.add(temParto);
+			}});
+		diagEmAndamento.removeAll(diagPartos);
+		return diagEmAndamento;
+	}
 	
-	public List<DiagnosticosPrenhez> list(long idVaca){
+	public List<DiagnosticosPrenhez> listByVaca(long idVaca){
 		
 		Animais vaca = animaisRepository.findById(idVaca).get();
 		
@@ -60,11 +74,11 @@ public class ServiceDiagnosticosPrenhez {
 		
 		Animais vaca = animaisRepository.findById(idVaca).orElse(null);
 		if(vaca != null && usuarioService.animalBelongsMe(vaca)) {
-			Coberturas cobertura = coberturaRepository.findLastByVacaOrderByData(vaca);
+			Coberturas cobertura = coberturaRepository.findTopByVacaOrderByDataDesc(vaca);
 			if(cobertura != null) {
 				DiagnosticosPrenhez contemDiagnostico = diagnosticoRepository.findOneByCobertura(cobertura);
 				if(contemDiagnostico == null) {
-					Partos parto = partosRepository.findLastByVacaOrderByData(vaca);
+					Partos parto = partoService.findLastPartoVaca(vaca);
 					if(parto == null) {
 						return ResponseEntity.ok().body(cobertura);
 					}else {
@@ -116,4 +130,6 @@ public class ServiceDiagnosticosPrenhez {
 					return ResponseEntity.ok().build();
 				}).orElse(ResponseEntity.notFound().build());
 	}
+
+
 }

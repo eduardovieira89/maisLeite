@@ -1,5 +1,6 @@
 package com.leiteria.model.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -17,9 +18,21 @@ public class ServiceSemens {
 
 	@Autowired
 	SemensRepository semensRepository;
+	@Autowired
+	ServiceUsuario usuarioService;
 	public List<Semens> list() {
-		// colocado temporariamente para trazer todos os registros
-		return semensRepository.findAll();
+		/** Este método busca todos os semens cadastrados para o usuário logado
+		    e retira os que estão com estoque zerado.
+		**/
+		List<Semens> semensDisponiveis = semensRepository.findByAnimalDoadorUsuarios(usuarioService.getProprietario());
+		List<Semens> estoqueZerado = new ArrayList<>();
+		semensDisponiveis.forEach(zeroSemen -> {
+			if(zeroSemen.getQuantidade() <= 0 ) {
+				estoqueZerado.add(zeroSemen);
+			}
+		});
+		semensDisponiveis.removeAll(estoqueZerado);
+		return semensDisponiveis;
 	}
 
 	public Semens save(@Valid Semens semens) {
