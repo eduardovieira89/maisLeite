@@ -25,13 +25,20 @@ Sistema sendo desenvolvido para gestão de leitarias juntamente com front-end em
 - Proprietário pode cadastrar propriedade;
 - Cadastro de animal;
 - Permitir que o proprietário cadastre funcionários;
+-Manejo Reprodutivo:
+ -Animais doadores;
+ -Semens;
+ -Coberturas;
+ -Diagnóstico de prenhez;
+ -Partos
 
 ### Próximas etapas, em andamento...
 - Construindo o requisito: manejo reprodutivo;
+- Criar a parte da lactação, que se inicia após o parto;
 - Construindo o requisito: vacinas;
 
 ### Correção de alguns itens
-- Corrigir alguns bugs no front (ex: nome do usuario não aparece após fazer login, somente após recarregar a página);
+- Corrigir alguns bugs no front (ex: nome do usuario não aparece após fazer login, somente após recarregar a página); OK
 - Quando funcionário loga no sistema não aparece as propriedades, fazer aparecer as propriedades do chefe;
 - Quando o spring está rodando mas o banco de dados não, no angular não aparece nenhuma mensagem de erro.
 
