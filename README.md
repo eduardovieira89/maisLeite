@@ -24,17 +24,18 @@ Sistema sendo desenvolvido para gestão de leitarias juntamente com front-end em
 - Cadastrando proprietário com senha para acesso;
 - Proprietário pode cadastrar propriedade;
 - Cadastro de animal;
+- Cadastro de baixa de animal;
 - Permitir que o proprietário cadastre funcionários;
--Manejo Reprodutivo:
-  -Animais doadores;
-  -Semens;
-  -Coberturas;
-  -Diagnóstico de prenhez;
-  -Partos
+- Manejo Reprodutivo;
+  - Cadastro de Animais doadores;
+  - Cadastro de Semens;
+  - Cadastro de Coberturas;
+  - Cadastro de Diagnóstico de prenhez;
+  - Cadastro de Partos;
 
 ### Próximas etapas, em andamento...
 - Construindo o requisito: manejo reprodutivo;
-- Criar a parte da lactação, que se inicia após o parto;
+- Controle de lactação;
 - Construindo o requisito: vacinas;
 
 ### Correção de alguns itens
