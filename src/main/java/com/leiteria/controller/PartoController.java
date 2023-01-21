@@ -28,9 +28,9 @@ public class PartoController {
 	@Autowired
 	ServiceParto partoService;
 	@GetMapping
-	public List<Partos> listByVaca(@RequestParam("idvaca") long idVaca){
-		//Retorna todos os partos da vaca selecionada
-		return partoService.listByVaca(idVaca);
+	public List<Partos> list(@RequestParam("idpropriedade") long idPropriedade){
+		//Retorna todos os partos da propriedade
+		return partoService.listByPropriedade(idPropriedade);
 	}
 	
 	@GetMapping("/tipos")
@@ -44,7 +44,7 @@ public class PartoController {
 		return partoService.lastDiagnosticosPrenhez(idVaca);
 	}
 	
-	@GetMapping("{id}")
+	@GetMapping("{*id}")
 	public ResponseEntity<?> finById(@PathVariable(value="id") long idParto){
 		return partoService.findById(idParto);
 	}
@@ -55,12 +55,12 @@ public class PartoController {
 		return partoService.save(parto);
 	}
 	
-	@PutMapping(value="/{id}")
+	@PutMapping(value="/{*id}")
 	public ResponseEntity<?> update(@PathVariable long id, @RequestBody Partos parto){
 		return partoService.update(id, parto);
 	}
 	
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/{*id}")
 	public ResponseEntity<?> delete(@PathVariable long id){
 		return partoService.delete(id);
 	}

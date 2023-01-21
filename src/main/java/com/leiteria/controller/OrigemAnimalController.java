@@ -25,7 +25,7 @@ public class OrigemAnimalController {
 		return origemAnimalService.listOrigemAnimal();
 	}
 	
-	@GetMapping("/{id}")
+	@GetMapping("/{*id}")
 	public ResponseEntity<?> findById(@PathVariable int id){
 		return origemAnimalService.findById(id);
 	}

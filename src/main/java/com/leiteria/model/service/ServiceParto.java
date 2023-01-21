@@ -1,19 +1,16 @@
 package com.leiteria.model.service;
 
 import java.util.List;
-
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
 import com.leiteria.model.Animais;
 import com.leiteria.model.Coberturas;
 import com.leiteria.model.DiagnosticosPrenhez;
 import com.leiteria.model.Partos;
+import com.leiteria.model.Propriedades;
 import com.leiteria.model.TiposParto;
-import com.leiteria.repository.AnimaisRepository;
 import com.leiteria.repository.DiagnosticosPrenhezRepository;
 import com.leiteria.repository.PartosRepositoy;
 import com.leiteria.repository.TiposPartoRepository;
@@ -24,13 +21,14 @@ public class ServiceParto {
 	@Autowired
 	private PartosRepositoy partosRepository;
 	@Autowired
-	private AnimaisRepository animaisRepository;
-	@Autowired
-	private ServiceUsuario usuarioService;
+	private ServiceAnimal animaisService;
+	//private AnimaisRepository animaisRepository;
 	@Autowired
 	private TiposPartoRepository tiposPartosRepository;
 	@Autowired
 	private DiagnosticosPrenhezRepository diagnosticoPrenhezRepository;
+	@Autowired
+	private ServicePropriedade propriedadeService;
 	
 	public Boolean existsCobertura(Coberturas cobertura) {
 		return partosRepository.existsByCoberturas(cobertura);
@@ -40,9 +38,17 @@ public class ServiceParto {
 	}
 	
 	public List<Partos> listByVaca(long idVaca){
-		Animais vaca = animaisRepository.findById(idVaca).orElse(null);
-		if(vaca != null && usuarioService.animalBelongsMe(vaca) && vaca.getSexo() == 'f' ) {
+		Animais vaca = animaisService.findAnimal(idVaca);
+		if(vaca != null && propriedadeService.animalBelongsMe(vaca) && vaca.getSexo() == 'f' ) {
 			return partosRepository.findByVaca(vaca);
+		}
+		return null;
+	}
+	
+	public List<Partos> listByPropriedade(long idPropriedade) {
+		Propriedades prop = propriedadeService.findPropriedade(idPropriedade);
+		if(prop != null && propriedadeService.propriedadeBelongsMe(prop)) {
+			return partosRepository.findByVacaPropriedadeOrderByDataDesc(prop);
 		}
 		return null;
 	}
@@ -56,8 +62,8 @@ public class ServiceParto {
 		 Se o diagnóstico for positivo ele compara a data do diagnóstico com a data do último parto
 		 Se a data do diagnóstico for maior que a data do parto, retorna esse diagnóstico
 		 Se não retorna nulo */
-		 Animais vaca = animaisRepository.findById(idVaca).orElse(null);
-		 if(vaca != null && usuarioService.animalBelongsMe(vaca)) {
+		 Animais vaca = animaisService.findAnimal(idVaca);
+		 if(vaca != null && propriedadeService.animalBelongsMe(vaca)) {
 			 DiagnosticosPrenhez diagnostico = diagnosticoPrenhezRepository.findLastByVacaOrderByData(vaca);
 			 if(diagnostico != null && diagnostico.getDiagnostico() == true) {
 				 Partos parto = partosRepository.findLastByVacaOrderByData(vaca);
@@ -81,14 +87,14 @@ public class ServiceParto {
 		return partosRepository.findById(idParto)
 				.map(record ->
 					{
-					if(usuarioService.animalBelongsMe(record.getVaca())) {
+					if(propriedadeService.animalBelongsMe(record.getVaca())) {
 						return ResponseEntity.ok().body(record);
 					}
 					return ResponseEntity.notFound().build();
 				}).orElse(ResponseEntity.notFound().build());
 		/**
 		Partos parto =  partosRepository.findById(idParto).orElse(null);
-		if(parto != null && usuarioService.animalBelongsMe(parto.getVaca())) {
+		if(parto != null && propriedadeService.animalBelongsMe(parto.getVaca())) {
 			return parto;
 		}else {
 			return null;
@@ -97,7 +103,7 @@ public class ServiceParto {
 	}
 	
 	public Partos save(@Valid Partos parto) {
-		if(usuarioService.animalBelongsMe(parto.getVaca())) {
+		if(propriedadeService.animalBelongsMe(parto.getVaca())) {
 			return partosRepository.save(parto);
 		}else {
 			return null;
@@ -106,7 +112,7 @@ public class ServiceParto {
 
 	public ResponseEntity<?> update(long id, @Valid Partos parto) {
 		//Verifica se a vaca pertence ao Usuario logado
-		if(usuarioService.animalBelongsMe(parto.getVaca())) {
+		if(propriedadeService.animalBelongsMe(parto.getVaca())) {
 			return partosRepository.findById(id).map(record -> {
 				record.setCoberturas(parto.getCoberturas());
 				record.setData(parto.getData());
@@ -126,7 +132,7 @@ public class ServiceParto {
 
 	public ResponseEntity<?> delete(long id) {
 		return partosRepository.findById(id).map(record -> {
-			if(usuarioService.animalBelongsMe(record.getVaca())) {
+			if(propriedadeService.animalBelongsMe(record.getVaca())) {
 				partosRepository.deleteById(id);
 				return ResponseEntity.ok().build();
 			}else {
@@ -134,4 +140,5 @@ public class ServiceParto {
 			}
 		}).orElse(ResponseEntity.notFound().build()); 
 	}
+
 }

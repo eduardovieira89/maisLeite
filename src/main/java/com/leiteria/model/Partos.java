@@ -3,16 +3,22 @@
 package com.leiteria.model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity(name="partos")
 public class Partos {
@@ -52,6 +58,10 @@ public class Partos {
     @ManyToOne
     @JoinColumn(name="prenhez")
     private DiagnosticosPrenhez diagnosticosPrenhez;
+    
+    @JsonManagedReference
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "parto", orphanRemoval = true)
+    private List<Crias> crias = new ArrayList<>();
 
     /** Default constructor. */
     public Partos() {
@@ -126,9 +136,16 @@ public class Partos {
     public void setDiagnosticosPrenhez(DiagnosticosPrenhez aDiagnosticosPrenhez) {
         diagnosticosPrenhez = aDiagnosticosPrenhez;
     }
-
     
-    /**
+    public List<Crias> getCrias() {
+		return crias;
+	}
+	public void setCrias(List<Crias> crias) {
+		this.crias = crias;
+	}
+
+
+	/**
      * Compares the key for this instance with another Partos.
      *
      * @param other The object to compare to

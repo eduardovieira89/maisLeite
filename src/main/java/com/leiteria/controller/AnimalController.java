@@ -40,7 +40,7 @@ public class AnimalController {
 		return animalService.findByPropriedadeAndGenero(idPropriedade, genero);
 	}
 	
-	@GetMapping("/{id}")
+	@GetMapping("/{*id}")
 	public ResponseEntity<?> findById(@PathVariable(value="id") long idAnimal){
 		return animalService.findById(idAnimal);
 	}
@@ -50,18 +50,18 @@ public class AnimalController {
 		return animalService.save(animais);
 	}
 	
-	@PutMapping(value="/{id}")
+	@PutMapping(value="/{*id}")
 	public ResponseEntity<?> update(@PathVariable long id, @RequestBody Animais animal){
 		return animalService.update(id, animal);
 	}
 	
-	@PutMapping(value="/baixa/{id}")
+	@PutMapping(value="/baixa/{*id}")
 	public ResponseEntity<?>baixaAnimal(@PathVariable long id, @RequestBody MotivosBaixa motivo){
 		return animalService.baixa(id, motivo);
 	}
 	
 	
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/{*id}")
 	public ResponseEntity<?> delete(@PathVariable long id){
 		return animalService.delete(id);
 	}

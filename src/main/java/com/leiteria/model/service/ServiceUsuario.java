@@ -18,7 +18,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.leiteria.model.Animais;
 import com.leiteria.model.ERegras;
 import com.leiteria.model.Regras;
 import com.leiteria.model.Usuarios;
@@ -36,8 +35,8 @@ public class ServiceUsuario {
 	
 	@Autowired
 	private UsuarioRepository userRepository;
-	@Autowired
-	private ServicePropriedade propriedadeService;
+	//@Autowired
+	//private ServicePropriedade propriedadeService;
 	@Autowired
 	private AuthenticationManager authenticationManager;
 	@Autowired
@@ -82,14 +81,6 @@ public class ServiceUsuario {
 		}else {
 			return userAutenticado.getChefe();
 		}
-	}
-
-	public boolean animalBelongsMe(Animais vaca) {
-		//List<Propriedades> myProperties =  propriedadeService.listarPropriedades();
-		if(propriedadeService.listPropriedades().contains(vaca.getPropriedade())){
-			return true;
-		}
-		return false;
 	}
 
 	public ResponseEntity<?> autenticar(@Valid LoginRequest loginRequest) {

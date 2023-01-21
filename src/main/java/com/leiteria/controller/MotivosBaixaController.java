@@ -25,7 +25,7 @@ public class MotivosBaixaController {
 		return motivosBaixaService.list();
 	}
 	
-	@GetMapping("/{id}")
+	@GetMapping("/{*id}")
 	public ResponseEntity<?> findById(@PathVariable int id){
 		return motivosBaixaService.findById(id);
 	}

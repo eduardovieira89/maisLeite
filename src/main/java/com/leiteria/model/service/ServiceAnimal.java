@@ -18,8 +18,6 @@ public class ServiceAnimal {
 	@Autowired
 	private AnimaisRepository animalRepository;
 	@Autowired
-	private ServiceUsuario usuarioService;
-	@Autowired
 	private ServicePropriedade propriedadeService;
 	@Autowired
 	private MotivosBaixaRepository motivosBaixaRepository;
@@ -44,7 +42,7 @@ public class ServiceAnimal {
 	public Animais findAnimal(long id) {
 		animalRepository.findById(id)
 				.map(record -> {
-					if(usuarioService.animalBelongsMe(record)) {
+					if(propriedadeService.animalBelongsMe(record)) {
 						return record;
 					}
 					return null;
@@ -55,7 +53,7 @@ public class ServiceAnimal {
 	public ResponseEntity<?> findById(long idAnimal) {
 		return animalRepository.findById(idAnimal)
 				.map(record -> {
-						if(usuarioService.animalBelongsMe(record)) {
+						if(propriedadeService.animalBelongsMe(record)) {
 							return ResponseEntity.ok().body(record);
 						}
 						return ResponseEntity.notFound().build();
@@ -71,7 +69,7 @@ public class ServiceAnimal {
 	}
 
 	public ResponseEntity<?> update(long id, Animais animal) {
-		if(usuarioService.animalBelongsMe(animal)) {
+		if(propriedadeService.animalBelongsMe(animal)) {
 			return animalRepository.findById(id).
 					map(record -> {
 						record.setNome(animal.getNome());
@@ -96,7 +94,7 @@ public class ServiceAnimal {
 	public ResponseEntity<?> delete(long id) {
 		return animalRepository.findById(id)
 				.map(record ->{
-					if(usuarioService.animalBelongsMe(record)) {
+					if(propriedadeService.animalBelongsMe(record)) {
 						animalRepository.deleteById(id);
 						return ResponseEntity.ok().build();
 					}
@@ -111,7 +109,7 @@ public class ServiceAnimal {
 		MotivosBaixa motivoEncontrado = motivosBaixaRepository.findById(motivo.getId_motivos_baixa()).get();
 		return animalRepository.findById(id)
 				.map(record -> {
-					if(usuarioService.animalBelongsMe(record)) {
+					if(propriedadeService.animalBelongsMe(record)) {
 						record.setMotivosBaixa(motivoEncontrado);
 						record.setAtivo(false);
 						Animais baixado = animalRepository.save(record);

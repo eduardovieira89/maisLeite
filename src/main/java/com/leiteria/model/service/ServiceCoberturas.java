@@ -21,8 +21,6 @@ public class ServiceCoberturas {
 	@Autowired
 	private CoberturasRepository coberturasRepository;
 	@Autowired
-	private ServiceUsuario usuarioService;
-	@Autowired
 	private TiposCoberturasRepository tiposCoberturasRepository;
 	@Autowired
 	private ServiceSemens semensService;
@@ -38,7 +36,7 @@ public class ServiceCoberturas {
 			depois é removido da lista todas as coberturas que possuem parto para retornar somente as que estão em andamento 
 		**/ 
 		Propriedades propriedade = propriedadeService.findPropriedade(idPropriedade);
-		List<Coberturas> coberturasEmAndamento =  coberturasRepository.findByVacaPropriedade(propriedade);
+		List<Coberturas> coberturasEmAndamento =  coberturasRepository.findByVacaPropriedadeOrderByDataDesc(propriedade);
 		List<Coberturas> coberturaPartos = new ArrayList<>();
 		coberturasEmAndamento.forEach(temParto -> { if (partoService.existsCobertura(temParto)) {
 																coberturaPartos.add(temParto);}} );
@@ -65,7 +63,7 @@ public class ServiceCoberturas {
 	}
 
 	public Coberturas save(@Valid Coberturas cobertura) {
-		if(usuarioService.animalBelongsMe(cobertura.getVaca())) {
+		if(propriedadeService.animalBelongsMe(cobertura.getVaca())) {
 		/** Ao ser feito inseminação o campo "Monta controlada" deve ser nulo, mas está vindo como false
 			Esse if é para setar como null quando a cobertura é feita via inseminação
 			e para dar baixa no estoque de doses de sêmen. **/
@@ -88,7 +86,7 @@ public class ServiceCoberturas {
 
 		/** Esse if verifica se a vaca que está sendo realizada a cobertura pertence ao usuário requisitante
 		 .....Ver se é melhor fazer o if pelo id ou pela cobertura **/
-		if (usuarioService.animalBelongsMe(cobertura.getVaca())) {
+		if (propriedadeService.animalBelongsMe(cobertura.getVaca())) {
 			return coberturasRepository.findById(id).map(record -> {
 				record.setData(cobertura.getData());
 				record.setEscoreCorporal(cobertura.getEscoreCorporal());
@@ -111,7 +109,7 @@ public class ServiceCoberturas {
 	
 	public ResponseEntity<?> delete(long id) {
 		return coberturasRepository.findById(id).map(record -> {
-			if(usuarioService.animalBelongsMe(record.getVaca())) {
+			if(propriedadeService.animalBelongsMe(record.getVaca())) {
 			coberturasRepository.deleteById(id);
 			return ResponseEntity.ok().build();
 			}else {

@@ -2,9 +2,9 @@ package com.leiteria.model.vacinas;
 
 import java.io.Serializable;
 
-import javax.persistence.Embeddable;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import jakarta.persistence.Embeddable;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
 import com.leiteria.model.Animais;

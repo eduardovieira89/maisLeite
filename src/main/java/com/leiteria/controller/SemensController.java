@@ -35,12 +35,12 @@ public class SemensController {
 		return semensService.save(semens);
 	}
 	
-	@PutMapping(value = "/{id}")
+	@PutMapping(value = "/{*id}")
 	public ResponseEntity<?> update(@PathVariable long id, @RequestBody Semens semen){
 		return semensService.atualizar(id, semen);
 	}
 	
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/{*id}")
 	public ResponseEntity<?> delete(@PathVariable long id){
 		return semensService.deletar(id);
 	}

@@ -26,8 +26,6 @@ public class ServiceDiagnosticosPrenhez {
 	@Autowired
 	private DiagnosticosPrenhezRepository diagnosticoRepository;
 	@Autowired
-	private ServiceUsuario usuarioService;
-	@Autowired
 	private AnimaisRepository animaisRepository;
 	@Autowired	
 	private CoberturasRepository coberturaRepository;
@@ -55,7 +53,7 @@ public class ServiceDiagnosticosPrenhez {
 		Animais vaca = animaisRepository.findById(idVaca).get();
 		
 		//Verifica se vaca não é nulo e se ela pertence ao proprietário.
-		if(vaca != null && usuarioService.animalBelongsMe(vaca)) {
+		if(vaca != null && propriedadeService.animalBelongsMe(vaca)) {
 			return diagnosticoRepository.findByVaca(vaca);
 		}
 		return null;
@@ -73,8 +71,8 @@ public class ServiceDiagnosticosPrenhez {
 		 se pode ser feito mais de um diagnóstico por cobertura , será necessário alterar esse método */
 		
 		Animais vaca = animaisRepository.findById(idVaca).orElse(null);
-		if(vaca != null && usuarioService.animalBelongsMe(vaca)) {
-			Coberturas cobertura = coberturaRepository.findTopByVacaOrderByDataDesc(vaca);
+		if(vaca != null && propriedadeService.animalBelongsMe(vaca)) {
+			Coberturas cobertura = coberturaRepository.findFirstByVacaOrderByDataDesc(vaca);
 			if(cobertura != null) {
 				DiagnosticosPrenhez contemDiagnostico = diagnosticoRepository.findOneByCobertura(cobertura);
 				if(contemDiagnostico == null) {
@@ -104,7 +102,7 @@ public class ServiceDiagnosticosPrenhez {
 
 	public ResponseEntity<?> update(long id, DiagnosticosPrenhez diagnostico) {
 		//Verifica se o diagnóstico pertence ao usuario
-		if(usuarioService.animalBelongsMe(diagnostico.getVaca())) {
+		if(propriedadeService.animalBelongsMe(diagnostico.getVaca())) {
 			return diagnosticoRepository.findById(id)
 					.map(record -> {
 						record.setVaca(diagnostico.getVaca());

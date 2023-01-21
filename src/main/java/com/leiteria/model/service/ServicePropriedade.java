@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.leiteria.model.Animais;
 import com.leiteria.model.Propriedades;
 import com.leiteria.repository.PropriedadeRepository;
 import com.leiteria.repository.UsuarioRepository;
@@ -40,6 +41,14 @@ public class ServicePropriedade {
 			return null;
 		}).get();
 		
+	}
+	
+	public boolean animalBelongsMe(Animais vaca) {
+		//List<Propriedades> myProperties =  propriedadeService.listarPropriedades();
+		if(this.listPropriedades().contains(vaca.getPropriedade())){
+			return true;
+		}
+		return false;
 	}
 	
 	public ResponseEntity<?> findById(long propriedadeId){

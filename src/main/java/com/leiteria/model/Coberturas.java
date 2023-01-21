@@ -4,13 +4,13 @@ package com.leiteria.model;
 
 import java.time.LocalDate;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
 @Entity(name="coberturas")
@@ -28,7 +28,7 @@ public class Coberturas{
     private int qtdeDoseSemen;
     
     @NotNull(message = "Data é um campo obrigatório")
-    @Column(nullable=false)
+    @Column(nullable=false, name="data")
     private LocalDate data;
     
     @Column(name="monta_controlada")
@@ -40,7 +40,7 @@ public class Coberturas{
     @Column(length=255)
     private String observacao;
     
-    @NotNull(message = "É obrigatório informar a vaca a ser feita cobertura")
+    @NotNull(message = "É obrigatório informar de qual vaca a cobertura será realizada")
     @ManyToOne(optional=false)
     @JoinColumn(name="vaca", nullable=false)
     private Animais vaca;

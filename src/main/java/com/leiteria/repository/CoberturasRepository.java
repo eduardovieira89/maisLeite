@@ -10,7 +10,7 @@ import com.leiteria.model.Propriedades;
 
 public interface CoberturasRepository extends JpaRepository<Coberturas, Long> {
 	
-	Coberturas findTopByVacaOrderByDataDesc(Animais vaca);
-	List<Coberturas> findByVacaPropriedade(Propriedades propriedade);
+	Coberturas findFirstByVacaOrderByDataDesc(Animais vaca);
+	List<Coberturas> findByVacaPropriedadeOrderByDataDesc(Propriedades propriedade);
 
 }
