@@ -27,6 +27,10 @@ public class ServiceOrigemAnimal {
 				 .orElse(ResponseEntity.notFound().build());
 	}
 	
+	public OrigemAnimal findByDescricao(String descricao) {
+		return origemAnimalRepository.findByDescricao(descricao).orElseThrow();
+	}
+	
 	public OrigemAnimal save(@Valid OrigemAnimal oAnimal) {
 		return origemAnimalRepository.save(oAnimal);
 	}

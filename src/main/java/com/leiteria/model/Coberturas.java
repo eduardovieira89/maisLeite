@@ -13,6 +13,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
+
 @Entity(name="coberturas")
 public class Coberturas{
 

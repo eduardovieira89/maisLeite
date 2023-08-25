@@ -32,7 +32,7 @@ public class PropriedadeController {
 		return propriedades;
 	}
 
-	@GetMapping("/{*id}")
+	@GetMapping("/{id}")
 	public ResponseEntity<?> findById(@PathVariable(value = "id") long propriedadeId) {
 		return propriedadeService.findById(propriedadeId);
 	}
@@ -43,13 +43,13 @@ public class PropriedadeController {
 		return propriedadeService.save(propriedade);
 	}
 
-	@PutMapping("/{*id}")
+	@PutMapping("/{id}")
 	@PreAuthorize("hasRole('PRODUTOR')")
 	public ResponseEntity<?> atualizarPropriedade(@PathVariable long id, @RequestBody Propriedades propriedade){
 		return propriedadeService.update(id, propriedade);
 	}
 
-	@DeleteMapping("/{*id}")
+	@DeleteMapping("/{id}")
 	@PreAuthorize("hasRole('PRODUTOR')")
 	public ResponseEntity<?> delete(@PathVariable(value = "id") long propriedadeId){
 		return propriedadeService.delete(propriedadeId);

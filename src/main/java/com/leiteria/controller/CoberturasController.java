@@ -33,13 +33,13 @@ public class CoberturasController {
 		return coberturaService.listEmAndamento(idPropriedade);
 	}
 	
-	@GetMapping("/vaca/{*id}")
+	@GetMapping("/vaca/{id}")
 	public  List<Coberturas> listByVaca(@RequestParam("idvaca")long idVaca){
 		//Retorna todas as coberturas da vaca selecionada
 		return coberturaService.listByVaca(idVaca);
 	}
 	
-	@GetMapping("/inseminador/{*id}")
+	@GetMapping("/inseminador/{id}")
 	public List<Coberturas> listByInseminador(@RequestParam("idinseminador")long idInseminador){
 		//Retorna todas as coberturas realizadas pelo inseminador (Usuário) selecionado
 		return coberturaService.listByInseminador(idInseminador);
@@ -50,7 +50,7 @@ public class CoberturasController {
 		return coberturaService.listTiposCoberturas();
 	}
 	
-	@GetMapping("/{*id}")
+	@GetMapping("/{id}")
 	public ResponseEntity<?> findById(@PathVariable(value="id") long idCobertura){
 		return coberturaService.findById(idCobertura);
 	}
@@ -60,12 +60,12 @@ public class CoberturasController {
 		return coberturaService.save(cobertura);
 	}
 	
-	@PutMapping(value="/{*id}")
+	@PutMapping(value="/{id}")
 	public ResponseEntity<?> update(@PathVariable long id, @RequestBody Coberturas cobertura){
 		return coberturaService.update(id, cobertura);
 	}
 	
-	@DeleteMapping("/{*id}")
+	@DeleteMapping("/{id}")
 	public ResponseEntity<?> delete(@PathVariable long id){
 		return coberturaService.delete(id);
 	}

@@ -33,7 +33,7 @@ public class AnimalRepositoryTest {
 	
 	@Test
 	public void createShoulPersistData() {
-		Usuarios user = new Usuarios("João", "joao@leite.com", "123456");
+		Usuarios user = new Usuarios(0,"João", "joao@leite.com", "123456", null, null, null);
 		usuarioRepository.save(user);
 		
 		Propriedades propriedade = new Propriedades("Prop teste", "loc teste", "mun teste", user);

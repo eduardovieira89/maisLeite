@@ -4,25 +4,26 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.leiteria.model.AnimaisDoadores;
+import com.leiteria.model.OrigemAnimal;
 import com.leiteria.model.Usuarios;
 import com.leiteria.repository.AnimaisDoadoresRepository;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class ServiceAnimaisDoadores {
 
-	@Autowired
-	private AnimaisDoadoresRepository animaisDRepository;
-	@Autowired
-	private ServiceUsuario serviceUsuario;
+	private final AnimaisDoadoresRepository animaisDRepository;
+	private final ServiceUsuario serviceUsuario;
+	private final ServiceOrigemAnimal serviceOrigemAnimal;
 	
 	
 	public List<AnimaisDoadores> listMyAnimaisDoadores(){
-		
 		return animaisDRepository.findByUsuarios(serviceUsuario.getProprietario());
 	}
 	
@@ -30,22 +31,14 @@ public class ServiceAnimaisDoadores {
 		return animaisDRepository.findById(idAnimal)
 				.map(record -> ResponseEntity.ok().body(record))
 				.orElse(ResponseEntity.notFound().build());
-		/**
-		AnimaisDoadores doador = animaisDRepository.findById(idAnimal).orElse(null);
-		if(doador != null){
-			Usuarios dono = serviceUsuario.getProprietario();
-			if(doador.getUsuarios() == dono ) {
-				return doador;
-			}
-		}
-		return null;
-		**/
 	}
 
 
 	public AnimaisDoadores salvar(@Valid AnimaisDoadores doador) {
 		//Verificar como retornar mensagem que não tem dados de animal doador;
 		Usuarios dono = serviceUsuario.getProprietario();
+		OrigemAnimal origemDoador = serviceOrigemAnimal.findByDescricao("Animal doador");
+		doador.getAnimal().setOrigemAnimal(origemDoador);
 		doador.setUsuarios(dono);
 		return animaisDRepository.save(doador);
 	}
@@ -73,7 +66,6 @@ public class ServiceAnimaisDoadores {
 	
 	public ResponseEntity<?> deletar(long id) {
 		// precisa fazer verificação se não tem esse animal em semens para poder excluir
-		
 		return animaisDRepository.findById(id)
 				.map(record ->{
 					animaisDRepository.deleteById(id);

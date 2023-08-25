@@ -3,6 +3,8 @@
 package com.leiteria.model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -12,6 +14,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
@@ -19,6 +23,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Entity(name="animais")
 public class Animais {
 
@@ -79,6 +84,9 @@ public class Animais {
 	@JoinColumn(name="id_origem_animal")
 	private OrigemAnimal origemAnimal;
 	
+	@OneToMany(mappedBy = "vaca", fetch = FetchType.LAZY)
+	private List<Partos> partos;
+	
 	
 	public Animais(String nome, int brinco, LocalDate dataNasc, int registro, char sexo, Propriedades propriedade, Racas raca) {
 		super();
@@ -94,6 +102,7 @@ public class Animais {
 	public Animais() {
 	}
 
+	
 	public long getId() {
 		return id;
 	}
@@ -181,6 +190,12 @@ public class Animais {
 	public void setOrigemAnimal(OrigemAnimal origemAnimal) {
 		this.origemAnimal = origemAnimal;
 	}
+	/**public List<Partos> getPartos() {
+		return partos;
+	}
+	public void setPartos(List<Partos> partos) {
+		this.partos = partos;
+	}**/
 
 	@Override
 	public int hashCode() {

@@ -1,11 +1,10 @@
-package com.leiteria.payload.request;
+package com.leiteria.security.payload.request;
 
 import javax.validation.constraints.NotBlank;
 
 public class LoginRequest {
 	@NotBlank
 	private String email;
-
 	@NotBlank
 	private String password;
 
@@ -13,7 +12,7 @@ public class LoginRequest {
 		return email;
 	}
 
-	public void setUsername(String email) {
+	public void setEmail(String email) {
 		this.email = email;
 	}
 

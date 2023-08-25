@@ -42,7 +42,7 @@ public class CustomUserDetails implements UserDetails {
 		return user.getEmail();
 	}
 	
-	public String getNomeUsuario() {
+	public String getNome() {
 		return user.getNome();
 	}
 

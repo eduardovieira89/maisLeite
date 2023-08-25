@@ -33,16 +33,9 @@ public class AnimaisDoadoresController {
 		return animaisDoadoresService.listMyAnimaisDoadores();
 	}
 	
-	@GetMapping("/{*id}")
+	@GetMapping("/{id}")
 	public ResponseEntity<?> findById(@PathVariable(value="id") long idAnimal) throws ResourceNotFoundException{
 		return animaisDoadoresService.findById(idAnimal);
-		/**AnimaisDoadores animal = animaisDoadoresService.findById(idAnimal);
-		if(animal != null) {
-			return ResponseEntity.ok().body(animal);
-		}else {
-			return ResponseEntity.badRequest().body(new MessageResponse("Animal doador não encontrado"));
-		}
-		**/
 	}
 	
 	@PostMapping
@@ -50,12 +43,12 @@ public class AnimaisDoadoresController {
 		return animaisDoadoresService.salvar(doador);		
 	}
 	
-	@PutMapping(value="/{*id}")
+	@PutMapping(value="/{id}")
 	public ResponseEntity<?> atualizar(@PathVariable long id, @RequestBody AnimaisDoadores doador){
 		return animaisDoadoresService.atualizar(id, doador);
 	}
 	
-	@DeleteMapping("/{*id}")
+	@DeleteMapping("/{id}")
 	public ResponseEntity<?> delete (@PathVariable long id){
 		return animaisDoadoresService.deletar(id);
 	}

@@ -1,6 +1,7 @@
 package com.leiteria.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -10,7 +11,7 @@ import com.leiteria.model.Usuarios;
 
 public interface UsuarioRepository extends JpaRepository<Usuarios, Long> {
 	
-	Usuarios findByEmail(String login);
+	Optional<Usuarios> findByEmail(String login);
 	Usuarios findByEmailAndSenha(String email, String password);
 	Boolean existsByEmail(String email);
 	Boolean existsBypropriedades(Propriedades propriedade);

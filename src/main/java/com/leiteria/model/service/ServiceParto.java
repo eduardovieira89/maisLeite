@@ -2,12 +2,12 @@ package com.leiteria.model.service;
 
 import java.util.List;
 import javax.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import com.leiteria.model.Animais;
 import com.leiteria.model.Coberturas;
 import com.leiteria.model.DiagnosticosPrenhez;
+import com.leiteria.model.Lactacoes;
 import com.leiteria.model.Partos;
 import com.leiteria.model.Propriedades;
 import com.leiteria.model.TiposParto;
@@ -15,20 +15,18 @@ import com.leiteria.repository.DiagnosticosPrenhezRepository;
 import com.leiteria.repository.PartosRepositoy;
 import com.leiteria.repository.TiposPartoRepository;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class ServiceParto {
 	
-	@Autowired
-	private PartosRepositoy partosRepository;
-	@Autowired
-	private ServiceAnimal animaisService;
-	//private AnimaisRepository animaisRepository;
-	@Autowired
-	private TiposPartoRepository tiposPartosRepository;
-	@Autowired
-	private DiagnosticosPrenhezRepository diagnosticoPrenhezRepository;
-	@Autowired
-	private ServicePropriedade propriedadeService;
+	private final PartosRepositoy partosRepository;
+	private final ServiceAnimal animaisService;
+	private final TiposPartoRepository tiposPartosRepository;
+	private final DiagnosticosPrenhezRepository diagnosticoPrenhezRepository;
+	private final ServicePropriedade propriedadeService;
+	private final ServiceLactacoes lactacoesService;
 	
 	public Boolean existsCobertura(Coberturas cobertura) {
 		return partosRepository.existsByCoberturas(cobertura);
@@ -64,9 +62,9 @@ public class ServiceParto {
 		 Se não retorna nulo */
 		 Animais vaca = animaisService.findAnimal(idVaca);
 		 if(vaca != null && propriedadeService.animalBelongsMe(vaca)) {
-			 DiagnosticosPrenhez diagnostico = diagnosticoPrenhezRepository.findLastByVacaOrderByData(vaca);
+			 DiagnosticosPrenhez diagnostico = diagnosticoPrenhezRepository.findTopByVacaOrderByDataDesc(vaca);
 			 if(diagnostico != null && diagnostico.getDiagnostico() == true) {
-				 Partos parto = partosRepository.findLastByVacaOrderByData(vaca);
+				 Partos parto = partosRepository.findTopByVacaOrderByDataDesc(vaca);
 				 if(parto == null) {
 					 return ResponseEntity.ok().body(diagnostico);
 				 }else {
@@ -76,11 +74,11 @@ public class ServiceParto {
 				 }
 			 }
 		 }
-		 return ResponseEntity.notFound().build();
+		 return null;
 	}
 	
 	public Partos findLastPartoVaca(Animais vaca) {
-		return partosRepository.findLastByVacaOrderByData(vaca);
+		return partosRepository.findTopByVacaOrderByDataDesc(vaca);
 	}
 	
 	public ResponseEntity<?> findById(long idParto) {
@@ -104,7 +102,10 @@ public class ServiceParto {
 	
 	public Partos save(@Valid Partos parto) {
 		if(propriedadeService.animalBelongsMe(parto.getVaca())) {
-			return partosRepository.save(parto);
+			Partos partoSalvo = partosRepository.save(parto);
+			Lactacoes lactacao = new Lactacoes(partoSalvo);
+			lactacoesService.save(lactacao);
+			return partoSalvo;
 		}else {
 			return null;
 		}

@@ -1,4 +1,4 @@
-package com.leiteria.payload.response;
+package com.leiteria.security.payload.response;
 
 public class MessageResponse {
 	private String message;

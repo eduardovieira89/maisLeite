@@ -44,7 +44,7 @@ public class PartoController {
 		return partoService.lastDiagnosticosPrenhez(idVaca);
 	}
 	
-	@GetMapping("{*id}")
+	@GetMapping("{id}")
 	public ResponseEntity<?> finById(@PathVariable(value="id") long idParto){
 		return partoService.findById(idParto);
 	}
@@ -55,12 +55,12 @@ public class PartoController {
 		return partoService.save(parto);
 	}
 	
-	@PutMapping(value="/{*id}")
+	@PutMapping(value="/{id}")
 	public ResponseEntity<?> update(@PathVariable long id, @RequestBody Partos parto){
 		return partoService.update(id, parto);
 	}
 	
-	@DeleteMapping("/{*id}")
+	@DeleteMapping("/{id}")
 	public ResponseEntity<?> delete(@PathVariable long id){
 		return partoService.delete(id);
 	}

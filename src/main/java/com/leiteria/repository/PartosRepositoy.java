@@ -12,7 +12,7 @@ import com.leiteria.model.Propriedades;
 
 public interface PartosRepositoy extends JpaRepository<Partos, Long> {
 	
-	Partos findLastByVacaOrderByData(Animais vaca);
+	Partos findTopByVacaOrderByDataDesc(Animais vaca);
 	List<Partos> findByVaca(Animais vaca);
 	List<Partos> findByVacaPropriedadeOrderByDataDesc(Propriedades propriedade);
 	Boolean existsByCoberturas(Coberturas cobertura);

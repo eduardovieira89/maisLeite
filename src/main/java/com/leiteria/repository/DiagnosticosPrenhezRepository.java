@@ -14,5 +14,5 @@ public interface DiagnosticosPrenhezRepository extends JpaRepository<Diagnostico
 	List<DiagnosticosPrenhez> findByVaca(Animais vaca);
 	List<DiagnosticosPrenhez> findByVacaPropriedade(Propriedades propriedade);
 	DiagnosticosPrenhez findOneByCobertura(Coberturas cobertura);
-	DiagnosticosPrenhez findLastByVacaOrderByData(Animais vaca);
+	DiagnosticosPrenhez findTopByVacaOrderByDataDesc(Animais vaca);
 }

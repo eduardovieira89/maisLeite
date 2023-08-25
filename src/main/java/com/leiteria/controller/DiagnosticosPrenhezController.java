@@ -52,7 +52,7 @@ public class DiagnosticosPrenhezController {
 		return diagnosticoService.listMetodosPrenhez();
 	}
 	
-	@GetMapping("/{*id}")
+	@GetMapping("/{id}")
 	public ResponseEntity<DiagnosticosPrenhez> findById(@PathVariable(value="id") long id) throws ResourceNotFoundException{
 		return diagnosticoService.findById(id);
 	}
@@ -62,12 +62,12 @@ public class DiagnosticosPrenhezController {
 		return diagnosticoService.save(diagnostico);
 	}
 	
-	@PutMapping(value="/{*id}")
+	@PutMapping(value="/{id}")
 	public ResponseEntity<?> update(@PathVariable long id, @RequestBody DiagnosticosPrenhez diagnostico){
 		return diagnosticoService.update(id, diagnostico);
 	}
 	
-	@DeleteMapping("/{*id}")
+	@DeleteMapping("/{id}")
 	public ResponseEntity<?> delete(@PathVariable long id){
 		return diagnosticoService.delete(id);
 	}

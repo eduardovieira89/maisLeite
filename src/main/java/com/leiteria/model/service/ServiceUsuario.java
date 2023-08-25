@@ -7,44 +7,40 @@ import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.leiteria.model.ERegras;
 import com.leiteria.model.Regras;
 import com.leiteria.model.Usuarios;
-import com.leiteria.payload.request.LoginRequest;
-import com.leiteria.payload.request.SignupRequest;
-import com.leiteria.payload.response.JwtResponse;
-import com.leiteria.payload.response.MessageResponse;
 import com.leiteria.repository.RegraRepository;
 import com.leiteria.repository.UsuarioRepository;
 import com.leiteria.security.CustomUserDetails;
-import com.leiteria.security.jwt.JwtUtils;
+import com.leiteria.security.config.JwtService;
+import com.leiteria.security.payload.request.LoginRequest;
+import com.leiteria.security.payload.request.RegisterRequest;
+import com.leiteria.security.payload.response.AuthenticationResponse;
+import com.leiteria.security.payload.response.MessageResponse;
+
+import lombok.RequiredArgsConstructor;
 
 @Service
+@RequiredArgsConstructor
 public class ServiceUsuario {
 	
-	@Autowired
-	private UsuarioRepository userRepository;
-	//@Autowired
-	//private ServicePropriedade propriedadeService;
-	@Autowired
-	private AuthenticationManager authenticationManager;
-	@Autowired
-	private JwtUtils jwtUtils;
-	@Autowired
-	PasswordEncoder encoder;
-	@Autowired
-	RegraRepository regraRepository;
+	
+	private final UsuarioRepository userRepository;
+	private final JwtService jwtService;
+	private final AuthenticationManager authenticationManager;
+	private final PasswordEncoder encoder;
+	private final RegraRepository regraRepository;
 	
 	public List<Usuarios> listPropAndFunc() {
 		
@@ -64,12 +60,13 @@ public class ServiceUsuario {
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		if(principal == null) throw new AuthenticationCredentialsNotFoundException("Usuario não logado");
 		//String nome;		
-		if (principal instanceof UserDetails) {
+		//if (principal instanceof UserDetails) {
 		    String nome = ((UserDetails)principal).getUsername();
-		     return userRepository.findByEmail(nome);		    
-		} else {		    
-		    return null;
-		}
+		     return userRepository.findByEmail(nome)
+		    		 .orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado"));		    
+		//} else {		    
+		 //   return null;
+		//}
 	}
 	
 	public Usuarios getProprietario() {
@@ -83,36 +80,34 @@ public class ServiceUsuario {
 		}
 	}
 
-	public ResponseEntity<?> autenticar(@Valid LoginRequest loginRequest) {
-		try {
-			Authentication authentication = authenticationManager.authenticate(
-					new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getPassword()));
-			SecurityContextHolder.getContext().setAuthentication(authentication);
-			String jwt = jwtUtils.generateJwtToken(authentication);
-			
-			CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
-			List<String> roles = userDetails.getAuthorities().stream()
-					.map(item -> item.getAuthority())
-					.collect(Collectors.toList());
-			
-			return ResponseEntity.ok(new JwtResponse(jwt,
-													 userDetails.getNomeUsuario(),
-													 userDetails.getUsername(),
-													 roles));
-		} catch (Exception e) {
-			//ver se da para tratar melhor erro de usuario e senha.
-			return ResponseEntity.badRequest().body(new MessageResponse("Erro: Email ou senha não encontrados"));
-		}
+	public AuthenticationResponse autenticar(@Valid LoginRequest loginRequest) {
+		authenticationManager.authenticate(
+				new UsernamePasswordAuthenticationToken(loginRequest.getEmail(),
+														loginRequest.getPassword()));
+		
+		var user = new CustomUserDetails(userRepository.findByEmail(loginRequest.getEmail()).orElseThrow());
+		var jwtToken = jwtService.generateToken(user);
+		List<String> roles = user.getAuthorities().stream()
+				.map(item -> item.getAuthority())
+				.collect(Collectors.toList());
+		
+		return AuthenticationResponse.builder()
+				.token(jwtToken)
+				.username(user.getNome())
+				.email(user.getUsername())
+				.roles(roles)
+				.build();
+		
 	}
 
-	public ResponseEntity<?> registrarProdutor(@Valid SignupRequest novoUser) {
+	public ResponseEntity<?> registrarProdutor(@Valid RegisterRequest novoUser) {
 		if(userRepository.existsByEmail(novoUser.getEmail())) {
 			return ResponseEntity.badRequest()
 					.body(new MessageResponse("Erro: Esse email já está cadastrado"));
 		}
-		Usuarios user = new Usuarios(novoUser.getUsername(),
+		/** Usuarios user = new Usuarios(novoUser.getUsername(),
 								   novoUser.getEmail(),
-								   encoder.encode(novoUser.getPassword()));
+								   encoder.encode(novoUser.getPassword())); **/
 		Set<String> strRegras = novoUser.getRole();
 		List<Regras> regras = new ArrayList<>();
 		if(strRegras == null) {
@@ -142,25 +137,29 @@ public class ServiceUsuario {
 				}
 			});
 		}
-		user.setRegras(regras);
+		//user.setRegras(regras);
+		var user = Usuarios.builder()
+				.nome(novoUser.getUsername())
+				.email(novoUser.getEmail())
+				.senha(encoder.encode(novoUser.getPassword()))
+				.regras(regras)
+				.build();
 		userRepository.save(user);
 		return ResponseEntity.ok(new MessageResponse("Usuario registrado com sucesso"));
 	}
 
-	public ResponseEntity<?> registrarFuncionario(@Valid SignupRequest novoUser) {
+	public ResponseEntity<?> registrarFuncionario(@Valid RegisterRequest novoUser) {
 		if(userRepository.existsByEmail(novoUser.getEmail())) {
 			return ResponseEntity.badRequest()
 					.body(new MessageResponse("Erro: Esse email já está cadastrado"));
 		}
 		
-		Usuarios user = new Usuarios(novoUser.getUsername(),
+		/** Usuarios user = new Usuarios(novoUser.getUsername(),
 								   novoUser.getEmail(),
-								   encoder.encode(novoUser.getPassword()));
+								   encoder.encode(novoUser.getPassword())); **/
 		
 		Set<String> strRegras = novoUser.getRole();
 		List<Regras> regras = new ArrayList<>();
-		
-		
 		if(strRegras == null) {
 			Regras regraUsuario =  regraRepository.findBynomeRegra(ERegras.ROLE_FUNCIONARIO)
 									.orElseThrow(() -> new RuntimeException("Erro: Regra não encontrada."));
@@ -189,9 +188,16 @@ public class ServiceUsuario {
 				}
 			});
 		}
+		//user.setRegras(regras);
+		//user.setChefe(this.getUsuarioAutenticado());
+		var user = Usuarios.builder()
+				.nome(novoUser.getUsername())
+				.email(novoUser.getEmail())
+				.senha(encoder.encode(novoUser.getPassword()))
+				.regras(regras)
+				.chefe(this.getUsuarioAutenticado())
+				.build();
 		
-		user.setRegras(regras);
-		user.setChefe(this.getUsuarioAutenticado());
 		
 		userRepository.save(user);
 		return ResponseEntity.ok(new MessageResponse("Funcionario registrado com sucesso"));

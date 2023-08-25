@@ -38,7 +38,7 @@ public class VacinaController {
 		return vacinaService.listarVacinasAplicadas(idanimal);
 	}
 	
-	@GetMapping("{*id}")
+	@GetMapping("{id}")
 	public ResponseEntity<?> findById(@PathVariable(value="id") long id){
 		return vacinaService.findById(id);
 	}
@@ -48,12 +48,12 @@ public class VacinaController {
 		return vacinaService.save(vacina);
 	}
 	
-	@PutMapping(value="/{*id}")
+	@PutMapping(value="/{id}")
 	public ResponseEntity<Vacinas> update(@PathVariable long id, @Valid @RequestBody Vacinas detalhesVacina){
 		return vacinaService.update(id, detalhesVacina);
 	}
 	
-	@DeleteMapping("/{*id}")
+	@DeleteMapping("/{id}")
 	public ResponseEntity<?> delete(@PathVariable long id){
 		return vacinaService.delete(id);
 	}

@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.leiteria.model.Usuarios;
 import com.leiteria.model.service.ServiceUsuario;
-import com.leiteria.payload.request.LoginRequest;
-import com.leiteria.payload.request.SignupRequest;
+import com.leiteria.security.payload.request.LoginRequest;
+import com.leiteria.security.payload.request.RegisterRequest;
 
 @RestController
 @RequestMapping("/usuario")
@@ -40,18 +40,17 @@ public class UsuarioController {
 	
 	@PostMapping("/login")
 	public ResponseEntity<?> autenticarUsuario(@Valid @RequestBody LoginRequest loginRequest) {
-		return serviceUsuario.autenticar(loginRequest);
+		return ResponseEntity.ok(serviceUsuario.autenticar(loginRequest));
 	}
 
 	@PostMapping("/proprietario")
-	public ResponseEntity<?> registrarProdutor(@Valid @RequestBody SignupRequest novoUser) {
-		return serviceUsuario.registrarProdutor(novoUser);
+	public ResponseEntity<?> registrarProdutor(@Valid @RequestBody RegisterRequest novoUser) {
+		return ResponseEntity.ok(serviceUsuario.registrarProdutor(novoUser));
 	}
 	
-	
 	@PostMapping("/funcionario")
-	public ResponseEntity<?> registrarFuncionario(@Valid @RequestBody SignupRequest novoUser) {
-		return serviceUsuario.registrarFuncionario(novoUser);
+	public ResponseEntity<?> registrarFuncionario(@Valid @RequestBody RegisterRequest novoUser) {
+		return ResponseEntity.ok(serviceUsuario.registrarFuncionario(novoUser));
 	}
 	
 	

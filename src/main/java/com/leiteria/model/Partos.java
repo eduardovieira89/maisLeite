@@ -62,6 +62,9 @@ public class Partos {
     @JsonManagedReference
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "parto", orphanRemoval = true)
     private List<Crias> crias = new ArrayList<>();
+    
+    @OneToMany(mappedBy = "parto")
+    private List<Lactacoes> lactacoes;
 
     /** Default constructor. */
     public Partos() {
