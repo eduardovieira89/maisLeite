@@ -2,6 +2,8 @@ package com.leiteria.model;
 
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -30,6 +32,7 @@ public class ProducaoLeite {
 	@JoinColumn(name="lactacao")
 	private Lactacoes lactacao;
 	
+	@JsonBackReference
 	@NotNull(message = "Controle leiteiro é obrigatório")
 	@ManyToOne
 	@JoinColumn(name="id_controle_leiteiro")

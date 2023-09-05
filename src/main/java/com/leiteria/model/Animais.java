@@ -3,7 +3,6 @@
 package com.leiteria.model;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Column;

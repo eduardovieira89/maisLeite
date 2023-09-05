@@ -15,7 +15,7 @@
 	<name>maisLeite</name>
 	<description>Sistema Leiteria Leite+</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>20</java.version>
 	</properties>
 	<dependencies>
 		<dependency>

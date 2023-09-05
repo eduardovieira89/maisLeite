@@ -29,6 +29,15 @@ public class ServiceLactacoes {
 		return null;
 	}
 
+	public Lactacoes emAberto(long idVaca){
+		Animais vaca = animalService.findAnimal(idVaca);
+		if (vaca != null) {
+			return lactacoesRepository.findFirstByPartoVacaAndFinalizado(vaca, false);
+		}
+		return null;
+		
+	}
+
 	public Lactacoes save(@Valid Lactacoes lactacao) {
 		if(propriedadeService.animalBelongsMe(lactacao.getParto().getVaca())) {
 			return lactacoesRepository.save(lactacao);

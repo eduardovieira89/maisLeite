@@ -22,6 +22,7 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequestMapping("/lactacao")
 @RequiredArgsConstructor
+@CrossOrigin
 public class LactacoesController {
 
 	private final ServiceLactacoes lacService;
@@ -29,6 +30,12 @@ public class LactacoesController {
 	@GetMapping
 	public List<Lactacoes> listar(@RequestParam("idvaca") long idVaca){
 		return lacService.list(idVaca);
+	}
+
+	@GetMapping("/emaberto")
+	public Lactacoes emAberto(@RequestParam("idanimal") long idAnimal){
+		Lactacoes lac = lacService.emAberto(idAnimal);
+		return lac;
 	}
 	
 	@GetMapping("/{id}")

@@ -35,7 +35,7 @@ public class ServiceAnimaisDoadores {
 
 
 	public AnimaisDoadores salvar(@Valid AnimaisDoadores doador) {
-		//Verificar como retornar mensagem que não tem dados de animal doador;
+		//Verificar como retornar mensagem informando que não tem dados de animal doador;
 		Usuarios dono = serviceUsuario.getProprietario();
 		OrigemAnimal origemDoador = serviceOrigemAnimal.findByDescricao("Animal doador");
 		doador.getAnimal().setOrigemAnimal(origemDoador);

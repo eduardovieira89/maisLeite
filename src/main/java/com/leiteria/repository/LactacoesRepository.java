@@ -10,5 +10,6 @@ import com.leiteria.model.Lactacoes;
 public interface LactacoesRepository extends JpaRepository<Lactacoes, Long> {
 	
 	List<Lactacoes> findByPartoVacaOrderByDataInicioDesc(Animais vaca);
+	Lactacoes findFirstByPartoVacaAndFinalizado(Animais vaca, Boolean finalizado);
 
 }
