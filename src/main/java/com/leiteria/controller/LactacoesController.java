@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.leiteria.model.CausaEncerramentoLactacao;
 import com.leiteria.model.Lactacoes;
 import com.leiteria.model.service.ServiceLactacoes;
 
@@ -37,6 +38,11 @@ public class LactacoesController {
 		Lactacoes lac = lacService.emAberto(idAnimal);
 		return lac;
 	}
+
+	@GetMapping("/causasencerramento")
+	public List<CausaEncerramentoLactacao> causasEncerramento(){
+		return lacService.listCausasEncerramento();
+	}
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<?> findById(@PathVariable(value="id") long idLac ){
@@ -52,6 +58,12 @@ public class LactacoesController {
 	public ResponseEntity<?> update(@PathVariable long id, @RequestBody Lactacoes lactacao){
 		return lacService.update(id, lactacao);
 	}
+
+	@PutMapping(value = "/encerrar/{id}")
+		public ResponseEntity<?> encerrar(@PathVariable long id, @RequestBody Lactacoes lactacao){
+			return lacService.encerrar(id, lactacao);
+		}
+	
 	
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> delete(@PathVariable long id){

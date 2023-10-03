@@ -8,8 +8,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.leiteria.model.Animais;
+import com.leiteria.model.CausaEncerramentoLactacao;
 import com.leiteria.model.Lactacoes;
 import com.leiteria.repository.LactacoesRepository;
+import com.leiteria.security.payload.response.MessageResponse;
 
 import lombok.RequiredArgsConstructor;
 
@@ -20,6 +22,7 @@ public class ServiceLactacoes {
 	private final LactacoesRepository lactacoesRepository;
 	private final ServiceAnimal animalService;
 	private final ServicePropriedade propriedadeService;
+	private final ServiceCausaEncerramento causaEncerramentoService;
 	
 	public List<Lactacoes> list(long idVaca) {
 		Animais vaca = animalService.findAnimal(idVaca);
@@ -38,8 +41,13 @@ public class ServiceLactacoes {
 		
 	}
 
+	public List<CausaEncerramentoLactacao> listCausasEncerramento() {
+        return causaEncerramentoService.list();
+    }
+
 	public Lactacoes save(@Valid Lactacoes lactacao) {
 		if(propriedadeService.animalBelongsMe(lactacao.getParto().getVaca())) {
+			lactacao.setFinalizado(false);
 			return lactacoesRepository.save(lactacao);
 		}
 		return null;
@@ -64,9 +72,21 @@ public class ServiceLactacoes {
 		}).orElse(ResponseEntity.notFound().build());
 	}
 
-	public List<Animais> findAnimaisEmLactacao() {
-		// TODO Auto-generated method stub
-		return null;
+	public ResponseEntity<?> encerrar(long id, Lactacoes lactacao) {
+		if(propriedadeService.animalBelongsMe(lactacao.getParto().getVaca())){
+			return lactacoesRepository.findById(id).map(record -> {
+				if (lactacao.getCausaEncerramento() != null || lactacao.getDataEncerramento() != null){
+					record.setCausaEncerramento(lactacao.getCausaEncerramento());
+					record.setDataEncerramento(lactacao.getDataEncerramento());
+					record.setFinalizado(true);
+					record.setObservacao(lactacao.getObservacao());
+					Lactacoes encerrada = lactacoesRepository.save(record);
+					return ResponseEntity.ok().body(encerrada);	
+				}
+				return ResponseEntity.badRequest().body(new MessageResponse("Não há causa ou data de encerramento informada"));
+			}).orElse(ResponseEntity.notFound().build());
+		}
+		return ResponseEntity.notFound().build();
 	}
 
 }
