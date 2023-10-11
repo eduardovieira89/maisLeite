@@ -2,7 +2,6 @@ package com.leiteria.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,12 +12,15 @@ import org.springframework.web.bind.annotation.RestController;
 import com.leiteria.model.OrigemAnimal;
 import com.leiteria.model.service.ServiceOrigemAnimal;
 
+import lombok.RequiredArgsConstructor;
+
 @RestController
 @RequestMapping("/origemanimal")
 @CrossOrigin
+@RequiredArgsConstructor
 public class OrigemAnimalController {
 
-	@Autowired ServiceOrigemAnimal origemAnimalService;
+	private final ServiceOrigemAnimal origemAnimalService;
 	
 	@GetMapping
 	public List<OrigemAnimal> list(){

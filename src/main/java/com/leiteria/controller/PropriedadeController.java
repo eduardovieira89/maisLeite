@@ -2,7 +2,6 @@ package com.leiteria.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -18,13 +17,15 @@ import org.springframework.web.bind.annotation.RestController;
 import com.leiteria.model.Propriedades;
 import com.leiteria.model.service.ServicePropriedade;
 
+import lombok.RequiredArgsConstructor;
+
 @RestController
 @RequestMapping("/propriedade")
 @CrossOrigin
+@RequiredArgsConstructor
 public class PropriedadeController {
 
-	@Autowired
-	private ServicePropriedade propriedadeService;
+	private final ServicePropriedade propriedadeService;
 
 	@GetMapping
 	public List<Propriedades> listMyPropriedades() {

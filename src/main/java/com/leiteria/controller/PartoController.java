@@ -2,7 +2,6 @@ package com.leiteria.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -20,13 +19,15 @@ import com.leiteria.model.Partos;
 import com.leiteria.model.TiposParto;
 import com.leiteria.model.service.ServiceParto;
 
+import lombok.RequiredArgsConstructor;
+
 @RestController
 @RequestMapping("/parto")
 @CrossOrigin
+@RequiredArgsConstructor
 public class PartoController {
 
-	@Autowired
-	ServiceParto partoService;
+	private final ServiceParto partoService;
 	@GetMapping
 	public List<Partos> list(@RequestParam("idpropriedade") long idPropriedade){
 		//Retorna todos os partos da propriedade

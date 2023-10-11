@@ -2,7 +2,6 @@ package com.leiteria.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -19,13 +18,15 @@ import com.leiteria.model.Coberturas;
 import com.leiteria.model.TiposCobertura;
 import com.leiteria.model.service.ServiceCoberturas;
 
+import lombok.RequiredArgsConstructor;
+
 @RestController
 @RequestMapping("/cobertura")
 @CrossOrigin
+@RequiredArgsConstructor
 public class CoberturasController {
 
-	@Autowired
-	ServiceCoberturas coberturaService;
+	private final ServiceCoberturas coberturaService;
 	
 	@GetMapping
 	public List<Coberturas> list(@RequestParam("idpropriedade") long idPropriedade){

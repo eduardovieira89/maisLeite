@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,14 +18,16 @@ import com.leiteria.model.service.ServiceUsuario;
 import com.leiteria.security.payload.request.LoginRequest;
 import com.leiteria.security.payload.request.RegisterRequest;
 
+import lombok.RequiredArgsConstructor;
+
 @RestController
 @RequestMapping("/usuario")
 @CrossOrigin
+@RequiredArgsConstructor
 public class UsuarioController {
 	
 
-	@Autowired
-	ServiceUsuario serviceUsuario;
+	private final ServiceUsuario serviceUsuario;
 	
 	@GetMapping
 	public List<Usuarios> listPropAndFunc(){

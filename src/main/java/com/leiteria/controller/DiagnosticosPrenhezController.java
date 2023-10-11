@@ -2,7 +2,6 @@ package com.leiteria.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -21,13 +20,15 @@ import com.leiteria.model.DiagnosticosPrenhez;
 import com.leiteria.model.MetodosPrenhez;
 import com.leiteria.model.service.ServiceDiagnosticosPrenhez;
 
+import lombok.RequiredArgsConstructor;
+
 @RestController
 @RequestMapping("/diagnosticoprenhez")
 @CrossOrigin
+@RequiredArgsConstructor
 public class DiagnosticosPrenhezController {
 
-	@Autowired
-	private ServiceDiagnosticosPrenhez diagnosticoService;
+	private final ServiceDiagnosticosPrenhez diagnosticoService;
 	
 	@GetMapping
 	public List<DiagnosticosPrenhez> listEmAndamento(@RequestParam("idpropriedade") long idPropriedade){

@@ -2,7 +2,6 @@ package com.leiteria.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -17,13 +16,15 @@ import org.springframework.web.bind.annotation.RestController;
 import com.leiteria.model.Semens;
 import com.leiteria.model.service.ServiceSemens;
 
+import lombok.RequiredArgsConstructor;
+
 @RestController
 @RequestMapping("/semen")
 @CrossOrigin
+@RequiredArgsConstructor
 public class SemensController {
 
-	@Autowired
-	private ServiceSemens semensService;
+	private final ServiceSemens semensService;
 	
 	@GetMapping
 	public List<Semens> listarSemens(){

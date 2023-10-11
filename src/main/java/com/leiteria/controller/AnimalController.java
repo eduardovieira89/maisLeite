@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -21,13 +20,15 @@ import com.leiteria.model.Animais;
 import com.leiteria.model.MotivosBaixa;
 import com.leiteria.model.service.ServiceAnimal;
 
+import lombok.RequiredArgsConstructor;
+
 @RestController
 @RequestMapping("/animal")
 @CrossOrigin
+@RequiredArgsConstructor
 public class AnimalController {
-	
-	@Autowired
-	ServiceAnimal animalService;
+		
+	private final ServiceAnimal animalService;
 	
 	@GetMapping
 	public List<Animais> listarTodosDaPropriedade(@RequestParam("idpropriedade") long idPropriedade){
