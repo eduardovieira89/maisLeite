@@ -85,6 +85,7 @@ public class ServiceAnimal {
 				record.setId_mae(animal.getId_mae());
 				record.setPai(animal.getPai());
 				record.setMae(animal.getMae());
+				record.setLote(animal.getLote());
 				Animais atualizado = animalRepository.save(record);
 
 				return ResponseEntity.ok().body(atualizado);

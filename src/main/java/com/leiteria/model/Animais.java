@@ -85,9 +85,13 @@ public class Animais {
 	
 	@OneToMany(mappedBy = "vaca", fetch = FetchType.LAZY)
 	private List<Partos> partos;
+
+	@ManyToOne
+	@JoinColumn(name = "id_lote")
+	private Lotes lote;
 	
 	
-	public Animais(String nome, int brinco, LocalDate dataNasc, int registro, char sexo, Propriedades propriedade, Racas raca) {
+	public Animais(String nome, int brinco, LocalDate dataNasc, int registro, char sexo, Propriedades propriedade, Racas raca, Lotes lote) {
 		super();
 		this.nome = nome;
 		this.brinco = brinco;
@@ -96,6 +100,7 @@ public class Animais {
 		this.sexo = sexo;
 		this.propriedade = propriedade;
 		this.raca = raca;
+		this.lote = lote;
 	}
 
 	public Animais() {
@@ -188,6 +193,12 @@ public class Animais {
 	}
 	public void setOrigemAnimal(OrigemAnimal origemAnimal) {
 		this.origemAnimal = origemAnimal;
+	}
+	public Lotes getLote(){
+		return this.lote;
+	}
+	public void setLote(Lotes lote){
+		this.lote = lote;
 	}
 	/**public List<Partos> getPartos() {
 		return partos;
