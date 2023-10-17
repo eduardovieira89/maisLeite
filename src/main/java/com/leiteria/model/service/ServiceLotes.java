@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.leiteria.model.Lotes;
+import com.leiteria.model.Propriedades;
 import com.leiteria.repository.LotesRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -19,6 +20,10 @@ public class ServiceLotes {
     public final LotesRepository loteRepository;
     
     public List<Lotes> listarMeusLotes(long idPropriedade) {
+        Propriedades prop = propriedadeService.findPropriedade(idPropriedade);
+        if(prop != null && propriedadeService.propriedadeBelongsMe(prop)){
+            return loteRepository.findByPropriedade(prop);
+        }
         return null;
     }
 
