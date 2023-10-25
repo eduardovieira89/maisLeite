@@ -1,5 +1,6 @@
 package com.leiteria.model.vacinas;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,16 +13,24 @@ public class Vacinas {
 	
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@Column(name = "id_vacinas", unique = true, nullable = false, precision = 19)
 	private long id;
 	
 	@NotNull(message="Nome é um campo obrigatório")
 	private String nome;
+
 	@Size(max = 1337)
 	private String indicacao;
+
+	@Column(name = "modo_uso")
 	@Size(max = 1337)
 	private String modoDeUso;
+
+	@Column(name = "esquema_vacinacao")
 	@Size(max = 1337)
 	private String esquemaDeVacincao;
+
+	@Column(name = "reacoes_vacinais")
 	@Size(max = 1337)
 	private String reacoesPosVacinais;
 	
