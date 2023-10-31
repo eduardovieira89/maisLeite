@@ -32,10 +32,11 @@ Sistema sendo desenvolvido para gestão de leitarias juntamente com front-end em
   - Cadastro de Coberturas;
   - Cadastro de Diagnóstico de prenhez;
   - Cadastro de Partos;
+- Controle de lactação;
 
 ### Próximas etapas, em andamento...
 - Construindo o requisito: manejo reprodutivo;
-- Controle de lactação;
+- Atualizar os testes;
 - Construindo o requisito: vacinas;
 
 ### Correção de alguns itens
