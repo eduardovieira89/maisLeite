@@ -5,9 +5,9 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.leiteria.model.Animais;
-import com.leiteria.model.MotivosBaixa;
-import com.leiteria.model.Propriedades;
+import com.leiteria.model.Animal;
+import com.leiteria.model.MotivoBaixa;
+import com.leiteria.model.Propriedade;
 import com.leiteria.repository.AnimaisRepository;
 import com.leiteria.repository.MotivosBaixaRepository;
 
@@ -21,24 +21,24 @@ public class ServiceAnimal {
 	private final ServicePropriedade propriedadeService;
 	private final MotivosBaixaRepository motivosBaixaRepository; //Alterar para Service
 
-	public List<Animais> listByPropriedade(long idPropriedade) {
-		Propriedades propriedade = propriedadeService.findPropriedade(idPropriedade);
+	public List<Animal> listByPropriedade(long idPropriedade) {
+		Propriedade propriedade = propriedadeService.findPropriedade(idPropriedade);
 		if (propriedadeService.propriedadeBelongsMe(propriedade)) {
 			return animalRepository.findByPropriedadeAndAtivo(propriedade, true);
 		}
 		return null;
 	}
 
-	public List<Animais> findByPropriedadeAndGenero(long idPropriedade, char genero) {
-		Propriedades propriedade = propriedadeService.findPropriedade(idPropriedade);
+	public List<Animal> findByPropriedadeAndGenero(long idPropriedade, char genero) {
+		Propriedade propriedade = propriedadeService.findPropriedade(idPropriedade);
 		if (propriedade != null && propriedadeService.propriedadeBelongsMe(propriedade)) {
 			return animalRepository.findByPropriedadeAndSexoAndAtivo(propriedade, genero, true);
 		}
 		return null;
 	}
 
-	public Animais findAnimal(long id) {
-		Animais achado = animalRepository.findById(id).get();
+	public Animal findAnimal(long id) {
+		Animal achado = animalRepository.findById(id).get();
 		if (achado != null) {
 			if(propriedadeService.animalBelongsMe(achado)) {
 				return achado;
@@ -47,8 +47,8 @@ public class ServiceAnimal {
 		return null;
 	}
 	
-	public List<Animais> findEmLactacao(long idPropriedade) {
-		Propriedades propriedade = propriedadeService.findPropriedade(idPropriedade);
+	public List<Animal> findEmLactacao(long idPropriedade) {
+		Propriedade propriedade = propriedadeService.findPropriedade(idPropriedade);
 		if (propriedade != null && propriedadeService.propriedadeBelongsMe(propriedade)) {
 			return animalRepository.findByPropriedadeAndSexoAndAtivoAndPartosLactacoesFinalizado(propriedade, 'f', true, false);
 		}
@@ -64,7 +64,7 @@ public class ServiceAnimal {
 		}).orElse(ResponseEntity.notFound().build());
 	}
 
-	public Animais save(Animais animal) {
+	public Animal save(Animal animal) {
 		if (animal.getPropriedade() != null) {
 			return animalRepository.save(animal);
 		}
@@ -72,7 +72,7 @@ public class ServiceAnimal {
 
 	}
 
-	public ResponseEntity<?> update(long id, Animais animal) {
+	public ResponseEntity<?> update(long id, Animal animal) {
 		if (propriedadeService.animalBelongsMe(animal)) {
 			return animalRepository.findById(id).map(record -> {
 				record.setNome(animal.getNome());
@@ -81,12 +81,12 @@ public class ServiceAnimal {
 				record.setDataNasc(animal.getDataNasc());
 				record.setRaca(animal.getRaca());
 				record.setSexo(animal.getSexo());
-				record.setId_pai(animal.getId_pai());
-				record.setId_mae(animal.getId_mae());
+				record.setPai_id(animal.getPai_id());
+				record.setMae_id(animal.getMae_id());
 				record.setPai(animal.getPai());
 				record.setMae(animal.getMae());
 				record.setLote(animal.getLote());
-				Animais atualizado = animalRepository.save(record);
+				Animal atualizado = animalRepository.save(record);
 
 				return ResponseEntity.ok().body(atualizado);
 			}).orElse(ResponseEntity.notFound().build());
@@ -106,13 +106,13 @@ public class ServiceAnimal {
 		}).orElse(ResponseEntity.notFound().build());
 	}
 
-	public ResponseEntity<?> baixa(long id, MotivosBaixa motivo) {
-		MotivosBaixa motivoEncontrado = motivosBaixaRepository.findById(motivo.getId_motivos_baixa()).get();
+	public ResponseEntity<?> baixa(long id, MotivoBaixa motivo) {
+		MotivoBaixa motivoEncontrado = motivosBaixaRepository.findById(motivo.getId()).get();
 		return animalRepository.findById(id).map(record -> {
 			if (propriedadeService.animalBelongsMe(record)) {
 				record.setMotivosBaixa(motivoEncontrado);
 				record.setAtivo(false);
-				Animais baixado = animalRepository.save(record);
+				Animal baixado = animalRepository.save(record);
 				return ResponseEntity.ok().body(baixado);
 			}
 			return ResponseEntity.notFound().build();

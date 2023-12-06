@@ -7,8 +7,8 @@ import javax.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.leiteria.model.Lotes;
-import com.leiteria.model.Propriedades;
+import com.leiteria.model.Lote;
+import com.leiteria.model.Propriedade;
 import com.leiteria.repository.LotesRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -19,26 +19,26 @@ public class ServiceLotes {
     public final ServicePropriedade propriedadeService;
     public final LotesRepository loteRepository;
     
-    public List<Lotes> listarMeusLotes(long idPropriedade) {
-        Propriedades prop = propriedadeService.findPropriedade(idPropriedade);
+    public List<Lote> listarMeusLotes(long idPropriedade) {
+        Propriedade prop = propriedadeService.findPropriedade(idPropriedade);
         if(prop != null && propriedadeService.propriedadeBelongsMe(prop)){
             return loteRepository.findByPropriedade(prop);
         }
         return null;
     }
 
-    public Lotes save(@Valid Lotes lote) {
+    public Lote save(@Valid Lote lote) {
         if(propriedadeService.propriedadeBelongsMe(lote.getPropriedade())){
             loteRepository.save(lote);
         }
         return null;
     }
 
-    public ResponseEntity<?> update(long id, Lotes lote) {
+    public ResponseEntity<?> update(long id, Lote lote) {
         if(propriedadeService.propriedadeBelongsMe(lote.getPropriedade())){
             return loteRepository.findById(id).map(record -> {
                 record.setDescricao(lote.getDescricao());
-                Lotes atualizado = loteRepository.save(record);
+                Lote atualizado = loteRepository.save(record);
                 return ResponseEntity.ok().body(atualizado);            
             }).orElse(ResponseEntity.notFound().build());
         }

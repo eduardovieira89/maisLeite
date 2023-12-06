@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.leiteria.model.AnimaisDoadores;
+import com.leiteria.model.AnimalDoador;
 import com.leiteria.model.service.ServiceAnimaisDoadores;
 
 import lombok.RequiredArgsConstructor;
@@ -30,7 +30,7 @@ public class AnimaisDoadoresController {
 	
 	
 	@GetMapping
-	public List<AnimaisDoadores> listarMeusAnimaisDoadores(){
+	public List<AnimalDoador> listarMeusAnimaisDoadores(){
 		return animaisDoadoresService.listMyAnimaisDoadores();
 	}
 	
@@ -40,12 +40,12 @@ public class AnimaisDoadoresController {
 	}
 	
 	@PostMapping
-	public AnimaisDoadores salvar( @RequestBody AnimaisDoadores doador) {	
+	public AnimalDoador salvar( @RequestBody AnimalDoador doador) {	
 		return animaisDoadoresService.salvar(doador);		
 	}
 	
 	@PutMapping(value="/{id}")
-	public ResponseEntity<?> atualizar(@PathVariable long id, @RequestBody AnimaisDoadores doador){
+	public ResponseEntity<?> atualizar(@PathVariable long id, @RequestBody AnimalDoador doador){
 		return animaisDoadoresService.atualizar(id, doador);
 	}
 	

@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.leiteria.model.Animais;
-import com.leiteria.model.MotivosBaixa;
+import com.leiteria.model.Animal;
+import com.leiteria.model.MotivoBaixa;
 import com.leiteria.model.service.ServiceAnimal;
 
 import lombok.RequiredArgsConstructor;
@@ -31,18 +31,18 @@ public class AnimalController {
 	private final ServiceAnimal animalService;
 	
 	@GetMapping
-	public List<Animais> listarTodosDaPropriedade(@RequestParam("idpropriedade") long idPropriedade){
+	public List<Animal> listarTodosDaPropriedade(@RequestParam("idpropriedade") long idPropriedade){
 		//retorna a lista de animais da propriedade selecionada
 		return animalService.listByPropriedade(idPropriedade);
 	}
 	
 	@GetMapping("/genero")
-	public List<Animais> listarPorGenero(@RequestParam ("idpropriedade") long idPropriedade, @RequestParam("genero") char genero){
+	public List<Animal> listarPorGenero(@RequestParam ("idpropriedade") long idPropriedade, @RequestParam("genero") char genero){
 		return animalService.findByPropriedadeAndGenero(idPropriedade, genero);
 	}
 	
 	@GetMapping("/emlactacao")
-	public List<Animais> listarEmLactacao(@RequestParam("idpropriedade") long idPropriedade){
+	public List<Animal> listarEmLactacao(@RequestParam("idpropriedade") long idPropriedade){
 		return animalService.findEmLactacao(idPropriedade); 
 	}
 	
@@ -52,17 +52,17 @@ public class AnimalController {
 	}
 	
 	@PostMapping
-	public Animais save(@RequestBody @Valid  Animais animais) {
+	public Animal save(@RequestBody @Valid  Animal animais) {
 		return animalService.save(animais);
 	}
 	
 	@PutMapping(value="/{id}")
-	public ResponseEntity<?> update(@PathVariable long id, @RequestBody Animais animal){
+	public ResponseEntity<?> update(@PathVariable long id, @RequestBody Animal animal){
 		return animalService.update(id, animal);
 	}
 	
 	@PutMapping(value="/baixa/{id}")
-	public ResponseEntity<?>baixaAnimal(@PathVariable long id, @RequestBody MotivosBaixa motivo){
+	public ResponseEntity<?>baixaAnimal(@PathVariable long id, @RequestBody MotivoBaixa motivo){
 		return animalService.baixa(id, motivo);
 	}
 	

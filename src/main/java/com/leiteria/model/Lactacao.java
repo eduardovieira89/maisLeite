@@ -14,14 +14,12 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.AccessLevel;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
 import lombok.Setter;
 
-@NoArgsConstructor
-@Data
-@Entity(name="lactacoes")
-public class Lactacoes {
+@Getter @Setter
+@Entity(name="lactacao")
+public class Lactacao {
 
 	@Id
 	@Column(name="id_lactacao")
@@ -44,20 +42,41 @@ public class Lactacoes {
 	private String observacao;
 	
 	@ManyToOne
-	@JoinColumn(name="causa_enc_lactacao")
+	@JoinColumn(name="causa_enc_lactacao_id")
 	private CausaEncerramentoLactacao causaEncerramento;
 	
 	@NotNull(message="Parto é um campo obrigatório")
 	@ManyToOne
-	@JoinColumn(name="parto")
-	private Partos parto;
-	
-	public Lactacoes(Partos p) {
+	@JoinColumn(name="parto_id")
+	private Parto parto;
+
+	public Lactacao(){}
+
+	public Lactacao(Parto p) {
 		super();
 		this.parto = p;
 		this.dataInicio = p.getData();
 	}
-	
-	
-	
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (int) (id ^ (id >>> 32));
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Lactacao other = (Lactacao) obj;
+		if (id != other.id)
+			return false;
+		return true;
+	}
 }

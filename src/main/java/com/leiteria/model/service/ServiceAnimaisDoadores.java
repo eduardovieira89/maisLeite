@@ -7,9 +7,9 @@ import javax.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.leiteria.model.AnimaisDoadores;
+import com.leiteria.model.AnimalDoador;
 import com.leiteria.model.OrigemAnimal;
-import com.leiteria.model.Usuarios;
+import com.leiteria.model.Usuario;
 import com.leiteria.repository.AnimaisDoadoresRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -23,7 +23,7 @@ public class ServiceAnimaisDoadores {
 	private final ServiceOrigemAnimal serviceOrigemAnimal;
 	
 	
-	public List<AnimaisDoadores> listMyAnimaisDoadores(){
+	public List<AnimalDoador> listMyAnimaisDoadores(){
 		return animaisDRepository.findByUsuarios(serviceUsuario.getProprietario());
 	}
 	
@@ -34,9 +34,9 @@ public class ServiceAnimaisDoadores {
 	}
 
 
-	public AnimaisDoadores salvar(@Valid AnimaisDoadores doador) {
+	public AnimalDoador salvar(@Valid AnimalDoador doador) {
 		//Verificar como retornar mensagem informando que não tem dados de animal doador;
-		Usuarios dono = serviceUsuario.getProprietario();
+		Usuario dono = serviceUsuario.getProprietario();
 		OrigemAnimal origemDoador = serviceOrigemAnimal.findByDescricao("Animal doador");
 		doador.getAnimal().setOrigemAnimal(origemDoador);
 		doador.setUsuarios(dono);
@@ -44,7 +44,7 @@ public class ServiceAnimaisDoadores {
 	}
 
 
-	public ResponseEntity<?> atualizar(long id, AnimaisDoadores doador) {
+	public ResponseEntity<?> atualizar(long id, AnimalDoador doador) {
 		//verifica se o animal pertence ao usuario
 		// .....Ver se é melhor fazer o IF pelo id ou pelo animal
 		if(doador.getUsuarios().equals(serviceUsuario.getProprietario())) {
@@ -55,8 +55,7 @@ public class ServiceAnimaisDoadores {
 						record.setNucleoMoet(doador.getNucleoMoet());
 						record.setPaisOrigem(doador.getPaisOrigem());
 						record.setTesteProgenie(doador.getTesteProgenie());
-						AnimaisDoadores atualizado = animaisDRepository.save(record);
-						
+						AnimalDoador atualizado = animaisDRepository.save(record);
 						return ResponseEntity.ok().body(atualizado);
 					}).orElse(ResponseEntity.notFound().build());
 		}else {

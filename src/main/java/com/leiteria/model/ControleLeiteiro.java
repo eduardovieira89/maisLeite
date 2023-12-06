@@ -20,15 +20,18 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import lombok.Data;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter @Setter
 @Entity(name="controle_leiteiro")
 public class ControleLeiteiro {
 	
 	@Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="id_controle_leiteiro", unique=true, nullable=false, precision=19)
+	@Setter(AccessLevel.NONE)
     private long id;
 	
 	@Column(name="data_controle", nullable=false)
@@ -42,8 +45,8 @@ public class ControleLeiteiro {
 
 	@NotNull(message = "Propriedade é um campo obrigatório")
 	@ManyToOne
-	@JoinColumn(name = "propriedade")
-	private Propriedades propriedade;
+	@JoinColumn(name = "propriedade_id")
+	private Propriedade propriedade;
 	
 	@ManyToMany
 	@JoinTable(
@@ -51,11 +54,36 @@ public class ControleLeiteiro {
 			joinColumns= @JoinColumn(
 					name="id_controle_leiteiro", referencedColumnName = "id_controle_leiteiro"),
 			inverseJoinColumns = @JoinColumn(
-					name="id_usuario", referencedColumnName = "id_usuario")
+					name="id", referencedColumnName = "id_usuario")
 			)
-	private List<Usuarios> ordenhadores;
+	private List<Usuario> ordenhadores;
 
 	@JsonManagedReference
 	@OneToMany(mappedBy = "controleLeiteiro", fetch = FetchType.LAZY)
 	private List<ProducaoLeite> producoesLeite;
+
+	public ControleLeiteiro(){}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (int) (id ^ (id >>> 32));
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ControleLeiteiro other = (ControleLeiteiro) obj;
+		if (id != other.id)
+			return false;
+		return true;
+	}
+	
 }

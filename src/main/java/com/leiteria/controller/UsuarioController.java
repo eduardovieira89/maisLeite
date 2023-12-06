@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.leiteria.model.Usuarios;
+import com.leiteria.model.Usuario;
 import com.leiteria.model.service.ServiceUsuario;
 import com.leiteria.security.payload.request.LoginRequest;
 import com.leiteria.security.payload.request.RegisterRequest;
@@ -30,12 +30,12 @@ public class UsuarioController {
 	private final ServiceUsuario serviceUsuario;
 	
 	@GetMapping
-	public List<Usuarios> listPropAndFunc(){
+	public List<Usuario> listPropAndFunc(){
 		return serviceUsuario.listPropAndFunc();
 	}
 	
 	@GetMapping("/funcionarios")
-	public List<Usuarios> listarFuncionarios(){
+	public List<Usuario> listarFuncionarios(){
 		return serviceUsuario.listarFuncionarios();
 	}
 	

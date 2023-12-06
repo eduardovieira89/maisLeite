@@ -2,10 +2,10 @@ package com.leiteria.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.leiteria.model.TiposCobertura;
+import com.leiteria.model.TipoCobertura;
 
-public interface TiposCoberturasRepository extends  JpaRepository<TiposCobertura, Integer>{
+public interface TiposCoberturasRepository extends  JpaRepository<TipoCobertura, Integer>{
 	
-	TiposCobertura findByDescricao(String desc);
+	TipoCobertura findByDescricao(String desc);
 
 }

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.leiteria.model.Propriedades;
+import com.leiteria.model.Propriedade;
 import com.leiteria.model.service.ServicePropriedade;
 
 import lombok.RequiredArgsConstructor;
@@ -28,8 +28,8 @@ public class PropriedadeController {
 	private final ServicePropriedade propriedadeService;
 
 	@GetMapping
-	public List<Propriedades> listMyPropriedades() {
-		List<Propriedades> propriedades = propriedadeService.listPropriedades();
+	public List<Propriedade> listMyPropriedades() {
+		List<Propriedade> propriedades = propriedadeService.listPropriedades();
 		return propriedades;
 	}
 
@@ -40,13 +40,13 @@ public class PropriedadeController {
 
 	@PostMapping
 	@PreAuthorize("hasRole('PRODUTOR')")
-	public Propriedades save(@RequestBody Propriedades propriedade) {
+	public Propriedade save(@RequestBody Propriedade propriedade) {
 		return propriedadeService.save(propriedade);
 	}
 
 	@PutMapping("/{id}")
 	@PreAuthorize("hasRole('PRODUTOR')")
-	public ResponseEntity<?> atualizarPropriedade(@PathVariable long id, @RequestBody Propriedades propriedade){
+	public ResponseEntity<?> atualizarPropriedade(@PathVariable long id, @RequestBody Propriedade propriedade){
 		return propriedadeService.update(id, propriedade);
 	}
 

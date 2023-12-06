@@ -7,7 +7,7 @@ import javax.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.leiteria.model.Lactacoes;
+import com.leiteria.model.Lactacao;
 import com.leiteria.model.ProducaoLeite;
 import com.leiteria.repository.LactacoesRepository;
 import com.leiteria.repository.ProducaoLeiteRepository;
@@ -23,7 +23,7 @@ public class ServiceProducaoLeite {
 	private final LactacoesRepository lactacoesRepository;
 
 	public List<ProducaoLeite> list(long idLactacao) {
-		Lactacoes lactacao = lactacoesRepository.findById(idLactacao).get();
+		Lactacao lactacao = lactacoesRepository.findById(idLactacao).get();
 		if(lactacao != null && propriedadeService.animalBelongsMe(lactacao.getParto().getVaca())) {
 			return producaoLeiteRepository.findByLactacao(lactacao);
 		}

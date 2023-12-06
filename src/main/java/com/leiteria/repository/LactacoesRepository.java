@@ -4,12 +4,12 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.leiteria.model.Animais;
-import com.leiteria.model.Lactacoes;
+import com.leiteria.model.Animal;
+import com.leiteria.model.Lactacao;
 
-public interface LactacoesRepository extends JpaRepository<Lactacoes, Long> {
+public interface LactacoesRepository extends JpaRepository<Lactacao, Long> {
 	
-	List<Lactacoes> findByPartoVacaOrderByDataInicioDesc(Animais vaca);
-	Lactacoes findFirstByPartoVacaAndFinalizado(Animais vaca, Boolean finalizado);
+	List<Lactacao> findByPartoVacaOrderByDataInicioDesc(Animal vaca);
+	Lactacao findFirstByPartoVacaAndFinalizado(Animal vaca, Boolean finalizado);
 
 }

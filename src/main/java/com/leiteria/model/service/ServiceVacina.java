@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.leiteria.model.Animais;
+import com.leiteria.model.Animal;
 import com.leiteria.model.vacinas.VacinaAplicacao;
 import com.leiteria.model.vacinas.Vacinas;
 import com.leiteria.repository.VacinaAplicacaoRepository;
@@ -22,7 +22,7 @@ public class ServiceVacina {
 	@Autowired private VacinaRepository vacinaRepository;
 	
 	public List<VacinaAplicacao> listarVacinasAplicadas(long idAnimal){
-		Animais animal = serviceAnimal.findAnimal(idAnimal);
+		Animal animal = serviceAnimal.findAnimal(idAnimal);
 		return vaRepository.buscaVacinasAplicadas(animal);
 	}
 

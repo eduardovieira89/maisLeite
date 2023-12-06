@@ -1,49 +1,39 @@
 package com.leiteria.model;
 
+import javax.validation.constraints.NotNull;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import javax.validation.constraints.NotNull;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter @Setter
 @Entity(name="origem_animal")
 public class OrigemAnimal {
 
 	@Id
 	@Column(name="id_origem_animal")
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@Setter(AccessLevel.NONE)
 	private int id;
 	
 	@NotNull(message = "Descrição é um campo obrigatório")
 	private String descricao;
-	
-	public OrigemAnimal(String descricao) {
-		super();
-		this.descricao = descricao;
-	}
-	public OrigemAnimal() {
-		super();
-	}
-	
-	public int getId() {
-		return id;
-	}
-	
-	public String getDescricao() {
-		return descricao;
-	}
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
+
+	public OrigemAnimal(){}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((descricao == null) ? 0 : descricao.hashCode());
 		result = prime * result + id;
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -53,21 +43,9 @@ public class OrigemAnimal {
 		if (getClass() != obj.getClass())
 			return false;
 		OrigemAnimal other = (OrigemAnimal) obj;
-		if (descricao == null) {
-			if (other.descricao != null)
-				return false;
-		} else if (!descricao.equals(other.descricao))
-			return false;
 		if (id != other.id)
 			return false;
 		return true;
 	}
-	@Override
-	public String toString() {
-		return "OrigemAnimal: [ " + descricao + "]";
-	}
-	
-	
-	
-	
+		
 }

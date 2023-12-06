@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.leiteria.model.Lotes;
+import com.leiteria.model.Lote;
 import com.leiteria.model.service.ServiceLotes;
 
 import lombok.RequiredArgsConstructor;
@@ -29,17 +29,17 @@ public class LotesController {
     private final ServiceLotes loteService;
 
     @GetMapping
-    public List<Lotes> listarMeusLotes(@RequestParam("idpropriedade") long idPropriedade){
+    public List<Lote> listarMeusLotes(@RequestParam("idpropriedade") long idPropriedade){
         return loteService.listarMeusLotes(idPropriedade);
     }
 
     @PostMapping
-    public Lotes save(@RequestBody @Valid Lotes lote){
+    public Lote save(@RequestBody @Valid Lote lote){
         return loteService.save(lote);
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<?> update(@PathVariable long id, @RequestBody Lotes lote){
+    public ResponseEntity<?> update(@PathVariable long id, @RequestBody Lote lote){
         return loteService.update(id, lote);
     }
 

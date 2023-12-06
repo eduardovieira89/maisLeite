@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.leiteria.model.Animais;
-import com.leiteria.model.Propriedades;
+import com.leiteria.model.Animal;
+import com.leiteria.model.Propriedade;
 import com.leiteria.repository.PropriedadeRepository;
 import com.leiteria.repository.UsuarioRepository;
 
@@ -21,18 +21,19 @@ public class ServicePropriedade {
 	@Autowired ServiceUsuario serviceUsuario;
 	
 	
-	public boolean propriedadeBelongsMe(Propriedades propriedade) {
+	public boolean propriedadeBelongsMe(Propriedade propriedade) {
 		if(this.listPropriedades().contains(propriedade)) {
 			return true;
 		}
 		return false;
 	}
 	
-	public List<Propriedades> listPropriedades(){	
-		return propriedadeRepository.findByProprietario(serviceUsuario.getProprietario());
+	public List<Propriedade> listPropriedades(){	
+		List<Propriedade> propriedadeList = propriedadeRepository.findByProprietario(serviceUsuario.getProprietario());
+		return propriedadeList;
 	}
 	
-	public Propriedades findPropriedade(long id) {
+	public Propriedade findPropriedade(long id) {
 		return propriedadeRepository.findById(id)
 		.map(record -> {
 			if(this.propriedadeBelongsMe(record)) {
@@ -43,7 +44,7 @@ public class ServicePropriedade {
 		
 	}
 	
-	public boolean animalBelongsMe(Animais vaca) {
+	public boolean animalBelongsMe(Animal vaca) {
 		//List<Propriedades> myProperties =  propriedadeService.listarPropriedades();
 		if(this.listPropriedades().contains(vaca.getPropriedade())){
 			return true;
@@ -61,12 +62,12 @@ public class ServicePropriedade {
 				 }).orElse(ResponseEntity.notFound().build());
 	}
 	
-	public Propriedades save(@Valid Propriedades propriedade) {
+	public Propriedade save(@Valid Propriedade propriedade) {
 		propriedade.setProprietario(serviceUsuario.getUsuarioAutenticado());
 		return propriedadeRepository.save(propriedade);
 	}
 	
-	public ResponseEntity<?> update(long id, @Valid Propriedades detalhesPropriedade) {
+	public ResponseEntity<?> update(long id, @Valid Propriedade detalhesPropriedade) {
 		if(propriedadeBelongsMe(detalhesPropriedade)) {
 			return propriedadeRepository.findById(id).
 					map(record -> {
@@ -74,7 +75,7 @@ public class ServicePropriedade {
 						record.setLocalidade(detalhesPropriedade.getLocalidade());
 						record.setMunicipio(detalhesPropriedade.getMunicipio());
 						
-						Propriedades atualizada = propriedadeRepository.save(record);
+						Propriedade atualizada = propriedadeRepository.save(record);
 						return ResponseEntity.ok().body(atualizada);
 						
 					}).orElse(ResponseEntity.notFound().build());

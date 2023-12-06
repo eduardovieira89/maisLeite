@@ -7,7 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
-import com.leiteria.model.Usuarios;
+import com.leiteria.model.Usuario;
 
 @Entity
 public class VacinaAplicacao {
@@ -19,11 +19,11 @@ public class VacinaAplicacao {
 	private LocalDate dataAplicacao;
 	
 	@ManyToOne
-	private Usuarios aplicador;
+	private Usuario aplicador;
 
 
 
-	public VacinaAplicacao(VacinaAplicacaoPk aplicacaoPk, LocalDate dataAplicacao, Usuarios aplicador) {
+	public VacinaAplicacao(VacinaAplicacaoPk aplicacaoPk, LocalDate dataAplicacao, Usuario aplicador) {
 		this.aplicacaoPk = aplicacaoPk;
 		this.dataAplicacao = dataAplicacao;
 		this.aplicador = aplicador;
@@ -54,11 +54,11 @@ public class VacinaAplicacao {
 		this.dataAplicacao = dataAplicacao;
 	}
 
-	public Usuarios getAplicador() {
+	public Usuario getAplicador() {
 		return aplicador;
 	}
 
-	public void setAplicador(Usuarios aplicador) {
+	public void setAplicador(Usuario aplicador) {
 		this.aplicador = aplicador;
 	}
 	

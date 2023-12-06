@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.leiteria.model.MotivosBaixa;
+import com.leiteria.model.MotivoBaixa;
 import com.leiteria.model.service.ServiceMotivosBaixa;
 
 import lombok.RequiredArgsConstructor;
@@ -23,7 +23,7 @@ public class MotivosBaixaController {
 	private final ServiceMotivosBaixa motivosBaixaService;
 	
 	@GetMapping
-	public List<MotivosBaixa> list(){
+	public List<MotivoBaixa> list(){
 		return motivosBaixaService.list();
 	}
 	

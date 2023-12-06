@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
-import com.leiteria.model.Racas;
+import com.leiteria.model.Raca;
 import com.leiteria.repository.RacaRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -24,12 +24,12 @@ public class RacaController {
 	private final RacaRepository repository;
 	
 	@PostMapping
-	public Racas addRaca(@RequestBody Racas raca) {
+	public Raca addRaca(@RequestBody Raca raca) {
 		return repository.save(raca);
 	}
 	
 	@GetMapping
-	public List<Racas> listarTodos(){
+	public List<Raca> listarTodos(){
 		return repository.findAll();
 	}
 }

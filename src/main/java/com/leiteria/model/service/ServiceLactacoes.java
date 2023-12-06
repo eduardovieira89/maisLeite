@@ -7,9 +7,9 @@ import javax.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.leiteria.model.Animais;
+import com.leiteria.model.Animal;
 import com.leiteria.model.CausaEncerramentoLactacao;
-import com.leiteria.model.Lactacoes;
+import com.leiteria.model.Lactacao;
 import com.leiteria.repository.LactacoesRepository;
 import com.leiteria.security.payload.response.MessageResponse;
 
@@ -24,16 +24,16 @@ public class ServiceLactacoes {
 	private final ServicePropriedade propriedadeService;
 	private final ServiceCausaEncerramento causaEncerramentoService;
 	
-	public List<Lactacoes> list(long idVaca) {
-		Animais vaca = animalService.findAnimal(idVaca);
+	public List<Lactacao> list(long idVaca) {
+		Animal vaca = animalService.findAnimal(idVaca);
 		if (vaca != null) {
 			return lactacoesRepository.findByPartoVacaOrderByDataInicioDesc(vaca);
 		}
 		return null;
 	}
 
-	public Lactacoes emAberto(long idVaca){
-		Animais vaca = animalService.findAnimal(idVaca);
+	public Lactacao emAberto(long idVaca){
+		Animal vaca = animalService.findAnimal(idVaca);
 		if (vaca != null) {
 			return lactacoesRepository.findFirstByPartoVacaAndFinalizado(vaca, false);
 		}
@@ -45,7 +45,7 @@ public class ServiceLactacoes {
         return causaEncerramentoService.list();
     }
 
-	public Lactacoes save(@Valid Lactacoes lactacao) {
+	public Lactacao save(@Valid Lactacao lactacao) {
 		if(propriedadeService.animalBelongsMe(lactacao.getParto().getVaca())) {
 			lactacao.setFinalizado(false);
 			return lactacoesRepository.save(lactacao);
@@ -53,7 +53,7 @@ public class ServiceLactacoes {
 		return null;
 	}
 
-	public ResponseEntity<?> update(long id, Lactacoes lactacao) {
+	public ResponseEntity<?> update(long id, Lactacao lactacao) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -72,7 +72,7 @@ public class ServiceLactacoes {
 		}).orElse(ResponseEntity.notFound().build());
 	}
 
-	public ResponseEntity<?> encerrar(long id, Lactacoes lactacao) {
+	public ResponseEntity<?> encerrar(long id, Lactacao lactacao) {
 		if(propriedadeService.animalBelongsMe(lactacao.getParto().getVaca())){
 			return lactacoesRepository.findById(id).map(record -> {
 				if (lactacao.getCausaEncerramento() != null || lactacao.getDataEncerramento() != null){
@@ -80,7 +80,7 @@ public class ServiceLactacoes {
 					record.setDataEncerramento(lactacao.getDataEncerramento());
 					record.setFinalizado(true);
 					record.setObservacao(lactacao.getObservacao());
-					Lactacoes encerrada = lactacoesRepository.save(record);
+					Lactacao encerrada = lactacoesRepository.save(record);
 					return ResponseEntity.ok().body(encerrada);	
 				}
 				return ResponseEntity.badRequest().body(new MessageResponse("Não há causa ou data de encerramento informada"));

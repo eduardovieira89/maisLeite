@@ -4,11 +4,11 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.leiteria.model.AnimaisDoadores;
-import com.leiteria.model.Usuarios;
+import com.leiteria.model.AnimalDoador;
+import com.leiteria.model.Usuario;
 
-public interface AnimaisDoadoresRepository extends JpaRepository<AnimaisDoadores, Long>{
+public interface AnimaisDoadoresRepository extends JpaRepository<AnimalDoador, Long>{
 	
-	List<AnimaisDoadores> findByUsuarios(Usuarios proprietario);
+	List<AnimalDoador> findByUsuarios(Usuario proprietario);
 
 }

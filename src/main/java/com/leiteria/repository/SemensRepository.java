@@ -4,11 +4,11 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.leiteria.model.Semens;
-import com.leiteria.model.Usuarios;
+import com.leiteria.model.Semen;
+import com.leiteria.model.Usuario;
 
-public interface SemensRepository extends JpaRepository<Semens, Long> {
+public interface SemensRepository extends JpaRepository<Semen, Long> {
 	
-	List<Semens> findByAnimalDoadorUsuarios(Usuarios usuario);
+	List<Semen> findByAnimalDoadorUsuarios(Usuario usuario);
 
 }

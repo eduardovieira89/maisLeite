@@ -9,9 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.leiteria.model.Coberturas;
-import com.leiteria.model.Propriedades;
-import com.leiteria.model.TiposCobertura;
+import com.leiteria.model.Cobertura;
+import com.leiteria.model.Propriedade;
+import com.leiteria.model.TipoCobertura;
 import com.leiteria.repository.CoberturasRepository;
 import com.leiteria.repository.TiposCoberturasRepository;
 
@@ -29,45 +29,45 @@ public class ServiceCoberturas {
 	@Autowired
 	private ServiceParto partoService;
 	
-	public List<Coberturas> listEmAndamento(long idPropriedade) {
+	public List<Cobertura> listEmAndamento(long idPropriedade) {
 		/** 
 		    O Método findByVacaPropriedade retorna todas as coberturas da propriedade.
 			É realizado um forEach nessa lista para localizar quais coberturas já possuem partos realizados
 			depois é removido da lista todas as coberturas que possuem parto para retornar somente as que estão em andamento 
 		**/ 
-		Propriedades propriedade = propriedadeService.findPropriedade(idPropriedade);
-		List<Coberturas> coberturasEmAndamento =  coberturasRepository.findByVacaPropriedadeOrderByDataDesc(propriedade);
-		List<Coberturas> coberturaPartos = new ArrayList<>();
+		Propriedade propriedade = propriedadeService.findPropriedade(idPropriedade);
+		List<Cobertura> coberturasEmAndamento =  coberturasRepository.findByVacaPropriedadeOrderByDataDesc(propriedade);
+		List<Cobertura> coberturaPartos = new ArrayList<>();
 		coberturasEmAndamento.forEach(temParto -> { if (partoService.existsCobertura(temParto)) {
 																coberturaPartos.add(temParto);}} );
 		coberturasEmAndamento.removeAll(coberturaPartos);
 		return coberturasEmAndamento;
 	}
 	
-	public List<TiposCobertura> listTiposCoberturas() {
+	public List<TipoCobertura> listTiposCoberturas() {
 		return tiposCoberturasRepository.findAll();
 	}
 
-	public List<Coberturas> listByVaca(Long idVaca) {
+	public List<Cobertura> listByVaca(Long idVaca) {
 		return null;
 	}
 	
-	public List<Coberturas> listByInseminador(long idInseminador) {
+	public List<Cobertura> listByInseminador(long idInseminador) {
 		return null;
 	}
 	
-	public ResponseEntity<Coberturas> findById(long idCobertura) {
+	public ResponseEntity<Cobertura> findById(long idCobertura) {
 		return coberturasRepository.findById(idCobertura)
 				.map(record -> ResponseEntity.ok().body(record))
 				.orElse(ResponseEntity.notFound().build());
 	}
 
-	public Coberturas save(@Valid Coberturas cobertura) {
+	public Cobertura save(@Valid Cobertura cobertura) {
 		if(propriedadeService.animalBelongsMe(cobertura.getVaca())) {
 		/** Ao ser feito inseminação o campo "Monta controlada" deve ser nulo, mas está vindo como false
 			Esse if é para setar como null quando a cobertura é feita via inseminação
 			e para dar baixa no estoque de doses de sêmen. **/
-			TiposCobertura tipoInseminacao = tiposCoberturasRepository.findByDescricao("Inseminação");
+			TipoCobertura tipoInseminacao = tiposCoberturasRepository.findByDescricao("Inseminação");
 			if(cobertura.getTipoCobertura().equals(tipoInseminacao)) {
 				cobertura.setMontaControlada(null);
 				//Fazer uma validação para quando não tiver doses em estoque.
@@ -79,7 +79,7 @@ public class ServiceCoberturas {
 		}
 	}
 
-	public ResponseEntity<?> update(long id, @Valid Coberturas cobertura) {
+	public ResponseEntity<?> update(long id, @Valid Cobertura cobertura) {
 		// .....verificar como fica se atualizar as doses de sêmen, se vai atualizar a quantidade
 		// .....Verificar se deixa atualizar tudo ou so alguns campos.
 		
@@ -99,7 +99,7 @@ public class ServiceCoberturas {
 				record.setTouroMonta(cobertura.getTouroMonta());
 				record.setVaca(cobertura.getVaca());
 
-				Coberturas atualizada = coberturasRepository.save(record);
+				Cobertura atualizada = coberturasRepository.save(record);
 				return ResponseEntity.ok().body(atualizada);
 
 			}).orElse(ResponseEntity.notFound().build());

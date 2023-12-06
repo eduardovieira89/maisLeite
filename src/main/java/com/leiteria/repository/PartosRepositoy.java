@@ -4,19 +4,19 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.leiteria.model.Animais;
-import com.leiteria.model.Coberturas;
-import com.leiteria.model.DiagnosticosPrenhez;
-import com.leiteria.model.Partos;
-import com.leiteria.model.Propriedades;
+import com.leiteria.model.Animal;
+import com.leiteria.model.Cobertura;
+import com.leiteria.model.DiagnosticoPrenhez;
+import com.leiteria.model.Parto;
+import com.leiteria.model.Propriedade;
 
-public interface PartosRepositoy extends JpaRepository<Partos, Long> {
+public interface PartosRepositoy extends JpaRepository<Parto, Long> {
 	
-	Partos findTopByVacaOrderByDataDesc(Animais vaca);
-	List<Partos> findByVaca(Animais vaca);
-	List<Partos> findByVacaPropriedadeOrderByDataDesc(Propriedades propriedade);
-	Boolean existsByCoberturas(Coberturas cobertura);
-	Boolean existsByDiagnosticosPrenhez(DiagnosticosPrenhez diagnostico);
+	Parto findTopByVacaOrderByDataDesc(Animal vaca);
+	List<Parto> findByVaca(Animal vaca);
+	List<Parto> findByVacaPropriedadeOrderByDataDesc(Propriedade propriedade);
+	Boolean existsByCoberturas(Cobertura cobertura);
+	Boolean existsByDiagnosticosPrenhez(DiagnosticoPrenhez diagnostico);
 	
 
 }

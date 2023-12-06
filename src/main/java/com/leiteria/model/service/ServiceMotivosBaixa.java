@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import com.leiteria.model.MotivosBaixa;
+import com.leiteria.model.MotivoBaixa;
 import com.leiteria.repository.MotivosBaixaRepository;
 
 @Service
@@ -17,7 +17,7 @@ public class ServiceMotivosBaixa {
 
 	@Autowired MotivosBaixaRepository motivosBaixaRepository;
 	
-	public List<MotivosBaixa> list(){
+	public List<MotivoBaixa> list(){
 		return motivosBaixaRepository.findAll();
 	}
 	
@@ -27,15 +27,15 @@ public class ServiceMotivosBaixa {
 				 .orElse(ResponseEntity.notFound().build());
 	}
 	
-	public MotivosBaixa save(@Valid MotivosBaixa oAnimal) {
+	public MotivoBaixa save(@Valid MotivoBaixa oAnimal) {
 		return motivosBaixaRepository.save(oAnimal);
 	}
 	
-	public ResponseEntity<?> update(int id, @Valid MotivosBaixa motivo) {
+	public ResponseEntity<?> update(int id, @Valid MotivoBaixa motivo) {
 			return motivosBaixaRepository.findById(id).
 					map(record -> {
 						record.setDescricao(motivo.getDescricao());
-						MotivosBaixa atualizada = motivosBaixaRepository.save(record);
+						MotivoBaixa atualizada = motivosBaixaRepository.save(record);
 						return ResponseEntity.ok().body(atualizada);
 					}).orElse(ResponseEntity.notFound().build());
 	}

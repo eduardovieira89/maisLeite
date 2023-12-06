@@ -9,12 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.leiteria.model.Animais;
-import com.leiteria.model.Coberturas;
-import com.leiteria.model.DiagnosticosPrenhez;
-import com.leiteria.model.MetodosPrenhez;
-import com.leiteria.model.Partos;
-import com.leiteria.model.Propriedades;
+import com.leiteria.model.Animal;
+import com.leiteria.model.Cobertura;
+import com.leiteria.model.DiagnosticoPrenhez;
+import com.leiteria.model.MetodoPrenhez;
+import com.leiteria.model.Parto;
+import com.leiteria.model.Propriedade;
 import com.leiteria.repository.AnimaisRepository;
 import com.leiteria.repository.CoberturasRepository;
 import com.leiteria.repository.DiagnosticosPrenhezRepository;
@@ -36,10 +36,10 @@ public class ServiceDiagnosticosPrenhez {
 	@Autowired
 	private ServiceParto partoService;
 	
-	public List<DiagnosticosPrenhez> listEmAndamento(long idPropriedade) {
-		Propriedades propriedade = propriedadeService.findPropriedade(idPropriedade);
-		List<DiagnosticosPrenhez> diagEmAndamento = diagnosticoRepository.findByVacaPropriedade(propriedade);
-		List<DiagnosticosPrenhez> diagPartos = new ArrayList<>();
+	public List<DiagnosticoPrenhez> listEmAndamento(long idPropriedade) {
+		Propriedade propriedade = propriedadeService.findPropriedade(idPropriedade);
+		List<DiagnosticoPrenhez> diagEmAndamento = diagnosticoRepository.findByVacaPropriedade(propriedade);
+		List<DiagnosticoPrenhez> diagPartos = new ArrayList<>();
 		diagEmAndamento.forEach(temParto -> {
 			if(partoService.existsDiagnosticoPrenhez(temParto)) {
 				diagPartos.add(temParto);
@@ -48,9 +48,9 @@ public class ServiceDiagnosticosPrenhez {
 		return diagEmAndamento;
 	}
 	
-	public List<DiagnosticosPrenhez> listByVaca(long idVaca){
+	public List<DiagnosticoPrenhez> listByVaca(long idVaca){
 		
-		Animais vaca = animaisRepository.findById(idVaca).get();
+		Animal vaca = animaisRepository.findById(idVaca).get();
 		
 		//Verifica se vaca não é nulo e se ela pertence ao proprietário.
 		if(vaca != null && propriedadeService.animalBelongsMe(vaca)) {
@@ -59,24 +59,24 @@ public class ServiceDiagnosticosPrenhez {
 		return null;
 	}
 	
-	public List<MetodosPrenhez> listMetodosPrenhez() {
+	public List<MetodoPrenhez> listMetodosPrenhez() {
 		return metodosPrenhezRepository.findAll();
 	}
 	
-	public ResponseEntity<Coberturas> lastCobertura(long idVaca) {
+	public ResponseEntity<Cobertura> lastCobertura(long idVaca) {
 		/*Retorna a coberura do animal selecionado com a data mais recente que não tenha realizado diagnóstico
 		 Este método pega a data da última cobertura e a data do último parto
 		 Se a cobertura não conter um diagnóstico e a data da cobertra for maior que a do parto, retorna essa cobertura
 		 Estou partindo da premissa que é feito somente 1 diagnóstico por cobertura, 
 		 se pode ser feito mais de um diagnóstico por cobertura , será necessário alterar esse método */
 		
-		Animais vaca = animaisRepository.findById(idVaca).orElse(null);
+		Animal vaca = animaisRepository.findById(idVaca).orElse(null);
 		if(vaca != null && propriedadeService.animalBelongsMe(vaca)) {
-			Coberturas cobertura = coberturaRepository.findFirstByVacaOrderByDataDesc(vaca);
+			Cobertura cobertura = coberturaRepository.findFirstByVacaOrderByDataDesc(vaca);
 			if(cobertura != null) {
-				DiagnosticosPrenhez contemDiagnostico = diagnosticoRepository.findOneByCobertura(cobertura);
+				DiagnosticoPrenhez contemDiagnostico = diagnosticoRepository.findOneByCobertura(cobertura);
 				if(contemDiagnostico == null) {
-					Partos parto = partoService.findLastPartoVaca(vaca);
+					Parto parto = partoService.findLastPartoVaca(vaca);
 					if(parto == null) {
 						return ResponseEntity.ok().body(cobertura);
 					}else {
@@ -90,17 +90,17 @@ public class ServiceDiagnosticosPrenhez {
 		return null;
 	}
 
-	public ResponseEntity<DiagnosticosPrenhez> findById(long id) {
+	public ResponseEntity<DiagnosticoPrenhez> findById(long id) {
 		return diagnosticoRepository.findById(id)
 				.map(record -> ResponseEntity.ok().body(record))
 				.orElse(ResponseEntity.notFound().build());
 	}
 	
-	public DiagnosticosPrenhez save(@Valid DiagnosticosPrenhez diagnostico) {
+	public DiagnosticoPrenhez save(@Valid DiagnosticoPrenhez diagnostico) {
 		return diagnosticoRepository.save(diagnostico);
 	}
 
-	public ResponseEntity<?> update(long id, DiagnosticosPrenhez diagnostico) {
+	public ResponseEntity<?> update(long id, DiagnosticoPrenhez diagnostico) {
 		//Verifica se o diagnóstico pertence ao usuario
 		if(propriedadeService.animalBelongsMe(diagnostico.getVaca())) {
 			return diagnosticoRepository.findById(id)
@@ -112,7 +112,7 @@ public class ServiceDiagnosticosPrenhez {
 						record.setMetodoDiagnostico(diagnostico.getMetodoDiagnostico());
 						record.setObservacao(diagnostico.getObservacao());
 						
-						DiagnosticosPrenhez atualizado = diagnosticoRepository.save(record);
+						DiagnosticoPrenhez atualizado = diagnosticoRepository.save(record);
 						return ResponseEntity.ok().body(atualizado);
 					}).orElse(ResponseEntity.notFound().build());
 		}else {

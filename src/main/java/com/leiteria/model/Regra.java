@@ -15,10 +15,9 @@ import jakarta.persistence.ManyToMany;
 
 import org.springframework.security.core.GrantedAuthority;
 
-@SuppressWarnings("serial")
 
-@Entity(name="regras")
-public class Regras implements GrantedAuthority{
+@Entity(name="regra")
+public class Regra implements GrantedAuthority{
 
 	@Id
 	@Column(name = "nome_regra")
@@ -28,10 +27,10 @@ public class Regras implements GrantedAuthority{
 	@ManyToMany
 	@JoinTable(
 				name="usuario_regras", joinColumns = @JoinColumn(
-						name="id_regra", referencedColumnName = "nome_regra"),
+						name="regra_id", referencedColumnName = "nome_regra"),
 				inverseJoinColumns = @JoinColumn(
-						name="id_usuario", referencedColumnName = "id_usuario"))
-	private List<Usuarios> usuarios;
+						name="id", referencedColumnName = "id_usuario"))
+	private List<Usuario> usuarios;
 	
 	
 	public ERegras getNomeRegra() {

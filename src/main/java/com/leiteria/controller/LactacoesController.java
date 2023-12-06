@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.leiteria.model.CausaEncerramentoLactacao;
-import com.leiteria.model.Lactacoes;
+import com.leiteria.model.Lactacao;
 import com.leiteria.model.service.ServiceLactacoes;
 
 import lombok.RequiredArgsConstructor;
@@ -29,13 +29,13 @@ public class LactacoesController {
 	private final ServiceLactacoes lacService;
 	
 	@GetMapping
-	public List<Lactacoes> listar(@RequestParam("idvaca") long idVaca){
+	public List<Lactacao> listar(@RequestParam("idvaca") long idVaca){
 		return lacService.list(idVaca);
 	}
 
 	@GetMapping("/emaberto")
-	public Lactacoes emAberto(@RequestParam("idanimal") long idAnimal){
-		Lactacoes lac = lacService.emAberto(idAnimal);
+	public Lactacao emAberto(@RequestParam("idanimal") long idAnimal){
+		Lactacao lac = lacService.emAberto(idAnimal);
 		return lac;
 	}
 
@@ -50,17 +50,17 @@ public class LactacoesController {
 	}
 	
 	@PostMapping
-	public Lactacoes save(@RequestBody Lactacoes lactacao) {
+	public Lactacao save(@RequestBody Lactacao lactacao) {
 		return lacService.save(lactacao);
 	}
 	
 	@PutMapping(value="/{id}")
-	public ResponseEntity<?> update(@PathVariable long id, @RequestBody Lactacoes lactacao){
+	public ResponseEntity<?> update(@PathVariable long id, @RequestBody Lactacao lactacao){
 		return lacService.update(id, lactacao);
 	}
 
 	@PutMapping(value = "/encerrar/{id}")
-		public ResponseEntity<?> encerrar(@PathVariable long id, @RequestBody Lactacoes lactacao){
+		public ResponseEntity<?> encerrar(@PathVariable long id, @RequestBody Lactacao lactacao){
 			return lacService.encerrar(id, lactacao);
 		}
 	

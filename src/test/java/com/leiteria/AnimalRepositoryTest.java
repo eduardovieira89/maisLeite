@@ -9,10 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.leiteria.model.Animais;
-import com.leiteria.model.Propriedades;
-import com.leiteria.model.Racas;
-import com.leiteria.model.Usuarios;
+import com.leiteria.model.Animal;
+import com.leiteria.model.Propriedade;
+import com.leiteria.model.Raca;
+import com.leiteria.model.Usuario;
 import com.leiteria.repository.AnimaisRepository;
 import com.leiteria.repository.PropriedadeRepository;
 import com.leiteria.repository.RacaRepository;
@@ -33,16 +33,16 @@ public class AnimalRepositoryTest {
 	
 	@Test
 	public void createShoulPersistData() {
-		Usuarios user = new Usuarios(0,"João", "joao@leite.com", "123456", null, null, null);
+		Usuario user = new Usuario(0,"João", "joao@leite.com", "123456", null, null, null);
 		usuarioRepository.save(user);
 		
-		Propriedades propriedade = new Propriedades("Prop teste", "loc teste", "mun teste", user);
+		Propriedade propriedade = new Propriedade("Prop teste", "loc teste", "mun teste", user);
 		propriedadeRepository.save(propriedade);
 		
-		Racas raca = new Racas("Nelore");
+		Raca raca = new Raca("Nelore");
 		racaRepository.save(raca);
 		
-		Animais animal = new Animais();
+		Animal animal = new Animal();
 		animal.setNome("Vaca teste");
 		//animal.setBrinco(15);
 		animal.setDataNasc(LocalDate.now());

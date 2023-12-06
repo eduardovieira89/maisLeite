@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.leiteria.model.Coberturas;
-import com.leiteria.model.TiposCobertura;
+import com.leiteria.model.Cobertura;
+import com.leiteria.model.TipoCobertura;
 import com.leiteria.model.service.ServiceCoberturas;
 
 import lombok.RequiredArgsConstructor;
@@ -29,25 +29,25 @@ public class CoberturasController {
 	private final ServiceCoberturas coberturaService;
 	
 	@GetMapping
-	public List<Coberturas> list(@RequestParam("idpropriedade") long idPropriedade){
+	public List<Cobertura> list(@RequestParam("idpropriedade") long idPropriedade){
 		//Lista todas as coberturas que não tenham sido realizado parto.
 		return coberturaService.listEmAndamento(idPropriedade);
 	}
 	
 	@GetMapping("/vaca/{id}")
-	public  List<Coberturas> listByVaca(@RequestParam("idvaca")long idVaca){
+	public  List<Cobertura> listByVaca(@RequestParam("idvaca")long idVaca){
 		//Retorna todas as coberturas da vaca selecionada
 		return coberturaService.listByVaca(idVaca);
 	}
 	
 	@GetMapping("/inseminador/{id}")
-	public List<Coberturas> listByInseminador(@RequestParam("idinseminador")long idInseminador){
+	public List<Cobertura> listByInseminador(@RequestParam("idinseminador")long idInseminador){
 		//Retorna todas as coberturas realizadas pelo inseminador (Usuário) selecionado
 		return coberturaService.listByInseminador(idInseminador);
 	}
 	
 	@GetMapping("/tipos")
-	public List<TiposCobertura> listTiposCobertura(){
+	public List<TipoCobertura> listTiposCobertura(){
 		return coberturaService.listTiposCoberturas();
 	}
 	
@@ -57,12 +57,12 @@ public class CoberturasController {
 	}
 	
 	@PostMapping
-	public Coberturas save(@RequestBody Coberturas cobertura){
+	public Cobertura save(@RequestBody Cobertura cobertura){
 		return coberturaService.save(cobertura);
 	}
 	
 	@PutMapping(value="/{id}")
-	public ResponseEntity<?> update(@PathVariable long id, @RequestBody Coberturas cobertura){
+	public ResponseEntity<?> update(@PathVariable long id, @RequestBody Cobertura cobertura){
 		return coberturaService.update(id, cobertura);
 	}
 	

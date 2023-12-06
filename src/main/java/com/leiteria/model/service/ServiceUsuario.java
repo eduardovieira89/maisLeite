@@ -18,8 +18,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.leiteria.model.ERegras;
-import com.leiteria.model.Regras;
-import com.leiteria.model.Usuarios;
+import com.leiteria.model.Regra;
+import com.leiteria.model.Usuario;
 import com.leiteria.repository.RegraRepository;
 import com.leiteria.repository.UsuarioRepository;
 import com.leiteria.security.CustomUserDetails;
@@ -42,21 +42,21 @@ public class ServiceUsuario {
 	private final PasswordEncoder encoder;
 	private final RegraRepository regraRepository;
 	
-	public List<Usuarios> listPropAndFunc() {
+	public List<Usuario> listPropAndFunc() {
 		
-		List<Usuarios> propFuncionarios = this.listarFuncionarios();
+		List<Usuario> propFuncionarios = this.listarFuncionarios();
 		propFuncionarios.add(this.getProprietario());
 		return propFuncionarios;
 	}
 
-	public List<Usuarios> listarFuncionarios() {
+	public List<Usuario> listarFuncionarios() {
 
-		Usuarios proprietario = this.getProprietario();
-		List<Usuarios> funcionarios = userRepository.buscarFuncionarios(proprietario);
+		Usuario proprietario = this.getProprietario();
+		List<Usuario> funcionarios = userRepository.buscarFuncionarios(proprietario);
 		return funcionarios;
 	}
 	
-	public Usuarios getUsuarioAutenticado() {
+	public Usuario getUsuarioAutenticado() {
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		if(principal == null) throw new AuthenticationCredentialsNotFoundException("Usuario não logado");
 		//String nome;		
@@ -69,8 +69,8 @@ public class ServiceUsuario {
 		//}
 	}
 	
-	public Usuarios getProprietario() {
-		Usuarios userAutenticado;
+	public Usuario getProprietario() {
+		Usuario userAutenticado;
 		userAutenticado = this.getUsuarioAutenticado();
 		if(userAutenticado.getChefe() == null) {
 			//Se a função getChefe retornar nulo, o próprio usuário é o proprietário.
@@ -109,9 +109,9 @@ public class ServiceUsuario {
 								   novoUser.getEmail(),
 								   encoder.encode(novoUser.getPassword())); **/
 		Set<String> strRegras = novoUser.getRole();
-		List<Regras> regras = new ArrayList<>();
+		List<Regra> regras = new ArrayList<>();
 		if(strRegras == null) {
-			Regras regraUsuario = regraRepository.findBynomeRegra(ERegras.ROLE_PRODUTOR)
+			Regra regraUsuario = regraRepository.findBynomeRegra(ERegras.ROLE_PRODUTOR)
 									.orElseThrow(() -> new RuntimeException("Erro: Regra não encontrada."));
 			regras.add(regraUsuario);
 			regraUsuario = regraRepository.findBynomeRegra(ERegras.ROLE_FUNCIONARIO)
@@ -121,24 +121,24 @@ public class ServiceUsuario {
 			strRegras.forEach(regra -> {
 				switch(regra) {
 				case "admin":
-					Regras regraAdmin = regraRepository.findBynomeRegra(ERegras.ROLE_ADMIN)
+					Regra regraAdmin = regraRepository.findBynomeRegra(ERegras.ROLE_ADMIN)
 					  					.orElseThrow(() -> new RuntimeException("Erro: Regra não encontrada."));
 					regras.add(regraAdmin);
 					break;
 				case "funcionario":
-					Regras regraFunc = regraRepository.findBynomeRegra(ERegras.ROLE_FUNCIONARIO)
+					Regra regraFunc = regraRepository.findBynomeRegra(ERegras.ROLE_FUNCIONARIO)
 										.orElseThrow(() -> new RuntimeException("Erro: Regra não encontrada."));
 					regras.add(regraFunc);
 					break;
 				default:
-					Regras regraProdutor = regraRepository.findBynomeRegra(ERegras.ROLE_PRODUTOR)
+					Regra regraProdutor = regraRepository.findBynomeRegra(ERegras.ROLE_PRODUTOR)
 											.orElseThrow(() -> new RuntimeException("Erro: Regra não encontrada"));
 					regras.add(regraProdutor);
 				}
 			});
 		}
 		//user.setRegras(regras);
-		var user = Usuarios.builder()
+		var user = Usuario.builder()
 				.nome(novoUser.getUsername())
 				.email(novoUser.getEmail())
 				.senha(encoder.encode(novoUser.getPassword()))
@@ -159,9 +159,9 @@ public class ServiceUsuario {
 								   encoder.encode(novoUser.getPassword())); **/
 		
 		Set<String> strRegras = novoUser.getRole();
-		List<Regras> regras = new ArrayList<>();
+		List<Regra> regras = new ArrayList<>();
 		if(strRegras == null) {
-			Regras regraUsuario =  regraRepository.findBynomeRegra(ERegras.ROLE_FUNCIONARIO)
+			Regra regraUsuario =  regraRepository.findBynomeRegra(ERegras.ROLE_FUNCIONARIO)
 									.orElseThrow(() -> new RuntimeException("Erro: Regra não encontrada."));
 			regras.add(regraUsuario);
 			
@@ -169,19 +169,19 @@ public class ServiceUsuario {
 			strRegras.forEach(regra -> {
 				switch(regra) {
 				case "admin":
-					Regras regraAdmin = regraRepository.findBynomeRegra(ERegras.ROLE_ADMIN)
+					Regra regraAdmin = regraRepository.findBynomeRegra(ERegras.ROLE_ADMIN)
 					  					.orElseThrow(() -> new RuntimeException("Erro: Regra não encontrada."));
 					regras.add(regraAdmin);
 					
 					break;
 				case "funcionario":
-					Regras regraFunc = regraRepository.findBynomeRegra(ERegras.ROLE_FUNCIONARIO)
+					Regra regraFunc = regraRepository.findBynomeRegra(ERegras.ROLE_FUNCIONARIO)
 										.orElseThrow(() -> new RuntimeException("Erro: Regra não encontrada."));
 					regras.add(regraFunc);
 				
 					break;
 				default:
-					Regras regraProdutor = regraRepository.findBynomeRegra(ERegras.ROLE_PRODUTOR)
+					Regra regraProdutor = regraRepository.findBynomeRegra(ERegras.ROLE_PRODUTOR)
 											.orElseThrow(() -> new RuntimeException("Erro: Regra não encontrada"));
 					regras.add(regraProdutor);
 					
@@ -190,7 +190,7 @@ public class ServiceUsuario {
 		}
 		//user.setRegras(regras);
 		//user.setChefe(this.getUsuarioAutenticado());
-		var user = Usuarios.builder()
+		var user = Usuario.builder()
 				.nome(novoUser.getUsername())
 				.email(novoUser.getEmail())
 				.senha(encoder.encode(novoUser.getPassword()))

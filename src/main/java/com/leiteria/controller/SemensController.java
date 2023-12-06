@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.leiteria.model.Semens;
+import com.leiteria.model.Semen;
 import com.leiteria.model.service.ServiceSemens;
 
 import lombok.RequiredArgsConstructor;
@@ -27,17 +27,17 @@ public class SemensController {
 	private final ServiceSemens semensService;
 	
 	@GetMapping
-	public List<Semens> listarSemens(){
+	public List<Semen> listarSemens(){
 		return semensService.list();
 	}
 	
 	@PostMapping
-	public Semens save(@RequestBody Semens semens) {
+	public Semen save(@RequestBody Semen semens) {
 		return semensService.save(semens);
 	}
 	
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<?> update(@PathVariable long id, @RequestBody Semens semen){
+	public ResponseEntity<?> update(@PathVariable long id, @RequestBody Semen semen){
 		return semensService.atualizar(id, semen);
 	}
 	

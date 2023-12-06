@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.leiteria.model.DiagnosticosPrenhez;
-import com.leiteria.model.Partos;
-import com.leiteria.model.TiposParto;
+import com.leiteria.model.DiagnosticoPrenhez;
+import com.leiteria.model.Parto;
+import com.leiteria.model.TipoParto;
 import com.leiteria.model.service.ServiceParto;
 
 import lombok.RequiredArgsConstructor;
@@ -29,18 +29,18 @@ public class PartoController {
 
 	private final ServiceParto partoService;
 	@GetMapping
-	public List<Partos> list(@RequestParam("idpropriedade") long idPropriedade){
+	public List<Parto> list(@RequestParam("idpropriedade") long idPropriedade){
 		//Retorna todos os partos da propriedade
 		return partoService.listByPropriedade(idPropriedade);
 	}
 	
 	@GetMapping("/tipos")
-	public List<TiposParto> listTiposPartos(){
+	public List<TipoParto> listTiposPartos(){
 		return partoService.listTiposPartos();
 	}
 	
 	@GetMapping("/diagnostico")
-	public ResponseEntity<DiagnosticosPrenhez> lastDiagnosticoPrenhez(@RequestParam("idvaca") long idVaca){
+	public ResponseEntity<DiagnosticoPrenhez> lastDiagnosticoPrenhez(@RequestParam("idvaca") long idVaca){
 		//Retorna o diagnóstico de prenhez da vaca selecionada mais recente se for positivo
 		return partoService.lastDiagnosticosPrenhez(idVaca);
 	}
@@ -51,13 +51,13 @@ public class PartoController {
 	}
 	
 	@PostMapping
-	public Partos save(@RequestBody Partos parto){
+	public Parto save(@RequestBody Parto parto){
 		//Implementar o código para receber uma lista com as crias do parto para já inserir elas nos animais.
 		return partoService.save(parto);
 	}
 	
 	@PutMapping(value="/{id}")
-	public ResponseEntity<?> update(@PathVariable long id, @RequestBody Partos parto){
+	public ResponseEntity<?> update(@PathVariable long id, @RequestBody Parto parto){
 		return partoService.update(id, parto);
 	}
 	

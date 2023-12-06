@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.leiteria.model.Coberturas;
-import com.leiteria.model.DiagnosticosPrenhez;
-import com.leiteria.model.MetodosPrenhez;
+import com.leiteria.model.Cobertura;
+import com.leiteria.model.DiagnosticoPrenhez;
+import com.leiteria.model.MetodoPrenhez;
 import com.leiteria.model.service.ServiceDiagnosticosPrenhez;
 
 import lombok.RequiredArgsConstructor;
@@ -31,40 +31,40 @@ public class DiagnosticosPrenhezController {
 	private final ServiceDiagnosticosPrenhez diagnosticoService;
 	
 	@GetMapping
-	public List<DiagnosticosPrenhez> listEmAndamento(@RequestParam("idpropriedade") long idPropriedade){
+	public List<DiagnosticoPrenhez> listEmAndamento(@RequestParam("idpropriedade") long idPropriedade){
 		//Lista os diagnósticos que não tenham sido realizado parto.
 		return diagnosticoService.listEmAndamento(idPropriedade);
 	}
 	
 	@GetMapping("/vaca")
-	public List<DiagnosticosPrenhez> listByVaca(@RequestParam("idvaca") long idVaca){
+	public List<DiagnosticoPrenhez> listByVaca(@RequestParam("idvaca") long idVaca){
 		//Retorna todos os diagnósticos da vaca selecionada
 		return diagnosticoService.listByVaca(idVaca);
 	}
 	
 	@GetMapping("/cobertura")
-	public ResponseEntity<Coberturas> lastCobertura(@RequestParam("idvaca") long idVaca){
+	public ResponseEntity<Cobertura> lastCobertura(@RequestParam("idvaca") long idVaca){
 		// Retorna a coberura do animal selecionado com a data mais recente que não tenha diagnóstico
 		return diagnosticoService.lastCobertura(idVaca);
 	}
 	
 	@GetMapping("/metodos")
-	public List<MetodosPrenhez> listMetodosPrenhez(){
+	public List<MetodoPrenhez> listMetodosPrenhez(){
 		return diagnosticoService.listMetodosPrenhez();
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<DiagnosticosPrenhez> findById(@PathVariable(value="id") long id) throws ResourceNotFoundException{
+	public ResponseEntity<DiagnosticoPrenhez> findById(@PathVariable(value="id") long id) throws ResourceNotFoundException{
 		return diagnosticoService.findById(id);
 	}
 	
 	@PostMapping
-	public DiagnosticosPrenhez save (@RequestBody DiagnosticosPrenhez diagnostico){
+	public DiagnosticoPrenhez save (@RequestBody DiagnosticoPrenhez diagnostico){
 		return diagnosticoService.save(diagnostico);
 	}
 	
 	@PutMapping(value="/{id}")
-	public ResponseEntity<?> update(@PathVariable long id, @RequestBody DiagnosticosPrenhez diagnostico){
+	public ResponseEntity<?> update(@PathVariable long id, @RequestBody DiagnosticoPrenhez diagnostico){
 		return diagnosticoService.update(id, diagnostico);
 	}
 	

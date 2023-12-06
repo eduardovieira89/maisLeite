@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.leiteria.model.ControleLeiteiro;
 import com.leiteria.model.ProducaoLeite;
-import com.leiteria.model.Propriedades;
+import com.leiteria.model.Propriedade;
 import com.leiteria.repository.ControleLeiteiroRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -23,7 +23,7 @@ public class ServiceControleLeiteiro {
     private final ServicePropriedade propriedadeService;
     
 public List<ControleLeiteiro> listarControleLeiteiro(long idPropriedade) {
-    Propriedades propriedade = propriedadeService.findPropriedade(idPropriedade);
+    Propriedade propriedade = propriedadeService.findPropriedade(idPropriedade);
     if(propriedade != null){
         return controleRepository.findByPropriedade(propriedade);
     }
