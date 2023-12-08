@@ -1,20 +1,26 @@
-package com.leiteria.model.vacinas;
+package com.leiteria.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+@Getter @Setter
 @Entity
-public class Vacinas {
+public class Vacina {
 	
 	@Id
+	@Column(name = "id_vacina", unique = true, nullable = false)
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
-	@Column(name = "id_vacinas", unique = true, nullable = false, precision = 19)
-	private long id;
+	@Setter(AccessLevel.NONE)
+	private int id;
 	
 	@NotNull(message="Nome é um campo obrigatório")
 	private String nome;
@@ -35,7 +41,7 @@ public class Vacinas {
 	private String reacoesPosVacinais;
 	
 	
-	public Vacinas(@NotNull(message = "Nome é um campo obrigatório") String nome, String indicacao, String modoDeUso,
+	public Vacina(@NotNull(message = "Nome é um campo obrigatório") String nome, String indicacao, String modoDeUso,
 			String esquemaDeVacincao, String reacoesPosVacinais) {
 		this.nome = nome;
 		this.indicacao = indicacao;
@@ -45,62 +51,12 @@ public class Vacinas {
 	}
 
 
-	public Vacinas(@NotNull(message = "Nome é um campo obrigatório") String nome) {
+	public Vacina(@NotNull(message = "Nome é um campo obrigatório") String nome) {
 		this.nome = nome;
 	}
 
 
-	public Vacinas() {
-	}
-
-
-	public String getNome() {
-		return nome;
-	}
-
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-
-	public String getIndicacao() {
-		return indicacao;
-	}
-
-
-	public void setIndicacao(String indicacao) {
-		this.indicacao = indicacao;
-	}
-
-
-	public String getModoDeUso() {
-		return modoDeUso;
-	}
-
-
-	public void setModoDeUso(String modoDeUso) {
-		this.modoDeUso = modoDeUso;
-	}
-
-
-	public String getEsquemaDeVacincao() {
-		return esquemaDeVacincao;
-	}
-
-
-	public void setEsquemaDeVacincao(String esquemaDeVacincao) {
-		this.esquemaDeVacincao = esquemaDeVacincao;
-	}
-
-
-	public String getReacoesPosVacinais() {
-		return reacoesPosVacinais;
-	}
-
-
-	public void setReacoesPosVacinais(String reacoesPosVacinais) {
-		this.reacoesPosVacinais = reacoesPosVacinais;
+	public Vacina() {
 	}
 
 
@@ -122,7 +78,7 @@ public class Vacinas {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Vacinas other = (Vacinas) obj;
+		Vacina other = (Vacina) obj;
 		if (id != other.id)
 			return false;
 		if (nome == null) {

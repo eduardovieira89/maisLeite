@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.leiteria.model.VacinaAplicacao;
+import com.leiteria.model.Vacina;
 import com.leiteria.model.service.ServiceVacina;
-import com.leiteria.model.vacinas.VacinaAplicacao;
-import com.leiteria.model.vacinas.Vacinas;
 
 import lombok.RequiredArgsConstructor;
 
@@ -31,8 +31,7 @@ public class VacinaController {
 	private final ServiceVacina vacinaService;
 	
 	@GetMapping
-	public List<Vacinas> listAll(){
-		//Alterar esse método para listar todos somente do usuario ou propriedade selecionado.
+	public List<Vacina> listAll(){
 		return vacinaService.listAll();
 	}
 	
@@ -42,22 +41,22 @@ public class VacinaController {
 	}
 	
 	@GetMapping("{id}")
-	public ResponseEntity<?> findById(@PathVariable(value="id") long id){
+	public ResponseEntity<?> findById(@PathVariable(value="id") int id){
 		return vacinaService.findById(id);
 	}
 	
 	@PostMapping
-	public Vacinas save(@Valid @RequestBody Vacinas vacina) {
+	public Vacina save(@Valid @RequestBody Vacina vacina) {
 		return vacinaService.save(vacina);
 	}
 	
 	@PutMapping(value="/{id}")
-	public ResponseEntity<Vacinas> update(@PathVariable long id, @Valid @RequestBody Vacinas detalhesVacina){
+	public ResponseEntity<Vacina> update(@PathVariable int id, @Valid @RequestBody Vacina detalhesVacina){
 		return vacinaService.update(id, detalhesVacina);
 	}
 	
 	@DeleteMapping("/{id}")
-	public ResponseEntity<?> delete(@PathVariable long id){
+	public ResponseEntity<?> delete(@PathVariable int id){
 		return vacinaService.delete(id);
 	}
 	

@@ -9,8 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.leiteria.model.Animal;
-import com.leiteria.model.vacinas.VacinaAplicacao;
-import com.leiteria.model.vacinas.Vacinas;
+import com.leiteria.model.VacinaAplicacao;
+import com.leiteria.model.Vacina;
 import com.leiteria.repository.VacinaAplicacaoRepository;
 import com.leiteria.repository.VacinaRepository;
 
@@ -23,25 +23,24 @@ public class ServiceVacina {
 	
 	public List<VacinaAplicacao> listarVacinasAplicadas(long idAnimal){
 		Animal animal = serviceAnimal.findAnimal(idAnimal);
-		return vaRepository.buscaVacinasAplicadas(animal);
+		return null;
 	}
 
-	public List<Vacinas> listAll() {
-		//Alterar esse método para listar todos somente do usuario ou propriedade selecionado.
+	public List<Vacina> listAll() {
 		return vacinaRepository.findAll();
 	}
 	
-	public ResponseEntity<?> findById(long id) {
+	public ResponseEntity<?> findById(int id) {
 		return vacinaRepository.findById(id)
 				.map(record -> ResponseEntity.ok().body(record))
 				.orElse(ResponseEntity.notFound().build());
 	}
 
-	public Vacinas save(@Valid Vacinas vacina) {
+	public Vacina save(@Valid Vacina vacina) {
 		return vacinaRepository.save(vacina);
 	}
 
-	public ResponseEntity<Vacinas> update(long id, @Valid Vacinas detalhesVacina) {
+	public ResponseEntity<Vacina> update(int id, @Valid Vacina detalhesVacina) {
 		return vacinaRepository.findById(id).map(record -> {
 			record.setNome(detalhesVacina.getNome());
 			record.setEsquemaDeVacincao(detalhesVacina.getEsquemaDeVacincao());
@@ -49,12 +48,12 @@ public class ServiceVacina {
 			record.setModoDeUso(detalhesVacina.getModoDeUso());
 			record.setReacoesPosVacinais(detalhesVacina.getReacoesPosVacinais());
 			
-			Vacinas atualizada = vacinaRepository.save(record);
+			Vacina atualizada = vacinaRepository.save(record);
 			return ResponseEntity.ok().body(atualizada);
 		}).orElse(ResponseEntity.notFound().build());
 	}
 
-	public ResponseEntity<?> delete(long id) {
+	public ResponseEntity<?> delete(int id) {
 		return vacinaRepository.findById(id).map(record -> {
 			vacinaRepository.deleteById(id);
 			return ResponseEntity.ok().build();

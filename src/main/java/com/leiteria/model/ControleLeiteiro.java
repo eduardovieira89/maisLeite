@@ -52,9 +52,9 @@ public class ControleLeiteiro {
 	@JoinTable(
 			name="ordenhadores", 
 			joinColumns= @JoinColumn(
-					name="id_controle_leiteiro", referencedColumnName = "id_controle_leiteiro"),
+					name="controle_leiteiro_id", referencedColumnName = "id_controle_leiteiro"),
 			inverseJoinColumns = @JoinColumn(
-					name="id", referencedColumnName = "id_usuario")
+					name="usuario_id", referencedColumnName = "id_usuario")
 			)
 	private List<Usuario> ordenhadores;
 
