@@ -45,6 +45,12 @@ public class AnimalController {
 	public List<Animal> listarEmLactacao(@RequestParam("idpropriedade") long idPropriedade){
 		return animalService.findEmLactacao(idPropriedade); 
 	}
+
+	@GetMapping("/lote")
+	public List<Animal> listarPorLote(@RequestParam("idlote") long lote) {
+		return animalService.findByLote(lote);
+	}
+	
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<?> findById(@PathVariable(value="id") long idAnimal){

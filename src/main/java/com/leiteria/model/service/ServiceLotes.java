@@ -27,6 +27,16 @@ public class ServiceLotes {
         return null;
     }
 
+    public Lote findLote(long idLote){
+        Lote achado = loteRepository.findById(idLote).get();
+        if(achado != null){
+            if(propriedadeService.propriedadeBelongsMe(achado.getPropriedade())){
+                return achado;
+            }
+        }
+        return null;
+    }
+
     public Lote save(@Valid Lote lote) {
         if(propriedadeService.propriedadeBelongsMe(lote.getPropriedade())){
             loteRepository.save(lote);

@@ -30,33 +30,33 @@ public class VacinaController {
 
 	private final ServiceVacina vacinaService;
 	
-	@GetMapping
+	@GetMapping("/produtos")
 	public List<Vacina> listAll(){
-		return vacinaService.listAll();
+		return vacinaService.listarProdutos();
 	}
 	
-	@GetMapping("/aplicar")
+	@GetMapping()
 	public List<VacinaAplicacao> listarPorAnimal(@RequestParam("idanimal") long idanimal){
 		return vacinaService.listarVacinasAplicadas(idanimal);
 	}
 	
 	@GetMapping("{id}")
-	public ResponseEntity<?> findById(@PathVariable(value="id") int id){
+	public ResponseEntity<?> findById(@PathVariable(value="id") Long id){
 		return vacinaService.findById(id);
 	}
 	
 	@PostMapping
-	public Vacina save(@Valid @RequestBody Vacina vacina) {
-		return vacinaService.save(vacina);
+	public VacinaAplicacao save(@Valid @RequestBody VacinaAplicacao vacinaap) {
+		return vacinaService.save(vacinaap);
 	}
 	
 	@PutMapping(value="/{id}")
-	public ResponseEntity<Vacina> update(@PathVariable int id, @Valid @RequestBody Vacina detalhesVacina){
+	public ResponseEntity<VacinaAplicacao> update(@PathVariable long id, @Valid @RequestBody VacinaAplicacao detalhesVacina){
 		return vacinaService.update(id, detalhesVacina);
 	}
 	
 	@DeleteMapping("/{id}")
-	public ResponseEntity<?> delete(@PathVariable int id){
+	public ResponseEntity<?> delete(@PathVariable long id){
 		return vacinaService.delete(id);
 	}
 	

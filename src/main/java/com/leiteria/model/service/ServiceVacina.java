@@ -26,36 +26,36 @@ public class ServiceVacina {
 		return null;
 	}
 
-	public List<Vacina> listAll() {
+	public List<Vacina> listarProdutos() {
 		return vacinaRepository.findAll();
 	}
 	
-	public ResponseEntity<?> findById(int id) {
-		return vacinaRepository.findById(id)
+	public ResponseEntity<?> findById(Long id) {
+		return vaRepository.findById(id)
 				.map(record -> ResponseEntity.ok().body(record))
 				.orElse(ResponseEntity.notFound().build());
 	}
 
-	public Vacina save(@Valid Vacina vacina) {
-		return vacinaRepository.save(vacina);
+	public VacinaAplicacao save(@Valid VacinaAplicacao vacina) {
+		return vaRepository.save(vacina);
 	}
 
-	public ResponseEntity<Vacina> update(int id, @Valid Vacina detalhesVacina) {
-		return vacinaRepository.findById(id).map(record -> {
-			record.setNome(detalhesVacina.getNome());
-			record.setEsquemaDeVacincao(detalhesVacina.getEsquemaDeVacincao());
-			record.setIndicacao(detalhesVacina.getIndicacao());
-			record.setModoDeUso(detalhesVacina.getModoDeUso());
-			record.setReacoesPosVacinais(detalhesVacina.getReacoesPosVacinais());
-			
-			Vacina atualizada = vacinaRepository.save(record);
+	public ResponseEntity<VacinaAplicacao> update(Long id, @Valid VacinaAplicacao detalhesVacina) {
+		return vaRepository.findById(id).map(record -> {
+			record.setDose(detalhesVacina.getDose());
+			record.setData(detalhesVacina.getData());
+			record.setAnimal(detalhesVacina.getAnimal());
+			record.setVacina(detalhesVacina.getVacina());
+			record.setAplicador(detalhesVacina.getAplicador());
+
+			VacinaAplicacao atualizada = vaRepository.save(record);
 			return ResponseEntity.ok().body(atualizada);
 		}).orElse(ResponseEntity.notFound().build());
 	}
 
-	public ResponseEntity<?> delete(int id) {
-		return vacinaRepository.findById(id).map(record -> {
-			vacinaRepository.deleteById(id);
+	public ResponseEntity<?> delete(Long id) {
+		return vaRepository.findById(id).map(record -> {
+			vaRepository.deleteById(id);
 			return ResponseEntity.ok().build();
 		}).orElse(ResponseEntity.notFound().build());
 	}

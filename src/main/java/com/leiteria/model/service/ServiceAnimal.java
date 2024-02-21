@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.leiteria.model.Animal;
+import com.leiteria.model.Lote;
 import com.leiteria.model.MotivoBaixa;
 import com.leiteria.model.Propriedade;
 import com.leiteria.repository.AnimaisRepository;
@@ -19,6 +20,7 @@ public class ServiceAnimal {
 
 	private final AnimaisRepository animalRepository;
 	private final ServicePropriedade propriedadeService;
+	private final ServiceLotes lotesService;
 	private final MotivosBaixaRepository motivosBaixaRepository; //Alterar para Service
 
 	public List<Animal> listByPropriedade(long idPropriedade) {
@@ -54,6 +56,14 @@ public class ServiceAnimal {
 		}
 		return null;
 	}
+
+	public List<Animal> findByLote(long idLote) {
+        Lote lote = lotesService.findLote(idLote);
+		if(lote != null){
+			return animalRepository.findByLoteAndAtivo(lote, true);
+		}
+		return null;
+    }
 
 	public ResponseEntity<?> findById(long idAnimal) {
 		return animalRepository.findById(idAnimal).map(record -> {
@@ -118,6 +128,8 @@ public class ServiceAnimal {
 			return ResponseEntity.notFound().build();
 		}).orElse(ResponseEntity.notFound().build());
 	}
+
+    
 
 	
 
