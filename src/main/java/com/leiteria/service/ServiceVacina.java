@@ -1,4 +1,4 @@
-package com.leiteria.model.service;
+package com.leiteria.service;
 
 import java.util.List;
 
@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.leiteria.model.Animal;
 import com.leiteria.model.VacinaAplicacao;
+import com.leiteria.model.dto.VacinaAplicacaoEmLotesDTO;
 import com.leiteria.model.Vacina;
 import com.leiteria.repository.VacinaAplicacaoRepository;
 import com.leiteria.repository.VacinaRepository;
@@ -23,7 +24,7 @@ public class ServiceVacina {
 	
 	public List<VacinaAplicacao> listarVacinasAplicadas(long idAnimal){
 		Animal animal = serviceAnimal.findAnimal(idAnimal);
-		return null;
+		return vaRepository.findByAnimal(animal);
 	}
 
 	public List<Vacina> listarProdutos() {
@@ -58,6 +59,20 @@ public class ServiceVacina {
 			vaRepository.deleteById(id);
 			return ResponseEntity.ok().build();
 		}).orElse(ResponseEntity.notFound().build());
+	}
+
+	public ResponseEntity<String> salvarAplicacaoEmLotes(VacinaAplicacaoEmLotesDTO aplicVacinaDTO) {
+		aplicVacinaDTO.getLoteAnimais().forEach(animais -> {
+			VacinaAplicacao va = new VacinaAplicacao();
+			va.setAnimal(animais);
+			va.setAplicador(aplicVacinaDTO.getAplicador());
+			va.setData(aplicVacinaDTO.getData());
+			va.setDose(aplicVacinaDTO.getDose());
+			va.setVacina(aplicVacinaDTO.getVacina());
+			this.save(va);
+			va = null;
+		});
+		return ResponseEntity.ok().build();
 	}
 
 

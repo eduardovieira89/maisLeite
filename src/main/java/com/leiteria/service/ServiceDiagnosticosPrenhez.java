@@ -1,4 +1,4 @@
-package com.leiteria.model.service;
+package com.leiteria.service;
 
 import java.util.ArrayList;
 import java.util.List;

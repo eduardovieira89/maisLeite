@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.leiteria.model.AnimalDoador;
-import com.leiteria.model.service.ServiceAnimaisDoadores;
+import com.leiteria.service.ServiceAnimaisDoadores;
 
 import lombok.RequiredArgsConstructor;
 

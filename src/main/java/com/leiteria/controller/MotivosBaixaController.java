@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.leiteria.model.MotivoBaixa;
-import com.leiteria.model.service.ServiceMotivosBaixa;
+import com.leiteria.service.ServiceMotivosBaixa;
 
 import lombok.RequiredArgsConstructor;
 

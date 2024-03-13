@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.leiteria.model.Semen;
-import com.leiteria.model.service.ServiceSemens;
+import com.leiteria.service.ServiceSemens;
 
 import lombok.RequiredArgsConstructor;
 

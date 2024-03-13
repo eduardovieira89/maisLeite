@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.leiteria.model.Cobertura;
 import com.leiteria.model.DiagnosticoPrenhez;
 import com.leiteria.model.MetodoPrenhez;
-import com.leiteria.model.service.ServiceDiagnosticosPrenhez;
+import com.leiteria.service.ServiceDiagnosticosPrenhez;
 
 import lombok.RequiredArgsConstructor;
 

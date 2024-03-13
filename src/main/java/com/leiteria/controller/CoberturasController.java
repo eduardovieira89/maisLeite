@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.leiteria.model.Cobertura;
 import com.leiteria.model.TipoCobertura;
-import com.leiteria.model.service.ServiceCoberturas;
+import com.leiteria.service.ServiceCoberturas;
 
 import lombok.RequiredArgsConstructor;
 

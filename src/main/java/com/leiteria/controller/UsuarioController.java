@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.leiteria.model.Usuario;
-import com.leiteria.model.service.ServiceUsuario;
 import com.leiteria.security.payload.request.LoginRequest;
 import com.leiteria.security.payload.request.RegisterRequest;
+import com.leiteria.service.ServiceUsuario;
 
 import lombok.RequiredArgsConstructor;
 

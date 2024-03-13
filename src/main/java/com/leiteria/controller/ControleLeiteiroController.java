@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.leiteria.model.ControleLeiteiro;
-import com.leiteria.model.service.ServiceControleLeiteiro;
+import com.leiteria.service.ServiceControleLeiteiro;
 
 import lombok.RequiredArgsConstructor;
 

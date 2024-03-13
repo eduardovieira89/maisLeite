@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.leiteria.model.Propriedade;
-import com.leiteria.model.service.ServicePropriedade;
+import com.leiteria.service.ServicePropriedade;
 
 import lombok.RequiredArgsConstructor;
 

@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.leiteria.model.Lote;
-import com.leiteria.model.service.ServiceLotes;
+import com.leiteria.service.ServiceLotes;
 
 import lombok.RequiredArgsConstructor;
 

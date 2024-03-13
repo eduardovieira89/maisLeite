@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.leiteria.model.Animal;
 import com.leiteria.model.MotivoBaixa;
-import com.leiteria.model.service.ServiceAnimal;
+import com.leiteria.service.ServiceAnimal;
 
 import lombok.RequiredArgsConstructor;
 
@@ -58,8 +58,8 @@ public class AnimalController {
 	}
 	
 	@PostMapping
-	public Animal save(@RequestBody @Valid  Animal animais) {
-		return animalService.save(animais);
+	public Animal save(@RequestBody @Valid  Animal animal) {
+		return animalService.save(animal);
 	}
 	
 	@PutMapping(value="/{id}")

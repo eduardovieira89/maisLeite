@@ -17,8 +17,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.leiteria.model.VacinaAplicacao;
+import com.leiteria.model.dto.VacinaAplicacaoEmLotesDTO;
+import com.leiteria.service.ServiceVacina;
 import com.leiteria.model.Vacina;
-import com.leiteria.model.service.ServiceVacina;
 
 import lombok.RequiredArgsConstructor;
 
@@ -35,6 +36,7 @@ public class VacinaController {
 		return vacinaService.listarProdutos();
 	}
 	
+	
 	@GetMapping()
 	public List<VacinaAplicacao> listarPorAnimal(@RequestParam("idanimal") long idanimal){
 		return vacinaService.listarVacinasAplicadas(idanimal);
@@ -49,6 +51,12 @@ public class VacinaController {
 	public VacinaAplicacao save(@Valid @RequestBody VacinaAplicacao vacinaap) {
 		return vacinaService.save(vacinaap);
 	}
+
+	@PostMapping("/lote")
+	public ResponseEntity<?> salvarAplicacaoEmLotes(@RequestBody VacinaAplicacaoEmLotesDTO aplicVacinaDTO) {
+		return vacinaService.salvarAplicacaoEmLotes(aplicVacinaDTO);
+	}
+	
 	
 	@PutMapping(value="/{id}")
 	public ResponseEntity<VacinaAplicacao> update(@PathVariable long id, @Valid @RequestBody VacinaAplicacao detalhesVacina){

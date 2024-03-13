@@ -1,4 +1,4 @@
-package com.leiteria.model.service;
+package com.leiteria.service;
 
 import java.util.List;
 import javax.validation.Valid;

@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.leiteria.model.CausaEncerramentoLactacao;
 import com.leiteria.model.Lactacao;
-import com.leiteria.model.service.ServiceLactacoes;
+import com.leiteria.service.ServiceLactacoes;
 
 import lombok.RequiredArgsConstructor;
 

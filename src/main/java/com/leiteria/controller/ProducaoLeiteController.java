@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.leiteria.model.ProducaoLeite;
-import com.leiteria.model.service.ServiceProducaoLeite;
+import com.leiteria.service.ServiceProducaoLeite;
 
 import lombok.RequiredArgsConstructor;
 

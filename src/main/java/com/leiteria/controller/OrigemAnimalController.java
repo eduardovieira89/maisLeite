@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.leiteria.model.OrigemAnimal;
-import com.leiteria.model.service.ServiceOrigemAnimal;
+import com.leiteria.service.ServiceOrigemAnimal;
 
 import lombok.RequiredArgsConstructor;
 
