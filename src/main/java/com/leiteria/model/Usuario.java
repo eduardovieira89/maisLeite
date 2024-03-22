@@ -1,115 +1,99 @@
+
 package com.leiteria.model;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Index;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
+@Builder
+@AllArgsConstructor
+@Getter @Setter
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Entity
-public class Usuario{
-	
+@Table(name="usuario", indexes={@Index(name="usuarios_email_IX", columnList="email", unique=true)})
+public class Usuario {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id_usuario;
+	@Column(name="id_usuario", unique=true, nullable=false, precision=19)
+	@Setter(AccessLevel.NONE)
+	private long id;
+
 	@NotEmpty
 	private String nome;
+
 	@NotEmpty
 	@Email
 	private String email;
+
 	@NotEmpty
+	@JsonIgnore
 	private String senha;
-	@ManyToMany(fetch = FetchType.LAZY)
+
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name="usuario_regras", joinColumns = 
-				@JoinColumn(name="id_usuario", referencedColumnName = "id_usuario"),
-				inverseJoinColumns = @JoinColumn(
-				name= "id_regra", referencedColumnName = "nome_regra"))
+										@JoinColumn(name="usuario_id", referencedColumnName = "id_usuario"),
+									  inverseJoinColumns = 
+										@JoinColumn(name= "regra_id", referencedColumnName = "nome_regra"))
 	private List<Regra> regras;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "proprietario", targetEntity = Propriedade.class, 
 				fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Propriedade> propriedades;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "chefe", insertable = true, updatable = true, nullable = true)
+	@JoinColumn(name = "chefe_id", insertable = true, updatable = true, nullable = true)
 	private Usuario chefe;
-	
-	
-	
-	public Usuario(String nome, String email, String senha) {
-		super();
-		this.nome = nome;
-		this.email = email;
-		this.senha = senha;
-	}
-	
-	public Usuario() {	}
 
-	public long getId_usuario() {
-		return id_usuario;
+	public Usuario() {
 	}
 
-	public String getNome() {
-		return nome;
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (int) (id ^ (id >>> 32));
+		return result;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Usuario other = (Usuario) obj;
+		if (id != other.id)
+			return false;
+		return true;
 	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	
-	public String getSenha() {
-		return this.senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
-	@JsonIgnore
-	public List<Propriedade> getPropriedades(){
-		return this.propriedades;
-	}
-	
-	
-
-	public List<Regra> getRegras() {
-		return regras;
-	}
-
-	public void setRegras(List<Regra> regras) {
-		this.regras = regras;
-	}
-
-	public Usuario getChefe() {
-		return chefe;
-	}
-
-	public void setChefe(Usuario chefe) {
-		this.chefe = chefe;
-	}
-	
-	
-	
 	
 	
 

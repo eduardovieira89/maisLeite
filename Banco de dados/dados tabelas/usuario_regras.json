@@ -1,0 +1,15 @@
+[
+ {"id_usuario":2, "id_regra":"ROLE_FUNCIONARIO"},
+ {"id_usuario":3, "id_regra":"ROLE_FUNCIONARIO"},
+ {"id_usuario":4, "id_regra":"ROLE_FUNCIONARIO"},
+ {"id_usuario":4, "id_regra":"ROLE_PRODUTOR"},
+ {"id_usuario":4, "id_regra":"ROLE_ADMIN"},
+ {"id_usuario":5, "id_regra":"ROLE_FUNCIONARIO"},
+ {"id_usuario":6, "id_regra":"ROLE_FUNCIONARIO"},
+ {"id_usuario":7, "id_regra":"ROLE_PRODUTOR"},
+ {"id_usuario":8, "id_regra":"ROLE_PRODUTOR"},
+ {"id_usuario":9, "id_regra":"ROLE_PRODUTOR"},
+ {"id_usuario":1, "id_regra":"ROLE_PRODUTOR"},
+ {"id_usuario":1, "id_regra":"ROLE_FUNCIONARIO"},
+ {"id_usuario":19, "id_regra":"ROLE_FUNCIONARIO"}
+]

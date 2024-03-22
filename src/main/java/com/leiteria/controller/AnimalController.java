@@ -4,8 +4,6 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -19,72 +17,23 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.leiteria.model.Animal;
-import com.leiteria.model.service.ServiceAnimal;
-import com.leiteria.payload.response.MessageResponse;
-import com.leiteria.repository.AnimalRepository;
+import com.leiteria.model.MotivoBaixa;
+import com.leiteria.service.ServiceAnimal;
+
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/animal")
 @CrossOrigin
+@RequiredArgsConstructor
 public class AnimalController {
-	
-	@Autowired
-	ServiceAnimal animalService;
-	@Autowired 
-	AnimalRepository animalRepository;
+		
+	private final ServiceAnimal animalService;
 	
 	@GetMapping
 	public List<Animal> listarTodosDaPropriedade(@RequestParam("idpropriedade") long idPropriedade){
-		
 		//retorna a lista de animais da propriedade selecionada
 		return animalService.listByPropriedade(idPropriedade);
-	}
-	
-	@GetMapping("/{id}")
-	public ResponseEntity<?> selecionarPorId(@PathVariable(value="id") long idAnimal) throws ResourceNotFoundException{
-		Animal animal = animalService.findById(idAnimal);
-		if(animal != null) {
-			return ResponseEntity.ok().body(animal);
-		}else {
-			return ResponseEntity.badRequest().body(new MessageResponse("Erro: animal não encontrado"));
-		}
-		
-		
-	}
-	
-	@PostMapping
-	public Animal novoAnimal(@Valid @RequestBody  Animal animal) {
-		return animalRepository.save(animal);
-		
-	}
-	
-	@DeleteMapping("/{id}")
-	public ResponseEntity<?> delete (@PathVariable long id){
-		return animalRepository.findById(id)
-				.map(record ->{
-					animalRepository.deleteById(id);
-					return ResponseEntity.ok().build();
-				}).orElse(ResponseEntity.notFound().build());
-	}
-	
-	@PutMapping(value="/{id}")
-	public ResponseEntity<?> atualizar(@PathVariable long id, @RequestBody Animal animal){
-		return animalRepository.findById(id).
-				map(record -> {
-					record.setNome(animal.getNome());
-					record.setBrinco(animal.getBrinco());
-					record.setRegistro(animal.getRegistro());
-					record.setDataNasc(animal.getDataNasc());
-					record.setRaca(animal.getRaca());
-					record.setSexo(animal.getSexo());
-					record.setId_pai(animal.getId_pai());
-					record.setId_mae(animal.getId_mae());
-					record.setPai(animal.getPai());
-					record.setMae(animal.getMae());
-					Animal atualizado = animalRepository.save(record);
-					
-					return ResponseEntity.ok().body(atualizado);
-				}).orElse(ResponseEntity.notFound().build());
 	}
 	
 	@GetMapping("/genero")
@@ -92,6 +41,41 @@ public class AnimalController {
 		return animalService.findByPropriedadeAndGenero(idPropriedade, genero);
 	}
 	
-	
+	@GetMapping("/emlactacao")
+	public List<Animal> listarEmLactacao(@RequestParam("idpropriedade") long idPropriedade){
+		return animalService.findEmLactacao(idPropriedade); 
+	}
 
+	@GetMapping("/lote")
+	public List<Animal> listarPorLote(@RequestParam("idlote") long lote) {
+		return animalService.findByLote(lote);
+	}
+	
+	
+	@GetMapping("/{id}")
+	public ResponseEntity<?> findById(@PathVariable(value="id") long idAnimal){
+		return animalService.findById(idAnimal);
+	}
+	
+	@PostMapping
+	public Animal save(@RequestBody @Valid  Animal animal) {
+		return animalService.save(animal);
+	}
+	
+	@PutMapping(value="/{id}")
+	public ResponseEntity<?> update(@PathVariable long id, @RequestBody Animal animal){
+		return animalService.update(id, animal);
+	}
+	
+	@PutMapping(value="/baixa/{id}")
+	public ResponseEntity<?>baixaAnimal(@PathVariable long id, @RequestBody MotivoBaixa motivo){
+		return animalService.baixa(id, motivo);
+	}
+	
+	
+	@DeleteMapping("/{id}")
+	public ResponseEntity<?> delete(@PathVariable long id){
+		return animalService.delete(id);
+	}
+	
 }

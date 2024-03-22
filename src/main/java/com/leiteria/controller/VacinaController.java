@@ -4,9 +4,8 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,54 +16,57 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.leiteria.model.service.ServiceVacina;
-import com.leiteria.model.vacina.Vacina;
-import com.leiteria.model.vacina.VacinaAplicacao;
-import com.leiteria.repository.VacinaRepository;
+import com.leiteria.model.VacinaAplicacao;
+import com.leiteria.model.dto.VacinaAplicacaoEmLotesDTO;
+import com.leiteria.service.ServiceVacina;
+import com.leiteria.model.Vacina;
+
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/vacina")
+@CrossOrigin
+@RequiredArgsConstructor
 public class VacinaController {
 
-	@Autowired VacinaRepository vacinaRepository;
-	@Autowired ServiceVacina serviceVacina;
+	private final ServiceVacina vacinaService;
 	
-	@GetMapping
-	public List<Vacina> listarVacinas(){
-		return vacinaRepository.findAll();
+	@GetMapping("/produtos")
+	public List<Vacina> listAll(){
+		return vacinaService.listarProdutos();
+	}
+	
+	
+	@GetMapping()
+	public List<VacinaAplicacao> listarPorAnimal(@RequestParam("idanimal") long idanimal){
+		return vacinaService.listarVacinasAplicadas(idanimal);
+	}
+	
+	@GetMapping("{id}")
+	public ResponseEntity<?> findById(@PathVariable(value="id") Long id){
+		return vacinaService.findById(id);
 	}
 	
 	@PostMapping
-	public Vacina nova(@Valid @RequestBody Vacina vacina) {
-		return vacinaRepository.save(vacina);
+	public VacinaAplicacao save(@Valid @RequestBody VacinaAplicacao vacinaap) {
+		return vacinaService.save(vacinaap);
+	}
+
+	@PostMapping("/lote")
+	public ResponseEntity<?> salvarAplicacaoEmLotes(@RequestBody VacinaAplicacaoEmLotesDTO aplicVacinaDTO) {
+		return vacinaService.salvarAplicacaoEmLotes(aplicVacinaDTO);
 	}
 	
-	@PutMapping("/{id}")
-	public ResponseEntity<Vacina> atualizar(@PathVariable long id,
-							@Valid @RequestBody Vacina detalhesVacina) throws ResourceNotFoundException{
-		
-		return vacinaRepository.findById(id).map(record -> {
-			record.setNome(detalhesVacina.getNome());
-			record.setEsquemaDeVacincao(detalhesVacina.getEsquemaDeVacincao());
-			record.setIndicacao(detalhesVacina.getIndicacao());
-			record.setModoDeUso(detalhesVacina.getModoDeUso());
-			record.setReacoesPosVacinais(detalhesVacina.getReacoesPosVacinais());
-			
-			Vacina atualizada = vacinaRepository.save(record);
-			return ResponseEntity.ok().body(atualizada);
-		}).orElse(ResponseEntity.notFound().build());
+	
+	@PutMapping(value="/{id}")
+	public ResponseEntity<VacinaAplicacao> update(@PathVariable long id, @Valid @RequestBody VacinaAplicacao detalhesVacina){
+		return vacinaService.update(id, detalhesVacina);
 	}
 	
 	@DeleteMapping("/{id}")
-	public ResponseEntity<?> delete (@PathVariable long id){
-		return vacinaRepository.findById(id).map(record -> {
-			vacinaRepository.deleteById(id);
-			return ResponseEntity.ok().build();
-		}).orElse(ResponseEntity.notFound().build());
+	public ResponseEntity<?> delete(@PathVariable long id){
+		return vacinaService.delete(id);
 	}
 	
-	@GetMapping("/aplicar")
-	public List<VacinaAplicacao> listarTodosPorAnimal(@RequestParam("idanimal") long idanimal){
-		return serviceVacina.listarVacinasAplicadas(idanimal);
-	}
+
 }

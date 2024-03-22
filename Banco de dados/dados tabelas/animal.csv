@@ -1,0 +1,15 @@
+"id_animal";"nome";"brinco";"data_nasc";"registro";"sexo";"pai";"mae";"id_raca";"id_propriedade";"id_pai";"id_mae"
+1;"Joselino";10;"2020-01-01";201;"m";"";"";1;1;null;null
+2;"Mimosa";11;"2017-01-01";212121;"f";"";"";1;1;null;null
+3;"Charmosa";50;"2021-04-22";222;"f";"Joselino";"Mimosa";1;1;null;2
+4;"Malu";12;"2015-03-30";852143;"f";"";"";2;4;1;null
+5;"Celi";13;"2014-04-20";215874;"f";"";"";2;4;1;null
+6;"Pintada";14;"2016-03-01";474125;"f";"";"";1;4;null;null
+7;"Saralii";21;"2021-05-05";3728900;"f";"Joselino";"Mimosa";1;1;10;2
+8;"Manquinha";76;"2021-05-23";2234765;"f";"Joselino";"Mimosa";1;1;null;null
+9;"Malu2";98776;"2020-06-27";45690874;"f";"";"";2;4;null;null
+10;"Pintado";85;"2019-06-04";98196213;"m";"Joselino";"Mimosa";1;1;null;null
+11;"Ferdinando";235;"2018-08-24";84795;"m";"Touro Ferdinando";"Pintadinha";6;4;null;null
+12;"Bagolino";792;"2020-02-12";234566;"m";"";"";4;4;11;4
+13;"";23;"2013-06-17";15134567;"f";"Maltazer";"Magrinha";2;2;null;null
+32;"Vaquinha";3075;"2022-05-03";3899976;"f";"Touro emprestado do vizinho";"";5;1;1;8

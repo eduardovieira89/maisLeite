@@ -1,46 +1,43 @@
+// Generated with g9.
+
 package com.leiteria.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
 import javax.validation.constraints.NotEmpty;
 
-@Entity
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter @Setter
+@Entity(name="raca")
 public class Raca {
 
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
-	private int id_raca;
+	@Column(name = "id_raca")
+	@Setter(AccessLevel.NONE)
+	private int id;
+	
 	@NotEmpty(message = "Descrição é um campo obrigatório")
 	private String descricao;
-	public Raca(int id_raca, String descricao) {
-		super();
-		this.id_raca = id_raca;
-		this.descricao = descricao;
+
+	public Raca(){
+
 	}
-	public Raca(String descricao) {
-		super();
-		this.descricao = descricao;
-	}
-	public Raca() {
-		super();
-	}
-	public int getId_raca() {
-		return id_raca;
-	}
-	public String getDescricao() {
-		return descricao;
-	}
-	public void setDescricao(String descricao) {
+	public Raca(String descricao){
 		this.descricao = descricao;
 	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((descricao == null) ? 0 : descricao.hashCode());
-		result = prime * result + id_raca;
+		result = prime * result + id;
 		return result;
 	}
 	@Override
@@ -52,19 +49,13 @@ public class Raca {
 		if (getClass() != obj.getClass())
 			return false;
 		Raca other = (Raca) obj;
-		if (descricao == null) {
-			if (other.descricao != null)
-				return false;
-		} else if (!descricao.equals(other.descricao))
-			return false;
-		if (id_raca != other.id_raca)
+		if (id != other.id)
 			return false;
 		return true;
 	}
-	@Override
-	public String toString() {
-		return "Raça: [" + descricao + "]";
-	}
 	
 	
+
+	
+		
 }

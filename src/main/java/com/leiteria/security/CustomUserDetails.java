@@ -10,7 +10,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.leiteria.model.Usuario;
 
-@SuppressWarnings("serial")
 public class CustomUserDetails implements UserDetails {
 	
 	private Usuario user;
@@ -42,7 +41,7 @@ public class CustomUserDetails implements UserDetails {
 		return user.getEmail();
 	}
 	
-	public String getNomeUsuario() {
+	public String getNome() {
 		return user.getNome();
 	}
 

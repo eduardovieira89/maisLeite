@@ -13,7 +13,7 @@ import com.leiteria.model.Animal;
 import com.leiteria.model.Propriedade;
 import com.leiteria.model.Raca;
 import com.leiteria.model.Usuario;
-import com.leiteria.repository.AnimalRepository;
+import com.leiteria.repository.AnimaisRepository;
 import com.leiteria.repository.PropriedadeRepository;
 import com.leiteria.repository.RacaRepository;
 import com.leiteria.repository.UsuarioRepository;
@@ -23,7 +23,7 @@ import com.leiteria.repository.UsuarioRepository;
 public class AnimalRepositoryTest {
 	
 	@Autowired
-	AnimalRepository animalRepository;
+	AnimaisRepository animalRepository;
 	@Autowired
 	RacaRepository racaRepository;
 	@Autowired
@@ -33,7 +33,7 @@ public class AnimalRepositoryTest {
 	
 	@Test
 	public void createShoulPersistData() {
-		Usuario user = new Usuario("João", "joao@leite.com", "123456");
+		Usuario user = new Usuario(0,"João", "joao@leite.com", "123456", null, null, null);
 		usuarioRepository.save(user);
 		
 		Propriedade propriedade = new Propriedade("Prop teste", "loc teste", "mun teste", user);
