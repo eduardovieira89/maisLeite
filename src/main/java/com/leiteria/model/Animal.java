@@ -80,8 +80,8 @@ public class Animal {
 	private Boolean ativo;
 	
 	@ManyToOne
-	@JoinColumn(name="motivos_baixa_id")
-	private MotivoBaixa motivosBaixa;
+	@JoinColumn(name="motivo_baixa_id")
+	private MotivoBaixa motivoBaixa;
 	
 	@NotNull(message = "A origem do animal é um campo obrigatório")
 	@ManyToOne

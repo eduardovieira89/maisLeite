@@ -18,54 +18,61 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.leiteria.model.VacinaAplicacao;
 import com.leiteria.model.dto.VacinaAplicacaoEmLotesDTO;
-import com.leiteria.service.ServiceVacina;
-import com.leiteria.model.Vacina;
+import com.leiteria.service.ServiceAplicacaoMedicamentoVacina;
+import com.leiteria.service.ServiceCadastroMedicamento;
+import com.leiteria.model.DoencaEvento;
+import com.leiteria.model.MedicacaoVacina;
 
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/vacina")
+@RequestMapping("/aplicarmedicamento")
 @CrossOrigin
 @RequiredArgsConstructor
-public class VacinaController {
+public class AplicacaoMedicamentoVacinaController {
 
-	private final ServiceVacina vacinaService;
+	private final ServiceAplicacaoMedicamentoVacina aplicacaoService;
+	private final ServiceCadastroMedicamento cadastroMedicamento;
 	
-	@GetMapping("/produtos")
-	public List<Vacina> listAll(){
-		return vacinaService.listarProdutos();
+	@GetMapping("/medicamentos")
+	public List<MedicacaoVacina> listarMeusMedicamentos(){
+		return cadastroMedicamento.listarMinhasMedicacoes();
 	}
 	
+	@GetMapping("/doencaevento")
+	public List<DoencaEvento> listDoencaEvento() {
+		return aplicacaoService.listarDoencaEvento();
+	}
 	
 	@GetMapping()
 	public List<VacinaAplicacao> listarPorAnimal(@RequestParam("idanimal") long idanimal){
-		return vacinaService.listarVacinasAplicadas(idanimal);
+		return aplicacaoService.listarVacinasAplicadas(idanimal);
 	}
 	
 	@GetMapping("{id}")
 	public ResponseEntity<?> findById(@PathVariable(value="id") Long id){
-		return vacinaService.findById(id);
+		return aplicacaoService.findById(id);
 	}
 	
 	@PostMapping
 	public VacinaAplicacao save(@Valid @RequestBody VacinaAplicacao vacinaap) {
-		return vacinaService.save(vacinaap);
+		return aplicacaoService.save(vacinaap);
 	}
 
 	@PostMapping("/lote")
 	public ResponseEntity<?> salvarAplicacaoEmLotes(@RequestBody VacinaAplicacaoEmLotesDTO aplicVacinaDTO) {
-		return vacinaService.salvarAplicacaoEmLotes(aplicVacinaDTO);
+		return aplicacaoService.salvarAplicacaoEmLotes(aplicVacinaDTO);
 	}
 	
 	
 	@PutMapping(value="/{id}")
 	public ResponseEntity<VacinaAplicacao> update(@PathVariable long id, @Valid @RequestBody VacinaAplicacao detalhesVacina){
-		return vacinaService.update(id, detalhesVacina);
+		return aplicacaoService.update(id, detalhesVacina);
 	}
 	
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> delete(@PathVariable long id){
-		return vacinaService.delete(id);
+		return aplicacaoService.delete(id);
 	}
 	
 

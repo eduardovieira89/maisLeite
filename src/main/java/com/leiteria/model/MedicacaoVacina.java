@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,62 +15,48 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Getter @Setter
-@Entity
-public class Vacina {
+@Entity(name = "medicacao_vacina")
+public class MedicacaoVacina {
 	
 	@Id
-	@Column(name = "id_vacina", unique = true, nullable = false)
+	@Column(name = "id_medicacao_vacina", unique = true, nullable = false)
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	@Setter(AccessLevel.NONE)
-	private int id;
+	private long id;
 	
 	@NotNull(message="Nome é um campo obrigatório")
-	private String nome;
+	private String descricao;
 
-	@Size(max = 1337)
-	private String indicacao;
+	@NotNull(message = "Quantidade de doses é um campo obrigatório")
+	@Column(name = "qtde_doses", nullable = false)
+	private int qtdeDoses;
 
 	@Column(name = "modo_uso")
 	@Size(max = 1337)
 	private String modoDeUso;
 
-	@Column(name = "esquema_vacinacao")
-	@Size(max = 1337)
-	private String esquemaDeVacincao;
+	@NotNull(message = "Proprietário é um campo obrigatório")
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "proprietario_id", nullable = false)
+	private Usuario proprietario;
 
-	@Column(name = "reacoes_vacinais")
-	@Size(max = 1337)
-	private String reacoesPosVacinais;
 	
 	
-	public Vacina(@NotNull(message = "Nome é um campo obrigatório") String nome, String indicacao, String modoDeUso,
-			String esquemaDeVacincao, String reacoesPosVacinais) {
-		this.nome = nome;
-		this.indicacao = indicacao;
+	public MedicacaoVacina(@NotNull(message = "Nome é um campo obrigatório") String descricao, int qtdeDoses, String modoDeUso) {
+		this.descricao = descricao;
+		this.qtdeDoses = qtdeDoses;
 		this.modoDeUso = modoDeUso;
-		this.esquemaDeVacincao = esquemaDeVacincao;
-		this.reacoesPosVacinais = reacoesPosVacinais;
 	}
-
-
-	public Vacina(@NotNull(message = "Nome é um campo obrigatório") String nome) {
-		this.nome = nome;
-	}
-
-
-	public Vacina() {
-	}
-
+	public MedicacaoVacina() {}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + (int) (id ^ (id >>> 32));
-		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		result = prime * result + ((descricao == null) ? 0 : descricao.hashCode());
 		return result;
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -78,13 +66,13 @@ public class Vacina {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Vacina other = (Vacina) obj;
+		MedicacaoVacina other = (MedicacaoVacina) obj;
 		if (id != other.id)
 			return false;
-		if (nome == null) {
-			if (other.nome != null)
+		if (descricao == null) {
+			if (other.descricao != null)
 				return false;
-		} else if (!nome.equals(other.nome))
+		} else if (!descricao.equals(other.descricao))
 			return false;
 		return true;
 	}
@@ -92,7 +80,7 @@ public class Vacina {
 
 	@Override
 	public String toString() {
-		return "Vacina [nome=" + nome + "]";
+		return "Medicamento / Vacina [descrição=" + descricao + "]";
 	}
 	
 	

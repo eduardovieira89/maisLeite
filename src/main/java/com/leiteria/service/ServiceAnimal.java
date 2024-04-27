@@ -120,7 +120,7 @@ public class ServiceAnimal {
 		MotivoBaixa motivoEncontrado = motivosBaixaRepository.findById(motivo.getId()).get();
 		return animalRepository.findById(id).map(record -> {
 			if (propriedadeService.animalBelongsMe(record)) {
-				record.setMotivosBaixa(motivoEncontrado);
+				record.setMotivoBaixa(motivoEncontrado);
 				record.setAtivo(false);
 				Animal baixado = animalRepository.save(record);
 				return ResponseEntity.ok().body(baixado);

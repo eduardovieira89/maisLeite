@@ -4,31 +4,30 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.leiteria.model.Animal;
+import com.leiteria.model.DoencaEvento;
 import com.leiteria.model.VacinaAplicacao;
 import com.leiteria.model.dto.VacinaAplicacaoEmLotesDTO;
-import com.leiteria.model.Vacina;
 import com.leiteria.repository.VacinaAplicacaoRepository;
-import com.leiteria.repository.VacinaRepository;
+
+import lombok.RequiredArgsConstructor;
+
+import com.leiteria.repository.DoencaEventoRepository;
 
 @Service
-public class ServiceVacina {
+@RequiredArgsConstructor
+public class ServiceAplicacaoMedicamentoVacina {
 
-	@Autowired private VacinaAplicacaoRepository vaRepository;
-	@Autowired private ServiceAnimal serviceAnimal;
-	@Autowired private VacinaRepository vacinaRepository;
+	private final VacinaAplicacaoRepository vaRepository;
+	private final ServiceAnimal serviceAnimal;
+	private final DoencaEventoRepository doencaEventoRepository;
 	
 	public List<VacinaAplicacao> listarVacinasAplicadas(long idAnimal){
 		Animal animal = serviceAnimal.findAnimal(idAnimal);
 		return vaRepository.findByAnimal(animal);
-	}
-
-	public List<Vacina> listarProdutos() {
-		return vacinaRepository.findAll();
 	}
 	
 	public ResponseEntity<?> findById(Long id) {
@@ -37,17 +36,18 @@ public class ServiceVacina {
 				.orElse(ResponseEntity.notFound().build());
 	}
 
-	public VacinaAplicacao save(@Valid VacinaAplicacao vacina) {
-		return vaRepository.save(vacina);
+	public VacinaAplicacao save(@Valid VacinaAplicacao medicamentoVacina) {
+		return vaRepository.save(medicamentoVacina);
 	}
 
-	public ResponseEntity<VacinaAplicacao> update(Long id, @Valid VacinaAplicacao detalhesVacina) {
+	public ResponseEntity<VacinaAplicacao> update(Long id, @Valid VacinaAplicacao detalhesMedicamentoVacina) {
 		return vaRepository.findById(id).map(record -> {
-			record.setDose(detalhesVacina.getDose());
-			record.setData(detalhesVacina.getData());
-			record.setAnimal(detalhesVacina.getAnimal());
-			record.setVacina(detalhesVacina.getVacina());
-			record.setAplicador(detalhesVacina.getAplicador());
+			record.setDose(detalhesMedicamentoVacina.getDose());
+			record.setData(detalhesMedicamentoVacina.getData());
+			record.setAnimal(detalhesMedicamentoVacina.getAnimal());
+			record.setAplicador(detalhesMedicamentoVacina.getAplicador());
+			record.setDoencaEvento(detalhesMedicamentoVacina.getDoencaEvento());
+			record.setMedicacao(detalhesMedicamentoVacina.getMedicacao());
 
 			VacinaAplicacao atualizada = vaRepository.save(record);
 			return ResponseEntity.ok().body(atualizada);
@@ -62,17 +62,23 @@ public class ServiceVacina {
 	}
 
 	public ResponseEntity<String> salvarAplicacaoEmLotes(VacinaAplicacaoEmLotesDTO aplicVacinaDTO) {
-		aplicVacinaDTO.getLoteAnimais().forEach(animais -> {
+		aplicVacinaDTO.getLoteAnimais().forEach(animal -> {
 			VacinaAplicacao va = new VacinaAplicacao();
-			va.setAnimal(animais);
+			va.setAnimal(animal);
 			va.setAplicador(aplicVacinaDTO.getAplicador());
 			va.setData(aplicVacinaDTO.getData());
 			va.setDose(aplicVacinaDTO.getDose());
-			va.setVacina(aplicVacinaDTO.getVacina());
+			va.setMedicacao(aplicVacinaDTO.getMedicacaoVacina());
+			va.setDoencaEvento(aplicVacinaDTO.getDoencaEvento());
+			
 			this.save(va);
 			va = null;
 		});
 		return ResponseEntity.ok().build();
+	}
+
+	public List<DoencaEvento> listarDoencaEvento() {
+		return doencaEventoRepository.findAll();
 	}
 
 
