@@ -57,6 +57,23 @@ public class ServiceAnimal {
 		return null;
 	}
 
+	public long getSomaAtivos(long idPropriedade) {
+		Propriedade propriedade = propriedadeService.findPropriedade(idPropriedade);
+        if (propriedade != null && propriedadeService.propriedadeBelongsMe(propriedade)) {
+			return animalRepository.countByPropriedadeAndAtivo(propriedade, true);
+		}
+		return 0;
+    }
+
+	public long getSomaLactacoes(long idPropriedade) {
+		Propriedade propriedade = propriedadeService.findPropriedade(idPropriedade);
+        if (propriedade != null && propriedadeService.propriedadeBelongsMe(propriedade)) {
+			return animalRepository.countByPropriedadeAndSexoAndAtivoAndPartosLactacoesFinalizado(propriedade, 'f', true, false);
+		}
+		return 0;
+	}
+
+
 	public List<Animal> findByLote(long idLote) {
         Lote lote = lotesService.findLote(idLote);
 		if(lote != null){
@@ -129,6 +146,9 @@ public class ServiceAnimal {
 		}).orElse(ResponseEntity.notFound().build());
 	}
 
+	
+
+   
     
 
 	

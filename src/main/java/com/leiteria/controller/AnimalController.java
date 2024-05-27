@@ -56,6 +56,18 @@ public class AnimalController {
 	public ResponseEntity<?> findById(@PathVariable(value="id") long idAnimal){
 		return animalService.findById(idAnimal);
 	}
+
+	@GetMapping("/totalativos")
+	public long getSomaAtivos(@RequestParam ("idpropriedade") long idPropriedade) {
+		return animalService.getSomaAtivos(idPropriedade);
+	}
+
+	@GetMapping("/totallactacoes")
+	public long getSomaLactacoes(@RequestParam ("idpropriedade") long idPropriedade) {
+		return animalService.getSomaLactacoes(idPropriedade);
+	}
+	
+	
 	
 	@PostMapping
 	public Animal save(@RequestBody @Valid  Animal animal) {

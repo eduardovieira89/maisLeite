@@ -13,5 +13,7 @@ public interface AnimaisRepository extends JpaRepository<Animal, Long>{
 	List<Animal> findByPropriedadeAndSexoAndAtivo(Propriedade propriedade, char sexo, Boolean ativo);
 	List<Animal> findByPropriedadeAndSexoAndAtivoAndPartosLactacoesFinalizado(Propriedade propriedade, char sexo, Boolean ativo, Boolean finalizado);
 	List<Animal> findByLoteAndAtivo(Lote lote, Boolean ativo);
+	long countByPropriedadeAndAtivo(Propriedade propriedade, Boolean ativo);
+	long countByPropriedadeAndSexoAndAtivoAndPartosLactacoesFinalizado(Propriedade propriedade, char sexo, Boolean ativo, Boolean finalizado);
 
 }
