@@ -3,7 +3,6 @@ package com.leiteria.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +13,8 @@ import com.leiteria.model.Propriedade;
 import com.leiteria.model.TipoCobertura;
 import com.leiteria.repository.CoberturasRepository;
 import com.leiteria.repository.TiposCoberturasRepository;
+
+import jakarta.validation.Valid;
 
 @Service
 public class ServiceCoberturas {

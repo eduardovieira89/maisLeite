@@ -2,7 +2,6 @@ package com.leiteria.controller;
 
 import java.util.List;
 
-import javax.validation.Valid;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -20,6 +19,7 @@ import com.leiteria.model.Animal;
 import com.leiteria.model.MotivoBaixa;
 import com.leiteria.service.ServiceAnimal;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController

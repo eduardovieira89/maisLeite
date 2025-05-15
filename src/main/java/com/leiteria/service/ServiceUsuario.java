@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import javax.validation.Valid;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
@@ -29,6 +28,7 @@ import com.leiteria.security.payload.request.RegisterRequest;
 import com.leiteria.security.payload.response.AuthenticationResponse;
 import com.leiteria.security.payload.response.MessageResponse;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @Service

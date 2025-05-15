@@ -3,7 +3,6 @@ package com.leiteria.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +11,8 @@ import org.springframework.stereotype.Service;
 import com.leiteria.model.Cobertura;
 import com.leiteria.model.Semen;
 import com.leiteria.repository.SemensRepository;
+
+import jakarta.validation.Valid;
 
 @Service
 public class ServiceSemens {

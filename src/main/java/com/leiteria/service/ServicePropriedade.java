@@ -2,7 +2,6 @@ package com.leiteria.service;
 
 import java.util.List;
 
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +11,8 @@ import com.leiteria.model.Animal;
 import com.leiteria.model.Propriedade;
 import com.leiteria.repository.PropriedadeRepository;
 import com.leiteria.repository.UsuarioRepository;
+
+import jakarta.validation.Valid;
 
 @Service
 public class ServicePropriedade {

@@ -2,7 +2,6 @@ package com.leiteria.service;
 
 import java.util.List;
 
-import javax.validation.Valid;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -13,6 +12,7 @@ import com.leiteria.model.Lactacao;
 import com.leiteria.repository.LactacoesRepository;
 import com.leiteria.security.payload.response.MessageResponse;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @Service

@@ -2,7 +2,6 @@ package com.leiteria.service;
 
 import java.util.List;
 
-import javax.validation.Valid;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -13,6 +12,7 @@ import com.leiteria.model.VacinaAplicacao;
 import com.leiteria.model.dto.VacinaAplicacaoEmLotesDTO;
 import com.leiteria.repository.VacinaAplicacaoRepository;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 import com.leiteria.repository.DoencaEventoRepository;

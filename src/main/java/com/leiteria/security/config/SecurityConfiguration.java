@@ -35,10 +35,9 @@ public class SecurityConfiguration implements WebMvcConfigurer {
 		http.cors(withDefaults()).csrf(AbstractHttpConfigurer::disable).authorizeHttpRequests(
 				requests -> requests.requestMatchers("/**", "usuario/**").permitAll().anyRequest().authenticated())
 				.logout(LogoutConfigurer::permitAll);
-		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-		.and()
-		.authenticationProvider(authenticationProvider)
-		.addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
+        http.sessionManagement(management -> management.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .authenticationProvider(authenticationProvider)
+                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
 
 		return http.build();
 	}

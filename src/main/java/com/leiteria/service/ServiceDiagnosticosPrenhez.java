@@ -3,7 +3,6 @@ package com.leiteria.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +18,8 @@ import com.leiteria.repository.AnimaisRepository;
 import com.leiteria.repository.CoberturasRepository;
 import com.leiteria.repository.DiagnosticosPrenhezRepository;
 import com.leiteria.repository.MetodosPrenhezRepository;
+
+import jakarta.validation.Valid;
 
 @Service
 public class ServiceDiagnosticosPrenhez {

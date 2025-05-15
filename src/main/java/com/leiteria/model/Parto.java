@@ -35,7 +35,7 @@ public class Parto {
     @Column(nullable=false)
     private LocalDate data;
     
-    @Column(name="escore_corporal", precision=2, scale=2)
+    @Column(name="escore_corporal", precision=2)
     private float escoreCorporal;
     
     @Column(name="qtde_crias", nullable=false, precision=10)

@@ -2,7 +2,6 @@ package com.leiteria.service;
 
 import java.util.List;
 
-import javax.validation.Valid;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -12,6 +11,7 @@ import com.leiteria.model.OrigemAnimal;
 import com.leiteria.model.Usuario;
 import com.leiteria.repository.AnimaisDoadoresRepository;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @Service

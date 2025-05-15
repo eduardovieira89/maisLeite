@@ -4,10 +4,8 @@ import java.time.LocalDate;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import com.leiteria.model.Animal;
 import com.leiteria.model.Propriedade;
@@ -18,7 +16,6 @@ import com.leiteria.repository.PropriedadeRepository;
 import com.leiteria.repository.RacaRepository;
 import com.leiteria.repository.UsuarioRepository;
 
-@RunWith(SpringRunner.class)
 @DataJpaTest
 public class AnimalRepositoryTest {
 	

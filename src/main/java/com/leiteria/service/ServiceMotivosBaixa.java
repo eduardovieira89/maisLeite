@@ -2,7 +2,6 @@ package com.leiteria.service;
 
 import java.util.List;
 
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.leiteria.model.MotivoBaixa;
 import com.leiteria.repository.MotivosBaixaRepository;
+
+import jakarta.validation.Valid;
 
 @Service
 public class ServiceMotivosBaixa {
