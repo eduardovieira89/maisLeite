@@ -742,7 +742,7 @@ CREATE TABLE `vacina_aplicacao` (
   `vacina_id` int NOT NULL,
   `animal_id` bigint NOT NULL,
   `aplicador_id` bigint NOT NULL,
-  `doenca_evento_id_doenca` int NOT NULL,
+  `doenca_evento_id` int NOT NULL,
   PRIMARY KEY (`id_aplicacao`),
   KEY `fk_vacina_aplicacao_vacinas1_idx` (`vacina_id`),
   KEY `fk_vacina_aplicacao_animais1_idx` (`animal_id`),

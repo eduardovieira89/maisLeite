@@ -1,11 +1,13 @@
 package com.leiteria.service;
 
 import java.util.List;
-
+import java.util.stream.Collectors;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.leiteria.dto.ControleLeiteiroDTO;
+import com.leiteria.dto.mapper.ControleLeiteiroMapper;
 import com.leiteria.model.ControleLeiteiro;
 import com.leiteria.model.ProducaoLeite;
 import com.leiteria.model.Propriedade;
@@ -21,11 +23,14 @@ public class ServiceControleLeiteiro {
     private final ControleLeiteiroRepository controleRepository;
     private final ServiceProducaoLeite producaoLeiteService;
     private final ServicePropriedade propriedadeService;
+    private final ControleLeiteiroMapper controleLeiteiroMapper;
     
-public List<ControleLeiteiro> listarControleLeiteiro(long idPropriedade) {
+public List<ControleLeiteiroDTO> listarControleLeiteiro(long idPropriedade) {
     Propriedade propriedade = propriedadeService.findPropriedade(idPropriedade);
     if(propriedade != null){
-        return controleRepository.findByPropriedade(propriedade);
+         return controleRepository.findByPropriedade(propriedade).stream()
+                .map(controleLeiteiroMapper::toDto)
+                .collect(Collectors.toList());
     }
     return null;
 }

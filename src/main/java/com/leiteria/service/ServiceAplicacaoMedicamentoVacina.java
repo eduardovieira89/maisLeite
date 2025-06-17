@@ -6,10 +6,10 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.leiteria.dto.VacinaAplicacaoEmLotesDTO;
 import com.leiteria.model.Animal;
 import com.leiteria.model.DoencaEvento;
 import com.leiteria.model.VacinaAplicacao;
-import com.leiteria.model.dto.VacinaAplicacaoEmLotesDTO;
 import com.leiteria.repository.VacinaAplicacaoRepository;
 
 import jakarta.validation.Valid;
@@ -55,7 +55,7 @@ public class ServiceAplicacaoMedicamentoVacina {
 	}
 
 	public ResponseEntity<?> delete(Long id) {
-		return vaRepository.findById(id).map(record -> {
+		return vaRepository.findById(id).map(_ -> {
 			vaRepository.deleteById(id);
 			return ResponseEntity.ok().build();
 		}).orElse(ResponseEntity.notFound().build());

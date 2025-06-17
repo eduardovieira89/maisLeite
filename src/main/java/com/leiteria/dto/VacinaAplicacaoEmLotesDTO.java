@@ -1,4 +1,4 @@
-package com.leiteria.model.dto;
+package com.leiteria.dto;
 
 import java.time.LocalDate;
 import java.util.List;

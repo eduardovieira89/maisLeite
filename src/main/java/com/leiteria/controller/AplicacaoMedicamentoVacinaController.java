@@ -17,9 +17,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.leiteria.model.VacinaAplicacao;
-import com.leiteria.model.dto.VacinaAplicacaoEmLotesDTO;
 import com.leiteria.service.ServiceAplicacaoMedicamentoVacina;
 import com.leiteria.service.ServiceCadastroMedicamento;
+import com.leiteria.dto.VacinaAplicacaoEmLotesDTO;
 import com.leiteria.model.DoencaEvento;
 import com.leiteria.model.MedicacaoVacina;
 

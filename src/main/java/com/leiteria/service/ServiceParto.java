@@ -56,7 +56,7 @@ public class ServiceParto {
 	}
 	
 	public ResponseEntity<DiagnosticoPrenhez> lastDiagnosticosPrenhez(long idVaca) {
-		/* Retorna o diagnóstico de prenhez mais recente da vaca selecionada 
+		/*Busca o diagnóstico de prenhez mais recente da vaca selecionada 
 		 Se o diagnóstico for positivo ele compara a data do diagnóstico com a data do último parto
 		 Se a data do diagnóstico for maior que a data do parto, retorna esse diagnóstico
 		 Se não retorna nulo */
@@ -99,15 +99,22 @@ public class ServiceParto {
 		}
 		**/
 	}
-	
-	public Parto save(@Valid Parto parto) {
+
+	public ResponseEntity<?> save(Parto parto) {
 		if(propriedadeService.animalBelongsMe(parto.getVaca())) {
-			Parto partoSalvo = partosRepository.save(parto);
-			Lactacao lactacao = new Lactacao(partoSalvo);
-			lactacoesService.save(lactacao);
-			return partoSalvo;
+			//Precisa verificar se a vaca tem lactação em andamento
+			if(lactacoesService.emAberto(parto.getVaca().getId()) == null){
+				Parto partoSalvo = partosRepository.save(parto);
+				Lactacao lactacao = new Lactacao(partoSalvo);
+				lactacoesService.save(lactacao);
+				return ResponseEntity.ok().body(partoSalvo);
+			}else{
+				//A Vaca possui lactação em andamento, não é possível registrar o parto
+				return ResponseEntity.badRequest().body("A vaca possui uma lactação em aberto. Por este motivo não é possível registrar o parto.");
+			}
+			
 		}else {
-			return null;
+			return ResponseEntity.badRequest().body("Vaca não encontrada para registrar o parto.");
 		}
 	}
 
@@ -141,5 +148,6 @@ public class ServiceParto {
 			}
 		}).orElse(ResponseEntity.notFound().build()); 
 	}
+	
 
 }

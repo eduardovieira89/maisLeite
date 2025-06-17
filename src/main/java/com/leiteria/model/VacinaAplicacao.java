@@ -31,7 +31,7 @@ public class VacinaAplicacao {
 
 	@ManyToOne 
 	@NotNull(message="Vacina é um campo obrigatório")
-	@JoinColumn(name="medicacao_id", nullable=false)
+	@JoinColumn(name="medicacao_vacina_id", nullable=false)
 	private MedicacaoVacina medicacao;
 
 	@ManyToOne

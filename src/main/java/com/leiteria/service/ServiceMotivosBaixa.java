@@ -43,7 +43,7 @@ public class ServiceMotivosBaixa {
 	
 	public ResponseEntity<?> delete(@PathVariable int id) {
 		   return motivosBaixaRepository.findById(id)
-		           .map(record -> {
+		           .map(_ -> {
 		        	   motivosBaixaRepository.deleteById(id);
 		               return ResponseEntity.ok().build();
 		           }).orElse(ResponseEntity.notFound().build());

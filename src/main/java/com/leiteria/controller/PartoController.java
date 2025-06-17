@@ -44,14 +44,20 @@ public class PartoController {
 		//Retorna o diagnóstico de prenhez da vaca selecionada mais recente se for positivo
 		return partoService.lastDiagnosticosPrenhez(idVaca);
 	}
+
+	@GetMapping("/lactacaoemandamento")
+	public ResponseEntity<?> verificaLactacaoEmAndamento(@RequestParam("idvaca") long idVaca){
+		return ResponseEntity.notFound().build();
+	}
+	
 	
 	@GetMapping("{id}")
 	public ResponseEntity<?> finById(@PathVariable(value="id") long idParto){
 		return partoService.findById(idParto);
 	}
-	
+
 	@PostMapping
-	public Parto save(@RequestBody Parto parto){
+	public ResponseEntity<?> save(@RequestBody Parto parto){
 		//Implementar o código para receber uma lista com as crias do parto para já inserir elas nos animais.
 		return partoService.save(parto);
 	}

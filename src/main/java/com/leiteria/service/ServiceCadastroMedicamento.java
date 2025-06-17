@@ -37,7 +37,7 @@ public class ServiceCadastroMedicamento {
     }
 
     public ResponseEntity<?> delete(Long id) {
-		return medicacaoRepository.findById(id).map(record -> {
+		return medicacaoRepository.findById(id).map(_ -> {
 			medicacaoRepository.deleteById(id);
 			return ResponseEntity.ok().build();
 		}).orElse(ResponseEntity.notFound().build());

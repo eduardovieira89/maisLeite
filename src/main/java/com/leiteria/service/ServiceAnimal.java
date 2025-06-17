@@ -1,10 +1,13 @@
 package com.leiteria.service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.leiteria.dto.VacaNomeLactacaoDTO;
+import com.leiteria.dto.mapper.VacaNomeLactacaoMapper;
 import com.leiteria.model.Animal;
 import com.leiteria.model.Lote;
 import com.leiteria.model.MotivoBaixa;
@@ -22,6 +25,7 @@ public class ServiceAnimal {
 	private final ServicePropriedade propriedadeService;
 	private final ServiceLotes lotesService;
 	private final MotivosBaixaRepository motivosBaixaRepository; //Alterar para Service
+	private final VacaNomeLactacaoMapper vacaNomeLactacaoMapper;
 
 	public List<Animal> listByPropriedade(long idPropriedade) {
 		Propriedade propriedade = propriedadeService.findPropriedade(idPropriedade);
@@ -91,6 +95,13 @@ public class ServiceAnimal {
 		}).orElse(ResponseEntity.notFound().build());
 	}
 
+	  public List<VacaNomeLactacaoDTO> listarParaParto(long idPropriedade) {
+		return this.findByPropriedadeAndGenero(idPropriedade, 'f')
+			.stream()
+			.map(vacaNomeLactacaoMapper::toDto)
+			.collect(Collectors.toList());
+    } 
+
 	public Animal save(Animal animal) {
 		if (animal.getPropriedade() != null) {
 			return animalRepository.save(animal);
@@ -145,6 +156,8 @@ public class ServiceAnimal {
 			return ResponseEntity.notFound().build();
 		}).orElse(ResponseEntity.notFound().build());
 	}
+
+
 
 	
 

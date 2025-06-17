@@ -66,7 +66,7 @@ public class ServiceAnimaisDoadores {
 	public ResponseEntity<?> deletar(long id) {
 		// precisa fazer verificação se não tem esse animal em semens para poder excluir
 		return animaisDRepository.findById(id)
-				.map(record ->{
+				.map(_ ->{
 					animaisDRepository.deleteById(id);
 					return ResponseEntity.ok().build();
 				}).orElse(ResponseEntity.notFound().build());

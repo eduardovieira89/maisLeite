@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.leiteria.dto.ControleLeiteiroDTO;
 import com.leiteria.model.ControleLeiteiro;
 import com.leiteria.service.ServiceControleLeiteiro;
 
@@ -29,7 +30,7 @@ public class ControleLeiteiroController {
     private final ServiceControleLeiteiro controleLeiteiroService;
 
     @GetMapping
-    public List<ControleLeiteiro> listarControleLeiteiros(@RequestParam("idpropriedade") long idPropriedade){
+    public List<ControleLeiteiroDTO> listarControleLeiteiros(@RequestParam("idpropriedade") long idPropriedade){
         return controleLeiteiroService.listarControleLeiteiro(idPropriedade);
     }
 

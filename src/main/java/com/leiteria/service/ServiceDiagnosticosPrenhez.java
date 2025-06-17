@@ -124,7 +124,7 @@ public class ServiceDiagnosticosPrenhez {
 	public ResponseEntity<?> delete(long id) {
 		
 		return diagnosticoRepository.findById(id)
-				.map(record ->{
+				.map(_ ->{
 					diagnosticoRepository.deleteById(id);
 					return ResponseEntity.ok().build();
 				}).orElse(ResponseEntity.notFound().build());

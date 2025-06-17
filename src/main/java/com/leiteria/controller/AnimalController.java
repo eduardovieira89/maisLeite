@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.leiteria.dto.VacaNomeLactacaoDTO;
 import com.leiteria.model.Animal;
 import com.leiteria.model.MotivoBaixa;
 import com.leiteria.service.ServiceAnimal;
@@ -50,6 +51,12 @@ public class AnimalController {
 	public List<Animal> listarPorLote(@RequestParam("idlote") long lote) {
 		return animalService.findByLote(lote);
 	}
+
+	@GetMapping("/parto")
+	public List<VacaNomeLactacaoDTO> listarParaParto(@RequestParam("idpropriedade") long idPropriedade) {
+		return animalService.listarParaParto(idPropriedade);
+	}
+	
 	
 	
 	@GetMapping("/{id}")

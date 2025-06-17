@@ -35,7 +35,7 @@ public class MedicacaoVacina {
 	@Size(max = 1337)
 	private String modoDeUso;
 
-	@NotNull(message = "Proprietário é um campo obrigatório")
+	//@NotNull(message = "Proprietário é um campo obrigatório")
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "proprietario_id", nullable = false)
 	private Usuario proprietario;

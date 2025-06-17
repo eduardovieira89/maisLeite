@@ -47,7 +47,7 @@ public class ServiceOrigemAnimal {
 	
 	public ResponseEntity<?> delete(@PathVariable int id) {
 		   return origemAnimalRepository.findById(id)
-		           .map(record -> {
+		           .map(_ -> {
 		        	   origemAnimalRepository.deleteById(id);
 		               return ResponseEntity.ok().build();
 		           }).orElse(ResponseEntity.notFound().build());
