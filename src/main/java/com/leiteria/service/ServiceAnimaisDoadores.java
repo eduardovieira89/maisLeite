@@ -24,7 +24,7 @@ public class ServiceAnimaisDoadores {
 	
 	
 	public List<AnimalDoador> listMyAnimaisDoadores(){
-		return animaisDRepository.findByUsuarios(serviceUsuario.getProprietario());
+		return animaisDRepository.findByUsuario(serviceUsuario.getProprietario());
 	}
 	
 	public ResponseEntity<?> findById(long idAnimal) {
@@ -37,9 +37,10 @@ public class ServiceAnimaisDoadores {
 	public AnimalDoador salvar(@Valid AnimalDoador doador) {
 		//Verificar como retornar mensagem informando que não tem dados de animal doador;
 		Usuario dono = serviceUsuario.getProprietario();
-		OrigemAnimal origemDoador = serviceOrigemAnimal.findByDescricao("Animal doador");
+		OrigemAnimal origemDoador = serviceOrigemAnimal.findByDescricao("Doador de Sêmen");
 		doador.getAnimal().setOrigemAnimal(origemDoador);
-		doador.setUsuarios(dono);
+		doador.getAnimal().setSexo('m');
+		doador.setUsuario(dono);
 		return animaisDRepository.save(doador);
 	}
 
@@ -47,7 +48,7 @@ public class ServiceAnimaisDoadores {
 	public ResponseEntity<?> atualizar(long id, AnimalDoador doador) {
 		//verifica se o animal pertence ao usuario
 		// .....Ver se é melhor fazer o IF pelo id ou pelo animal
-		if(doador.getUsuarios().equals(serviceUsuario.getProprietario())) {
+		if(doador.getUsuario().equals(serviceUsuario.getProprietario())) {
 			return animaisDRepository.findById(id)
 					.map(record -> {
 						record.setAnimal(doador.getAnimal());

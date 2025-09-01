@@ -9,6 +9,6 @@ import com.leiteria.model.Usuario;
 
 public interface SemensRepository extends JpaRepository<Semen, Long> {
 	
-	List<Semen> findByAnimalDoadorUsuarios(Usuario usuario);
+	List<Semen> findByAnimalDoadorUsuario(Usuario usuario);
 
 }

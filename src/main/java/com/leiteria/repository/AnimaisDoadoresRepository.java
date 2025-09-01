@@ -9,6 +9,6 @@ import com.leiteria.model.Usuario;
 
 public interface AnimaisDoadoresRepository extends JpaRepository<AnimalDoador, Long>{
 	
-	List<AnimalDoador> findByUsuarios(Usuario proprietario);
+	List<AnimalDoador> findByUsuario(Usuario proprietario);
 
 }

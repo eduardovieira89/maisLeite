@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.leiteria.dto.VacaNomeLactacaoDTO;
+import com.leiteria.dto.VacaDTO;
 import com.leiteria.model.Animal;
 import com.leiteria.model.MotivoBaixa;
 import com.leiteria.service.ServiceAnimal;
@@ -41,10 +41,20 @@ public class AnimalController {
 	public List<Animal> listarPorGenero(@RequestParam ("idpropriedade") long idPropriedade, @RequestParam("genero") char genero){
 		return animalService.findByPropriedadeAndGenero(idPropriedade, genero);
 	}
+
+	@GetMapping("/pais")
+	public List<Animal> listarPais(@RequestParam ("idpropriedade") long idPropriedade) {
+		return animalService.findPais(idPropriedade);
+	}
 	
 	@GetMapping("/emlactacao")
 	public List<Animal> listarEmLactacao(@RequestParam("idpropriedade") long idPropriedade){
 		return animalService.findEmLactacao(idPropriedade); 
+	}
+
+	@GetMapping("/lactacaodto")
+	public List<VacaDTO> listarEmLactacaoDTO(@RequestParam("idpropriedade") long idPropriedade){
+		return animalService.findEmLactacaoDTO(idPropriedade); 
 	}
 
 	@GetMapping("/lote")
@@ -52,9 +62,9 @@ public class AnimalController {
 		return animalService.findByLote(lote);
 	}
 
-	@GetMapping("/parto")
-	public List<VacaNomeLactacaoDTO> listarParaParto(@RequestParam("idpropriedade") long idPropriedade) {
-		return animalService.listarParaParto(idPropriedade);
+	@GetMapping("/vacasdto")
+	public List<VacaDTO> listarVacasDTO(@RequestParam("idpropriedade") long idPropriedade) {
+		return animalService.listarVacasDTO(idPropriedade);
 	}
 	
 	

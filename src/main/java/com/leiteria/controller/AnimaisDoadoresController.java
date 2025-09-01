@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.leiteria.model.AnimalDoador;
 import com.leiteria.service.ServiceAnimaisDoadores;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -40,7 +41,7 @@ public class AnimaisDoadoresController {
 	}
 	
 	@PostMapping
-	public AnimalDoador salvar( @RequestBody AnimalDoador doador) {	
+	public AnimalDoador salvar(@Valid @RequestBody AnimalDoador doador) {	
 		return animaisDoadoresService.salvar(doador);		
 	}
 	

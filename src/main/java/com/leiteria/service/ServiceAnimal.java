@@ -6,9 +6,10 @@ import java.util.stream.Collectors;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.leiteria.dto.VacaNomeLactacaoDTO;
-import com.leiteria.dto.mapper.VacaNomeLactacaoMapper;
+import com.leiteria.dto.VacaDTO;
+import com.leiteria.dto.mapper.VacaMapper;
 import com.leiteria.model.Animal;
+import com.leiteria.model.AnimalDoador;
 import com.leiteria.model.Lote;
 import com.leiteria.model.MotivoBaixa;
 import com.leiteria.model.Propriedade;
@@ -25,7 +26,9 @@ public class ServiceAnimal {
 	private final ServicePropriedade propriedadeService;
 	private final ServiceLotes lotesService;
 	private final MotivosBaixaRepository motivosBaixaRepository; //Alterar para Service
-	private final VacaNomeLactacaoMapper vacaNomeLactacaoMapper;
+	private final VacaMapper vacaMapper;
+	//private final ServiceUsuario serviceUsuario;
+	private final ServiceAnimaisDoadores serviceAnimaisDoadores;
 
 	public List<Animal> listByPropriedade(long idPropriedade) {
 		Propriedade propriedade = propriedadeService.findPropriedade(idPropriedade);
@@ -39,6 +42,20 @@ public class ServiceAnimal {
 		Propriedade propriedade = propriedadeService.findPropriedade(idPropriedade);
 		if (propriedade != null && propriedadeService.propriedadeBelongsMe(propriedade)) {
 			return animalRepository.findByPropriedadeAndSexoAndAtivo(propriedade, genero, true);
+			//return animalRepository.buscaporGeneroComAnimalDoador(genero, true, serviceUsuario.getProprietario());
+		}
+		return null;
+	}
+
+	public List<Animal> findPais(long idPropriedade) {
+		Propriedade propriedade = propriedadeService.findPropriedade(idPropriedade);
+		if (propriedade != null && propriedadeService.propriedadeBelongsMe(propriedade)) {
+			List<Animal> pais = animalRepository.findByPropriedadeAndSexoAndAtivo(propriedade, 'm', true);
+			List<AnimalDoador> paisDoadores = serviceAnimaisDoadores.listMyAnimaisDoadores();
+			if (paisDoadores != null && !paisDoadores.isEmpty()) {
+				pais.addAll(paisDoadores.stream().map(AnimalDoador::getAnimal).collect(Collectors.toList()));
+			}
+			return pais;
 		}
 		return null;
 	}
@@ -60,6 +77,24 @@ public class ServiceAnimal {
 		}
 		return null;
 	}
+
+	public List<VacaDTO> findEmLactacaoDTO(long idPropriedade) {
+		Propriedade propriedade = propriedadeService.findPropriedade(idPropriedade);
+		if (propriedade != null && propriedadeService.propriedadeBelongsMe(propriedade)) {
+			return animalRepository.findByPropriedadeAndSexoAndAtivoAndPartosLactacoesFinalizado(propriedade, 'f', true, false)
+				.stream()
+				.map(vacaMapper::toDto)
+				.collect(Collectors.toList());
+		}
+		return null;
+	}
+
+	  public List<VacaDTO> listarVacasDTO(long idPropriedade) {
+		return this.findByPropriedadeAndGenero(idPropriedade, 'f')
+			.stream()
+			.map(vacaMapper::toDto)
+			.collect(Collectors.toList());
+    }
 
 	public long getSomaAtivos(long idPropriedade) {
 		Propriedade propriedade = propriedadeService.findPropriedade(idPropriedade);
@@ -94,13 +129,6 @@ public class ServiceAnimal {
 			return ResponseEntity.notFound().build();
 		}).orElse(ResponseEntity.notFound().build());
 	}
-
-	  public List<VacaNomeLactacaoDTO> listarParaParto(long idPropriedade) {
-		return this.findByPropriedadeAndGenero(idPropriedade, 'f')
-			.stream()
-			.map(vacaNomeLactacaoMapper::toDto)
-			.collect(Collectors.toList());
-    } 
 
 	public Animal save(Animal animal) {
 		if (animal.getPropriedade() != null) {
@@ -156,6 +184,10 @@ public class ServiceAnimal {
 			return ResponseEntity.notFound().build();
 		}).orElse(ResponseEntity.notFound().build());
 	}
+
+	
+
+	
 
 
 

@@ -42,7 +42,7 @@ public class AnimalDoador {
     
     @ManyToOne(optional=false)
     @JoinColumn(name="proprietario_id", nullable=false)
-    private Usuario usuarios;
+    private Usuario usuario;
     
     @NotNull(message= "É obrigatório definir o animal")
     @OneToOne(cascade = CascadeType.PERSIST)

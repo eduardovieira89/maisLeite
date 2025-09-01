@@ -25,7 +25,7 @@ public class ServiceSemens {
 		/** Este método busca todos os semens cadastrados para o usuário logado
 		    e retira os que estão com estoque zerado.
 		**/
-		List<Semen> semensDisponiveis = semensRepository.findByAnimalDoadorUsuarios(usuarioService.getProprietario());
+		List<Semen> semensDisponiveis = semensRepository.findByAnimalDoadorUsuario(usuarioService.getProprietario());
 		List<Semen> estoqueZerado = new ArrayList<>();
 		semensDisponiveis.forEach(zeroSemen -> {
 			if(zeroSemen.getQuantidade() <= 0 ) {
