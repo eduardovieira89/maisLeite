@@ -1,10 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `leiteria3` /*!40100 DEFAULT CHARACTER SET utf8mb3 */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `leiteria3`;
--- MySQL dump 10.13  Distrib 8.0.29, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.42, for Win64 (x86_64)
 --
 -- Host: localhost    Database: leiteria3
 -- ------------------------------------------------------
--- Server version	8.0.29
+-- Server version	8.0.42
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -56,7 +54,7 @@ CREATE TABLE `animal` (
   CONSTRAINT `animais_fk4` FOREIGN KEY (`origem_animal_id`) REFERENCES `origem_animal` (`id_origem_animal`),
   CONSTRAINT `animais_fk5` FOREIGN KEY (`motivo_baixa_id`) REFERENCES `motivo_baixa` (`id_motivo_baixa`),
   CONSTRAINT `fk_animais_lotes1` FOREIGN KEY (`lote_id`) REFERENCES `lote` (`id_lote`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -65,7 +63,7 @@ CREATE TABLE `animal` (
 
 LOCK TABLES `animal` WRITE;
 /*!40000 ALTER TABLE `animal` DISABLE KEYS */;
-INSERT INTO `animal` VALUES (1,'Estrela',1,'2022-12-30',1,'f',1,NULL,NULL,NULL,NULL,1,3,2,NULL,2),(2,'Pintado',2,'2021-02-16',2,'m',1,NULL,NULL,NULL,NULL,3,3,1,NULL,3),(3,'3',3,'2023-11-23',3,'f',1,NULL,NULL,NULL,NULL,1,3,2,NULL,2),(4,'Valente',84771,'2020-06-17',3447852,'\0',1,'Castor',NULL,NULL,'Floribela',1,NULL,4,NULL,NULL),(5,'Mimosa',1,'2023-11-05',1,'f',1,NULL,NULL,NULL,NULL,1,1,2,NULL,1),(6,'Pintado',23324,'2023-11-05',567786,'m',1,NULL,NULL,NULL,NULL,1,1,1,NULL,6),(7,'Estrela',3,'2023-11-22',3,'f',1,NULL,NULL,NULL,NULL,1,1,2,NULL,1),(8,'Severino',4512788,'2014-05-06',976753,'\0',1,'Touro Gir',NULL,NULL,'Vaca Gir',1,NULL,4,NULL,NULL),(9,'sadf',123,'2023-12-04',123,'f',1,NULL,NULL,NULL,NULL,1,2,1,NULL,9),(10,'22',22,'2022-05-22',220522,'f',1,'Devile',NULL,NULL,'',3,1,1,NULL,1);
+INSERT INTO `animal` VALUES (1,'Estrela',1,'2022-12-30',1,'f',1,NULL,NULL,NULL,NULL,1,3,2,NULL,2),(2,'Pintado',2,'2021-02-16',2,'m',1,NULL,NULL,NULL,NULL,3,3,1,NULL,3),(3,'3',3,'2023-11-23',3,'f',1,NULL,NULL,NULL,NULL,1,3,2,NULL,2),(4,'Valente',84771,'2020-06-17',3447852,'m',1,'Castor',NULL,NULL,'Floribela',1,NULL,4,NULL,NULL),(5,'Mimosa',1,'2023-11-05',1,'f',1,NULL,NULL,NULL,NULL,1,1,2,NULL,7),(6,'Malhado',23324,'2023-11-05',567786,'m',1,NULL,NULL,NULL,NULL,1,1,1,NULL,6),(7,'Estrela',3,'2023-11-22',3,'f',1,NULL,NULL,NULL,NULL,1,1,2,NULL,1),(8,'Severino',4512788,'2014-05-06',976753,'m',1,'Touro Gir',NULL,NULL,'Vaca Gir',1,NULL,4,NULL,NULL),(9,'sadf',123,'2023-12-04',123,'f',1,NULL,NULL,NULL,NULL,1,2,1,NULL,9),(10,'22',22,'2022-05-22',220522,'f',1,'Devile',NULL,NULL,'',3,1,1,NULL,1),(11,'Deleve',345345,'2020-09-06',345346,'m',1,NULL,NULL,NULL,NULL,1,NULL,4,NULL,NULL),(13,'Deleve2',457457,'2025-06-15',23527,'m',1,NULL,NULL,NULL,NULL,1,NULL,4,NULL,NULL);
 /*!40000 ALTER TABLE `animal` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -89,7 +87,7 @@ CREATE TABLE `animal_doador` (
   KEY `fk_animais_doadores_animais1_idx` (`animal_id`),
   CONSTRAINT `animais_doadores_fk0` FOREIGN KEY (`proprietario_id`) REFERENCES `usuario` (`id_usuario`),
   CONSTRAINT `fk_animais_doadores_animais1` FOREIGN KEY (`animal_id`) REFERENCES `animal` (`id_animal`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -98,7 +96,7 @@ CREATE TABLE `animal_doador` (
 
 LOCK TABLES `animal_doador` WRITE;
 /*!40000 ALTER TABLE `animal_doador` DISABLE KEYS */;
-INSERT INTO `animal_doador` VALUES (1,3,1,1,'Khal Drogo','Brasil',4),(2,2,0,1,'Khal Drogo','Brasil',8);
+INSERT INTO `animal_doador` VALUES (1,3,1,1,'Khal Drogo','Brasil',4),(2,2,0,1,'Khal Drogo','Brasil',8),(3,6,0,1,NULL,NULL,11),(5,6,0,1,NULL,NULL,13);
 /*!40000 ALTER TABLE `animal_doador` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -156,7 +154,7 @@ CREATE TABLE `cobertura` (
   CONSTRAINT `coberturas_fk3` FOREIGN KEY (`inseminador_id`) REFERENCES `usuario` (`id_usuario`),
   CONSTRAINT `coberturas_fk4` FOREIGN KEY (`semen_id`) REFERENCES `semen` (`id_semen`),
   CONSTRAINT `fk_coberturas_tipos_cobertura1` FOREIGN KEY (`tipo_cobertura_id`) REFERENCES `tipo_cobertura` (`id_tipo_cobertura`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -165,7 +163,7 @@ CREATE TABLE `cobertura` (
 
 LOCK TABLES `cobertura` WRITE;
 /*!40000 ALTER TABLE `cobertura` DISABLE KEYS */;
-INSERT INTO `cobertura` VALUES (3,7,2,NULL,2,2,2,'2023-12-05',NULL,3.5,NULL),(4,5,2,NULL,2,2,3,'2023-12-06',NULL,4,NULL),(5,5,2,NULL,2,2,3,'2024-03-25',NULL,3.5,NULL);
+INSERT INTO `cobertura` VALUES (3,7,2,NULL,2,2,2,'2023-12-05',NULL,3.5,NULL),(4,5,2,NULL,2,2,3,'2023-12-06',NULL,4,NULL),(5,5,2,NULL,2,2,3,'2024-03-25',NULL,3.5,NULL),(6,5,2,NULL,2,2,2,'2025-05-01',NULL,3.5,NULL),(7,5,1,6,NULL,NULL,0,'2025-05-05',1,4,NULL),(8,10,1,6,NULL,NULL,0,'2025-08-31',0,3.5,'Colocando o save.subscribe de cobertura dentro do load.id.subscribe de vacaDTO'),(9,7,1,6,NULL,NULL,0,'2025-08-31',1,3.5,'obiouyboiu hiou hob uiobv utgv iyrdf t5es etw zs 3raf pgh pi çpjknb '),(10,5,1,6,NULL,NULL,0,'2025-09-01',0,0,NULL),(11,5,1,6,NULL,NULL,0,'2025-09-16',1,0,NULL);
 /*!40000 ALTER TABLE `cobertura` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -185,7 +183,7 @@ CREATE TABLE `controle_leiteiro` (
   PRIMARY KEY (`id_controle_leiteiro`),
   KEY `fk_controle_leiteiro_propriedades1_idx` (`propriedade_id`),
   CONSTRAINT `fk_controle_leiteiro_propriedades1` FOREIGN KEY (`propriedade_id`) REFERENCES `propriedade` (`id_propriedade`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -194,7 +192,7 @@ CREATE TABLE `controle_leiteiro` (
 
 LOCK TABLES `controle_leiteiro` WRITE;
 /*!40000 ALTER TABLE `controle_leiteiro` DISABLE KEYS */;
-INSERT INTO `controle_leiteiro` VALUES (3,'2023-12-06',25,80,1),(4,'2023-12-05',0,0,1);
+INSERT INTO `controle_leiteiro` VALUES (3,'2023-12-06',25,80,1),(4,'2023-12-05',0,0,1),(5,'2025-05-14',25,90,1),(6,'2025-06-08',11,87,1);
 /*!40000 ALTER TABLE `controle_leiteiro` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -214,7 +212,7 @@ CREATE TABLE `cria` (
   PRIMARY KEY (`id_cria`),
   KEY `fk_crias_partos1_idx` (`parto_id`),
   CONSTRAINT `fk_crias_partos1` FOREIGN KEY (`parto_id`) REFERENCES `parto` (`id_parto`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -223,7 +221,7 @@ CREATE TABLE `cria` (
 
 LOCK TABLES `cria` WRITE;
 /*!40000 ALTER TABLE `cria` DISABLE KEYS */;
-INSERT INTO `cria` VALUES (8,'f','0',50,9),(9,'f','0',60,10),(10,'f','0',80,11),(11,'f','0',80,11),(12,'f','0',100,12),(13,'f','0',80,13);
+INSERT INTO `cria` VALUES (8,'f','0',50,9),(9,'f','0',60,10),(10,'f','0',80,11),(11,'f','0',80,11),(12,'f','0',100,12),(13,'f','0',80,13),(14,'f','0',2,14),(15,'f','0',1,15),(16,'f','0',150,16),(17,'f','0',150,17),(18,'f','0',100,18),(19,'f','0',1,19),(20,'f','0',1,20),(21,'f','0',1,21),(22,'m','0',1,22),(23,'f','0',1,23),(24,'f','0',1,24),(25,'f','0',1,25),(26,'f','0',1,26),(27,'m','0',1,27),(28,'m','0',1,28),(29,'m','0',1,29),(30,'f','0',1,29),(31,'f','0',1,29),(32,'f','0',1,30),(33,'f','0',1,30),(34,'f','0',1,31),(35,'f','0',1,32),(36,'f','0',1,33);
 /*!40000 ALTER TABLE `cria` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -249,7 +247,7 @@ CREATE TABLE `diagnostico_prenhez` (
   CONSTRAINT `diagnosticos_prenhez_fk0` FOREIGN KEY (`vaca_id`) REFERENCES `animal` (`id_animal`),
   CONSTRAINT `diagnosticos_prenhez_fk1` FOREIGN KEY (`cobertura_id`) REFERENCES `cobertura` (`id_cobertura`),
   CONSTRAINT `fk_diagnosticos_prenhez_metodos_prenhez1` FOREIGN KEY (`metodo_prenhez_id`) REFERENCES `metodo_prenhez` (`id_metodo_prenhez`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -258,7 +256,7 @@ CREATE TABLE `diagnostico_prenhez` (
 
 LOCK TABLES `diagnostico_prenhez` WRITE;
 /*!40000 ALTER TABLE `diagnostico_prenhez` DISABLE KEYS */;
-INSERT INTO `diagnostico_prenhez` VALUES (3,7,1,3,'2023-12-05',1,NULL),(4,5,1,4,'2023-12-06',1,NULL);
+INSERT INTO `diagnostico_prenhez` VALUES (3,7,1,3,'2023-12-05',1,NULL),(4,5,1,4,'2023-12-06',1,NULL),(5,7,1,NULL,'2025-06-01',0,'Se o diagnóstico foi negativo não deve deixar registar o parto'),(6,5,2,6,'2025-06-01',0,'Diagnóstico negativo, vai aparecer no registro do parto?'),(7,7,1,NULL,'2025-08-31',1,NULL),(8,7,1,NULL,'2025-08-31',1,NULL),(9,7,2,NULL,'2025-08-31',0,NULL),(10,10,2,NULL,'2025-08-31',1,NULL),(11,5,1,7,'2025-08-31',1,NULL);
 /*!40000 ALTER TABLE `diagnostico_prenhez` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -306,7 +304,7 @@ CREATE TABLE `lactacao` (
   KEY `fk_lactacao_partos1_idx` (`parto_id`),
   CONSTRAINT `fk_lactacao_causa_enc_lactacao1` FOREIGN KEY (`causa_enc_lactacao_id`) REFERENCES `causa_encerramento_lactacao` (`id_causa_encerramento`),
   CONSTRAINT `fk_lactacao_partos1` FOREIGN KEY (`parto_id`) REFERENCES `parto` (`id_parto`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -315,7 +313,7 @@ CREATE TABLE `lactacao` (
 
 LOCK TABLES `lactacao` WRITE;
 /*!40000 ALTER TABLE `lactacao` DISABLE KEYS */;
-INSERT INTO `lactacao` VALUES (3,'2023-12-05','2023-12-06',1,NULL,1,9),(4,'2023-12-05',NULL,0,NULL,NULL,10),(5,'2023-12-06','2023-12-06',1,NULL,1,11),(6,'2024-03-05',NULL,0,NULL,NULL,12),(7,'2024-03-15',NULL,0,NULL,NULL,13);
+INSERT INTO `lactacao` VALUES (3,'2023-12-05','2023-12-06',1,NULL,1,9),(4,'2023-12-05','2025-06-20',1,'Mensagem no console: Form submission canceled because the form is not connected',1,10),(5,'2023-12-06','2023-12-06',1,NULL,1,11),(6,'2024-03-05','2025-06-08',1,NULL,1,12),(7,'2024-03-15','2025-08-27',1,'Encerrando lactação com VacaDTO ao invés de Animal',1,13),(8,'2025-06-11','2025-08-27',1,'Verificar porque após encerrar a lactação a vaca não está saindo da lista de animais para encerrar a lactação',1,14),(9,'2025-06-11','2025-08-28',1,'Verificando se a vaca 22 vai encerrar a lactação ou vai criar uma nova automaticamente',1,15),(10,'2025-04-08','2025-08-28',1,'Testando encerrar lactação para ver se cria novo parto e lactação automaticamente',2,16),(11,'2025-08-31','2025-08-31',1,NULL,1,17),(12,'2025-08-31',NULL,0,NULL,NULL,18),(13,'2025-08-31','2025-09-01',1,NULL,1,19),(14,'2025-08-31','2025-08-31',1,NULL,1,20),(15,'2025-08-31','2025-08-31',1,NULL,1,21),(16,'2025-08-31','2025-08-31',1,'Realmente esta lactação foi encerrada?',1,22),(17,'2025-08-31','2025-09-01',1,NULL,1,23),(18,'2025-09-01','2025-09-01',1,NULL,1,24),(19,'2025-09-01','2025-09-16',1,NULL,1,25),(20,'2025-09-01','2025-09-16',1,NULL,1,26),(21,'2025-09-16','2025-09-22',1,NULL,1,27),(22,'2025-09-16','2025-09-16',1,NULL,1,28),(23,'2025-09-17','2025-09-16',1,NULL,1,29),(24,'2025-09-16','2025-09-22',1,NULL,1,30),(25,'2025-09-22','2025-09-23',1,NULL,1,31),(26,'2025-09-22','2025-09-22',1,NULL,2,32),(27,'2025-09-22','2025-09-22',1,NULL,1,33);
 /*!40000 ALTER TABLE `lactacao` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -344,6 +342,35 @@ LOCK TABLES `lote` WRITE;
 /*!40000 ALTER TABLE `lote` DISABLE KEYS */;
 INSERT INTO `lote` VALUES (1,'Novilhas',1),(2,'Novilhas',3),(3,'Machos',3),(4,'Vacas em lactação',3),(5,'Vacas secas',3),(6,'Machos',1),(7,'Vacas em lactação',1),(8,'Vacas secas',1),(9,'Novilhas',2);
 /*!40000 ALTER TABLE `lote` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `medicacao_vacina`
+--
+
+DROP TABLE IF EXISTS `medicacao_vacina`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `medicacao_vacina` (
+  `id_medicacao_vacina` int NOT NULL AUTO_INCREMENT,
+  `descricao` varchar(45) NOT NULL,
+  `qtde_doses` int NOT NULL,
+  `modo_uso` varchar(1337) DEFAULT NULL,
+  `proprietario_id` bigint NOT NULL,
+  PRIMARY KEY (`id_medicacao_vacina`),
+  KEY `fk_medicacao_vacina_usuario1_idx` (`proprietario_id`),
+  CONSTRAINT `fk_medicacao_vacina_usuario1` FOREIGN KEY (`proprietario_id`) REFERENCES `usuario` (`id_usuario`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `medicacao_vacina`
+--
+
+LOCK TABLES `medicacao_vacina` WRITE;
+/*!40000 ALTER TABLE `medicacao_vacina` DISABLE KEYS */;
+INSERT INTO `medicacao_vacina` VALUES (1,'Lepcide',50,'Aplicar Spray na area afetada',2),(2,'Febre Aftosa',10,NULL,2),(3,'Carbunculo',20,'Usar aplicador de Vacina',2);
+/*!40000 ALTER TABLE `medicacao_vacina` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -418,7 +445,7 @@ CREATE TABLE `ordenhadores` (
 
 LOCK TABLES `ordenhadores` WRITE;
 /*!40000 ALTER TABLE `ordenhadores` DISABLE KEYS */;
-INSERT INTO `ordenhadores` VALUES (3,2),(4,2);
+INSERT INTO `ordenhadores` VALUES (3,2),(4,2),(5,2),(6,4),(6,5);
 /*!40000 ALTER TABLE `ordenhadores` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -442,7 +469,7 @@ CREATE TABLE `origem_animal` (
 
 LOCK TABLES `origem_animal` WRITE;
 /*!40000 ALTER TABLE `origem_animal` DISABLE KEYS */;
-INSERT INTO `origem_animal` VALUES (1,'Comprado'),(2,'Nascido do rebanho'),(3,'Doado'),(4,'Animal doador');
+INSERT INTO `origem_animal` VALUES (1,'Comprado'),(2,'Nascido do rebanho'),(3,'Doado'),(4,'Doador de Sêmen');
 /*!40000 ALTER TABLE `origem_animal` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -472,7 +499,7 @@ CREATE TABLE `parto` (
   CONSTRAINT `partos_fk0` FOREIGN KEY (`vaca_id`) REFERENCES `animal` (`id_animal`),
   CONSTRAINT `partos_fk1` FOREIGN KEY (`cobertura_id`) REFERENCES `cobertura` (`id_cobertura`),
   CONSTRAINT `partos_fk2` FOREIGN KEY (`prenhez_id`) REFERENCES `diagnostico_prenhez` (`id_diagnostico`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -481,7 +508,7 @@ CREATE TABLE `parto` (
 
 LOCK TABLES `parto` WRITE;
 /*!40000 ALTER TABLE `parto` DISABLE KEYS */;
-INSERT INTO `parto` VALUES (9,5,NULL,NULL,1,'2023-12-05',4,1,NULL),(10,7,3,3,2,'2023-12-05',3.5,1,NULL),(11,5,4,4,1,'2023-12-06',4,2,NULL),(12,5,5,NULL,1,'2024-03-05',4.5,1,NULL),(13,10,NULL,NULL,1,'2024-03-15',4.5,1,NULL);
+INSERT INTO `parto` VALUES (9,5,NULL,NULL,1,'2023-12-05',4,1,NULL),(10,7,3,3,2,'2023-12-05',3.5,1,NULL),(11,5,4,4,1,'2023-12-06',4,2,NULL),(12,5,5,NULL,1,'2024-03-05',4.5,1,NULL),(13,10,NULL,NULL,1,'2024-03-15',4.5,1,NULL),(14,10,NULL,NULL,1,'2025-06-11',0,1,NULL),(15,10,NULL,NULL,1,'2025-06-11',0,1,NULL),(16,5,NULL,NULL,1,'2025-04-08',4.5,1,NULL),(17,5,7,11,2,'2025-08-31',3.5,1,NULL),(18,7,9,7,2,'2025-08-31',1,1,'Verificando se a mensagem de sucesso e erro vai aparecer'),(19,10,8,10,1,'2025-08-31',0,1,NULL),(20,5,NULL,NULL,1,'2025-08-31',0,1,NULL),(21,5,NULL,NULL,1,'2025-08-31',0,1,NULL),(22,5,NULL,NULL,1,'2025-08-31',0,1,NULL),(23,5,NULL,NULL,2,'2025-08-31',4,1,'Esse parto foi criado?'),(24,5,NULL,NULL,1,'2025-09-01',2,1,NULL),(25,5,NULL,NULL,1,'2025-09-01',0,1,NULL),(26,10,NULL,NULL,1,'2025-09-01',2.5,1,NULL),(27,5,NULL,NULL,1,'2025-09-16',0,1,NULL),(28,10,NULL,NULL,1,'2025-09-16',0,1,NULL),(29,10,NULL,NULL,1,'2025-09-17',0,3,NULL),(30,10,NULL,NULL,1,'2025-09-16',0,2,NULL),(31,5,NULL,NULL,1,'2025-09-22',0,1,NULL),(32,5,NULL,NULL,1,'2025-09-22',0,1,NULL),(33,10,NULL,NULL,1,'2025-09-22',0,1,NULL);
 /*!40000 ALTER TABLE `parto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -504,7 +531,7 @@ CREATE TABLE `producao_leite` (
   KEY `fk_producao_leite_controle_leiteiro1_idx` (`controle_leiteiro_id`),
   CONSTRAINT `fk_producao_leite_controle_leiteiro1` FOREIGN KEY (`controle_leiteiro_id`) REFERENCES `controle_leiteiro` (`id_controle_leiteiro`),
   CONSTRAINT `fk_producao_leite_lactacoes1` FOREIGN KEY (`lactacao_id`) REFERENCES `lactacao` (`id_lactacao`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -513,7 +540,7 @@ CREATE TABLE `producao_leite` (
 
 LOCK TABLES `producao_leite` WRITE;
 /*!40000 ALTER TABLE `producao_leite` DISABLE KEYS */;
-INSERT INTO `producao_leite` VALUES (1,3,21,23,0,3),(2,4,20,22,0,3),(3,5,15,18,0,4),(4,4,20,17,0,4);
+INSERT INTO `producao_leite` VALUES (1,3,21,23,0,3),(2,4,20,22,0,3),(3,5,15,18,0,4),(4,4,20,17,0,4),(5,6,15,20,0,5),(6,4,0,0,0,5),(7,7,18,22,0,5),(8,6,21,18,0,6),(9,7,22,20,0,6),(10,4,17,19,0,6);
 /*!40000 ALTER TABLE `producao_leite` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -533,7 +560,7 @@ CREATE TABLE `propriedade` (
   PRIMARY KEY (`id_propriedade`),
   KEY `propriedades_fk0` (`proprietario_id`),
   CONSTRAINT `propriedades_fk0` FOREIGN KEY (`proprietario_id`) REFERENCES `usuario` (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -542,7 +569,7 @@ CREATE TABLE `propriedade` (
 
 LOCK TABLES `propriedade` WRITE;
 /*!40000 ALTER TABLE `propriedade` DISABLE KEYS */;
-INSERT INTO `propriedade` VALUES (1,'Chacara do Mel','Passo Liso','Catanduvas',2),(2,'Propriedade 2','N S de Lurdes','Catanduvas',2),(3,'Tão Distante','Ibiracema','Catanduvas',3);
+INSERT INTO `propriedade` VALUES (1,'Chacara do Mel','Passo Liso','Catanduvas',2),(2,'Propriedade 2','N S de Lurdes','Catanduvas',2),(3,'Tão Distante','Ibiracema','Catanduvas',3),(4,'Arendo do tio','Ibiracema','Catanduvas',6);
 /*!40000 ALTER TABLE `propriedade` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -610,7 +637,7 @@ CREATE TABLE `semen` (
   PRIMARY KEY (`id_semen`),
   KEY `semens_fk0` (`touro_doador_id`),
   CONSTRAINT `semens_fk0` FOREIGN KEY (`touro_doador_id`) REFERENCES `animal_doador` (`id_doador`) ON DELETE RESTRICT
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -619,7 +646,7 @@ CREATE TABLE `semen` (
 
 LOCK TABLES `semen` WRITE;
 /*!40000 ALTER TABLE `semen` DISABLE KEYS */;
-INSERT INTO `semen` VALUES (1,1,'2023-11-02',22,45,533),(2,2,'2023-12-04',9,45,815);
+INSERT INTO `semen` VALUES (1,1,'2023-11-02',22,45,533),(2,2,'2023-12-04',7,45,815),(3,2,'2025-09-16',50,30,345345),(4,2,'2025-09-16',70,50,1456);
 /*!40000 ALTER TABLE `semen` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -688,7 +715,7 @@ CREATE TABLE `usuario` (
   UNIQUE KEY `email` (`email`),
   KEY `usuarios_fk0` (`chefe_id`),
   CONSTRAINT `usuarios_fk0` FOREIGN KEY (`chefe_id`) REFERENCES `usuario` (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -697,7 +724,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (2,'Eduardo Vieira','eduardo@gmail.com','$2a$10$7A9I5VUXYnyW5Hi5ry3F.urgNau.iVpTyg202Gs6Wlmpv6SyYjv0i',NULL),(3,'Pedro','pedro@gmail.com','$2a$10$NPPtyldWco8vCNbDDefxyemC7Ij5Ur08YM4fgdOf9VNmixH3PEej2',NULL);
+INSERT INTO `usuario` VALUES (2,'Eduardo Vieira','eduardo@gmail.com','$2a$10$7A9I5VUXYnyW5Hi5ry3F.urgNau.iVpTyg202Gs6Wlmpv6SyYjv0i',NULL),(3,'Pedro','pedro@gmail.com','$2a$10$NPPtyldWco8vCNbDDefxyemC7Ij5Ur08YM4fgdOf9VNmixH3PEej2',NULL),(4,'José','jose@gmail.com','$2a$10$Z0oz4NHyrhibgpE8YpnyjeXUBC.haAUmLUrz1nYKgvV7Or2NKLUAO',2),(5,'Maria','maria@gmail.com','$2a$10$RC1bojjF9rt8LQmbwuVU7uplnog.O8Sr4nucNKSCO3TV3TLO.AC/m',2),(6,'Rudi','rudi@gmail.com','$2a$10$CwutBRUV7Jyfa640HI3A4.6G3X.Z2mqCSHHSb.FrJBDEAUtjUEnSq',NULL);
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -724,7 +751,7 @@ CREATE TABLE `usuario_regras` (
 
 LOCK TABLES `usuario_regras` WRITE;
 /*!40000 ALTER TABLE `usuario_regras` DISABLE KEYS */;
-INSERT INTO `usuario_regras` VALUES (2,'ROLE_PRODUTOR'),(2,'ROLE_FUNCIONARIO'),(3,'ROLE_PRODUTOR'),(3,'ROLE_FUNCIONARIO');
+INSERT INTO `usuario_regras` VALUES (2,'ROLE_PRODUTOR'),(2,'ROLE_FUNCIONARIO'),(3,'ROLE_PRODUTOR'),(3,'ROLE_FUNCIONARIO'),(4,'ROLE_FUNCIONARIO'),(5,'ROLE_FUNCIONARIO'),(6,'ROLE_PRODUTOR'),(6,'ROLE_FUNCIONARIO');
 /*!40000 ALTER TABLE `usuario_regras` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -739,20 +766,20 @@ CREATE TABLE `vacina_aplicacao` (
   `id_aplicacao` bigint NOT NULL AUTO_INCREMENT,
   `dose` int NOT NULL,
   `data` date NOT NULL,
-  `vacina_id` int NOT NULL,
+  `medicacao_vacina_id` int NOT NULL,
   `animal_id` bigint NOT NULL,
   `aplicador_id` bigint NOT NULL,
   `doenca_evento_id` int NOT NULL,
   PRIMARY KEY (`id_aplicacao`),
-  KEY `fk_vacina_aplicacao_vacinas1_idx` (`vacina_id`),
+  KEY `fk_vacina_aplicacao_vacinas1_idx` (`medicacao_vacina_id`),
   KEY `fk_vacina_aplicacao_animais1_idx` (`animal_id`),
   KEY `fk_vacina_aplicacao_usuarios1_idx` (`aplicador_id`),
-  KEY `fk_vacina_aplicacao_doenca_evento1_idx` (`doenca_evento_id_doenca`),
+  KEY `fk_vacina_aplicacao_doenca_evento1_idx` (`doenca_evento_id`),
   CONSTRAINT `fk_vacina_aplicacao_animais1` FOREIGN KEY (`animal_id`) REFERENCES `animal` (`id_animal`),
-  CONSTRAINT `fk_vacina_aplicacao_doenca_evento1` FOREIGN KEY (`doenca_evento_id_doenca`) REFERENCES `doenca_evento` (`id_doenca`),
+  CONSTRAINT `fk_vacina_aplicacao_doenca_evento1` FOREIGN KEY (`doenca_evento_id`) REFERENCES `doenca_evento` (`id_doenca`),
   CONSTRAINT `fk_vacina_aplicacao_usuarios1` FOREIGN KEY (`aplicador_id`) REFERENCES `usuario` (`id_usuario`),
-  CONSTRAINT `fk_vacina_aplicacao_vacinas1` FOREIGN KEY (`vacina_id`) REFERENCES `medicacao_vacina` (`id_medicacao_vacina`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+  CONSTRAINT `fk_vacina_aplicacao_vacinas1` FOREIGN KEY (`medicacao_vacina_id`) REFERENCES `medicacao_vacina` (`id_medicacao_vacina`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -761,6 +788,7 @@ CREATE TABLE `vacina_aplicacao` (
 
 LOCK TABLES `vacina_aplicacao` WRITE;
 /*!40000 ALTER TABLE `vacina_aplicacao` DISABLE KEYS */;
+INSERT INTO `vacina_aplicacao` VALUES (1,1,'2025-05-14',2,5,2,25),(2,1,'2025-05-21',3,5,2,9),(3,1,'2025-05-21',2,10,2,25),(4,1,'2025-05-22',3,10,2,9),(5,2,'2025-05-22',2,5,2,25),(6,2,'2025-05-22',2,7,2,25),(7,2,'2025-05-22',2,10,2,25),(8,1,'2025-05-08',1,6,4,6);
 /*!40000 ALTER TABLE `vacina_aplicacao` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -773,4 +801,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-05-14 22:49:50
+-- Dump completed on 2025-12-14 22:02:42

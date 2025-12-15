@@ -104,6 +104,12 @@ public class ServiceParto {
 		if(propriedadeService.animalBelongsMe(parto.getVaca())) {
 			//Precisa verificar se a vaca tem lactação em andamento
 			if(lactacoesService.emAberto(parto.getVaca().getId()) == null){
+				//Verifica se há um parto na mesma data
+				Parto partoMesmaData = partosRepository.findTopByVacaAndData(parto.getVaca(), parto.getData());
+				if(partoMesmaData != null) {
+					return ResponseEntity.badRequest().body("Já existe um parto registrado para esta vaca na mesma data.");
+				}
+				//Salva o parto
 				Parto partoSalvo = partosRepository.save(parto);
 				Lactacao lactacao = new Lactacao(partoSalvo);
 				lactacoesService.save(lactacao);

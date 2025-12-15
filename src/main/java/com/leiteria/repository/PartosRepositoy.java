@@ -1,5 +1,6 @@
 package com.leiteria.repository;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -17,6 +18,7 @@ public interface PartosRepositoy extends JpaRepository<Parto, Long> {
 	List<Parto> findByVacaPropriedadeOrderByDataDesc(Propriedade propriedade);
 	Boolean existsByCoberturas(Cobertura cobertura);
 	Boolean existsByDiagnosticosPrenhez(DiagnosticoPrenhez diagnostico);
+	Parto findTopByVacaAndData(Animal vaca, LocalDate data);
 	
 
 }
