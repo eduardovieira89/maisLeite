@@ -38,10 +38,10 @@ public class ControleLeiteiro {
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dataControle;
 	
-	private float temperatura;
+	private Float temperatura;
 	
 	@Column(name="umidade_ar")
-	private float umidadeAr;
+	private Float umidadeAr;
 
 	@NotNull(message = "Propriedade é um campo obrigatório")
 	@ManyToOne

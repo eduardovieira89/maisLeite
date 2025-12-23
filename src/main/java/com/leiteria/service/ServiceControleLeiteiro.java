@@ -41,8 +41,16 @@ public ResponseEntity<?> findById(long idControle) {
             .orElse(ResponseEntity.notFound().build());
 }
 
-public ControleLeiteiro salvar(@Valid ControleLeiteiro controle) {
-    System.out.println("Controle Leiteiro:");
+public ResponseEntity<?> salvar(@Valid ControleLeiteiro controle) {
+    if(controle.getProducoesLeite().isEmpty()){
+        return ResponseEntity.badRequest().body("É necessário ao menos uma produção de leite para salvar o controle leiteiro.");
+    }
+    for(ProducaoLeite prod : controle.getProducoesLeite()){
+        prod.setControleLeiteiro(controle);
+        if(prod.getOrdenha1() == null){
+            return ResponseEntity.badRequest().body("A primeira ordenha é obrigatória para cada produção de leite.");
+        }
+    }
     controle = controleRepository.save(controle);
     for(ProducaoLeite prod : controle.getProducoesLeite()){
         prod.setControleLeiteiro(controle);
@@ -52,7 +60,7 @@ public ControleLeiteiro salvar(@Valid ControleLeiteiro controle) {
         producao.setControleLeiteiro(controle);
         producaoLeiteService.save(producao);
     } ); **/
-    return controle;
+    return ResponseEntity.ok().body(controle);
 }
 
 public ResponseEntity<?> atualizar(long id, ControleLeiteiro controle) {

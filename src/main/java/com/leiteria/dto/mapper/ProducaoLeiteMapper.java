@@ -9,9 +9,9 @@ import com.leiteria.model.ProducaoLeite;
 public class ProducaoLeiteMapper {
 
     public ProducaoLeiteDTO toDto(ProducaoLeite producao) {
-        float somaOrdenhas = producao.getOrdenha1()+
-                              producao.getOrdenha2() +
-                              producao.getOrdenha3();
+        Float somaOrdenhas = producao.getOrdenha1()+
+                              (producao.getOrdenha2() != null ? producao.getOrdenha2() : 0) +
+                              (producao.getOrdenha3() != null ? producao.getOrdenha3() : 0);
         return new ProducaoLeiteDTO(
                 producao.getId(),
                 producao.getLactacao().getParto().getVaca().getNome(),

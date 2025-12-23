@@ -19,7 +19,10 @@ public class ServiceOrigemAnimal {
 	@Autowired OrigemAnimalRepository origemAnimalRepository;
 	
 	public List<OrigemAnimal> listOrigemAnimal(){
-		return origemAnimalRepository.findAll();
+		List<OrigemAnimal> origens = origemAnimalRepository.findAll();
+		OrigemAnimal doadorSemen = origemAnimalRepository.findByDescricao("Doador de Sêmen").orElseThrow();
+		origens.remove(doadorSemen);
+		return origens;
 	}
 	
 	public ResponseEntity<?> findById(int id){

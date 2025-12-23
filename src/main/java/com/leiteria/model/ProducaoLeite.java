@@ -38,13 +38,13 @@ public class ProducaoLeite {
 	
 	@NotNull(message= "Campo ordenha1 é obrigatório")
 	@Column(name="ordenha_1")
-	private float ordenha1;
+	private Float ordenha1;
 	
 	@Column(name= "ordenha_2")
-	private float ordenha2;
+	private Float ordenha2;
 	
 	@Column(name="ordenha_3")
-	private float ordenha3;
+	private Float ordenha3;
 
 	public ProducaoLeite() {
 	}

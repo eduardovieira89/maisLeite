@@ -9,9 +9,12 @@ import com.leiteria.model.ControleLeiteiro;
 public class ControleLeiteiroMapper {
     
     public ControleLeiteiroDTO toDto(ControleLeiteiro controleLeiteiro) {
-        float totalLitros = (float) controleLeiteiro.getProducoesLeite().stream()
-                .mapToDouble(producao -> producao.getOrdenha1() + producao.getOrdenha2() + producao.getOrdenha3())
+        Double tl = (Double) controleLeiteiro.getProducoesLeite().stream()
+                .mapToDouble(producao -> producao.getOrdenha1() + 
+                (producao.getOrdenha2() != null ? producao.getOrdenha2() : 0) + 
+                (producao.getOrdenha3() != null ? producao.getOrdenha3() : 0))
                 .sum();
+        Float totalLitros = tl.floatValue();
         return new ControleLeiteiroDTO(
             controleLeiteiro.getId(),
             controleLeiteiro.getDataControle(),

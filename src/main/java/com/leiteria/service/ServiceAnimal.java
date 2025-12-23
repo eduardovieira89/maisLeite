@@ -6,7 +6,9 @@ import java.util.stream.Collectors;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.leiteria.dto.AnimalMatrizDTO;
 import com.leiteria.dto.VacaDTO;
+import com.leiteria.dto.mapper.AnimalMatrizMapper;
 import com.leiteria.dto.mapper.VacaMapper;
 import com.leiteria.model.Animal;
 import com.leiteria.model.AnimalDoador;
@@ -27,7 +29,7 @@ public class ServiceAnimal {
 	private final ServiceLotes lotesService;
 	private final MotivosBaixaRepository motivosBaixaRepository; //Alterar para Service
 	private final VacaMapper vacaMapper;
-	//private final ServiceUsuario serviceUsuario;
+	private final AnimalMatrizMapper animalMatrizMapper;
 	private final ServiceAnimaisDoadores serviceAnimaisDoadores;
 
 	public List<Animal> listByPropriedade(long idPropriedade) {
@@ -96,6 +98,21 @@ public class ServiceAnimal {
 			.collect(Collectors.toList());
     }
 
+	public List<AnimalMatrizDTO> getMatrizes(long idPropriedade, char genero) {
+        Propriedade propriedade = propriedadeService.findPropriedade(idPropriedade);
+		if (propriedade != null && propriedadeService.propriedadeBelongsMe(propriedade)) {
+			List<Animal> matriz = animalRepository.findByPropriedadeAndSexoAndAtivo(propriedade, genero, true);
+			if(genero == 'm'){
+				List<AnimalDoador> paisDoadores = serviceAnimaisDoadores.listMyAnimaisDoadores();
+				if (paisDoadores != null && !paisDoadores.isEmpty()) {
+					matriz.addAll(paisDoadores.stream().map(AnimalDoador::getAnimal).collect(Collectors.toList()));
+				}
+			}
+			return matriz.stream().map(animalMatrizMapper::toDto).collect(Collectors.toList());
+		}
+		return null;
+    }
+
 	public long getSomaAtivos(long idPropriedade) {
 		Propriedade propriedade = propriedadeService.findPropriedade(idPropriedade);
         if (propriedade != null && propriedadeService.propriedadeBelongsMe(propriedade)) {
@@ -117,6 +134,17 @@ public class ServiceAnimal {
         Lote lote = lotesService.findLote(idLote);
 		if(lote != null){
 			return animalRepository.findByLoteAndAtivo(lote, true);
+		}
+		return null;
+    }
+
+	public List<VacaDTO> findByLoteDTO(long idLote) {
+        Lote lote = lotesService.findLote(idLote);
+		if(lote != null){
+			return animalRepository.findByLoteAndAtivo(lote, true)
+			.stream()
+			.map(vacaMapper::toDto)
+			.collect(Collectors.toList());
 		}
 		return null;
     }
@@ -184,6 +212,10 @@ public class ServiceAnimal {
 			return ResponseEntity.notFound().build();
 		}).orElse(ResponseEntity.notFound().build());
 	}
+
+    
+
+    
 
 	
 

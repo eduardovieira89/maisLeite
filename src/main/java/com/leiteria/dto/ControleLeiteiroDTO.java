@@ -10,10 +10,10 @@ import jakarta.validation.constraints.NotNull;
 public record ControleLeiteiroDTO(
             long id, 
             @NotBlank @NotNull LocalDate dataControle, 
-            float temperatura, 
-            float umidadeAr, 
+            Float temperatura, 
+            Float umidadeAr, 
             @NotNull(message = "Produção de leite é um campo obrigatório") List<ProducaoLeiteDTO> producoesLeiteDTO,
-            float totalLitros
+            Float totalLitros
     
     ) {
     // DTO para Controle Leiteiro

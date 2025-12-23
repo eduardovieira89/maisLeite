@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.leiteria.dto.LoteContagemDTO;
+import com.leiteria.dto.LoteDTO;
 import com.leiteria.model.Lote;
 import com.leiteria.service.ServiceLotes;
 
@@ -29,13 +31,19 @@ public class LotesController {
     private final ServiceLotes loteService;
 
     @GetMapping
-    public List<Lote> listarMeusLotes(@RequestParam("idpropriedade") long idPropriedade){
+    public List<LoteDTO> listarMeusLotes(@RequestParam("idpropriedade") long idPropriedade){
         return loteService.listarMeusLotes(idPropriedade);
     }
 
+    @GetMapping("/contagem")
+    public List<LoteContagemDTO> contarAnimaisDeCadaLote(@RequestParam("idpropriedade") long idPropriedade) {
+        return loteService.contarAnimaisDeCadaLote(idPropriedade);
+    }
+    
+
     @PostMapping
-    public Lote save(@RequestBody @Valid Lote lote){
-        return loteService.save(lote);
+    public LoteDTO save(@RequestBody @Valid LoteDTO lote, @RequestParam("idpropriedade") long idPropriedade){
+        return loteService.save(lote, idPropriedade);
     }
 
     @PutMapping(value = "/{id}")

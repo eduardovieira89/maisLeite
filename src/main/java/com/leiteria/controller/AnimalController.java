@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.leiteria.dto.AnimalMatrizDTO;
 import com.leiteria.dto.VacaDTO;
 import com.leiteria.model.Animal;
 import com.leiteria.model.MotivoBaixa;
@@ -46,6 +47,11 @@ public class AnimalController {
 	public List<Animal> listarPais(@RequestParam ("idpropriedade") long idPropriedade) {
 		return animalService.findPais(idPropriedade);
 	}
+	@GetMapping("/matriz")
+	public List<AnimalMatrizDTO> getMatrizes(@RequestParam ("idpropriedade") long idPropriedade, @RequestParam("genero") char genero) {
+		return animalService.getMatrizes(idPropriedade, genero);
+	}
+	
 	
 	@GetMapping("/emlactacao")
 	public List<Animal> listarEmLactacao(@RequestParam("idpropriedade") long idPropriedade){
@@ -58,8 +64,8 @@ public class AnimalController {
 	}
 
 	@GetMapping("/lote")
-	public List<Animal> listarPorLote(@RequestParam("idlote") long lote) {
-		return animalService.findByLote(lote);
+	public List<VacaDTO> listarPorLote(@RequestParam("idlote") long lote) {
+		return animalService.findByLoteDTO(lote);
 	}
 
 	@GetMapping("/vacasdto")

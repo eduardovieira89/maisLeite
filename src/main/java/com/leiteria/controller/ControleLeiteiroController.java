@@ -19,6 +19,7 @@ import com.leiteria.dto.ControleLeiteiroDTO;
 import com.leiteria.model.ControleLeiteiro;
 import com.leiteria.service.ServiceControleLeiteiro;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -40,7 +41,7 @@ public class ControleLeiteiroController {
     }
 
     @PostMapping
-    public ControleLeiteiro salvar(@RequestBody ControleLeiteiro controle){
+    public ResponseEntity<?> salvar(@RequestBody @Valid ControleLeiteiro controle){
         return controleLeiteiroService.salvar(controle);
     }
 
