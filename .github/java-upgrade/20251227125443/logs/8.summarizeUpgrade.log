@@ -1,0 +1,349 @@
+2025-12-27T12:59:26.481Z [INFO] [Project maisLeite]: getting Java version.
+2025-12-27T12:59:26.482Z [INFO] [Project maisLeite]: got Java version: 22
+2025-12-27T12:59:26.483Z [INFO] [Project maisLeite]: getting project state.
+2025-12-27T12:59:26.483Z [INFO] [BaseBuildTool] Firing config modified event for mvnw, sleeping for 5 seconds
+2025-12-27T12:59:26.483Z [INFO] [Environment] Running command (Java 22): mvnw --version
+Apache Maven 3.6.3 (cecedd343002696d0abb50b32b541b8a6ba2883f)
+Maven home: C:\Users\Eduardo\.m2\wrapper\dists\apache-maven-3.6.3-bin\1iopthnavndlasol9gbrbg6bf2\apache-maven-3.6.3
+Java version: 22.0.2, vendor: Oracle Corporation, runtime: C:\Program Files\Java\jdk-22
+Default locale: pt_BR, platform encoding: UTF-8
+OS name: "windows 11", version: "10.0", arch: "amd64", family: "windows"
+2025-12-27T12:59:26.854Z [INFO] [BaseBuildTool] New version of mvnw: 3.6.3 -> 3.6.3
+2025-12-27T12:59:26.854Z [INFO] [MavenBuildTool] Getting Java version of C:/Users/Eduardo/Documents/Projetos/maisLeite from pom.xml
+2025-12-27T12:59:26.854Z [INFO] [MavenBuildTool] Searching for pom.xml files in C:/Users/Eduardo/Documents/Projetos/maisLeite
+2025-12-27T12:59:26.855Z [INFO] [MavenBuildTool] Found pom.xml files: C:\Users\Eduardo\Documents\Projetos\maisLeite\pom.xml
+2025-12-27T12:59:26.856Z [INFO] [MavenBuildTool] Java version found in C:\Users\Eduardo\Documents\Projetos\maisLeite\pom.xml: 22
+2025-12-27T12:59:26.856Z [INFO] [BaseBuildTool] Notifying Java version/Config change: '22' || '21'
+2025-12-27T12:59:26.858Z [INFO] [Project maisLeite]: getting Java version.
+2025-12-27T12:59:26.859Z [INFO] [Project maisLeite]: got Java version: 22
+2025-12-27T12:59:26.859Z [INFO] [Project maisLeite]: getting dependencies promise.
+2025-12-27T12:59:26.859Z [INFO] [Project maisLeite]: reset dependencies promise.
+2025-12-27T12:59:26.859Z [INFO] [Environment] Running command (Java 22): mvnw dependency:tree -B
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------------< com.leiteria:maisLeite >-----------------------
+[INFO] Building maisLeite 0.0.1-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:3.8.1:tree (default-cli) @ maisLeite ---
+[INFO] com.leiteria:maisLeite:jar:0.0.1-SNAPSHOT
+[INFO] +- org.springframework.boot:spring-boot-starter-actuator:jar:3.5.0:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter:jar:3.5.0:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot:jar:3.5.0:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-autoconfigure:jar:3.5.0:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-starter-logging:jar:3.5.0:compile
+[INFO] |  |  |  +- ch.qos.logback:logback-classic:jar:1.5.18:compile
+[INFO] |  |  |  |  \- ch.qos.logback:logback-core:jar:1.5.18:compile
+[INFO] |  |  |  +- org.apache.logging.log4j:log4j-to-slf4j:jar:2.24.3:compile
+[INFO] |  |  |  |  \- org.apache.logging.log4j:log4j-api:jar:2.24.3:compile
+[INFO] |  |  |  \- org.slf4j:jul-to-slf4j:jar:2.0.17:compile
+[INFO] |  |  +- jakarta.annotation:jakarta.annotation-api:jar:2.1.1:compile
+[INFO] |  |  \- org.yaml:snakeyaml:jar:2.4:compile
+[INFO] |  +- org.springframework.boot:spring-boot-actuator-autoconfigure:jar:3.5.0:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-actuator:jar:3.5.0:compile
+[INFO] |  |  \- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.19.0:compile
+[INFO] |  +- io.micrometer:micrometer-observation:jar:1.15.0:compile
+[INFO] |  |  \- io.micrometer:micrometer-commons:jar:1.15.0:compile
+[INFO] |  \- io.micrometer:micrometer-jakarta9:jar:1.15.0:compile
+[INFO] |     \- io.micrometer:micrometer-core:jar:1.15.0:compile
+[INFO] |        +- org.hdrhistogram:HdrHistogram:jar:2.2.2:runtime
+[INFO] |        \- org.latencyutils:LatencyUtils:jar:2.0.3:runtime
+[INFO] +- org.springframework.boot:spring-boot-starter-data-jpa:jar:3.5.0:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-jdbc:jar:3.5.0:compile
+[INFO] |  |  +- com.zaxxer:HikariCP:jar:6.3.0:compile
+[INFO] |  |  \- org.springframework:spring-jdbc:jar:6.2.7:compile
+[INFO] |  +- org.hibernate.orm:hibernate-core:jar:6.6.15.Final:compile
+[INFO] |  |  +- jakarta.persistence:jakarta.persistence-api:jar:3.1.0:compile
+[INFO] |  |  +- jakarta.transaction:jakarta.transaction-api:jar:2.0.1:compile
+[INFO] |  |  +- org.jboss.logging:jboss-logging:jar:3.6.1.Final:compile
+[INFO] |  |  +- org.hibernate.common:hibernate-commons-annotations:jar:7.0.3.Final:runtime
+[INFO] |  |  +- io.smallrye:jandex:jar:3.2.0:runtime
+[INFO] |  |  +- com.fasterxml:classmate:jar:1.7.0:compile
+[INFO] |  |  +- net.bytebuddy:byte-buddy:jar:1.17.5:runtime
+[INFO] |  |  +- org.glassfish.jaxb:jaxb-runtime:jar:4.0.5:runtime
+[INFO] |  |  |  \- org.glassfish.jaxb:jaxb-core:jar:4.0.5:runtime
+[INFO] |  |  |     +- org.eclipse.angus:angus-activation:jar:2.0.2:runtime
+[INFO] |  |  |     +- org.glassfish.jaxb:txw2:jar:4.0.5:runtime
+[INFO] |  |  |     \- com.sun.istack:istack-commons-runtime:jar:4.1.2:runtime
+[INFO] |  |  +- jakarta.inject:jakarta.inject-api:jar:2.0.1:runtime
+[INFO] |  |  \- org.antlr:antlr4-runtime:jar:4.13.0:compile
+[INFO] |  +- org.springframework.data:spring-data-jpa:jar:3.5.0:compile
+[INFO] |  |  +- org.springframework.data:spring-data-commons:jar:3.5.0:compile
+[INFO] |  |  +- org.springframework:spring-orm:jar:6.2.7:compile
+[INFO] |  |  +- org.springframework:spring-context:jar:6.2.7:compile
+[INFO] |  |  +- org.springframework:spring-tx:jar:6.2.7:compile
+[INFO] |  |  \- org.springframework:spring-beans:jar:6.2.7:compile
+[INFO] |  \- org.springframework:spring-aspects:jar:6.2.7:compile
+[INFO] |     \- org.aspectj:aspectjweaver:jar:1.9.24:compile
+[INFO] +- org.springframework.data:spring-data-rest-webmvc:jar:4.5.0:compile
+[INFO] |  +- org.springframework.data:spring-data-rest-core:jar:4.5.0:compile
+[INFO] |  |  +- org.springframework.hateoas:spring-hateoas:jar:2.5.0:compile
+[INFO] |  |  +- org.springframework.plugin:spring-plugin-core:jar:3.0.0:compile
+[INFO] |  |  +- org.atteo:evo-inflector:jar:1.3:compile
+[INFO] |  |  \- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:2.19.0:compile
+[INFO] |  +- org.springframework:spring-webmvc:jar:6.2.7:compile
+[INFO] |  |  \- org.springframework:spring-expression:jar:6.2.7:compile
+[INFO] |  +- com.fasterxml.jackson.core:jackson-databind:jar:2.19.0:compile
+[INFO] |  |  \- com.fasterxml.jackson.core:jackson-core:jar:2.19.0:compile
+[INFO] |  +- com.fasterxml.jackson.core:jackson-annotations:jar:2.19.0:compile
+[INFO] |  \- org.slf4j:slf4j-api:jar:2.0.17:compile
+[INFO] +- org.springframework.boot:spring-boot-starter-security:jar:3.5.0:compile
+[INFO] |  +- org.springframework:spring-aop:jar:6.2.7:compile
+[INFO] |  +- org.springframework.security:spring-security-config:jar:6.5.0:compile
+[INFO] |  \- org.springframework.security:spring-security-web:jar:6.5.0:compile
+[INFO] +- org.springframework.boot:spring-boot-starter-web:jar:3.5.0:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-json:jar:3.5.0:compile
+[INFO] |  |  \- com.fasterxml.jackson.module:jackson-module-parameter-names:jar:2.19.0:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-tomcat:jar:3.5.0:compile
+[INFO] |  |  +- org.apache.tomcat.embed:tomcat-embed-core:jar:10.1.41:compile
+[INFO] |  |  \- org.apache.tomcat.embed:tomcat-embed-websocket:jar:10.1.41:compile
+[INFO] |  \- org.springframework:spring-web:jar:6.2.7:compile
+[INFO] +- com.mysql:mysql-connector-j:jar:9.2.0:runtime
+[INFO] +- org.projectlombok:lombok:jar:1.18.38:compile (optional)
+[INFO] +- io.jsonwebtoken:jjwt-api:jar:0.11.5:compile
+[INFO] +- io.jsonwebtoken:jjwt-impl:jar:0.11.5:compile
+[INFO] +- io.jsonwebtoken:jjwt-jackson:jar:0.11.5:compile
+[INFO] +- org.springframework.boot:spring-boot-starter-test:jar:3.5.0:test
+[INFO] |  +- org.springframework.boot:spring-boot-test:jar:3.5.0:test
+[INFO] |  +- org.springframework.boot:spring-boot-test-autoconfigure:jar:3.5.0:test
+[INFO] |  +- com.jayway.jsonpath:json-path:jar:2.9.0:compile
+[INFO] |  +- jakarta.xml.bind:jakarta.xml.bind-api:jar:4.0.2:runtime
+[INFO] |  |  \- jakarta.activation:jakarta.activation-api:jar:2.1.3:runtime
+[INFO] |  +- net.minidev:json-smart:jar:2.5.2:runtime
+[INFO] |  |  \- net.minidev:accessors-smart:jar:2.5.2:runtime
+[INFO] |  |     \- org.ow2.asm:asm:jar:9.7.1:runtime
+[INFO] |  +- org.assertj:assertj-core:jar:3.27.3:test
+[INFO] |  +- org.awaitility:awaitility:jar:4.3.0:test
+[INFO] |  +- org.hamcrest:hamcrest:jar:3.0:test
+[INFO] |  +- org.junit.jupiter:junit-jupiter:jar:5.12.2:test
+[INFO] |  |  +- org.junit.jupiter:junit-jupiter-api:jar:5.12.2:test
+[INFO] |  |  |  \- org.opentest4j:opentest4j:jar:1.3.0:test
+[INFO] |  |  +- org.junit.jupiter:junit-jupiter-params:jar:5.12.2:test
+[INFO] |  |  \- org.junit.jupiter:junit-jupiter-engine:jar:5.12.2:test
+[INFO] |  +- org.mockito:mockito-core:jar:5.17.0:test
+[INFO] |  |  +- net.bytebuddy:byte-buddy-agent:jar:1.17.5:test
+[INFO] |  |  \- org.objenesis:objenesis:jar:3.3:test
+[INFO] |  +- org.mockito:mockito-junit-jupiter:jar:5.17.0:test
+[INFO] |  +- org.skyscreamer:jsonassert:jar:1.5.3:test
+[INFO] |  |  \- com.vaadin.external.google:android-json:jar:0.0.20131108.vaadin1:test
+[INFO] |  +- org.springframework:spring-core:jar:6.2.7:compile
+[INFO] |  |  \- org.springframework:spring-jcl:jar:6.2.7:compile
+[INFO] |  +- org.springframework:spring-test:jar:6.2.7:test
+[INFO] |  \- org.xmlunit:xmlunit-core:jar:2.10.1:test
+[INFO] +- org.springframework.security:spring-security-test:jar:6.5.0:test
+[INFO] |  \- org.springframework.security:spring-security-core:jar:6.5.0:compile
+[INFO] |     \- org.springframework.security:spring-security-crypto:jar:6.5.0:compile
+[INFO] +- org.springframework.boot:spring-boot-starter-validation:jar:3.5.0:compile
+[INFO] |  +- org.apache.tomcat.embed:tomcat-embed-el:jar:10.1.41:compile
+[INFO] |  \- org.hibernate.validator:hibernate-validator:jar:8.0.2.Final:compile
+[INFO] |     \- jakarta.validation:jakarta.validation-api:jar:3.0.2:compile
+[INFO] +- com.h2database:h2:jar:2.3.232:test
+[INFO] \- org.junit.platform:junit-platform-runner:jar:1.12.2:test
+[INFO]    +- org.junit.platform:junit-platform-launcher:jar:1.12.2:test
+[INFO]    |  \- org.junit.platform:junit-platform-engine:jar:1.12.2:test
+[INFO]    +- org.junit.platform:junit-platform-suite-api:jar:1.12.2:test
+[INFO]    |  \- org.junit.platform:junit-platform-commons:jar:1.12.2:test
+[INFO]    +- org.apiguardian:apiguardian-api:jar:1.1.2:test
+[INFO]    \- org.junit.platform:junit-platform-suite-commons:jar:1.12.2:test
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.199 s
+[INFO] Finished at: 2025-12-27T09:59:30-03:00
+[INFO] ------------------------------------------------------------------------
+2025-12-27T12:59:30.410Z [INFO] [MavenBuildTool] Successfully got dependency tree of C:/Users/Eduardo/Documents/Projetos/maisLeite
+2025-12-27T12:59:30.411Z [INFO] [MavenBuildTool] Getting Java version of C:/Users/Eduardo/Documents/Projetos/maisLeite from pom.xml
+2025-12-27T12:59:30.411Z [INFO] [MavenBuildTool] Searching for pom.xml files in C:/Users/Eduardo/Documents/Projetos/maisLeite
+2025-12-27T12:59:30.412Z [INFO] [MavenBuildTool] Found pom.xml files: C:\Users\Eduardo\Documents\Projetos\maisLeite\pom.xml
+2025-12-27T12:59:30.413Z [INFO] [MavenBuildTool] Java version found in C:\Users\Eduardo\Documents\Projetos\maisLeite\pom.xml: 22
+2025-12-27T12:59:30.414Z [INFO] [MavenBuildTool] Getting build errors of C:/Users/Eduardo/Documents/Projetos/maisLeite using Maven
+2025-12-27T12:59:30.415Z [INFO] [Environment] Running command (Java 22): mvnw clean test-compile -q -B -fn
+2025-12-27T12:59:40.440Z [INFO] [MavenBuildTool] parsing compilation errors.
+2025-12-27T12:59:40.441Z [INFO] [BaseBuildTool] Found 1 modules: .
+2025-12-27T12:59:40.451Z [INFO] [BaseBuildTool] Finish counting Java and class files
+2025-12-27T12:59:40.452Z [INFO] [MavenBuildTool] Cleaning C:/Users/Eduardo/Documents/Projetos/maisLeite using Maven
+2025-12-27T12:59:40.452Z [INFO] [Environment] Running command (Java 22): mvnw clean -q -B -fn
+2025-12-27T12:59:42.266Z [INFO] [MavenBuildTool] Running test cases of C:/Users/Eduardo/Documents/Projetos/maisLeite using Maven
+2025-12-27T12:59:42.266Z [INFO] [Environment] Running command (Java 22): mvnw clean test -q -B -fn
+2025-12-27T12:59:52.658Z [INFO] [MavenBuildTool] loading surefire reports.
+2025-12-27T12:59:52.665Z [INFO] [MavenBuildTool] summarizing surefire reports.
+2025-12-27T12:59:52.666Z [INFO] [MavenBuildTool] Cleaning C:/Users/Eduardo/Documents/Projetos/maisLeite using Maven
+2025-12-27T12:59:52.668Z [INFO] [Environment] Running command (Java 22): mvnw clean -q -B -fn
+2025-12-27T12:59:54.596Z [INFO] Add test changes to summary...
+2025-12-27T12:59:54.691Z [INFO] 6	6	pom.xml
+0	12	target/classes/application.properties
+-	-	target/classes/com/leiteria/MaisLeiteApplication.class
+-	-	target/classes/com/leiteria/controller/AnimalController.class
+-	-	target/classes/com/leiteria/controller/PropriedadeController.class
+-	-	target/classes/com/leiteria/controller/RacaController.class
+-	-	target/classes/com/leiteria/controller/UsuarioController.class
+-	-	target/classes/com/leiteria/model/Animal.class
+-	-	target/classes/com/leiteria/model/Propriedade.class
+-	-	target/classes/com/leiteria/model/Raca.class
+-	-	target/classes/com/leiteria/repository/PropriedadeRepository.class
+-	-	target/classes/com/leiteria/repository/RacaRepository.class
+-	-	target/classes/com/leiteria/repository/RegraRepository.class
+-	-	target/classes/com/leiteria/repository/UsuarioRepository.class
+-	-	target/classes/com/leiteria/security/CustomUserDetails.class
+-	-	target/test-classes/com/leiteria/MaisLeiteApplicationTests.class
+
+2025-12-27T12:59:54.699Z [INFO] Add test errors to summary...
+2025-12-27T12:59:54.700Z [INFO] getting CVEs for dependencies:
+ - org.springframework.boot:spring-boot-starter-actuator:3.5.0
+  - org.springframework.boot:spring-boot-starter-data-jpa:3.5.0
+  - org.springframework.data:spring-data-rest-webmvc:4.5.0
+  - org.springframework.boot:spring-boot-starter-security:3.5.0
+  - org.springframework.boot:spring-boot-starter-web:3.5.0
+  - com.mysql:mysql-connector-j:9.2.0
+  - org.projectlombok:lombok:1.18.38
+  - io.jsonwebtoken:jjwt-api:0.11.5
+  - io.jsonwebtoken:jjwt-impl:0.11.5
+  - io.jsonwebtoken:jjwt-jackson:0.11.5
+  - org.springframework.boot:spring-boot-starter-test:3.5.0
+  - org.springframework.security:spring-security-test:6.5.0
+  - org.springframework.boot:spring-boot-starter-validation:3.5.0
+  - com.h2database:h2:2.3.232
+  - org.junit.platform:junit-platform-runner:1.12.2
+  - java:*:22...
+2025-12-27T12:59:54.700Z [INFO] getting gitHub access token...
+2025-12-27T12:59:54.702Z [INFO] Processing batch 1/1, size: 16
+2025-12-27T12:59:54.703Z [INFO] listing CVEs from GitHub for dependencies [
+  "org.springframework.boot:spring-boot-starter-actuator:3.5.0",
+  "org.springframework.boot:spring-boot-starter-data-jpa:3.5.0",
+  "org.springframework.data:spring-data-rest-webmvc:4.5.0",
+  "org.springframework.boot:spring-boot-starter-security:3.5.0",
+  "org.springframework.boot:spring-boot-starter-web:3.5.0",
+  "com.mysql:mysql-connector-j:9.2.0",
+  "org.projectlombok:lombok:1.18.38",
+  "io.jsonwebtoken:jjwt-api:0.11.5",
+  "io.jsonwebtoken:jjwt-impl:0.11.5",
+  "io.jsonwebtoken:jjwt-jackson:0.11.5",
+  "org.springframework.boot:spring-boot-starter-test:3.5.0",
+  "org.springframework.security:spring-security-test:6.5.0",
+  "org.springframework.boot:spring-boot-starter-validation:3.5.0",
+  "com.h2database:h2:2.3.232",
+  "org.junit.platform:junit-platform-runner:1.12.2",
+  "java:*:22"
+]
+2025-12-27T12:59:55.062Z [INFO] Fetched 1 total advisories across all pages
+2025-12-27T12:59:55.064Z [INFO] grouping CVEs and finding max patched version by dep...
+2025-12-27T12:59:55.065Z [INFO] done getting 0 CVEs for 16 dependencies
+2025-12-27T12:59:55.066Z [INFO] calculating patched version by dep...
+2025-12-27T12:59:55.066Z [INFO] finished getting CVEs for dependencies.
+2025-12-27T12:59:55.200Z [INFO] diff --git a/pom.xml b/pom.xml
+index 73b9e60..c15d327 100644
+--- a/pom.xml
++++ b/pom.xml
+@@ -3,12 +3,12 @@
+ 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+ 	<modelVersion>4.0.0</modelVersion>
+-	<parent>
+-		<groupId>org.springframework.boot</groupId>
+-		<artifactId>spring-boot-starter-parent</artifactId>
+-		<version>3.3.2</version>
+-		<relativePath /> <!-- lookup parent from repository -->
+-	</parent>
++		<parent>
++			<groupId>org.springframework.boot</groupId>
++			<artifactId>spring-boot-starter-parent</artifactId>
++			<version>3.5.0</version>
++			<relativePath /> <!-- lookup parent from repository -->
++		</parent>
+ 	<groupId>com.leiteria</groupId>
+ 	<artifactId>maisLeite</artifactId>
+ 	<version>0.0.1-SNAPSHOT</version>
+diff --git a/target/classes/application.properties b/target/classes/application.properties
+deleted file mode 100644
+index 721ca34..0000000
+--- a/target/classes/application.properties
++++ /dev/null
+@@ -1,12 +0,0 @@
+-spring.datasource.url=jdbc:mysql://localhost:3306/leiteria3?useTimezone=true&serverTimezone=America/Sao_Paulo
+-spring.datasource.username=sistemaleitemais
+-spring.datasource.password=sistemal3it3m@is
+-spring.jpa.show-sql=true
+-spring.jpa.database-platform=org.hibernate.dialect.MySQLDialect
+-spring.jpa.properties.hibernate.temp.use_jdbc_metadata_defaults=false
+-spring.jpa.hibernate.ddl-auto=none
+-spring.sql.init.mode=never
+-
+-# App Properties:
+-leiteria.app.jwtSecret= 5267556B586E3272357538782F413F4428472B4B6250655368566D5971337336
+-leiteria.app.jwtExpirationMs= 86400000
+\ No newline at end of file
+diff --git a/target/classes/com/leiteria/MaisLeiteApplication.class b/target/classes/com/leiteria/MaisLeiteApplication.class
+deleted file mode 100644
+index 7b4b57d..0000000
+Binary files a/target/classes/com/leiteria/MaisLeiteApplication.class and /dev/null differ
+diff --git a/target/classes/com/leiteria/controller/AnimalController.class b/target/classes/com/leiteria/controller/AnimalController.class
+deleted file mode 100644
+index 3a19887..0000000
+Binary files a/target/classes/com/leiteria/controller/AnimalController.class and /dev/null differ
+diff --git a/target/classes/com/leiteria/controller/PropriedadeController.class b/target/classes/com/leiteria/controller/PropriedadeController.class
+deleted file mode 100644
+index 131b5d1..0000000
+Binary files a/target/classes/com/leiteria/controller/PropriedadeController.class and /dev/null differ
+diff --git a/target/classes/com/leiteria/controller/RacaController.class b/target/classes/com/leiteria/controller/RacaController.class
+deleted file mode 100644
+index f51295f..0000000
+Binary files a/target/classes/com/leiteria/controller/RacaController.class and /dev/null differ
+diff --git a/target/classes/com/leiteria/controller/UsuarioController.class b/target/classes/com/leiteria/controller/UsuarioController.class
+deleted file mode 100644
+index 46b23e8..0000000
+Binary files a/target/classes/com/leiteria/controller/UsuarioController.class and /dev/null differ
+diff --git a/target/classes/com/leiteria/model/Animal.class b/target/classes/com/leiteria/model/Animal.class
+deleted file mode 100644
+index 0f10c6e..0000000
+Binary files a/target/classes/com/leiteria/model/Animal.class and /dev/null differ
+diff --git a/target/classes/com/leiteria/model/Propriedade.class b/target/classes/com/leiteria/model/Propriedade.class
+deleted file mode 100644
+index e68bc53..0000000
+Binary files a/target/classes/com/leiteria/model/Propriedade.class and /dev/null differ
+diff --git a/target/classes/com/leiteria/model/Raca.class b/target/classes/com/leiteria/model/Raca.class
+deleted file mode 100644
+index 4f20ac8..0000000
+Binary files a/target/classes/com/leiteria/model/Raca.class and /dev/null differ
+diff --git a/target/classes/com/leiteria/repository/PropriedadeRepository.class b/target/classes/com/leiteria/repository/PropriedadeRepository.class
+deleted file mode 100644
+index d849c95..0000000
+Binary files a/target/classes/com/leiteria/repository/PropriedadeRepository.class and /dev/nul
+2025-12-27T12:59:55.201Z [INFO] l differ
+diff --git a/target/classes/com/leiteria/repository/RacaRepository.class b/target/classes/com/leiteria/repository/RacaRepository.class
+deleted file mode 100644
+index 1a428c9..0000000
+Binary files a/target/classes/com/leiteria/repository/RacaRepository.class and /dev/null differ
+diff --git a/target/classes/com/leiteria/repository/RegraRepository.class b/target/classes/com/leiteria/repository/RegraRepository.class
+deleted file mode 100644
+index e9a9f07..0000000
+Binary files a/target/classes/com/leiteria/repository/RegraRepository.class and /dev/null differ
+diff --git a/target/classes/com/leiteria/repository/UsuarioRepository.class b/target/classes/com/leiteria/repository/UsuarioRepository.class
+deleted file mode 100644
+index 52164a8..0000000
+Binary files a/target/classes/com/leiteria/repository/UsuarioRepository.class and /dev/null differ
+diff --git a/target/classes/com/leiteria/security/CustomUserDetails.class b/target/classes/com/leiteria/security/CustomUserDetails.class
+deleted file mode 100644
+index a1ba746..0000000
+Binary files a/target/classes/com/leiteria/security/CustomUserDetails.class and /dev/null differ
+diff --git a/target/test-classes/com/leiteria/MaisLeiteApplicationTests.class b/target/test-classes/com/leiteria/MaisLeiteApplicationTests.class
+deleted file mode 100644
+index 8aed7c2..0000000
+Binary files a/target/test-classes/com/leiteria/MaisLeiteApplicationTests.class and /dev/null differ
+
+2025-12-27T12:59:55.210Z [INFO] [unknown]: getting broken files...
+2025-12-27T12:59:55.210Z [INFO] [unknown]: found 1 broken files.
+2025-12-27T12:59:55.211Z [INFO] [unknown]: there are 98 lines.
+2025-12-27T12:59:55.756Z [INFO] [unknown]: there are 1548 tokens.
+2025-12-27T12:59:55.757Z [INFO] [unknown]: no need to split the diff file.
+2025-12-27T12:59:55.757Z [INFO] summarizing behavior changes...
+2025-12-27T12:59:55.757Z [INFO] summarizing behavior changes of part 1...
+2025-12-27T12:59:56.448Z [INFO] summarized behavior changes of part 1.
+2025-12-27T12:59:56.449Z [INFO] summarized behavior changes of all parts.
+2025-12-27T12:59:56.450Z [INFO] summarizing behavior changes...
+2025-12-27T12:59:56.451Z [INFO] summarizing behavior changes of part 1...
+2025-12-27T12:59:57.054Z [INFO] summarized behavior changes of part 1.
+2025-12-27T12:59:57.056Z [INFO] summarized behavior changes of all parts.
+2025-12-27T12:59:57.057Z [INFO] summarizing behavior changes...
+2025-12-27T12:59:57.058Z [INFO] summarizing behavior changes of part 1...
+2025-12-27T12:59:57.555Z [INFO] summarized behavior changes of part 1.
+2025-12-27T12:59:57.556Z [INFO] summarized behavior changes of all parts.

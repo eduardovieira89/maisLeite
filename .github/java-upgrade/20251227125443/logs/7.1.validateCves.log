@@ -1,0 +1,38 @@
+2025-12-27T12:58:48.153Z [INFO] Some dependencies have been modified or added during the upgrade. start validating CVEs.
+2025-12-27T12:58:48.155Z [INFO] Getting CVEs for dependencies: org.springframework.boot:spring-boot-starter-actuator:3.5.0:jar,org.springframework.boot:spring-boot-starter-data-jpa:3.5.0:jar,org.springframework.data:spring-data-rest-webmvc:4.5.0:jar,org.springframework.boot:spring-boot-starter-security:3.5.0:jar,org.springframework.boot:spring-boot-starter-web:3.5.0:jar,com.mysql:mysql-connector-j:9.2.0:jar,org.projectlombok:lombok:1.18.38:jar,org.springframework.boot:spring-boot-starter-test:3.5.0:jar,org.springframework.security:spring-security-test:6.5.0:jar,org.springframework.boot:spring-boot-starter-validation:3.5.0:jar,com.h2database:h2:2.3.232:jar,org.junit.platform:junit-platform-runner:1.12.2:jar
+2025-12-27T12:58:48.156Z [INFO] getting CVEs for dependencies:
+ - org.springframework.boot:spring-boot-starter-actuator:3.5.0:jar
+  - org.springframework.boot:spring-boot-starter-data-jpa:3.5.0:jar
+  - org.springframework.data:spring-data-rest-webmvc:4.5.0:jar
+  - org.springframework.boot:spring-boot-starter-security:3.5.0:jar
+  - org.springframework.boot:spring-boot-starter-web:3.5.0:jar
+  - com.mysql:mysql-connector-j:9.2.0:jar
+  - org.projectlombok:lombok:1.18.38:jar
+  - org.springframework.boot:spring-boot-starter-test:3.5.0:jar
+  - org.springframework.security:spring-security-test:6.5.0:jar
+  - org.springframework.boot:spring-boot-starter-validation:3.5.0:jar
+  - com.h2database:h2:2.3.232:jar
+  - org.junit.platform:junit-platform-runner:1.12.2:jar...
+2025-12-27T12:58:48.156Z [INFO] getting gitHub access token...
+2025-12-27T12:58:48.158Z [INFO] Processing batch 1/1, size: 12
+2025-12-27T12:58:48.159Z [INFO] listing CVEs from GitHub for dependencies [
+  "org.springframework.boot:spring-boot-starter-actuator:3.5.0:jar",
+  "org.springframework.boot:spring-boot-starter-data-jpa:3.5.0:jar",
+  "org.springframework.data:spring-data-rest-webmvc:4.5.0:jar",
+  "org.springframework.boot:spring-boot-starter-security:3.5.0:jar",
+  "org.springframework.boot:spring-boot-starter-web:3.5.0:jar",
+  "com.mysql:mysql-connector-j:9.2.0:jar",
+  "org.projectlombok:lombok:1.18.38:jar",
+  "org.springframework.boot:spring-boot-starter-test:3.5.0:jar",
+  "org.springframework.security:spring-security-test:6.5.0:jar",
+  "org.springframework.boot:spring-boot-starter-validation:3.5.0:jar",
+  "com.h2database:h2:2.3.232:jar",
+  "org.junit.platform:junit-platform-runner:1.12.2:jar"
+]
+2025-12-27T12:58:48.467Z [INFO] Fetched 0 total advisories across all pages
+2025-12-27T12:58:48.470Z [INFO] grouping CVEs and finding max patched version by dep...
+2025-12-27T12:58:48.471Z [INFO] done getting 0 CVEs for 12 dependencies
+2025-12-27T12:58:48.472Z [INFO] calculating patched version by dep...
+2025-12-27T12:58:48.473Z [INFO] finished getting CVEs for dependencies.
+2025-12-27T12:58:48.474Z [INFO] Found 0 dependencies with known CVEs
+2025-12-27T12:58:48.475Z [INFO] No known CVEs that need to be fixed are found for dependencies: org.springframework.boot:spring-boot-starter-actuator:3.5.0:jar,org.springframework.boot:spring-boot-starter-data-jpa:3.5.0:jar,org.springframework.data:spring-data-rest-webmvc:4.5.0:jar,org.springframework.boot:spring-boot-starter-security:3.5.0:jar,org.springframework.boot:spring-boot-starter-web:3.5.0:jar,com.mysql:mysql-connector-j:9.2.0:jar,org.projectlombok:lombok:1.18.38:jar,org.springframework.boot:spring-boot-starter-test:3.5.0:jar,org.springframework.security:spring-security-test:6.5.0:jar,org.springframework.boot:spring-boot-starter-validation:3.5.0:jar,com.h2database:h2:2.3.232:jar,org.junit.platform:junit-platform-runner:1.12.2:jar

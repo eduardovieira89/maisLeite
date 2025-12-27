@@ -1,0 +1,39 @@
+2025-12-27T12:58:01.743Z [INFO] [Task.commitChanges](6.1): Committing changes for C:/Users/Eduardo/Documents/Projetos/maisLeite with message: Bump Spring Boot parent to 3.5.0 (milestone 2)
+2025-12-27T12:58:01.972Z [INFO] [appmod/java-upgrade-20251227125443 f03471a] Bump Spring Boot parent to 3.5.0 (milestone 2)
+ 16 files changed, 1 insertion(+), 13 deletions(-)
+ delete mode 100644 target/classes/application.properties
+ delete mode 100644 target/classes/com/leiteria/MaisLeiteApplication.class
+ delete mode 100644 target/classes/com/leiteria/controller/AnimalController.class
+ delete mode 100644 target/classes/com/leiteria/controller/PropriedadeController.class
+ delete mode 100644 target/classes/com/leiteria/controller/RacaController.class
+ delete mode 100644 target/classes/com/leiteria/controller/UsuarioController.class
+ delete mode 100644 target/classes/com/leiteria/model/Animal.class
+ delete mode 100644 target/classes/com/leiteria/model/Propriedade.class
+ delete mode 100644 target/classes/com/leiteria/model/Raca.class
+ delete mode 100644 target/classes/com/leiteria/repository/PropriedadeRepository.class
+ delete mode 100644 target/classes/com/leiteria/repository/RacaRepository.class
+ delete mode 100644 target/classes/com/leiteria/repository/RegraRepository.class
+ delete mode 100644 target/classes/com/leiteria/repository/UsuarioRepository.class
+ delete mode 100644 target/classes/com/leiteria/security/CustomUserDetails.class
+ delete mode 100644 target/test-classes/com/leiteria/MaisLeiteApplicationTests.class
+
+2025-12-27T12:58:02.047Z [INFO] f03471ada1d3be88a098ff2059e73acca4af519f
+
+2025-12-27T12:58:02.141Z [INFO] 1	1	pom.xml
+0	12	target/classes/application.properties
+-	-	target/classes/com/leiteria/MaisLeiteApplication.class
+-	-	target/classes/com/leiteria/controller/AnimalController.class
+-	-	target/classes/com/leiteria/controller/PropriedadeController.class
+-	-	target/classes/com/leiteria/controller/RacaController.class
+-	-	target/classes/com/leiteria/controller/UsuarioController.class
+-	-	target/classes/com/leiteria/model/Animal.class
+-	-	target/classes/com/leiteria/model/Propriedade.class
+-	-	target/classes/com/leiteria/model/Raca.class
+-	-	target/classes/com/leiteria/repository/PropriedadeRepository.class
+-	-	target/classes/com/leiteria/repository/RacaRepository.class
+-	-	target/classes/com/leiteria/repository/RegraRepository.class
+-	-	target/classes/com/leiteria/repository/UsuarioRepository.class
+-	-	target/classes/com/leiteria/security/CustomUserDetails.class
+-	-	target/test-classes/com/leiteria/MaisLeiteApplicationTests.class
+
+2025-12-27T12:58:02.166Z [INFO] [Task.commitChanges](6.1): Committed changes for C:/Users/Eduardo/Documents/Projetos/maisLeite with message: Bump Spring Boot parent to 3.5.0 (milestone 2)

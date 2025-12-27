@@ -1,0 +1,1970 @@
+2025-12-27T12:54:43.368Z [INFO] Initializing project configuration...
+2025-12-27T12:54:43.370Z [INFO] Project C:/Users/Eduardo/Documents/Projetos/maisLeite is a maven project, try to get java version from pom.xml
+2025-12-27T12:54:43.375Z [INFO] Project java version: 22
+2025-12-27T12:54:43.375Z [INFO] Maven project detected.
+2025-12-27T12:54:43.376Z [INFO] Build tool type: mvnw
+2025-12-27T12:54:43.377Z [INFO] [Environment] Running command (Java 22): java -version
+java version "22.0.2" 2024-07-16
+Java(TM) SE Runtime Environment (build 22.0.2+9-70)
+Java HotSpot(TM) 64-Bit Server VM (build 22.0.2+9-70, mixed mode, sharing)
+2025-12-27T12:54:43.509Z [INFO] [JdkEnvironment] Got real Java version: 22.0.2
+2025-12-27T12:54:43.510Z [INFO] JDK: {
+  "name": "java",
+  "path": "C:\\Program Files\\Java\\jdk-22\\bin",
+  "version": "22"
+}
+2025-12-27T12:54:43.515Z [INFO] [Environment] Running command (Java 22): mvnw --version
+Apache Maven 3.6.3 (cecedd343002696d0abb50b32b541b8a6ba2883f)
+Maven home: C:\Users\Eduardo\.m2\wrapper\dists\apache-maven-3.6.3-bin\1iopthnavndlasol9gbrbg6bf2\apache-maven-3.6.3
+Java version: 22.0.2, vendor: Oracle Corporation, runtime: C:\Program Files\Java\jdk-22
+Default locale: pt_BR, platform encoding: UTF-8
+OS name: "windows 11", version: "10.0", arch: "amd64", family: "windows"
+2025-12-27T12:54:43.961Z [INFO] Real build tool version: 3.6.3
+2025-12-27T12:54:43.962Z [INFO] Build tool: {
+  "name": "mvnw",
+  "path": ".",
+  "version": "3.6.3"
+}
+2025-12-27T12:54:43.962Z [INFO] Project config: {
+  "buildTool": {
+    "path": ".",
+    "name": "mvnw",
+    "version": "3.6.3"
+  },
+  "jdk": {
+    "path": "C:\\Program Files\\Java\\jdk-22\\bin",
+    "name": "java",
+    "version": "22"
+  },
+  "name": "maisLeite",
+  "dir": "C:/Users/Eduardo/Documents/Projetos/maisLeite"
+}
+2025-12-27T12:54:43.963Z [INFO] Project configuration initialized: {
+  "buildTool": {
+    "path": ".",
+    "name": "mvnw",
+    "version": "3.6.3"
+  },
+  "jdk": {
+    "path": "C:\\Program Files\\Java\\jdk-22\\bin",
+    "name": "java",
+    "version": "22"
+  },
+  "name": "maisLeite",
+  "dir": "C:/Users/Eduardo/Documents/Projetos/maisLeite"
+}
+2025-12-27T12:54:43.963Z [INFO] Initializing upgrade goals...
+2025-12-27T12:54:43.968Z [INFO] [Environment] Running command (Java 22): mvnw dependency:tree -B
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------------< com.leiteria:maisLeite >-----------------------
+[INFO] Building maisLeite 0.0.1-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:3.6.1:tree (default-cli) @ maisLeite ---
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-sink-api/1.11.1/doxia-sink-api-1.11.1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-sink-api/1.11.1/doxia-sink-api-1.11.1.pom (1.6 kB at 3.5 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia/1.11.1/doxia-1.11.1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia/1.11.1/doxia-1.11.1.pom (18 kB at 188 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-logging-api/1.11.1/doxia-logging-api-1.11.1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-logging-api/1.11.1/doxia-logging-api-1.11.1.pom (1.6 kB at 13 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/reporting/maven-reporting-impl/3.2.0/maven-reporting-impl-3.2.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/reporting/maven-reporting-impl/3.2.0/maven-reporting-impl-3.2.0.pom (7.6 kB at 87 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-core/3.1.0/maven-core-3.1.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-core/3.1.0/maven-core-3.1.0.pom (6.9 kB at 75 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven/3.1.0/maven-3.1.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven/3.1.0/maven-3.1.0.pom (22 kB at 295 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-model/3.1.0/maven-model-3.1.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-model/3.1.0/maven-model-3.1.0.pom (3.8 kB at 44 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-settings/3.1.0/maven-settings-3.1.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-settings/3.1.0/maven-settings-3.1.0.pom (1.8 kB at 17 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-settings-builder/3.1.0/maven-settings-builder-3.1.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-settings-builder/3.1.0/maven-settings-builder-3.1.0.pom (2.3 kB at 23 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-interpolation/1.16/plexus-interpolation-1.16.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-interpolation/1.16/plexus-interpolation-1.16.pom (1.0 kB at 9.0 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-components/1.3/plexus-components-1.3.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-components/1.3/plexus-components-1.3.pom (3.1 kB at 30 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/3.3/plexus-3.3.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/3.3/plexus-3.3.pom (20 kB at 178 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/sonatype/spice/spice-parent/17/spice-parent-17.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/sonatype/spice/spice-parent/17/spice-parent-17.pom (6.8 kB at 62 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/sonatype/forge/forge-parent/10/forge-parent-10.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/sonatype/forge/forge-parent/10/forge-parent-10.pom (14 kB at 146 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-component-annotations/1.5.5/plexus-component-annotations-1.5.5.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-component-annotations/1.5.5/plexus-component-annotations-1.5.5.pom (815 B at 8.2 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-containers/1.5.5/plexus-containers-1.5.5.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-containers/1.5.5/plexus-containers-1.5.5.pom (4.2 kB at 42 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/2.0.7/plexus-2.0.7.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/2.0.7/plexus-2.0.7.pom (17 kB at 211 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/sonatype/plexus/plexus-sec-dispatcher/1.3/plexus-sec-dispatcher-1.3.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/sonatype/plexus/plexus-sec-dispatcher/1.3/plexus-sec-dispatcher-1.3.pom (3.0 kB at 35 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/sonatype/spice/spice-parent/12/spice-parent-12.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/sonatype/spice/spice-parent/12/spice-parent-12.pom (6.8 kB at 69 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/sonatype/forge/forge-parent/4/forge-parent-4.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/sonatype/forge/forge-parent/4/forge-parent-4.pom (8.4 kB at 99 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/sonatype/plexus/plexus-cipher/1.4/plexus-cipher-1.4.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/sonatype/plexus/plexus-cipher/1.4/plexus-cipher-1.4.pom (2.1 kB at 24 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-repository-metadata/3.1.0/maven-repository-metadata-3.1.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-repository-metadata/3.1.0/maven-repository-metadata-3.1.0.pom (1.9 kB at 23 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-artifact/3.1.0/maven-artifact-3.1.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-artifact/3.1.0/maven-artifact-3.1.0.pom (1.6 kB at 22 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-plugin-api/3.1.0/maven-plugin-api-3.1.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-plugin-api/3.1.0/maven-plugin-api-3.1.0.pom (3.0 kB at 31 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/sisu/org.eclipse.sisu.plexus/0.3.0.M1/org.eclipse.sisu.plexus-0.3.0.M1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/sisu/org.eclipse.sisu.plexus/0.3.0.M1/org.eclipse.sisu.plexus-0.3.0.M1.pom (4.7 kB at 49 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/sisu/sisu-plexus/0.3.0.M1/sisu-plexus-0.3.0.M1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/sisu/sisu-plexus/0.3.0.M1/sisu-plexus-0.3.0.M1.pom (13 kB at 124 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/javax/enterprise/cdi-api/1.0/cdi-api-1.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/javax/enterprise/cdi-api/1.0/cdi-api-1.0.pom (1.4 kB at 17 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/jboss/weld/weld-api-parent/1.0/weld-api-parent-1.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/jboss/weld/weld-api-parent/1.0/weld-api-parent-1.0.pom (2.4 kB at 24 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/jboss/weld/weld-api-bom/1.0/weld-api-bom-1.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/jboss/weld/weld-api-bom/1.0/weld-api-bom-1.0.pom (7.9 kB at 96 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/jboss/weld/weld-parent/6/weld-parent-6.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/jboss/weld/weld-parent/6/weld-parent-6.pom (21 kB at 211 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/javax/annotation/jsr250-api/1.0/jsr250-api-1.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/javax/annotation/jsr250-api/1.0/jsr250-api-1.0.pom (1.0 kB at 11 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/sisu/org.eclipse.sisu.inject/0.3.0.M1/org.eclipse.sisu.inject-0.3.0.M1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/sisu/org.eclipse.sisu.inject/0.3.0.M1/org.eclipse.sisu.inject-0.3.0.M1.pom (2.5 kB at 29 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/sisu/sisu-inject/0.3.0.M1/sisu-inject-0.3.0.M1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/sisu/sisu-inject/0.3.0.M1/sisu-inject-0.3.0.M1.pom (14 kB at 193 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-classworlds/2.5.1/plexus-classworlds-2.5.1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-classworlds/2.5.1/plexus-classworlds-2.5.1.pom (5.0 kB at 66 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/3.3.1/plexus-3.3.1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/3.3.1/plexus-3.3.1.pom (20 kB at 259 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-model-builder/3.1.0/maven-model-builder-3.1.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-model-builder/3.1.0/maven-model-builder-3.1.0.pom (2.5 kB at 32 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-aether-provider/3.1.0/maven-aether-provider-3.1.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-aether-provider/3.1.0/maven-aether-provider-3.1.0.pom (3.5 kB at 49 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-api/0.9.0.M2/aether-api-0.9.0.M2.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-api/0.9.0.M2/aether-api-0.9.0.M2.pom (1.7 kB at 18 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether/0.9.0.M2/aether-0.9.0.M2.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether/0.9.0.M2/aether-0.9.0.M2.pom (28 kB at 273 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-spi/0.9.0.M2/aether-spi-0.9.0.M2.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-spi/0.9.0.M2/aether-spi-0.9.0.M2.pom (1.8 kB at 19 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-util/0.9.0.M2/aether-util-0.9.0.M2.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-util/0.9.0.M2/aether-util-0.9.0.M2.pom (2.0 kB at 23 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-impl/0.9.0.M2/aether-impl-0.9.0.M2.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-impl/0.9.0.M2/aether-impl-0.9.0.M2.pom (3.3 kB at 56 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-classworlds/2.4.2/plexus-classworlds-2.4.2.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-classworlds/2.4.2/plexus-classworlds-2.4.2.pom (3.5 kB at 41 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/3.0.1/plexus-3.0.1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/3.0.1/plexus-3.0.1.pom (19 kB at 255 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-shared-utils/3.3.4/maven-shared-utils-3.3.4.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-shared-utils/3.3.4/maven-shared-utils-3.3.4.pom (5.8 kB at 68 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/commons-io/commons-io/2.6/commons-io-2.6.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/commons-io/commons-io/2.6/commons-io-2.6.pom (14 kB at 185 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/42/commons-parent-42.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/42/commons-parent-42.pom (68 kB at 894 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/apache/18/apache-18.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/apache/18/apache-18.pom (16 kB at 196 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-decoration-model/1.11.1/doxia-decoration-model-1.11.1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-decoration-model/1.11.1/doxia-decoration-model-1.11.1.pom (3.4 kB at 41 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-sitetools/1.11.1/doxia-sitetools-1.11.1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-sitetools/1.11.1/doxia-sitetools-1.11.1.pom (14 kB at 179 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-component-annotations/2.0.0/plexus-component-annotations-2.0.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-component-annotations/2.0.0/plexus-component-annotations-2.0.0.pom (750 B at 10 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-containers/2.0.0/plexus-containers-2.0.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-containers/2.0.0/plexus-containers-2.0.0.pom (4.8 kB at 55 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-core/1.11.1/doxia-core-1.11.1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-core/1.11.1/doxia-core-1.11.1.pom (4.5 kB at 45 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-component-annotations/2.1.0/plexus-component-annotations-2.1.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-component-annotations/2.1.0/plexus-component-annotations-2.1.0.pom (750 B at 8.9 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-containers/2.1.0/plexus-containers-2.1.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-containers/2.1.0/plexus-containers-2.1.0.pom (4.8 kB at 55 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.pom (28 kB at 349 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/47/commons-parent-47.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/47/commons-parent-47.pom (78 kB at 862 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/apache/19/apache-19.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/apache/19/apache-19.pom (15 kB at 148 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-text/1.10.0/commons-text-1.10.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-text/1.10.0/commons-text-1.10.0.pom (21 kB at 212 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/54/commons-parent-54.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/54/commons-parent-54.pom (82 kB at 1.1 MB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/apache/27/apache-27.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/apache/27/apache-27.pom (20 kB at 219 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/junit/junit-bom/5.9.1/junit-bom-5.9.1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/junit-bom/5.9.1/junit-bom-5.9.1.pom (5.6 kB at 54 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.pom (6.6 kB at 69 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpcomponents-client/4.5.13/httpcomponents-client-4.5.13.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpcomponents-client/4.5.13/httpcomponents-client-4.5.13.pom (16 kB at 210 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpcomponents-parent/11/httpcomponents-parent-11.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpcomponents-parent/11/httpcomponents-parent-11.pom (35 kB at 510 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.pom (5.0 kB at 53 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpcomponents-core/4.4.13/httpcomponents-core-4.4.13.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpcomponents-core/4.4.13/httpcomponents-core-4.4.13.pom (13 kB at 161 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/commons-logging/commons-logging/1.2/commons-logging-1.2.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/commons-logging/commons-logging/1.2/commons-logging-1.2.pom (19 kB at 183 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/34/commons-parent-34.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/34/commons-parent-34.pom (56 kB at 766 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/commons-codec/commons-codec/1.11/commons-codec-1.11.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/commons-codec/commons-codec/1.11/commons-codec-1.11.pom (14 kB at 149 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpcore/4.4.14/httpcore-4.4.14.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpcore/4.4.14/httpcore-4.4.14.pom (5.0 kB at 60 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpcomponents-core/4.4.14/httpcomponents-core-4.4.14.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpcomponents-core/4.4.14/httpcomponents-core-4.4.14.pom (13 kB at 164 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-integration-tools/1.11.1/doxia-integration-tools-1.11.1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-integration-tools/1.11.1/doxia-integration-tools-1.11.1.pom (6.0 kB at 64 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/reporting/maven-reporting-api/3.0/maven-reporting-api-3.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/reporting/maven-reporting-api/3.0/maven-reporting-api-3.0.pom (2.4 kB at 29 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-shared-components/15/maven-shared-components-15.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-shared-components/15/maven-shared-components-15.pom (9.3 kB at 96 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/16/maven-parent-16.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/16/maven-parent-16.pom (23 kB at 259 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/apache/7/apache-7.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/apache/7/apache-7.pom (14 kB at 185 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-sink-api/1.0/doxia-sink-api-1.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-sink-api/1.0/doxia-sink-api-1.0.pom (1.4 kB at 16 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia/1.0/doxia-1.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia/1.0/doxia-1.0.pom (9.6 kB at 88 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/10/maven-parent-10.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/10/maven-parent-10.pom (32 kB at 344 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/apache/4/apache-4.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/apache/4/apache-4.pom (4.5 kB at 58 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-artifact/2.2.1/maven-artifact-2.2.1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-artifact/2.2.1/maven-artifact-2.2.1.pom (1.6 kB at 15 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven/2.2.1/maven-2.2.1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven/2.2.1/maven-2.2.1.pom (22 kB at 241 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/11/maven-parent-11.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/11/maven-parent-11.pom (32 kB at 405 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/apache/5/apache-5.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/apache/5/apache-5.pom (4.1 kB at 51 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-model/2.2.1/maven-model-2.2.1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-model/2.2.1/maven-model-2.2.1.pom (3.2 kB at 47 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-plugin-api/2.2.1/maven-plugin-api-2.2.1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-plugin-api/2.2.1/maven-plugin-api-2.2.1.pom (1.5 kB at 15 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-i18n/1.0-beta-10/plexus-i18n-1.0-beta-10.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-i18n/1.0-beta-10/plexus-i18n-1.0-beta-10.pom (2.1 kB at 19 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-components/1.1.12/plexus-components-1.1.12.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-components/1.1.12/plexus-components-1.1.12.pom (3.0 kB at 31 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/1.0.10/plexus-1.0.10.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/1.0.10/plexus-1.0.10.pom (8.2 kB at 103 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-site-renderer/1.11.1/doxia-site-renderer-1.11.1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-site-renderer/1.11.1/doxia-site-renderer-1.11.1.pom (7.7 kB at 122 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-artifact/3.0/maven-artifact-3.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-artifact/3.0/maven-artifact-3.0.pom (1.9 kB at 24 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven/3.0/maven-3.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven/3.0/maven-3.0.pom (22 kB at 240 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/15/maven-parent-15.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/15/maven-parent-15.pom (24 kB at 231 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/apache/6/apache-6.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/apache/6/apache-6.pom (13 kB at 156 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-skin-model/1.11.1/doxia-skin-model-1.11.1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-skin-model/1.11.1/doxia-skin-model-1.11.1.pom (3.0 kB at 36 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-module-xhtml/1.11.1/doxia-module-xhtml-1.11.1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-module-xhtml/1.11.1/doxia-module-xhtml-1.11.1.pom (2.0 kB at 21 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-modules/1.11.1/doxia-modules-1.11.1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-modules/1.11.1/doxia-modules-1.11.1.pom (2.7 kB at 28 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-module-xhtml5/1.11.1/doxia-module-xhtml5-1.11.1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-module-xhtml5/1.11.1/doxia-module-xhtml5-1.11.1.pom (2.0 kB at 29 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-velocity/1.2/plexus-velocity-1.2.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-velocity/1.2/plexus-velocity-1.2.pom (2.8 kB at 37 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-components/4.0/plexus-components-4.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-components/4.0/plexus-components-4.0.pom (2.7 kB at 30 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/4.0/plexus-4.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/4.0/plexus-4.0.pom (22 kB at 211 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/commons-collections/commons-collections/3.1/commons-collections-3.1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/commons-collections/commons-collections/3.1/commons-collections-3.1.pom (6.1 kB at 74 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/velocity/velocity/1.7/velocity-1.7.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/velocity/velocity/1.7/velocity-1.7.pom (11 kB at 134 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.pom (13 kB at 187 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/9/commons-parent-9.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/9/commons-parent-9.pom (22 kB at 274 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/commons-lang/commons-lang/2.4/commons-lang-2.4.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/commons-lang/commons-lang/2.4/commons-lang-2.4.pom (14 kB at 149 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/velocity/velocity-tools/2.0/velocity-tools-2.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/velocity/velocity-tools/2.0/velocity-tools-2.0.pom (18 kB at 198 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/commons-beanutils/commons-beanutils/1.7.0/commons-beanutils-1.7.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/commons-beanutils/commons-beanutils/1.7.0/commons-beanutils-1.7.0.pom (357 B at 4.8 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/commons-logging/commons-logging/1.0.3/commons-logging-1.0.3.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/commons-logging/commons-logging/1.0.3/commons-logging-1.0.3.pom (866 B at 12 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/commons-digester/commons-digester/1.8/commons-digester-1.8.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/commons-digester/commons-digester/1.8/commons-digester-1.8.pom (7.0 kB at 83 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/commons-logging/commons-logging/1.1/commons-logging-1.1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/commons-logging/commons-logging/1.1/commons-logging-1.1.pom (6.2 kB at 73 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/log4j/log4j/1.2.12/log4j-1.2.12.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/log4j/log4j/1.2.12/log4j-1.2.12.pom (145 B at 1.7 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/logkit/logkit/1.0.1/logkit-1.0.1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/logkit/logkit/1.0.1/logkit-1.0.1.pom (147 B at 1.6 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/avalon-framework/avalon-framework/4.1.3/avalon-framework-4.1.3.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/avalon-framework/avalon-framework/4.1.3/avalon-framework-4.1.3.pom (167 B at 2.0 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/commons-chain/commons-chain/1.1/commons-chain-1.1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/commons-chain/commons-chain/1.1/commons-chain-1.1.pom (6.0 kB at 70 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/commons-digester/commons-digester/1.6/commons-digester-1.6.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/commons-digester/commons-digester/1.6/commons-digester-1.6.pom (974 B at 12 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/commons-beanutils/commons-beanutils/1.6/commons-beanutils-1.6.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/commons-beanutils/commons-beanutils/1.6/commons-beanutils-1.6.pom (2.3 kB at 32 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/commons-logging/commons-logging/1.0/commons-logging-1.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/commons-logging/commons-logging/1.0/commons-logging-1.0.pom (163 B at 2.4 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/commons-collections/commons-collections/2.0/commons-collections-2.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/commons-collections/commons-collections/2.0/commons-collections-2.0.pom (171 B at 2.1 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/commons-collections/commons-collections/2.1/commons-collections-2.1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/commons-collections/commons-collections/2.1/commons-collections-2.1.pom (3.3 kB at 42 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2.pom (2.2 kB at 30 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/commons-collections/commons-collections/3.2/commons-collections-3.2.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/commons-collections/commons-collections/3.2/commons-collections-3.2.pom (11 kB at 153 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/dom4j/dom4j/1.1/dom4j-1.1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/dom4j/dom4j/1.1/dom4j-1.1.pom (142 B at 1.5 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/oro/oro/2.0.8/oro-2.0.8.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/oro/oro/2.0.8/oro-2.0.8.pom (140 B at 1.6 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/velocity/velocity/1.6.2/velocity-1.6.2.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/velocity/velocity/1.6.2/velocity-1.6.2.pom (11 kB at 133 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.pom (12 kB at 155 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/39/commons-parent-39.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/39/commons-parent-39.pom (62 kB at 674 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/apache/16/apache-16.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/apache/16/apache-16.pom (15 kB at 166 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-archiver/4.8.0/plexus-archiver-4.8.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-archiver/4.8.0/plexus-archiver-4.8.0.pom (6.1 kB at 66 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/14/plexus-14.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/14/plexus-14.pom (28 kB at 376 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-io/3.4.1/plexus-io-3.4.1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-io/3.4.1/plexus-io-3.4.1.pom (6.0 kB at 68 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/commons-io/commons-io/2.13.0/commons-io-2.13.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/commons-io/commons-io/2.13.0/commons-io-2.13.0.pom (20 kB at 271 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/58/commons-parent-58.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/58/commons-parent-58.pom (83 kB at 1.2 MB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.23.0/commons-compress-1.23.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.23.0/commons-compress-1.23.0.pom (22 kB at 280 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/56/commons-parent-56.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/56/commons-parent-56.pom (82 kB at 936 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/iq80/snappy/snappy/0.4/snappy-0.4.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/iq80/snappy/snappy/0.4/snappy-0.4.pom (15 kB at 227 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/tukaani/xz/1.9/xz-1.9.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/tukaani/xz/1.9/xz-1.9.pom (2.0 kB at 19 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/github/luben/zstd-jni/1.5.5-5/zstd-jni-1.5.5-5.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/github/luben/zstd-jni/1.5.5-5/zstd-jni-1.5.5-5.pom (1.9 kB at 24 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-dependency-analyzer/1.13.2/maven-dependency-analyzer-1.13.2.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-dependency-analyzer/1.13.2/maven-dependency-analyzer-1.13.2.pom (6.4 kB at 70 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-core/3.2.5/maven-core-3.2.5.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-core/3.2.5/maven-core-3.2.5.pom (8.1 kB at 85 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven/3.2.5/maven-3.2.5.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven/3.2.5/maven-3.2.5.pom (22 kB at 260 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/25/maven-parent-25.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/25/maven-parent-25.pom (37 kB at 499 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/apache/15/apache-15.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/apache/15/apache-15.pom (15 kB at 181 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-model/3.2.5/maven-model-3.2.5.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-model/3.2.5/maven-model-3.2.5.pom (4.2 kB at 52 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-settings/3.2.5/maven-settings-3.2.5.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-settings/3.2.5/maven-settings-3.2.5.pom (2.2 kB at 20 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-settings-builder/3.2.5/maven-settings-builder-3.2.5.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-settings-builder/3.2.5/maven-settings-builder-3.2.5.pom (2.6 kB at 33 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-interpolation/1.21/plexus-interpolation-1.21.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-interpolation/1.21/plexus-interpolation-1.21.pom (1.5 kB at 22 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-components/1.3.1/plexus-components-1.3.1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-components/1.3.1/plexus-components-1.3.1.pom (3.1 kB at 32 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-repository-metadata/3.2.5/maven-repository-metadata-3.2.5.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-repository-metadata/3.2.5/maven-repository-metadata-3.2.5.pom (2.2 kB at 31 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-artifact/3.2.5/maven-artifact-3.2.5.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-artifact/3.2.5/maven-artifact-3.2.5.pom (2.3 kB at 27 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-plugin-api/3.2.5/maven-plugin-api-3.2.5.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-plugin-api/3.2.5/maven-plugin-api-3.2.5.pom (3.0 kB at 32 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-model-builder/3.2.5/maven-model-builder-3.2.5.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-model-builder/3.2.5/maven-model-builder-3.2.5.pom (3.0 kB at 31 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-aether-provider/3.2.5/maven-aether-provider-3.2.5.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-aether-provider/3.2.5/maven-aether-provider-3.2.5.pom (4.2 kB at 55 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-api/1.0.0.v20140518/aether-api-1.0.0.v20140518.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-api/1.0.0.v20140518/aether-api-1.0.0.v20140518.pom (1.9 kB at 23 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether/1.0.0.v20140518/aether-1.0.0.v20140518.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether/1.0.0.v20140518/aether-1.0.0.v20140518.pom (30 kB at 302 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-spi/1.0.0.v20140518/aether-spi-1.0.0.v20140518.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-spi/1.0.0.v20140518/aether-spi-1.0.0.v20140518.pom (2.1 kB at 27 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-util/1.0.0.v20140518/aether-util-1.0.0.v20140518.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-util/1.0.0.v20140518/aether-util-1.0.0.v20140518.pom (2.2 kB at 26 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-impl/1.0.0.v20140518/aether-impl-1.0.0.v20140518.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-impl/1.0.0.v20140518/aether-impl-1.0.0.v20140518.pom (3.5 kB at 37 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/sonatype/sisu/sisu-guice/3.2.3/sisu-guice-3.2.3.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/sonatype/sisu/sisu-guice/3.2.3/sisu-guice-3.2.3.pom (11 kB at 115 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/sonatype/sisu/inject/guice-parent/3.2.3/guice-parent-3.2.3.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/sonatype/sisu/inject/guice-parent/3.2.3/guice-parent-3.2.3.pom (13 kB at 145 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/sonatype/forge/forge-parent/38/forge-parent-38.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/sonatype/forge/forge-parent/38/forge-parent-38.pom (19 kB at 211 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/aopalliance/aopalliance/1.0/aopalliance-1.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/aopalliance/aopalliance/1.0/aopalliance-1.0.pom (363 B at 1.3 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/google/guava/guava/16.0.1/guava-16.0.1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/google/guava/guava/16.0.1/guava-16.0.1.pom (6.1 kB at 54 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/google/guava/guava-parent/16.0.1/guava-parent-16.0.1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/google/guava/guava-parent/16.0.1/guava-parent-16.0.1.pom (7.3 kB at 103 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-classworlds/2.5.2/plexus-classworlds-2.5.2.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-classworlds/2.5.2/plexus-classworlds-2.5.2.pom (7.3 kB at 84 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/ow2/asm/asm/9.5/asm-9.5.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/ow2/asm/asm/9.5/asm-9.5.pom (2.4 kB at 25 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-dependency-tree/3.2.1/maven-dependency-tree-3.2.1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-dependency-tree/3.2.1/maven-dependency-tree-3.2.1.pom (6.2 kB at 64 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-shared-components/37/maven-shared-components-37.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-shared-components/37/maven-shared-components-37.pom (4.9 kB at 51 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/37/maven-parent-37.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/37/maven-parent-37.pom (46 kB at 480 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-common-artifact-filters/3.3.2/maven-common-artifact-filters-3.3.2.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-common-artifact-filters/3.3.2/maven-common-artifact-filters-3.3.2.pom (5.3 kB at 58 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-artifact-transfer/0.13.1/maven-artifact-transfer-0.13.1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-artifact-transfer/0.13.1/maven-artifact-transfer-0.13.1.pom (11 kB at 150 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-core/3.0/maven-core-3.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-core/3.0/maven-core-3.0.pom (6.6 kB at 23 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-model/3.0/maven-model-3.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-model/3.0/maven-model-3.0.pom (3.9 kB at 59 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-settings/3.0/maven-settings-3.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-settings/3.0/maven-settings-3.0.pom (1.9 kB at 24 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-settings-builder/3.0/maven-settings-builder-3.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-settings-builder/3.0/maven-settings-builder-3.0.pom (2.2 kB at 17 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-interpolation/1.14/plexus-interpolation-1.14.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-interpolation/1.14/plexus-interpolation-1.14.pom (910 B at 11 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-components/1.1.18/plexus-components-1.1.18.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-components/1.1.18/plexus-components-1.1.18.pom (5.4 kB at 8.6 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-repository-metadata/3.0/maven-repository-metadata-3.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-repository-metadata/3.0/maven-repository-metadata-3.0.pom (1.9 kB at 20 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-plugin-api/3.0/maven-plugin-api-3.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-plugin-api/3.0/maven-plugin-api-3.0.pom (2.3 kB at 26 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/sonatype/sisu/sisu-inject-plexus/1.4.2/sisu-inject-plexus-1.4.2.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/sonatype/sisu/sisu-inject-plexus/1.4.2/sisu-inject-plexus-1.4.2.pom (5.4 kB at 58 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/sonatype/sisu/inject/guice-plexus/1.4.2/guice-plexus-1.4.2.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/sonatype/sisu/inject/guice-plexus/1.4.2/guice-plexus-1.4.2.pom (3.1 kB at 35 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/sonatype/sisu/inject/guice-bean/1.4.2/guice-bean-1.4.2.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/sonatype/sisu/inject/guice-bean/1.4.2/guice-bean-1.4.2.pom (2.6 kB at 32 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/sonatype/sisu/sisu-inject/1.4.2/sisu-inject-1.4.2.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/sonatype/sisu/sisu-inject/1.4.2/sisu-inject-1.4.2.pom (1.2 kB at 16 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/sonatype/sisu/sisu-parent/1.4.2/sisu-parent-1.4.2.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/sonatype/sisu/sisu-parent/1.4.2/sisu-parent-1.4.2.pom (7.8 kB at 66 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/sonatype/forge/forge-parent/6/forge-parent-6.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/sonatype/forge/forge-parent/6/forge-parent-6.pom (11 kB at 113 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-component-annotations/1.5.4/plexus-component-annotations-1.5.4.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-component-annotations/1.5.4/plexus-component-annotations-1.5.4.pom (815 B at 8.0 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-containers/1.5.4/plexus-containers-1.5.4.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-containers/1.5.4/plexus-containers-1.5.4.pom (4.2 kB at 50 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/2.0.5/plexus-2.0.5.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/2.0.5/plexus-2.0.5.pom (17 kB at 202 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-classworlds/2.2.3/plexus-classworlds-2.2.3.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-classworlds/2.2.3/plexus-classworlds-2.2.3.pom (4.0 kB at 42 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/2.0.6/plexus-2.0.6.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/2.0.6/plexus-2.0.6.pom (17 kB at 57 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/sonatype/sisu/sisu-inject-bean/1.4.2/sisu-inject-bean-1.4.2.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/sonatype/sisu/sisu-inject-bean/1.4.2/sisu-inject-bean-1.4.2.pom (5.5 kB at 56 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/sonatype/sisu/sisu-guice/2.1.7/sisu-guice-2.1.7.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/sonatype/sisu/sisu-guice/2.1.7/sisu-guice-2.1.7.pom (11 kB at 106 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-model-builder/3.0/maven-model-builder-3.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-model-builder/3.0/maven-model-builder-3.0.pom (2.2 kB at 22 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-aether-provider/3.0/maven-aether-provider-3.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-aether-provider/3.0/maven-aether-provider-3.0.pom (2.5 kB at 26 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/sonatype/aether/aether-api/1.7/aether-api-1.7.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/sonatype/aether/aether-api/1.7/aether-api-1.7.pom (1.7 kB at 15 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/sonatype/aether/aether-parent/1.7/aether-parent-1.7.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/sonatype/aether/aether-parent/1.7/aether-parent-1.7.pom (7.7 kB at 92 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/sonatype/aether/aether-util/1.7/aether-util-1.7.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/sonatype/aether/aether-util/1.7/aether-util-1.7.pom (2.1 kB at 28 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/sonatype/aether/aether-impl/1.7/aether-impl-1.7.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/sonatype/aether/aether-impl/1.7/aether-impl-1.7.pom (3.7 kB at 38 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/sonatype/aether/aether-spi/1.7/aether-spi-1.7.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/sonatype/aether/aether-spi/1.7/aether-spi-1.7.pom (1.7 kB at 25 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-common-artifact-filters/3.1.0/maven-common-artifact-filters-3.1.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-common-artifact-filters/3.1.0/maven-common-artifact-filters-3.1.0.pom (5.3 kB at 64 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-shared-components/33/maven-shared-components-33.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-shared-components/33/maven-shared-components-33.pom (5.1 kB at 60 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-shared-utils/3.1.0/maven-shared-utils-3.1.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-shared-utils/3.1.0/maven-shared-utils-3.1.0.pom (5.0 kB at 75 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-shared-components/30/maven-shared-components-30.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-shared-components/30/maven-shared-components-30.pom (4.6 kB at 45 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/30/maven-parent-30.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/30/maven-parent-30.pom (41 kB at 492 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/commons-io/commons-io/2.5/commons-io-2.5.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/commons-io/commons-io/2.5/commons-io-2.5.pom (13 kB at 156 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/slf4j/slf4j-api/1.7.5/slf4j-api-1.7.5.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/slf4j/slf4j-api/1.7.5/slf4j-api-1.7.5.pom (2.7 kB at 34 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/slf4j/slf4j-parent/1.7.5/slf4j-parent-1.7.5.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/slf4j/slf4j-parent/1.7.5/slf4j-parent-1.7.5.pom (12 kB at 164 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-collections4/4.4/commons-collections4-4.4.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-collections4/4.4/commons-collections4-4.4.pom (24 kB at 321 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/48/commons-parent-48.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/48/commons-parent-48.pom (72 kB at 1.0 MB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-sink-api/1.11.1/doxia-sink-api-1.11.1.jar
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-logging-api/1.11.1/doxia-logging-api-1.11.1.jar
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-settings/3.1.0/maven-settings-3.1.0.jar
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/reporting/maven-reporting-impl/3.2.0/maven-reporting-impl-3.2.0.jar
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-core/3.1.0/maven-core-3.1.0.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-sink-api/1.11.1/doxia-sink-api-1.11.1.jar (12 kB at 125 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-settings-builder/3.1.0/maven-settings-builder-3.1.0.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/reporting/maven-reporting-impl/3.2.0/maven-reporting-impl-3.2.0.jar (20 kB at 138 kB/s)
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-logging-api/1.11.1/doxia-logging-api-1.11.1.jar (12 kB at 78 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-repository-metadata/3.1.0/maven-repository-metadata-3.1.0.jar
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-model-builder/3.1.0/maven-model-builder-3.1.0.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-settings/3.1.0/maven-settings-3.1.0.jar (47 kB at 298 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-aether-provider/3.1.0/maven-aether-provider-3.1.0.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-settings-builder/3.1.0/maven-settings-builder-3.1.0.jar (41 kB at 235 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-spi/0.9.0.M2/aether-spi-0.9.0.M2.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-repository-metadata/3.1.0/maven-repository-metadata-3.1.0.jar (30 kB at 122 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-impl/0.9.0.M2/aether-impl-0.9.0.M2.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-model-builder/3.1.0/maven-model-builder-3.1.0.jar (159 kB at 623 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-api/0.9.0.M2/aether-api-0.9.0.M2.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-aether-provider/3.1.0/maven-aether-provider-3.1.0.jar (60 kB at 235 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/sisu/org.eclipse.sisu.plexus/0.3.0.M1/org.eclipse.sisu.plexus-0.3.0.M1.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-spi/0.9.0.M2/aether-spi-0.9.0.M2.jar (18 kB at 65 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/javax/enterprise/cdi-api/1.0/cdi-api-1.0.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-api/0.9.0.M2/aether-api-0.9.0.M2.jar (134 kB at 389 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/javax/annotation/jsr250-api/1.0/jsr250-api-1.0.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-impl/0.9.0.M2/aether-impl-0.9.0.M2.jar (145 kB at 421 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/sisu/org.eclipse.sisu.inject/0.3.0.M1/org.eclipse.sisu.inject-0.3.0.M1.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-core/3.1.0/maven-core-3.1.0.jar (563 kB at 1.6 MB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-interpolation/1.16/plexus-interpolation-1.16.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/javax/enterprise/cdi-api/1.0/cdi-api-1.0.jar (45 kB at 125 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-classworlds/2.4.2/plexus-classworlds-2.4.2.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/sisu/org.eclipse.sisu.plexus/0.3.0.M1/org.eclipse.sisu.plexus-0.3.0.M1.jar (201 kB at 533 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/sonatype/plexus/plexus-sec-dispatcher/1.3/plexus-sec-dispatcher-1.3.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/javax/annotation/jsr250-api/1.0/jsr250-api-1.0.jar (5.8 kB at 14 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/sonatype/plexus/plexus-cipher/1.4/plexus-cipher-1.4.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-interpolation/1.16/plexus-interpolation-1.16.jar (61 kB at 145 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-artifact/3.1.0/maven-artifact-3.1.0.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/sisu/org.eclipse.sisu.inject/0.3.0.M1/org.eclipse.sisu.inject-0.3.0.M1.jar (340 kB at 771 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-plugin-api/3.1.0/maven-plugin-api-3.1.0.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/sonatype/plexus/plexus-sec-dispatcher/1.3/plexus-sec-dispatcher-1.3.jar (29 kB at 65 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-decoration-model/1.11.1/doxia-decoration-model-1.11.1.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-classworlds/2.4.2/plexus-classworlds-2.4.2.jar (47 kB at 98 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-core/1.11.1/doxia-core-1.11.1.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/sonatype/plexus/plexus-cipher/1.4/plexus-cipher-1.4.jar (13 kB at 26 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-artifact/3.1.0/maven-artifact-3.1.0.jar (52 kB at 100 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-text/1.10.0/commons-text-1.10.0.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-decoration-model/1.11.1/doxia-decoration-model-1.11.1.jar (60 kB at 106 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-plugin-api/3.1.0/maven-plugin-api-3.1.0.jar (50 kB at 88 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/commons-logging/commons-logging/1.2/commons-logging-1.2.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-core/1.11.1/doxia-core-1.11.1.jar (218 kB at 371 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/commons-codec/commons-codec/1.11/commons-codec-1.11.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-text/1.10.0/commons-text-1.10.0.jar (238 kB at 378 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpcore/4.4.14/httpcore-4.4.14.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar (502 kB at 778 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-integration-tools/1.11.1/doxia-integration-tools-1.11.1.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/commons-logging/commons-logging/1.2/commons-logging-1.2.jar (62 kB at 91 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-site-renderer/1.11.1/doxia-site-renderer-1.11.1.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/commons-codec/commons-codec/1.11/commons-codec-1.11.jar (335 kB at 479 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-skin-model/1.11.1/doxia-skin-model-1.11.1.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar (780 kB at 1.1 MB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-module-xhtml/1.11.1/doxia-module-xhtml-1.11.1.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-integration-tools/1.11.1/doxia-integration-tools-1.11.1.jar (47 kB at 62 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-module-xhtml5/1.11.1/doxia-module-xhtml5-1.11.1.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpcore/4.4.14/httpcore-4.4.14.jar (328 kB at 428 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-velocity/1.2/plexus-velocity-1.2.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-site-renderer/1.11.1/doxia-site-renderer-1.11.1.jar (65 kB at 82 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/velocity/velocity/1.7/velocity-1.7.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-skin-model/1.11.1/doxia-skin-model-1.11.1.jar (16 kB at 20 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/commons-lang/commons-lang/2.4/commons-lang-2.4.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-module-xhtml/1.11.1/doxia-module-xhtml-1.11.1.jar (17 kB at 21 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/velocity/velocity-tools/2.0/velocity-tools-2.0.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-velocity/1.2/plexus-velocity-1.2.jar (8.1 kB at 9.2 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/commons-beanutils/commons-beanutils/1.7.0/commons-beanutils-1.7.0.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-module-xhtml5/1.11.1/doxia-module-xhtml5-1.11.1.jar (18 kB at 20 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/commons-digester/commons-digester/1.8/commons-digester-1.8.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/velocity/velocity/1.7/velocity-1.7.jar (450 kB at 487 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/commons-chain/commons-chain/1.1/commons-chain-1.1.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/commons-lang/commons-lang/2.4/commons-lang-2.4.jar (262 kB at 284 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/dom4j/dom4j/1.1/dom4j-1.1.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/velocity/velocity-tools/2.0/velocity-tools-2.0.jar (347 kB at 355 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/oro/oro/2.0.8/oro-2.0.8.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/commons-beanutils/commons-beanutils/1.7.0/commons-beanutils-1.7.0.jar (189 kB at 193 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/commons-chain/commons-chain/1.1/commons-chain-1.1.jar (90 kB at 90 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-archiver/4.8.0/plexus-archiver-4.8.0.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/dom4j/dom4j/1.1/dom4j-1.1.jar (457 kB at 446 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/commons-io/commons-io/2.13.0/commons-io-2.13.0.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/oro/oro/2.0.8/oro-2.0.8.jar (65 kB at 60 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.23.0/commons-compress-1.23.0.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar (588 kB at 522 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/iq80/snappy/snappy/0.4/snappy-0.4.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-archiver/4.8.0/plexus-archiver-4.8.0.jar (224 kB at 196 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/tukaani/xz/1.9/xz-1.9.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/commons-io/commons-io/2.13.0/commons-io-2.13.0.jar (484 kB at 415 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/github/luben/zstd-jni/1.5.5-5/zstd-jni-1.5.5-5.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.23.0/commons-compress-1.23.0.jar (1.1 MB at 864 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-io/3.4.1/plexus-io-3.4.1.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/iq80/snappy/snappy/0.4/snappy-0.4.jar (58 kB at 47 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-i18n/1.0-beta-10/plexus-i18n-1.0-beta-10.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/tukaani/xz/1.9/xz-1.9.jar (116 kB at 93 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-dependency-analyzer/1.13.2/maven-dependency-analyzer-1.13.2.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-io/3.4.1/plexus-io-3.4.1.jar (79 kB at 60 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-model/3.2.5/maven-model-3.2.5.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-i18n/1.0-beta-10/plexus-i18n-1.0-beta-10.jar (12 kB at 9.1 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/ow2/asm/asm/9.5/asm-9.5.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-dependency-analyzer/1.13.2/maven-dependency-analyzer-1.13.2.jar (39 kB at 29 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-dependency-tree/3.2.1/maven-dependency-tree-3.2.1.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/ow2/asm/asm/9.5/asm-9.5.jar (122 kB at 86 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-util/1.0.0.v20140518/aether-util-1.0.0.v20140518.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-model/3.2.5/maven-model-3.2.5.jar (161 kB at 114 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-common-artifact-filters/3.3.2/maven-common-artifact-filters-3.3.2.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-dependency-tree/3.2.1/maven-dependency-tree-3.2.1.jar (43 kB at 30 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-artifact-transfer/0.13.1/maven-artifact-transfer-0.13.1.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-common-artifact-filters/3.3.2/maven-common-artifact-filters-3.3.2.jar (58 kB at 39 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-component-annotations/2.0.0/plexus-component-annotations-2.0.0.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-util/1.0.0.v20140518/aether-util-1.0.0.v20140518.jar (146 kB at 96 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-collections4/4.4/commons-collections4-4.4.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/commons-digester/commons-digester/1.8/commons-digester-1.8.jar (144 kB at 91 kB/s)
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/github/luben/zstd-jni/1.5.5-5/zstd-jni-1.5.5-5.jar (5.9 MB at 3.7 MB/s)
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-component-annotations/2.0.0/plexus-component-annotations-2.0.0.jar (4.2 kB at 2.6 kB/s)
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-artifact-transfer/0.13.1/maven-artifact-transfer-0.13.1.jar (159 kB at 97 kB/s)
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-collections4/4.4/commons-collections4-4.4.jar (752 kB at 458 kB/s)
+[INFO] com.leiteria:maisLeite:jar:0.0.1-SNAPSHOT
+[INFO] +- org.springframework.boot:spring-boot-starter-actuator:jar:3.3.2:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter:jar:3.3.2:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot:jar:3.3.2:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-autoconfigure:jar:3.3.2:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-starter-logging:jar:3.3.2:compile
+[INFO] |  |  |  +- ch.qos.logback:logback-classic:jar:1.5.6:compile
+[INFO] |  |  |  |  \- ch.qos.logback:logback-core:jar:1.5.6:compile
+[INFO] |  |  |  +- org.apache.logging.log4j:log4j-to-slf4j:jar:2.23.1:compile
+[INFO] |  |  |  |  \- org.apache.logging.log4j:log4j-api:jar:2.23.1:compile
+[INFO] |  |  |  \- org.slf4j:jul-to-slf4j:jar:2.0.13:compile
+[INFO] |  |  +- jakarta.annotation:jakarta.annotation-api:jar:2.1.1:compile
+[INFO] |  |  \- org.yaml:snakeyaml:jar:2.2:compile
+[INFO] |  +- org.springframework.boot:spring-boot-actuator-autoconfigure:jar:3.3.2:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-actuator:jar:3.3.2:compile
+[INFO] |  |  \- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.17.2:compile
+[INFO] |  +- io.micrometer:micrometer-observation:jar:1.13.2:compile
+[INFO] |  |  \- io.micrometer:micrometer-commons:jar:1.13.2:compile
+[INFO] |  \- io.micrometer:micrometer-jakarta9:jar:1.13.2:compile
+[INFO] |     \- io.micrometer:micrometer-core:jar:1.13.2:compile
+[INFO] |        +- org.hdrhistogram:HdrHistogram:jar:2.2.2:runtime
+[INFO] |        \- org.latencyutils:LatencyUtils:jar:2.0.3:runtime
+[INFO] +- org.springframework.boot:spring-boot-starter-data-jpa:jar:3.3.2:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-aop:jar:3.3.2:compile
+[INFO] |  |  \- org.aspectj:aspectjweaver:jar:1.9.22.1:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-jdbc:jar:3.3.2:compile
+[INFO] |  |  +- com.zaxxer:HikariCP:jar:5.1.0:compile
+[INFO] |  |  \- org.springframework:spring-jdbc:jar:6.1.11:compile
+[INFO] |  +- org.hibernate.orm:hibernate-core:jar:6.5.2.Final:compile
+[INFO] |  |  +- jakarta.persistence:jakarta.persistence-api:jar:3.1.0:compile
+[INFO] |  |  +- jakarta.transaction:jakarta.transaction-api:jar:2.0.1:compile
+[INFO] |  |  +- org.jboss.logging:jboss-logging:jar:3.5.3.Final:compile
+[INFO] |  |  +- org.hibernate.common:hibernate-commons-annotations:jar:6.0.6.Final:runtime
+[INFO] |  |  +- io.smallrye:jandex:jar:3.1.2:runtime
+[INFO] |  |  +- com.fasterxml:classmate:jar:1.7.0:compile
+[INFO] |  |  +- net.bytebuddy:byte-buddy:jar:1.14.18:runtime
+[INFO] |  |  +- org.glassfish.jaxb:jaxb-runtime:jar:4.0.5:runtime
+[INFO] |  |  |  \- org.glassfish.jaxb:jaxb-core:jar:4.0.5:runtime
+[INFO] |  |  |     +- org.eclipse.angus:angus-activation:jar:2.0.2:runtime
+[INFO] |  |  |     +- org.glassfish.jaxb:txw2:jar:4.0.5:runtime
+[INFO] |  |  |     \- com.sun.istack:istack-commons-runtime:jar:4.1.2:runtime
+[INFO] |  |  +- jakarta.inject:jakarta.inject-api:jar:2.0.1:runtime
+[INFO] |  |  \- org.antlr:antlr4-runtime:jar:4.13.0:compile
+[INFO] |  +- org.springframework.data:spring-data-jpa:jar:3.3.2:compile
+[INFO] |  |  +- org.springframework.data:spring-data-commons:jar:3.3.2:compile
+[INFO] |  |  +- org.springframework:spring-orm:jar:6.1.11:compile
+[INFO] |  |  +- org.springframework:spring-context:jar:6.1.11:compile
+[INFO] |  |  +- org.springframework:spring-tx:jar:6.1.11:compile
+[INFO] |  |  \- org.springframework:spring-beans:jar:6.1.11:compile
+[INFO] |  \- org.springframework:spring-aspects:jar:6.1.11:compile
+[INFO] +- org.springframework.data:spring-data-rest-webmvc:jar:4.3.2:compile
+[INFO] |  +- org.springframework.data:spring-data-rest-core:jar:4.3.2:compile
+[INFO] |  |  +- org.springframework.hateoas:spring-hateoas:jar:2.3.1:compile
+[INFO] |  |  +- org.springframework.plugin:spring-plugin-core:jar:3.0.0:compile
+[INFO] |  |  +- org.atteo:evo-inflector:jar:1.3:compile
+[INFO] |  |  \- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:2.17.2:compile
+[INFO] |  +- org.springframework:spring-webmvc:jar:6.1.11:compile
+[INFO] |  |  \- org.springframework:spring-expression:jar:6.1.11:compile
+[INFO] |  +- com.fasterxml.jackson.core:jackson-databind:jar:2.17.2:compile
+[INFO] |  |  \- com.fasterxml.jackson.core:jackson-core:jar:2.17.2:compile
+[INFO] |  +- com.fasterxml.jackson.core:jackson-annotations:jar:2.17.2:compile
+[INFO] |  \- org.slf4j:slf4j-api:jar:2.0.13:compile
+[INFO] +- org.springframework.boot:spring-boot-starter-security:jar:3.3.2:compile
+[INFO] |  +- org.springframework:spring-aop:jar:6.1.11:compile
+[INFO] |  +- org.springframework.security:spring-security-config:jar:6.3.1:compile
+[INFO] |  \- org.springframework.security:spring-security-web:jar:6.3.1:compile
+[INFO] +- org.springframework.boot:spring-boot-starter-web:jar:3.3.2:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-json:jar:3.3.2:compile
+[INFO] |  |  \- com.fasterxml.jackson.module:jackson-module-parameter-names:jar:2.17.2:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-tomcat:jar:3.3.2:compile
+[INFO] |  |  +- org.apache.tomcat.embed:tomcat-embed-core:jar:10.1.26:compile
+[INFO] |  |  \- org.apache.tomcat.embed:tomcat-embed-websocket:jar:10.1.26:compile
+[INFO] |  \- org.springframework:spring-web:jar:6.1.11:compile
+[INFO] +- com.mysql:mysql-connector-j:jar:8.3.0:runtime
+[INFO] +- org.projectlombok:lombok:jar:1.18.34:compile
+[INFO] +- io.jsonwebtoken:jjwt-api:jar:0.11.5:compile
+[INFO] +- io.jsonwebtoken:jjwt-impl:jar:0.11.5:compile
+[INFO] +- io.jsonwebtoken:jjwt-jackson:jar:0.11.5:compile
+[INFO] +- org.springframework.boot:spring-boot-starter-test:jar:3.3.2:test
+[INFO] |  +- org.springframework.boot:spring-boot-test:jar:3.3.2:test
+[INFO] |  +- org.springframework.boot:spring-boot-test-autoconfigure:jar:3.3.2:test
+[INFO] |  +- com.jayway.jsonpath:json-path:jar:2.9.0:compile
+[INFO] |  +- jakarta.xml.bind:jakarta.xml.bind-api:jar:4.0.2:runtime
+[INFO] |  |  \- jakarta.activation:jakarta.activation-api:jar:2.1.3:runtime
+[INFO] |  +- net.minidev:json-smart:jar:2.5.1:runtime
+[INFO] |  |  \- net.minidev:accessors-smart:jar:2.5.1:runtime
+[INFO] |  |     \- org.ow2.asm:asm:jar:9.6:runtime
+[INFO] |  +- org.assertj:assertj-core:jar:3.25.3:test
+[INFO] |  +- org.awaitility:awaitility:jar:4.2.1:test
+[INFO] |  +- org.hamcrest:hamcrest:jar:2.2:test
+[INFO] |  +- org.junit.jupiter:junit-jupiter:jar:5.10.3:test
+[INFO] |  |  +- org.junit.jupiter:junit-jupiter-api:jar:5.10.3:test
+[INFO] |  |  |  \- org.opentest4j:opentest4j:jar:1.3.0:test
+[INFO] |  |  +- org.junit.jupiter:junit-jupiter-params:jar:5.10.3:test
+[INFO] |  |  \- org.junit.jupiter:junit-jupiter-engine:jar:5.10.3:test
+[INFO] |  +- org.mockito:mockito-core:jar:5.11.0:test
+[INFO] |  |  +- net.bytebuddy:byte-buddy-agent:jar:1.14.18:test
+[INFO] |  |  \- org.objenesis:objenesis:jar:3.3:test
+[INFO] |  +- org.mockito:mockito-junit-jupiter:jar:5.11.0:test
+[INFO] |  +- org.skyscreamer:jsonassert:jar:1.5.3:test
+[INFO] |  |  \- com.vaadin.external.google:android-json:jar:0.0.20131108.vaadin1:test
+[INFO] |  +- org.springframework:spring-core:jar:6.1.11:compile
+[INFO] |  |  \- org.springframework:spring-jcl:jar:6.1.11:compile
+[INFO] |  +- org.springframework:spring-test:jar:6.1.11:test
+[INFO] |  \- org.xmlunit:xmlunit-core:jar:2.9.1:test
+[INFO] +- org.springframework.security:spring-security-test:jar:6.3.1:test
+[INFO] |  \- org.springframework.security:spring-security-core:jar:6.3.1:compile
+[INFO] |     \- org.springframework.security:spring-security-crypto:jar:6.3.1:compile
+[INFO] +- org.springframework.boot:spring-boot-starter-validation:jar:3.3.2:compile
+[INFO] |  +- org.apache.tomcat.embed:tomcat-embed-el:jar:10.1.26:compile
+[INFO] |  \- org.hibernate.validator:hibernate-validator:jar:8.0.1.Final:compile
+[INFO] |     \- jakarta.validation:jakarta.validation-api:jar:3.0.2:compile
+[INFO] +- com.h2database:h2:jar:2.2.224:test
+[INFO] \- org.junit.platform:junit-platform-runner:jar:1.10.3:test
+[INFO]    +- org.junit.platform:junit-platform-launcher:jar:1.10.3:test
+[INFO]    |  \- org.junit.platform:junit-platform-engine:jar:1.10.3:test
+[INFO]    +- org.junit.platform:junit-platform-suite-api:jar:1.10.3:test
+[INFO]    |  \- org.junit.platform:junit-platform-commons:jar:1.10.3:test
+[INFO]    +- org.apiguardian:apiguardian-api:jar:1.1.2:test
+[INFO]    \- org.junit.platform:junit-platform-suite-commons:jar:1.10.3:test
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  28.608 s
+[INFO] Finished at: 2025-12-27T09:55:15-03:00
+[INFO] ------------------------------------------------------------------------
+2025-12-27T12:55:15.392Z [INFO] [MavenBuildTool] Successfully got dependency tree of C:/Users/Eduardo/Documents/Projetos/maisLeite
+2025-12-27T12:55:15.395Z [INFO] [MavenBuildTool] Getting Java version of C:/Users/Eduardo/Documents/Projetos/maisLeite from pom.xml
+2025-12-27T12:55:15.395Z [INFO] [MavenBuildTool] Searching for pom.xml files in C:/Users/Eduardo/Documents/Projetos/maisLeite
+2025-12-27T12:55:15.396Z [INFO] [MavenBuildTool] Getting all module coordinates of C:/Users/Eduardo/Documents/Projetos/maisLeite
+2025-12-27T12:55:15.396Z [INFO] [MavenBuildTool] Getting effective POMs of C:/Users/Eduardo/Documents/Projetos/maisLeite
+2025-12-27T12:55:15.397Z [INFO] [Environment] Running command (Java 22): mvnw help:effective-pom -Doutput=effective-pom-64f97c61-3ff1-4bf0-97f7-524662c2a9fa.log
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------------< com.leiteria:maisLeite >-----------------------
+[INFO] Building maisLeite 0.0.1-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-help-plugin:3.4.1:effective-pom (default-cli) @ maisLeite ---
+[INFO] Effective-POM written to: C:\Users\Eduardo\Documents\Projetos\maisLeite\effective-pom-64f97c61-3ff1-4bf0-97f7-524662c2a9fa.log
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.220 s
+[INFO] Finished at: 2025-12-27T09:55:17-03:00
+[INFO] ------------------------------------------------------------------------
+2025-12-27T12:55:18.135Z [INFO] [MavenBuildTool] Found pom.xml files: C:\Users\Eduardo\Documents\Projetos\maisLeite\pom.xml
+2025-12-27T12:55:18.138Z [INFO] [MavenBuildTool] Java version found in C:\Users\Eduardo\Documents\Projetos\maisLeite\pom.xml: 22
+2025-12-27T12:55:18.138Z [INFO] Source Java version: 22
+2025-12-27T12:55:18.139Z [INFO] validateAndUpdateTargets, targets: [object Object]
+2025-12-27T12:55:18.141Z [INFO] validateAndUpdateTargets, targets: [object Object], group:Spring Boot
+2025-12-27T12:55:18.142Z [WARN] No source dependencies found for Spring Framework. Skipping target dependency validation
+2025-12-27T12:55:18.142Z [INFO] validateAndUpdateTargets, targets: [object Object], group:Spring Framework
+2025-12-27T12:55:18.143Z [INFO] No target dependencies found for Spring Security. Skipping target dependency validation
+2025-12-27T12:55:18.143Z [INFO] validateAndUpdateTargets, targets: [object Object], group:Spring Security
+2025-12-27T12:55:18.143Z [WARN] No source dependencies found for Jakarta EE. Skipping target dependency validation
+2025-12-27T12:55:18.144Z [INFO] validateAndUpdateTargets, targets: [object Object], group:Jakarta EE
+2025-12-27T12:55:18.144Z [WARN] No source dependencies found for JUnit. Skipping target dependency validation
+2025-12-27T12:55:18.144Z [INFO] validateAndUpdateTargets, targets: [object Object], group:JUnit
+2025-12-27T12:55:18.145Z [WARN] Upgrading project with Java 22.0.0 is not supported.
+2025-12-27T12:55:18.145Z [INFO] validateAndUpdateTargets, targets: [object Object], group:Java
+2025-12-27T12:55:18.145Z [INFO] validateAndUpdateTargets, userTargets: [object Object]
+2025-12-27T12:55:18.146Z [INFO] initUpgradeGoal, targetDeps: [object Object]
+2025-12-27T12:55:18.147Z [INFO] Upgrade goal initialized: [
+  {
+    "name": "Spring Boot",
+    "groupId": "org.springframework.boot",
+    "artifactId": "*",
+    "version": "3.5.x",
+    "dependencies": [
+      {
+        "groupId": "java",
+        "artifactId": "*",
+        "version": ">=17 <=25"
+      }
+    ],
+    "recipes": [
+      {
+        "id": "com.microsoft.java.UpgradeToSpringBoot_3_5",
+        "name": "Upgrading from Spring Boot 3.4 to 3.5",
+        "description": "Upgrading from Spring Boot 3.4 to 3.5 using AI.",
+        "content": "- Refer to [Upgrading to Spring Boot 3.5 from 3.4](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.5-Release-Notes#upgrading-from-spring-boot-34) for more instructions about upgrading to Spring Boot 3.5 from 3.4.",
+        "url": "https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.5-Release-Notes"
+      }
+    ],
+    "supportedSources": [
+      {
+        "groupId": "org.springframework.boot",
+        "artifactId": "*",
+        "version": "3.4.x"
+      },
+      {
+        "name": "Spring Boot",
+        "groupId": "org.springframework.boot",
+        "artifactId": "*",
+        "version": "3.4.x",
+        "dependencies": [
+          {
+            "groupId": "java",
+            "artifactId": "*",
+            "version": ">=17 <=24"
+          }
+        ],
+        "recipes": [
+          {
+            "id": "com.microsoft.java.UpgradeToSpringBoot_3_4",
+            "name": "Upgrading from Spring Boot 3.3 to 3.4",
+            "description": "Upgrading from Spring Boot 3.3 to 3.4 using AI.",
+            "content": "- Refer to [Upgrading to Spring Boot 3.4 from 3.3](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.4-Release-Notes#upgrading-from-spring-boot-33) for more instructions about upgrading to Spring Boot 3.4 from 3.3.",
+            "url": "https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.4-Release-Notes"
+          }
+        ],
+        "supportedSources": [
+          {
+            "groupId": "org.springframework.boot",
+            "artifactId": "*",
+            "version": "3.3.x"
+          },
+          {
+            "name": "Spring Boot",
+            "groupId": "org.springframework.boot",
+            "artifactId": "*",
+            "version": "3.3.x",
+            "dependencies": [
+              {
+                "groupId": "java",
+                "artifactId": "*",
+                "version": ">=17 <=23"
+              }
+            ],
+            "recipes": [
+              {
+                "id": "com.microsoft.java.UpgradeToSpringBoot_3_3",
+                "name": "Upgrade Spring Boot to 3.3",
+                "description": "Migrate low-level to Spring Boot 3.3 directly.",
+                "url": "https://docs.openrewrite.org/recipes/java/spring/boot3/upgradespringboot_3_3",
+                "content": "\n- Apply OpenRewrite recipe `org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_3` in recipe lib `org.openrewrite.recipe:rewrite-spring:5.25.1` to make initial code changes for upgrading Spring Boot to 3.3 from any previous version.\n"
+              }
+            ],
+            "supportedSources": [
+              {
+                "groupId": "org.springframework.boot",
+                "artifactId": "*",
+                "version": "<=3.3.12"
+              },
+              {
+                "name": "Spring Boot",
+                "groupId": "org.springframework.boot",
+                "artifactId": "*",
+                "version": "2.7.x",
+                "dependencies": [
+                  {
+                    "groupId": "java",
+                    "artifactId": "*",
+                    "version": ">=8 <=21"
+                  }
+                ],
+                "recipes": [
+                  {
+                    "id": "com.microsoft.java.UpgradeToSpringBoot_2_7",
+                    "name": "Upgrade Spring Boot to 2.7",
+                    "description": "Migrate low-level to Spring Boot 2.7 directly.",
+                    "url": "https://docs.openrewrite.org/recipes/java/spring/boot2/upgradespringboot_2_7",
+                    "content": "\n-  Apply OpenRewrite recipe `org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_7` in recipe lib `org.openrewrite.recipe:rewrite-spring:5.25.1` to make initial code changes for upgrading Spring Boot to 2.7 from any previous version.\n"
+                  }
+                ],
+                "supportedSources": [
+                  {
+                    "groupId": "org.springframework.boot",
+                    "artifactId": "*",
+                    "version": "<=2.7.18"
+                  }
+                ],
+                "effects": [
+                  {
+                    "groupId": "org.springframework.boot",
+                    "artifactId": "*",
+                    "version": "2.7.x"
+                  },
+                  {
+                    "groupId": "java",
+                    "artifactId": "*",
+                    "version": "8"
+                  },
+                  {
+                    "groupId": "org.springframework",
+                    "artifactId": "*",
+                    "version": "5.3.x"
+                  }
+                ]
+              },
+              {
+                "name": "Spring Boot",
+                "groupId": "org.springframework.boot",
+                "artifactId": "*",
+                "version": "3.2.x",
+                "dependencies": [
+                  {
+                    "groupId": "java",
+                    "artifactId": "*",
+                    "version": ">=17 <=21"
+                  }
+                ],
+                "recipes": [
+                  {
+                    "id": "com.microsoft.java.UpgradeToSpringBoot_3_2",
+                    "name": "Upgrade Spring Boot to 3.2",
+                    "description": "Migrate low-level to Spring Boot 3.2 directly.",
+                    "url": "https://docs.openrewrite.org/recipes/java/spring/boot3/upgradespringboot_3_2",
+                    "content": "\n- Apply OpenRewrite recipe `org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_2` in recipe lib `org.openrewrite.recipe:rewrite-spring:5.25.1` to make initial code changes for upgrading Spring Boot to 3.2 from any previous version.\n"
+                  }
+                ],
+                "supportedSources": [
+                  {
+                    "groupId": "org.springframework.boot",
+                    "artifactId": "*",
+                    "version": "<=3.2.12"
+                  },
+                  {
+                    "name": "Spring Boot",
+                    "groupId": "org.springframework.boot",
+                    "artifactId": "*",
+                    "version": "2.7.x",
+                    "dependencies": [
+                      {
+                        "groupId": "java",
+                        "artifactId": "*",
+                        "version": ">=8 <=21"
+                      }
+                    ],
+                    "recipes": [
+                      {
+                        "id": "com.microsoft.java.UpgradeToSpringBoot_2_7",
+                        "name": "Upgrade Spring Boot to 2.7",
+                        "description": "Migrate low-level to Spring Boot 2.7 directly.",
+                        "url": "https://docs.openrewrite.org/recipes/java/spring/boot2/upgradespringboot_2_7",
+                        "content": "\n-  Apply OpenRewrite recipe `org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_7` in recipe lib `org.openrewrite.recipe:rewrite-spring:5.25.1` to make initial code changes for upgrading Spring Boot to 2.7 from any previous version.\n"
+                      }
+                    ],
+                    "supportedSources": [
+                      {
+                        "groupId": "org.springframework.boot",
+                        "artifactId": "*",
+                        "version": "<=2.7.18"
+                      }
+                    ],
+                    "effects": [
+                      {
+                        "groupId": "org.springframework.boot",
+                        "artifactId": "*",
+                        "version": "2.7.x"
+                      },
+                      {
+                        "groupId": "java",
+                        "artifactId": "*",
+                        "version": "8"
+                      },
+                      {
+                        "groupId": "org.springframework",
+                        "artifactId": "*",
+                        "version": "5.3.x"
+                      }
+                    ]
+                  }
+                ],
+                "effects": [
+                  {
+                    "groupId": "org.springframework.boot",
+                    "artifactId": "*",
+                    "version": "3.2.x"
+                  },
+                  {
+                    "groupId": "java",
+                    "artifactId": "*",
+                    "version": "17"
+                  },
+                  {
+                    "groupId": "org.springframework",
+                    "artifactId": "*",
+                    "version": "6.1.x"
+                  }
+                ]
+              }
+            ],
+            "effects": [
+              {
+                "groupId": "org.springframework.boot",
+                "artifactId": "*",
+                "version": "3.3.x"
+              },
+              {
+                "groupId": "java",
+                "artifactId": "*",
+                "version": "17"
+              },
+              {
+                "groupId": "org.springframework",
+                "artifactId": "*",
+                "version": "6.1.x"
+              }
+            ]
+          }
+        ],
+        "effects": [
+          {
+            "groupId": "org.springframework.boot",
+            "artifactId": "*",
+            "version": "3.4.x"
+          }
+        ]
+      }
+    ],
+    "effects": [
+      {
+        "groupId": "org.springframework.boot",
+        "artifactId": "*",
+        "version": "3.5.x"
+      }
+    ]
+  }
+]
+2025-12-27T12:55:18.147Z [INFO] Initializing upgrade options...
+2025-12-27T12:55:18.148Z [INFO] Source Java version: 22
+2025-12-27T12:55:18.148Z [INFO] Source JDK: {"name":"java","path":"C:\\Program Files\\Java\\jdk-22\\bin","version":"22"}
+2025-12-27T12:55:18.148Z [INFO] Target Java version: 22
+2025-12-27T12:55:18.148Z [INFO] Target JDK: {"name":"java","path":"C:\\Program Files\\Java\\jdk-22\\bin","version":"22"}
+2025-12-27T12:55:18.149Z [INFO] Maven project detected.
+2025-12-27T12:55:18.149Z [INFO] Build tool type: mvnw
+2025-12-27T12:55:18.149Z [INFO] Build tool: {"name":"mvnw","path":".","version":""}
+2025-12-27T12:55:18.150Z [INFO] Working branch: appmod/java-upgrade-20251227125443
+2025-12-27T12:55:18.150Z [INFO] Upgrade options initialized: {
+  "target": {
+    "jdk": {
+      "name": "java",
+      "path": "C:\\Program Files\\Java\\jdk-22\\bin",
+      "version": "22"
+    },
+    "dependencies": [
+      {
+        "name": "Spring Boot",
+        "groupId": "org.springframework.boot",
+        "artifactId": "*",
+        "version": "3.5.x",
+        "dependencies": [
+          {
+            "groupId": "java",
+            "artifactId": "*",
+            "version": ">=17 <=25"
+          }
+        ],
+        "recipes": [
+          {
+            "id": "com.microsoft.java.UpgradeToSpringBoot_3_5",
+            "name": "Upgrading from Spring Boot 3.4 to 3.5",
+            "description": "Upgrading from Spring Boot 3.4 to 3.5 using AI.",
+            "content": "- Refer to [Upgrading to Spring Boot 3.5 from 3.4](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.5-Release-Notes#upgrading-from-spring-boot-34) for more instructions about upgrading to Spring Boot 3.5 from 3.4.",
+            "url": "https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.5-Release-Notes"
+          }
+        ],
+        "supportedSources": [
+          {
+            "groupId": "org.springframework.boot",
+            "artifactId": "*",
+            "version": "3.4.x"
+          },
+          {
+            "name": "Spring Boot",
+            "groupId": "org.springframework.boot",
+            "artifactId": "*",
+            "version": "3.4.x",
+            "dependencies": [
+              {
+                "groupId": "java",
+                "artifactId": "*",
+                "version": ">=17 <=24"
+              }
+            ],
+            "recipes": [
+              {
+                "id": "com.microsoft.java.UpgradeToSpringBoot_3_4",
+                "name": "Upgrading from Spring Boot 3.3 to 3.4",
+                "description": "Upgrading from Spring Boot 3.3 to 3.4 using AI.",
+                "content": "- Refer to [Upgrading to Spring Boot 3.4 from 3.3](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.4-Release-Notes#upgrading-from-spring-boot-33) for more instructions about upgrading to Spring Boot 3.4 from 3.3.",
+                "url": "https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.4-Release-Notes"
+              }
+            ],
+            "supportedSources": [
+              {
+                "groupId": "org.springframework.boot",
+                "artifactId": "*",
+                "version": "3.3.x"
+              },
+              {
+                "name": "Spring Boot",
+                "groupId": "org.springframework.boot",
+                "artifactId": "*",
+                "version": "3.3.x",
+                "dependencies": [
+                  {
+                    "groupId": "java",
+                    "artifactId": "*",
+                    "version": ">=17 <=23"
+                  }
+                ],
+                "recipes": [
+                  {
+                    "id": "com.microsoft.java.UpgradeToSpringBoot_3_3",
+                    "name": "Upgrade Spring Boot to 3.3",
+                    "description": "Migrate low-level to Spring Boot 3.3 directly.",
+                    "url": "https://docs.openrewrite.org/recipes/java/spring/boot3/upgradespringboot_3_3",
+                    "content": "\n- Apply OpenRewrite recipe `org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_3` in recipe lib `org.openrewrite.recipe:rewrite-spring:5.25.1` to make initial code changes for upgrading Spring Boot to 3.3 from any previous version.\n"
+                  }
+                ],
+                "supportedSources": [
+                  {
+                    "groupId": "org.springframework.boot",
+                    "artifactId": "*",
+                    "version": "<=3.3.12"
+                  },
+                  {
+                    "name": "Spring Boot",
+                    "groupId": "org.springframework.boot",
+                    "artifactId": "*",
+                    "version": "2.7.x",
+                    "dependencies": [
+                      {
+                        "groupId": "java",
+                        "artifactId": "*",
+                        "version": ">=8 <=21"
+                      }
+                    ],
+                    "recipes": [
+                      {
+                        "id": "com.microsoft.java.UpgradeToSpringBoot_2_7",
+                        "name": "Upgrade Spring Boot to 2.7",
+                        "description": "Migrate low-level to Spring Boot 2.7 directly.",
+                        "url": "https://docs.openrewrite.org/recipes/java/spring/boot2/upgradespringboot_2_7",
+                        "content": "\n-  Apply OpenRewrite recipe `org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_7` in recipe lib `org.openrewrite.recipe:rewrite-spring:5.25.1` to make initial code changes for upgrading Spring Boot to 2.7 from any previous version.\n"
+                      }
+                    ],
+                    "supportedSources": [
+                      {
+                        "groupId": "org.springframework.boot",
+                        "artifactId": "*",
+                        "version": "<=2.7.18"
+                      }
+                    ],
+                    "effects": [
+                      {
+                        "groupId": "org.springframework.boot",
+                        "artifactId": "*",
+                        "version": "2.7.x"
+                      },
+                      {
+                        "groupId": "java",
+                        "artifactId": "*",
+                        "version": "8"
+                      },
+                      {
+                        "groupId": "org.springframework",
+                        "artifactId": "*",
+                        "version": "5.3.x"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Spring Boot",
+                    "groupId": "org.springframework.boot",
+                    "artifactId": "*",
+                    "version": "3.2.x",
+                    "dependencies": [
+                      {
+                        "groupId": "java",
+                        "artifactId": "*",
+                        "version": ">=17 <=21"
+                      }
+                    ],
+                    "recipes": [
+                      {
+                        "id": "com.microsoft.java.UpgradeToSpringBoot_3_2",
+                        "name": "Upgrade Spring Boot to 3.2",
+                        "description": "Migrate low-level to Spring Boot 3.2 directly.",
+                        "url": "https://docs.openrewrite.org/recipes/java/spring/boot3/upgradespringboot_3_2",
+                        "content": "\n- Apply OpenRewrite recipe `org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_2` in recipe lib `org.openrewrite.recipe:rewrite-spring:5.25.1` to make initial code changes for upgrading Spring Boot to 3.2 from any previous version.\n"
+                      }
+                    ],
+                    "supportedSources": [
+                      {
+                        "groupId": "org.springframework.boot",
+                        "artifactId": "*",
+                        "version": "<=3.2.12"
+                      },
+                      {
+                        "name": "Spring Boot",
+                        "groupId": "org.springframework.boot",
+                        "artifactId": "*",
+                        "version": "2.7.x",
+                        "dependencies": [
+                          {
+                            "groupId": "java",
+                            "artifactId": "*",
+                            "version": ">=8 <=21"
+                          }
+                        ],
+                        "recipes": [
+                          {
+                            "id": "com.microsoft.java.UpgradeToSpringBoot_2_7",
+                            "name": "Upgrade Spring Boot to 2.7",
+                            "description": "Migrate low-level to Spring Boot 2.7 directly.",
+                            "url": "https://docs.openrewrite.org/recipes/java/spring/boot2/upgradespringboot_2_7",
+                            "content": "\n-  Apply OpenRewrite recipe `org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_7` in recipe lib `org.openrewrite.recipe:rewrite-spring:5.25.1` to make initial code changes for upgrading Spring Boot to 2.7 from any previous version.\n"
+                          }
+                        ],
+                        "supportedSources": [
+                          {
+                            "groupId": "org.springframework.boot",
+                            "artifactId": "*",
+                            "version": "<=2.7.18"
+                          }
+                        ],
+                        "effects": [
+                          {
+                            "groupId": "org.springframework.boot",
+                            "artifactId": "*",
+                            "version": "2.7.x"
+                          },
+                          {
+                            "groupId": "java",
+                            "artifactId": "*",
+                            "version": "8"
+                          },
+                          {
+                            "groupId": "org.springframework",
+                            "artifactId": "*",
+                            "version": "5.3.x"
+                          }
+                        ]
+                      }
+                    ],
+                    "effects": [
+                      {
+                        "groupId": "org.springframework.boot",
+                        "artifactId": "*",
+                        "version": "3.2.x"
+                      },
+                      {
+                        "groupId": "java",
+                        "artifactId": "*",
+                        "version": "17"
+                      },
+                      {
+                        "groupId": "org.springframework",
+                        "artifactId": "*",
+                        "version": "6.1.x"
+                      }
+                    ]
+                  }
+                ],
+                "effects": [
+                  {
+                    "groupId": "org.springframework.boot",
+                    "artifactId": "*",
+                    "version": "3.3.x"
+                  },
+                  {
+                    "groupId": "java",
+                    "artifactId": "*",
+                    "version": "17"
+                  },
+                  {
+                    "groupId": "org.springframework",
+                    "artifactId": "*",
+                    "version": "6.1.x"
+                  }
+                ]
+              }
+            ],
+            "effects": [
+              {
+                "groupId": "org.springframework.boot",
+                "artifactId": "*",
+                "version": "3.4.x"
+              }
+            ]
+          }
+        ],
+        "effects": [
+          {
+            "groupId": "org.springframework.boot",
+            "artifactId": "*",
+            "version": "3.5.x"
+          }
+        ]
+      }
+    ],
+    "buildTool": {
+      "name": "mvnw",
+      "path": ".",
+      "version": ""
+    }
+  },
+  "workingBranch": "appmod/java-upgrade-20251227125443",
+  "runTests": true
+}
+2025-12-27T12:55:18.150Z [INFO] Project dependencies loaded: [
+  "org.springframework.boot:spring-boot-starter-actuator:3.3.2:jar",
+  "org.springframework.boot:spring-boot-starter-data-jpa:3.3.2:jar",
+  "org.springframework.data:spring-data-rest-webmvc:4.3.2:jar",
+  "org.springframework.boot:spring-boot-starter-security:3.3.2:jar",
+  "org.springframework.boot:spring-boot-starter-web:3.3.2:jar",
+  "com.mysql:mysql-connector-j:8.3.0:jar",
+  "org.projectlombok:lombok:1.18.34:jar",
+  "io.jsonwebtoken:jjwt-api:0.11.5:jar",
+  "io.jsonwebtoken:jjwt-impl:0.11.5:jar",
+  "io.jsonwebtoken:jjwt-jackson:0.11.5:jar",
+  "org.springframework.boot:spring-boot-starter-test:3.3.2:jar",
+  "org.springframework.security:spring-security-test:6.3.1:jar",
+  "org.springframework.boot:spring-boot-starter-validation:3.3.2:jar",
+  "com.h2database:h2:2.2.224:jar",
+  "org.junit.platform:junit-platform-runner:1.10.3:jar"
+]
+2025-12-27T12:55:18.151Z [INFO] Project modules loaded: [
+  "com.leiteria:maisLeite:0.0.1-SNAPSHOT"
+]
+2025-12-27T12:55:18.151Z [INFO] done initializing context.
+2025-12-27T12:55:18.152Z [INFO] Source dependencies: [
+  {
+    "groupId": "org.springframework.boot",
+    "artifactId": "spring-boot-starter-actuator",
+    "type": "jar",
+    "version": "3.3.2",
+    "scope": "compile",
+    "module": "maisLeite"
+  },
+  {
+    "groupId": "org.springframework.boot",
+    "artifactId": "spring-boot-starter-data-jpa",
+    "type": "jar",
+    "version": "3.3.2",
+    "scope": "compile",
+    "module": "maisLeite"
+  },
+  {
+    "groupId": "org.springframework.data",
+    "artifactId": "spring-data-rest-webmvc",
+    "type": "jar",
+    "version": "4.3.2",
+    "scope": "compile",
+    "module": "maisLeite"
+  },
+  {
+    "groupId": "org.springframework.boot",
+    "artifactId": "spring-boot-starter-security",
+    "type": "jar",
+    "version": "3.3.2",
+    "scope": "compile",
+    "module": "maisLeite"
+  },
+  {
+    "groupId": "org.springframework.boot",
+    "artifactId": "spring-boot-starter-web",
+    "type": "jar",
+    "version": "3.3.2",
+    "scope": "compile",
+    "module": "maisLeite"
+  },
+  {
+    "groupId": "com.mysql",
+    "artifactId": "mysql-connector-j",
+    "type": "jar",
+    "version": "8.3.0",
+    "scope": "runtime",
+    "module": "maisLeite"
+  },
+  {
+    "groupId": "org.projectlombok",
+    "artifactId": "lombok",
+    "type": "jar",
+    "version": "1.18.34",
+    "scope": "compile",
+    "module": "maisLeite"
+  },
+  {
+    "groupId": "io.jsonwebtoken",
+    "artifactId": "jjwt-api",
+    "type": "jar",
+    "version": "0.11.5",
+    "scope": "compile",
+    "module": "maisLeite"
+  },
+  {
+    "groupId": "io.jsonwebtoken",
+    "artifactId": "jjwt-impl",
+    "type": "jar",
+    "version": "0.11.5",
+    "scope": "compile",
+    "module": "maisLeite"
+  },
+  {
+    "groupId": "io.jsonwebtoken",
+    "artifactId": "jjwt-jackson",
+    "type": "jar",
+    "version": "0.11.5",
+    "scope": "compile",
+    "module": "maisLeite"
+  },
+  {
+    "groupId": "org.springframework.boot",
+    "artifactId": "spring-boot-starter-test",
+    "type": "jar",
+    "version": "3.3.2",
+    "scope": "test",
+    "module": "maisLeite"
+  },
+  {
+    "groupId": "org.springframework.security",
+    "artifactId": "spring-security-test",
+    "type": "jar",
+    "version": "6.3.1",
+    "scope": "test",
+    "module": "maisLeite"
+  },
+  {
+    "groupId": "org.springframework.boot",
+    "artifactId": "spring-boot-starter-validation",
+    "type": "jar",
+    "version": "3.3.2",
+    "scope": "compile",
+    "module": "maisLeite"
+  },
+  {
+    "groupId": "com.h2database",
+    "artifactId": "h2",
+    "type": "jar",
+    "version": "2.2.224",
+    "scope": "test",
+    "module": "maisLeite"
+  },
+  {
+    "groupId": "org.junit.platform",
+    "artifactId": "junit-platform-runner",
+    "type": "jar",
+    "version": "1.10.3",
+    "scope": "test",
+    "module": "maisLeite"
+  },
+  {
+    "groupId": "java",
+    "artifactId": "*",
+    "version": "22"
+  }
+]
+2025-12-27T12:55:18.152Z [INFO] validateAndUpdateTargets, targets: [object Object]
+2025-12-27T12:55:18.153Z [INFO] validateAndUpdateTargets, targets: [object Object], group:Spring Boot
+2025-12-27T12:55:18.153Z [WARN] No source dependencies found for Spring Framework. Skipping target dependency validation
+2025-12-27T12:55:18.153Z [INFO] validateAndUpdateTargets, targets: [object Object], group:Spring Framework
+2025-12-27T12:55:18.154Z [INFO] No target dependencies found for Spring Security. Skipping target dependency validation
+2025-12-27T12:55:18.154Z [INFO] validateAndUpdateTargets, targets: [object Object], group:Spring Security
+2025-12-27T12:55:18.156Z [WARN] No source dependencies found for Jakarta EE. Skipping target dependency validation
+2025-12-27T12:55:18.158Z [INFO] validateAndUpdateTargets, targets: [object Object], group:Jakarta EE
+2025-12-27T12:55:18.159Z [WARN] No source dependencies found for JUnit. Skipping target dependency validation
+2025-12-27T12:55:18.159Z [INFO] validateAndUpdateTargets, targets: [object Object], group:JUnit
+2025-12-27T12:55:18.160Z [WARN] Upgrading project with Java 22.0.0 is not supported.
+2025-12-27T12:55:18.160Z [INFO] validateAndUpdateTargets, targets: [object Object], group:Java
+2025-12-27T12:55:18.160Z [INFO] validateAndUpdateTargets, userTargets: [object Object]
+2025-12-27T12:55:18.161Z [INFO] validateAndUpdateTargets, targets: [object Object]
+2025-12-27T12:55:18.162Z [INFO] validateAndUpdateTargets, targets: [object Object], group:Spring Boot
+2025-12-27T12:55:18.162Z [WARN] No source dependencies found for Spring Framework. Skipping target dependency validation
+2025-12-27T12:55:18.162Z [INFO] validateAndUpdateTargets, targets: [object Object], group:Spring Framework
+2025-12-27T12:55:18.163Z [INFO] No target dependencies found for Spring Security. Skipping target dependency validation
+2025-12-27T12:55:18.163Z [INFO] validateAndUpdateTargets, targets: [object Object], group:Spring Security
+2025-12-27T12:55:18.163Z [WARN] No source dependencies found for Jakarta EE. Skipping target dependency validation
+2025-12-27T12:55:18.164Z [INFO] validateAndUpdateTargets, targets: [object Object], group:Jakarta EE
+2025-12-27T12:55:18.164Z [WARN] No source dependencies found for JUnit. Skipping target dependency validation
+2025-12-27T12:55:18.164Z [INFO] validateAndUpdateTargets, targets: [object Object], group:JUnit
+2025-12-27T12:55:18.165Z [WARN] Upgrading project with Java 22.0.0 is not supported.
+2025-12-27T12:55:18.165Z [INFO] validateAndUpdateTargets, targets: [object Object], group:Java
+2025-12-27T12:55:18.165Z [INFO] validateAndUpdateTargets, userTargets: [object Object]
+2025-12-27T12:55:18.166Z [INFO] Upgrade route: upgrade `Spring Boot` to *3.4.x* -> upgrade `Spring Boot` to *3.5.x* with oneStepOneFramework=false
+2025-12-27T12:55:18.167Z [INFO] Upgrade route planned: [
+  [
+    {
+      "name": "Spring Boot",
+      "groupId": "org.springframework.boot",
+      "artifactId": "*",
+      "version": "3.4.x",
+      "dependencies": [
+        {
+          "groupId": "java",
+          "artifactId": "*",
+          "version": ">=17 <=24"
+        }
+      ],
+      "recipes": [
+        {
+          "id": "com.microsoft.java.UpgradeToSpringBoot_3_4",
+          "name": "Upgrading from Spring Boot 3.3 to 3.4",
+          "description": "Upgrading from Spring Boot 3.3 to 3.4 using AI.",
+          "content": "- Refer to [Upgrading to Spring Boot 3.4 from 3.3](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.4-Release-Notes#upgrading-from-spring-boot-33) for more instructions about upgrading to Spring Boot 3.4 from 3.3.",
+          "url": "https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.4-Release-Notes"
+        }
+      ],
+      "supportedSources": [
+        {
+          "groupId": "org.springframework.boot",
+          "artifactId": "*",
+          "version": "3.3.x"
+        },
+        {
+          "name": "Spring Boot",
+          "groupId": "org.springframework.boot",
+          "artifactId": "*",
+          "version": "3.3.x",
+          "dependencies": [
+            {
+              "groupId": "java",
+              "artifactId": "*",
+              "version": ">=17 <=23"
+            }
+          ],
+          "recipes": [
+            {
+              "id": "com.microsoft.java.UpgradeToSpringBoot_3_3",
+              "name": "Upgrade Spring Boot to 3.3",
+              "description": "Migrate low-level to Spring Boot 3.3 directly.",
+              "url": "https://docs.openrewrite.org/recipes/java/spring/boot3/upgradespringboot_3_3",
+              "content": "\n- Apply OpenRewrite recipe `org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_3` in recipe lib `org.openrewrite.recipe:rewrite-spring:5.25.1` to make initial code changes for upgrading Spring Boot to 3.3 from any previous version.\n"
+            }
+          ],
+          "supportedSources": [
+            {
+              "groupId": "org.springframework.boot",
+              "artifactId": "*",
+              "version": "<=3.3.12"
+            },
+            {
+              "name": "Spring Boot",
+              "groupId": "org.springframework.boot",
+              "artifactId": "*",
+              "version": "2.7.x",
+              "dependencies": [
+                {
+                  "groupId": "java",
+                  "artifactId": "*",
+                  "version": ">=8 <=21"
+                }
+              ],
+              "recipes": [
+                {
+                  "id": "com.microsoft.java.UpgradeToSpringBoot_2_7",
+                  "name": "Upgrade Spring Boot to 2.7",
+                  "description": "Migrate low-level to Spring Boot 2.7 directly.",
+                  "url": "https://docs.openrewrite.org/recipes/java/spring/boot2/upgradespringboot_2_7",
+                  "content": "\n-  Apply OpenRewrite recipe `org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_7` in recipe lib `org.openrewrite.recipe:rewrite-spring:5.25.1` to make initial code changes for upgrading Spring Boot to 2.7 from any previous version.\n"
+                }
+              ],
+              "supportedSources": [
+                {
+                  "groupId": "org.springframework.boot",
+                  "artifactId": "*",
+                  "version": "<=2.7.18"
+                }
+              ],
+              "effects": [
+                {
+                  "groupId": "org.springframework.boot",
+                  "artifactId": "*",
+                  "version": "2.7.x"
+                },
+                {
+                  "groupId": "java",
+                  "artifactId": "*",
+                  "version": "8"
+                },
+                {
+                  "groupId": "org.springframework",
+                  "artifactId": "*",
+                  "version": "5.3.x"
+                }
+              ]
+            },
+            {
+              "name": "Spring Boot",
+              "groupId": "org.springframework.boot",
+              "artifactId": "*",
+              "version": "3.2.x",
+              "dependencies": [
+                {
+                  "groupId": "java",
+                  "artifactId": "*",
+                  "version": ">=17 <=21"
+                }
+              ],
+              "recipes": [
+                {
+                  "id": "com.microsoft.java.UpgradeToSpringBoot_3_2",
+                  "name": "Upgrade Spring Boot to 3.2",
+                  "description": "Migrate low-level to Spring Boot 3.2 directly.",
+                  "url": "https://docs.openrewrite.org/recipes/java/spring/boot3/upgradespringboot_3_2",
+                  "content": "\n- Apply OpenRewrite recipe `org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_2` in recipe lib `org.openrewrite.recipe:rewrite-spring:5.25.1` to make initial code changes for upgrading Spring Boot to 3.2 from any previous version.\n"
+                }
+              ],
+              "supportedSources": [
+                {
+                  "groupId": "org.springframework.boot",
+                  "artifactId": "*",
+                  "version": "<=3.2.12"
+                },
+                {
+                  "name": "Spring Boot",
+                  "groupId": "org.springframework.boot",
+                  "artifactId": "*",
+                  "version": "2.7.x",
+                  "dependencies": [
+                    {
+                      "groupId": "java",
+                      "artifactId": "*",
+                      "version": ">=8 <=21"
+                    }
+                  ],
+                  "recipes": [
+                    {
+                      "id": "com.microsoft.java.UpgradeToSpringBoot_2_7",
+                      "name": "Upgrade Spring Boot to 2.7",
+                      "description": "Migrate low-level to Spring Boot 2.7 directly.",
+                      "url": "https://docs.openrewrite.org/recipes/java/spring/boot2/upgradespringboot_2_7",
+                      "content": "\n-  Apply OpenRewrite recipe `org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_7` in recipe lib `org.openrewrite.recipe:rewrite-spring:5.25.1` to make initial code changes for upgrading Spring Boot to 2.7 from any previous version.\n"
+                    }
+                  ],
+                  "supportedSources": [
+                    {
+                      "groupId": "org.springframework.boot",
+                      "artifactId": "*",
+                      "version": "<=2.7.18"
+                    }
+                  ],
+                  "effects": [
+                    {
+                      "groupId": "org.springframework.boot",
+                      "artifactId": "*",
+                      "version": "2.7.x"
+                    },
+                    {
+                      "groupId": "java",
+                      "artifactId": "*",
+                      "version": "8"
+                    },
+                    {
+                      "groupId": "org.springframework",
+                      "artifactId": "*",
+                      "version": "5.3.x"
+                    }
+                  ]
+                }
+              ],
+              "effects": [
+                {
+                  "groupId": "org.springframework.boot",
+                  "artifactId": "*",
+                  "version": "3.2.x"
+                },
+                {
+                  "groupId": "java",
+                  "artifactId": "*",
+                  "version": "17"
+                },
+                {
+                  "groupId": "org.springframework",
+                  "artifactId": "*",
+                  "version": "6.1.x"
+                }
+              ]
+            }
+          ],
+          "effects": [
+            {
+              "groupId": "org.springframework.boot",
+              "artifactId": "*",
+              "version": "3.3.x"
+            },
+            {
+              "groupId": "java",
+              "artifactId": "*",
+              "version": "17"
+            },
+            {
+              "groupId": "org.springframework",
+              "artifactId": "*",
+              "version": "6.1.x"
+            }
+          ]
+        }
+      ],
+      "effects": [
+        {
+          "groupId": "org.springframework.boot",
+          "artifactId": "*",
+          "version": "3.4.x"
+        }
+      ]
+    }
+  ],
+  [
+    {
+      "name": "Spring Boot",
+      "groupId": "org.springframework.boot",
+      "artifactId": "*",
+      "version": "3.5.x",
+      "dependencies": [
+        {
+          "groupId": "java",
+          "artifactId": "*",
+          "version": ">=17 <=25"
+        }
+      ],
+      "recipes": [
+        {
+          "id": "com.microsoft.java.UpgradeToSpringBoot_3_5",
+          "name": "Upgrading from Spring Boot 3.4 to 3.5",
+          "description": "Upgrading from Spring Boot 3.4 to 3.5 using AI.",
+          "content": "- Refer to [Upgrading to Spring Boot 3.5 from 3.4](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.5-Release-Notes#upgrading-from-spring-boot-34) for more instructions about upgrading to Spring Boot 3.5 from 3.4.",
+          "url": "https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.5-Release-Notes"
+        }
+      ],
+      "supportedSources": [
+        {
+          "groupId": "org.springframework.boot",
+          "artifactId": "*",
+          "version": "3.4.x"
+        },
+        {
+          "name": "Spring Boot",
+          "groupId": "org.springframework.boot",
+          "artifactId": "*",
+          "version": "3.4.x",
+          "dependencies": [
+            {
+              "groupId": "java",
+              "artifactId": "*",
+              "version": ">=17 <=24"
+            }
+          ],
+          "recipes": [
+            {
+              "id": "com.microsoft.java.UpgradeToSpringBoot_3_4",
+              "name": "Upgrading from Spring Boot 3.3 to 3.4",
+              "description": "Upgrading from Spring Boot 3.3 to 3.4 using AI.",
+              "content": "- Refer to [Upgrading to Spring Boot 3.4 from 3.3](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.4-Release-Notes#upgrading-from-spring-boot-33) for more instructions about upgrading to Spring Boot 3.4 from 3.3.",
+              "url": "https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.4-Release-Notes"
+            }
+          ],
+          "supportedSources": [
+            {
+              "groupId": "org.springframework.boot",
+              "artifactId": "*",
+              "version": "3.3.x"
+            },
+            {
+              "name": "Spring Boot",
+              "groupId": "org.springframework.boot",
+              "artifactId": "*",
+              "version": "3.3.x",
+              "dependencies": [
+                {
+                  "groupId": "java",
+                  "artifactId": "*",
+                  "version": ">=17 <=23"
+                }
+              ],
+              "recipes": [
+                {
+                  "id": "com.microsoft.java.UpgradeToSpringBoot_3_3",
+                  "name": "Upgrade Spring Boot to 3.3",
+                  "description": "Migrate low-level to Spring Boot 3.3 directly.",
+                  "url": "https://docs.openrewrite.org/recipes/java/spring/boot3/upgradespringboot_3_3",
+                  "content": "\n- Apply OpenRewrite recipe `org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_3` in recipe lib `org.openrewrite.recipe:rewrite-spring:5.25.1` to make initial code changes for upgrading Spring Boot to 3.3 from any previous version.\n"
+                }
+              ],
+              "supportedSources": [
+                {
+                  "groupId": "org.springframework.boot",
+                  "artifactId": "*",
+                  "version": "<=3.3.12"
+                },
+                {
+                  "name": "Spring Boot",
+                  "groupId": "org.springframework.boot",
+                  "artifactId": "*",
+                  "version": "2.7.x",
+                  "dependencies": [
+                    {
+                      "groupId": "java",
+                      "artifactId": "*",
+                      "version": ">=8 <=21"
+                    }
+                  ],
+                  "recipes": [
+                    {
+                      "id": "com.microsoft.java.UpgradeToSpringBoot_2_7",
+                      "name": "Upgrade Spring Boot to 2.7",
+                      "description": "Migrate low-level to Spring Boot 2.7 directly.",
+                      "url": "https://docs.openrewrite.org/recipes/java/spring/boot2/upgradespringboot_2_7",
+                      "content": "\n-  Apply OpenRewrite recipe `org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_7` in recipe lib `org.openrewrite.recipe:rewrite-spring:5.25.1` to make initial code changes for upgrading Spring Boot to 2.7 from any previous version.\n"
+                    }
+                  ],
+                  "supportedSources": [
+                    {
+                      "groupId": "org.springframework.boot",
+                      "artifactId": "*",
+                      "version": "<=2.7.18"
+                    }
+                  ],
+                  "effects": [
+                    {
+                      "groupId": "org.springframework.boot",
+                      "artifactId": "*",
+                      "version": "2.7.x"
+                    },
+                    {
+                      "groupId": "java",
+                      "artifactId": "*",
+                      "version": "8"
+                    },
+                    {
+                      "groupId": "org.springframework",
+                      "artifactId": "*",
+                      "version": "5.3.x"
+                    }
+                  ]
+                },
+                {
+                  "name": "Spring Boot",
+                  "groupId": "org.springframework.boot",
+                  "artifactId": "*",
+                  "version": "3.2.x",
+                  "dependencies": [
+                    {
+                      "groupId": "java",
+                      "artifactId": "*",
+                      "version": ">=17 <=21"
+                    }
+                  ],
+                  "recipes": [
+                    {
+                      "id": "com.microsoft.java.UpgradeToSpringBoot_3_2",
+                      "name": "Upgrade Spring Boot to 3.2",
+                      "description": "Migrate low-level to Spring Boot 3.2 directly.",
+                      "url": "https://docs.openrewrite.org/recipes/java/spring/boot3/upgradespringboot_3_2",
+                      "content": "\n- Apply OpenRewrite recipe `org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_2` in recipe lib `org.openrewrite.recipe:rewrite-spring:5.25.1` to make initial code changes for upgrading Spring Boot to 3.2 from any previous version.\n"
+                    }
+                  ],
+                  "supportedSources": [
+                    {
+                      "groupId": "org.springframework.boot",
+                      "artifactId": "*",
+                      "version": "<=3.2.12"
+                    },
+                    {
+                      "name": "Spring Boot",
+                      "groupId": "org.springframework.boot",
+                      "artifactId": "*",
+                      "version": "2.7.x",
+                      "dependencies": [
+                        {
+                          "groupId": "java",
+                          "artifactId": "*",
+                          "version": ">=8 <=21"
+                        }
+                      ],
+                      "recipes": [
+                        {
+                          "id": "com.microsoft.java.UpgradeToSpringBoot_2_7",
+                          "name": "Upgrade Spring Boot to 2.7",
+                          "description": "Migrate low-level to Spring Boot 2.7 directly.",
+                          "url": "https://docs.openrewrite.org/recipes/java/spring/boot2/upgradespringboot_2_7",
+                          "content": "\n-  Apply OpenRewrite recipe `org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_7` in recipe lib `org.openrewrite.recipe:rewrite-spring:5.25.1` to make initial code changes for upgrading Spring Boot to 2.7 from any previous version.\n"
+                        }
+                      ],
+                      "supportedSources": [
+                        {
+                          "groupId": "org.springframework.boot",
+                          "artifactId": "*",
+                          "version": "<=2.7.18"
+                        }
+                      ],
+                      "effects": [
+                        {
+                          "groupId": "org.springframework.boot",
+                          "artifactId": "*",
+                          "version": "2.7.x"
+                        },
+                        {
+                          "groupId": "java",
+                          "artifactId": "*",
+                          "version": "8"
+                        },
+                        {
+                          "groupId": "org.springframework",
+                          "artifactId": "*",
+                          "version": "5.3.x"
+                        }
+                      ]
+                    }
+                  ],
+                  "effects": [
+                    {
+                      "groupId": "org.springframework.boot",
+                      "artifactId": "*",
+                      "version": "3.2.x"
+                    },
+                    {
+                      "groupId": "java",
+                      "artifactId": "*",
+                      "version": "17"
+                    },
+                    {
+                      "groupId": "org.springframework",
+                      "artifactId": "*",
+                      "version": "6.1.x"
+                    }
+                  ]
+                }
+              ],
+              "effects": [
+                {
+                  "groupId": "org.springframework.boot",
+                  "artifactId": "*",
+                  "version": "3.3.x"
+                },
+                {
+                  "groupId": "java",
+                  "artifactId": "*",
+                  "version": "17"
+                },
+                {
+                  "groupId": "org.springframework",
+                  "artifactId": "*",
+                  "version": "6.1.x"
+                }
+              ]
+            }
+          ],
+          "effects": [
+            {
+              "groupId": "org.springframework.boot",
+              "artifactId": "*",
+              "version": "3.4.x"
+            }
+          ]
+        }
+      ],
+      "effects": [
+        {
+          "groupId": "org.springframework.boot",
+          "artifactId": "*",
+          "version": "3.5.x"
+        }
+      ]
+    }
+  ]
+]
+2025-12-27T12:55:18.280Z [INFO] Upgrade plan written to C:\Users\Eduardo\Documents\Projetos\maisLeite\.github\java-upgrade\20251227125443\plan.md

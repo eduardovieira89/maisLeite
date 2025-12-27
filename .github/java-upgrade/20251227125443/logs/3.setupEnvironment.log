@@ -1,0 +1,557 @@
+2025-12-27T12:55:46.478Z [INFO] validate plan and setup env from plan.md file...
+2025-12-27T12:55:46.480Z [INFO] getLLMClient: validating user selected model "auto"
+2025-12-27T12:55:51.500Z [INFO] Model auto is not valid: Error: Endpoint not found for model auto
+2025-12-27T12:55:51.501Z [WARN] getLLMClient: provided model "auto" is not valid.
+2025-12-27T12:55:51.501Z [WARN] getLLMClient: no user selected model provided, try using default model: claude-sonnet-4
+2025-12-27T12:55:53.957Z [INFO] Available models: gpt-5-mini, gpt-4o-mini-2024-07-18, gpt-4o-2024-11-20, gpt-4o, grok-code-fast-1, claude-haiku-4.5, gpt-4.1-2025-04-14, gpt-4.1, oswe-vscode-prime, gpt-3.5-turbo-0613, gpt-4, gpt-4-0125-preview, auto
+2025-12-27T12:55:53.959Z [INFO] Finding chat model from candidates: claude-sonnet-4, claude-3.5-sonnet, claude-3.7-sonnet, gpt-4.1, gpt-4o, gpt-4o-mini
+2025-12-27T12:55:54.488Z [INFO] Model gpt-4.1 is selected.
+2025-12-27T12:55:54.490Z [INFO] parsing plan.md...
+2025-12-27T12:55:57.267Z [INFO] Successfully parsed plan.md to JSON:
+2025-12-27T12:55:57.268Z [INFO] {
+  "projectConfig": {
+    "name": "",
+    "dir": "C:/Users/Eduardo/Documents/Projetos/maisLeite",
+    "jdk": {
+      "name": "java",
+      "path": "C:\\Program Files\\Java\\jdk-22\\bin",
+      "version": "22"
+    },
+    "buildTool": {
+      "name": "mvnw",
+      "path": "C:/Users/Eduardo/Documents/Projetos/maisLeite",
+      "version": "",
+      "defaultOptions": ""
+    }
+  },
+  "upgradeOptions": {
+    "target": {
+      "javaVersion": "",
+      "dependencies": [
+        {
+          "groupId": "org.springframework.boot",
+          "artifactId": "*",
+          "version": "3.5.x"
+        }
+      ],
+      "jdk": {
+        "name": "java",
+        "path": "C:\\Program Files\\Java\\jdk-22\\bin",
+        "version": "22"
+      }
+    },
+    "guidelines": "",
+    "workingBranch": "appmod/java-upgrade-20251227125443",
+    "runTests": true
+  }
+}
+2025-12-27T12:55:57.269Z [INFO] Project C:/Users/Eduardo/Documents/Projetos/maisLeite is a maven project, try to get java version from pom.xml
+2025-12-27T12:55:57.272Z [INFO] Project java version: 22
+2025-12-27T12:55:57.273Z [INFO] Build tool type: mvnw
+2025-12-27T12:55:57.275Z [INFO] [Environment] Running command (Java 22): java -version
+java version "22.0.2" 2024-07-16
+Java(TM) SE Runtime Environment (build 22.0.2+9-70)
+Java HotSpot(TM) 64-Bit Server VM (build 22.0.2+9-70, mixed mode, sharing)
+2025-12-27T12:55:57.400Z [INFO] [JdkEnvironment] Got real Java version: 22.0.2
+2025-12-27T12:55:57.400Z [INFO] JDK: {
+  "name": "java",
+  "path": "C:\\Program Files\\Java\\jdk-22\\bin",
+  "version": "22"
+}
+2025-12-27T12:55:57.410Z [INFO] [Environment] Running command (Java 22): mvnw --version
+Apache Maven 3.6.3 (cecedd343002696d0abb50b32b541b8a6ba2883f)
+Maven home: C:\Users\Eduardo\.m2\wrapper\dists\apache-maven-3.6.3-bin\1iopthnavndlasol9gbrbg6bf2\apache-maven-3.6.3
+Java version: 22.0.2, vendor: Oracle Corporation, runtime: C:\Program Files\Java\jdk-22
+Default locale: pt_BR, platform encoding: UTF-8
+OS name: "windows 11", version: "10.0", arch: "amd64", family: "windows"
+2025-12-27T12:55:57.832Z [INFO] Real build tool version: 3.6.3
+2025-12-27T12:55:57.832Z [INFO] Build tool: {
+  "name": "mvnw",
+  "path": "C:/Users/Eduardo/Documents/Projetos/maisLeite",
+  "version": "3.6.3"
+}
+2025-12-27T12:55:57.833Z [INFO] Project config: {
+  "name": "maisLeite",
+  "dir": "C:/Users/Eduardo/Documents/Projetos/maisLeite",
+  "jdk": {
+    "name": "java",
+    "path": "C:\\Program Files\\Java\\jdk-22\\bin",
+    "version": "22"
+  },
+  "buildTool": {
+    "name": "mvnw",
+    "path": "C:/Users/Eduardo/Documents/Projetos/maisLeite",
+    "version": "3.6.3",
+    "defaultOptions": ""
+  }
+}
+2025-12-27T12:55:57.833Z [INFO] [Project maisLeite]: getting Java version.
+2025-12-27T12:55:57.834Z [INFO] [Project maisLeite]: reset Java version promise.
+2025-12-27T12:55:57.834Z [INFO] [MavenBuildTool] Getting Java version of C:/Users/Eduardo/Documents/Projetos/maisLeite from pom.xml
+2025-12-27T12:55:57.834Z [INFO] [MavenBuildTool] Searching for pom.xml files in C:/Users/Eduardo/Documents/Projetos/maisLeite
+2025-12-27T12:55:57.835Z [INFO] [MavenBuildTool] Getting all module coordinates of C:/Users/Eduardo/Documents/Projetos/maisLeite
+2025-12-27T12:55:57.835Z [INFO] [MavenBuildTool] Getting effective POMs of C:/Users/Eduardo/Documents/Projetos/maisLeite
+2025-12-27T12:55:57.840Z [INFO] [Environment] Running command (Java 22): mvnw help:effective-pom -Doutput=effective-pom-907ad7cb-7425-47a5-bd21-8909041b9d21.log
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------------< com.leiteria:maisLeite >-----------------------
+[INFO] Building maisLeite 0.0.1-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-help-plugin:3.4.1:effective-pom (default-cli) @ maisLeite ---
+[INFO] Effective-POM written to: C:\Users\Eduardo\Documents\Projetos\maisLeite\effective-pom-907ad7cb-7425-47a5-bd21-8909041b9d21.log
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  3.434 s
+[INFO] Finished at: 2025-12-27T09:56:03-03:00
+[INFO] ------------------------------------------------------------------------
+2025-12-27T12:56:04.030Z [INFO] [MavenBuildTool] Found pom.xml files: C:\Users\Eduardo\Documents\Projetos\maisLeite\pom.xml
+2025-12-27T12:56:04.032Z [INFO] [MavenBuildTool] Java version found in C:\Users\Eduardo\Documents\Projetos\maisLeite\pom.xml: 22
+2025-12-27T12:56:04.033Z [INFO] [Project maisLeite]: got Java version: 22
+2025-12-27T12:56:04.033Z [INFO] Source Java version: 22
+2025-12-27T12:56:04.033Z [INFO] [Project maisLeite]: getting dependencies promise.
+2025-12-27T12:56:04.034Z [INFO] [Project maisLeite]: reset dependencies promise.
+2025-12-27T12:56:04.034Z [INFO] [Environment] Running command (Java 22): mvnw dependency:tree -B
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------------< com.leiteria:maisLeite >-----------------------
+[INFO] Building maisLeite 0.0.1-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:3.6.1:tree (default-cli) @ maisLeite ---
+[INFO] com.leiteria:maisLeite:jar:0.0.1-SNAPSHOT
+[INFO] +- org.springframework.boot:spring-boot-starter-actuator:jar:3.3.2:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter:jar:3.3.2:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot:jar:3.3.2:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-autoconfigure:jar:3.3.2:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-starter-logging:jar:3.3.2:compile
+[INFO] |  |  |  +- ch.qos.logback:logback-classic:jar:1.5.6:compile
+[INFO] |  |  |  |  \- ch.qos.logback:logback-core:jar:1.5.6:compile
+[INFO] |  |  |  +- org.apache.logging.log4j:log4j-to-slf4j:jar:2.23.1:compile
+[INFO] |  |  |  |  \- org.apache.logging.log4j:log4j-api:jar:2.23.1:compile
+[INFO] |  |  |  \- org.slf4j:jul-to-slf4j:jar:2.0.13:compile
+[INFO] |  |  +- jakarta.annotation:jakarta.annotation-api:jar:2.1.1:compile
+[INFO] |  |  \- org.yaml:snakeyaml:jar:2.2:compile
+[INFO] |  +- org.springframework.boot:spring-boot-actuator-autoconfigure:jar:3.3.2:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-actuator:jar:3.3.2:compile
+[INFO] |  |  \- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.17.2:compile
+[INFO] |  +- io.micrometer:micrometer-observation:jar:1.13.2:compile
+[INFO] |  |  \- io.micrometer:micrometer-commons:jar:1.13.2:compile
+[INFO] |  \- io.micrometer:micrometer-jakarta9:jar:1.13.2:compile
+[INFO] |     \- io.micrometer:micrometer-core:jar:1.13.2:compile
+[INFO] |        +- org.hdrhistogram:HdrHistogram:jar:2.2.2:runtime
+[INFO] |        \- org.latencyutils:LatencyUtils:jar:2.0.3:runtime
+[INFO] +- org.springframework.boot:spring-boot-starter-data-jpa:jar:3.3.2:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-aop:jar:3.3.2:compile
+[INFO] |  |  \- org.aspectj:aspectjweaver:jar:1.9.22.1:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-jdbc:jar:3.3.2:compile
+[INFO] |  |  +- com.zaxxer:HikariCP:jar:5.1.0:compile
+[INFO] |  |  \- org.springframework:spring-jdbc:jar:6.1.11:compile
+[INFO] |  +- org.hibernate.orm:hibernate-core:jar:6.5.2.Final:compile
+[INFO] |  |  +- jakarta.persistence:jakarta.persistence-api:jar:3.1.0:compile
+[INFO] |  |  +- jakarta.transaction:jakarta.transaction-api:jar:2.0.1:compile
+[INFO] |  |  +- org.jboss.logging:jboss-logging:jar:3.5.3.Final:compile
+[INFO] |  |  +- org.hibernate.common:hibernate-commons-annotations:jar:6.0.6.Final:runtime
+[INFO] |  |  +- io.smallrye:jandex:jar:3.1.2:runtime
+[INFO] |  |  +- com.fasterxml:classmate:jar:1.7.0:compile
+[INFO] |  |  +- net.bytebuddy:byte-buddy:jar:1.14.18:runtime
+[INFO] |  |  +- org.glassfish.jaxb:jaxb-runtime:jar:4.0.5:runtime
+[INFO] |  |  |  \- org.glassfish.jaxb:jaxb-core:jar:4.0.5:runtime
+[INFO] |  |  |     +- org.eclipse.angus:angus-activation:jar:2.0.2:runtime
+[INFO] |  |  |     +- org.glassfish.jaxb:txw2:jar:4.0.5:runtime
+[INFO] |  |  |     \- com.sun.istack:istack-commons-runtime:jar:4.1.2:runtime
+[INFO] |  |  +- jakarta.inject:jakarta.inject-api:jar:2.0.1:runtime
+[INFO] |  |  \- org.antlr:antlr4-runtime:jar:4.13.0:compile
+[INFO] |  +- org.springframework.data:spring-data-jpa:jar:3.3.2:compile
+[INFO] |  |  +- org.springframework.data:spring-data-commons:jar:3.3.2:compile
+[INFO] |  |  +- org.springframework:spring-orm:jar:6.1.11:compile
+[INFO] |  |  +- org.springframework:spring-context:jar:6.1.11:compile
+[INFO] |  |  +- org.springframework:spring-tx:jar:6.1.11:compile
+[INFO] |  |  \- org.springframework:spring-beans:jar:6.1.11:compile
+[INFO] |  \- org.springframework:spring-aspects:jar:6.1.11:compile
+[INFO] +- org.springframework.data:spring-data-rest-webmvc:jar:4.3.2:compile
+[INFO] |  +- org.springframework.data:spring-data-rest-core:jar:4.3.2:compile
+[INFO] |  |  +- org.springframework.hateoas:spring-hateoas:jar:2.3.1:compile
+[INFO] |  |  +- org.springframework.plugin:spring-plugin-core:jar:3.0.0:compile
+[INFO] |  |  +- org.atteo:evo-inflector:jar:1.3:compile
+[INFO] |  |  \- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:2.17.2:compile
+[INFO] |  +- org.springframework:spring-webmvc:jar:6.1.11:compile
+[INFO] |  |  \- org.springframework:spring-expression:jar:6.1.11:compile
+[INFO] |  +- com.fasterxml.jackson.core:jackson-databind:jar:2.17.2:compile
+[INFO] |  |  \- com.fasterxml.jackson.core:jackson-core:jar:2.17.2:compile
+[INFO] |  +- com.fasterxml.jackson.core:jackson-annotations:jar:2.17.2:compile
+[INFO] |  \- org.slf4j:slf4j-api:jar:2.0.13:compile
+[INFO] +- org.springframework.boot:spring-boot-starter-security:jar:3.3.2:compile
+[INFO] |  +- org.springframework:spring-aop:jar:6.1.11:compile
+[INFO] |  +- org.springframework.security:spring-security-config:jar:6.3.1:compile
+[INFO] |  \- org.springframework.security:spring-security-web:jar:6.3.1:compile
+[INFO] +- org.springframework.boot:spring-boot-starter-web:jar:3.3.2:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-json:jar:3.3.2:compile
+[INFO] |  |  \- com.fasterxml.jackson.module:jackson-module-parameter-names:jar:2.17.2:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-tomcat:jar:3.3.2:compile
+[INFO] |  |  +- org.apache.tomcat.embed:tomcat-embed-core:jar:10.1.26:compile
+[INFO] |  |  \- org.apache.tomcat.embed:tomcat-embed-websocket:jar:10.1.26:compile
+[INFO] |  \- org.springframework:spring-web:jar:6.1.11:compile
+[INFO] +- com.mysql:mysql-connector-j:jar:8.3.0:runtime
+[INFO] +- org.projectlombok:lombok:jar:1.18.34:compile
+[INFO] +- io.jsonwebtoken:jjwt-api:jar:0.11.5:compile
+[INFO] +- io.jsonwebtoken:jjwt-impl:jar:0.11.5:compile
+[INFO] +- io.jsonwebtoken:jjwt-jackson:jar:0.11.5:compile
+[INFO] +- org.springframework.boot:spring-boot-starter-test:jar:3.3.2:test
+[INFO] |  +- org.springframework.boot:spring-boot-test:jar:3.3.2:test
+[INFO] |  +- org.springframework.boot:spring-boot-test-autoconfigure:jar:3.3.2:test
+[INFO] |  +- com.jayway.jsonpath:json-path:jar:2.9.0:compile
+[INFO] |  +- jakarta.xml.bind:jakarta.xml.bind-api:jar:4.0.2:runtime
+[INFO] |  |  \- jakarta.activation:jakarta.activation-api:jar:2.1.3:runtime
+[INFO] |  +- net.minidev:json-smart:jar:2.5.1:runtime
+[INFO] |  |  \- net.minidev:accessors-smart:jar:2.5.1:runtime
+[INFO] |  |     \- org.ow2.asm:asm:jar:9.6:runtime
+[INFO] |  +- org.assertj:assertj-core:jar:3.25.3:test
+[INFO] |  +- org.awaitility:awaitility:jar:4.2.1:test
+[INFO] |  +- org.hamcrest:hamcrest:jar:2.2:test
+[INFO] |  +- org.junit.jupiter:junit-jupiter:jar:5.10.3:test
+[INFO] |  |  +- org.junit.jupiter:junit-jupiter-api:jar:5.10.3:test
+[INFO] |  |  |  \- org.opentest4j:opentest4j:jar:1.3.0:test
+[INFO] |  |  +- org.junit.jupiter:junit-jupiter-params:jar:5.10.3:test
+[INFO] |  |  \- org.junit.jupiter:junit-jupiter-engine:jar:5.10.3:test
+[INFO] |  +- org.mockito:mockito-core:jar:5.11.0:test
+[INFO] |  |  +- net.bytebuddy:byte-buddy-agent:jar:1.14.18:test
+[INFO] |  |  \- org.objenesis:objenesis:jar:3.3:test
+[INFO] |  +- org.mockito:mockito-junit-jupiter:jar:5.11.0:test
+[INFO] |  +- org.skyscreamer:jsonassert:jar:1.5.3:test
+[INFO] |  |  \- com.vaadin.external.google:android-json:jar:0.0.20131108.vaadin1:test
+[INFO] |  +- org.springframework:spring-core:jar:6.1.11:compile
+[INFO] |  |  \- org.springframework:spring-jcl:jar:6.1.11:compile
+[INFO] |  +- org.springframework:spring-test:jar:6.1.11:test
+[INFO] |  \- org.xmlunit:xmlunit-core:jar:2.9.1:test
+[INFO] +- org.springframework.security:spring-security-test:jar:6.3.1:test
+[INFO] |  \- org.springframework.security:spring-security-core:jar:6.3.1:compile
+[INFO] |     \- org.springframework.security:spring-security-crypto:jar:6.3.1:compile
+[INFO] +- org.springframework.boot:spring-boot-starter-validation:jar:3.3.2:compile
+[INFO] |  +- org.apache.tomcat.embed:tomcat-embed-el:jar:10.1.26:compile
+[INFO] |  \- org.hibernate.validator:hibernate-validator:jar:8.0.1.Final:compile
+[INFO] |     \- jakarta.validation:jakarta.validation-api:jar:3.0.2:compile
+[INFO] +- com.h2database:h2:jar:2.2.224:test
+[INFO] \- org.junit.platform:junit-platform-runner:jar:1.10.3:test
+[INFO]    +- org.junit.platform:junit-platform-launcher:jar:1.10.3:test
+[INFO]    |  \- org.junit.platform:junit-platform-engine:jar:1.10.3:test
+[INFO]    +- org.junit.platform:junit-platform-suite-api:jar:1.10.3:test
+[INFO]    |  \- org.junit.platform:junit-platform-commons:jar:1.10.3:test
+[INFO]    +- org.apiguardian:apiguardian-api:jar:1.1.2:test
+[INFO]    \- org.junit.platform:junit-platform-suite-commons:jar:1.10.3:test
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.794 s
+[INFO] Finished at: 2025-12-27T09:56:08-03:00
+[INFO] ------------------------------------------------------------------------
+2025-12-27T12:56:08.415Z [INFO] [MavenBuildTool] Successfully got dependency tree of C:/Users/Eduardo/Documents/Projetos/maisLeite
+2025-12-27T12:56:08.416Z [INFO] [MavenBuildTool] Getting Java version of C:/Users/Eduardo/Documents/Projetos/maisLeite from pom.xml
+2025-12-27T12:56:08.416Z [INFO] [MavenBuildTool] Searching for pom.xml files in C:/Users/Eduardo/Documents/Projetos/maisLeite
+2025-12-27T12:56:08.417Z [INFO] [MavenBuildTool] Found pom.xml files: C:\Users\Eduardo\Documents\Projetos\maisLeite\pom.xml
+2025-12-27T12:56:08.418Z [INFO] [MavenBuildTool] Java version found in C:\Users\Eduardo\Documents\Projetos\maisLeite\pom.xml: 22
+2025-12-27T12:56:08.419Z [INFO] validateAndUpdateTargets, targets: [object Object]
+2025-12-27T12:56:08.420Z [INFO] validateAndUpdateTargets, targets: [object Object], group:Spring Boot
+2025-12-27T12:56:08.420Z [WARN] No source dependencies found for Spring Framework. Skipping target dependency validation
+2025-12-27T12:56:08.420Z [INFO] validateAndUpdateTargets, targets: [object Object], group:Spring Framework
+2025-12-27T12:56:08.421Z [INFO] No target dependencies found for Spring Security. Skipping target dependency validation
+2025-12-27T12:56:08.421Z [INFO] validateAndUpdateTargets, targets: [object Object], group:Spring Security
+2025-12-27T12:56:08.421Z [WARN] No source dependencies found for Jakarta EE. Skipping target dependency validation
+2025-12-27T12:56:08.422Z [INFO] validateAndUpdateTargets, targets: [object Object], group:Jakarta EE
+2025-12-27T12:56:08.422Z [WARN] No source dependencies found for JUnit. Skipping target dependency validation
+2025-12-27T12:56:08.422Z [INFO] validateAndUpdateTargets, targets: [object Object], group:JUnit
+2025-12-27T12:56:08.422Z [WARN] Upgrading project with Java 22.0.0 is not supported.
+2025-12-27T12:56:08.423Z [INFO] validateAndUpdateTargets, targets: [object Object], group:Java
+2025-12-27T12:56:08.423Z [INFO] validateAndUpdateTargets, userTargets: [object Object]
+2025-12-27T12:56:08.423Z [INFO] Target Java version: 22
+2025-12-27T12:56:08.424Z [INFO] [Environment] Running command (Java 22): java -version
+java version "22.0.2" 2024-07-16
+Java(TM) SE Runtime Environment (build 22.0.2+9-70)
+Java HotSpot(TM) 64-Bit Server VM (build 22.0.2+9-70, mixed mode, sharing)
+2025-12-27T12:56:08.557Z [INFO] [JdkEnvironment] Got real Java version: 22.0.2
+2025-12-27T12:56:08.559Z [INFO] Target JDK: {"name":"java","path":"C:\\Program Files\\Java\\jdk-22\\bin","version":"22"}
+2025-12-27T12:56:08.560Z [INFO] Upgrade options: {
+  "workingBranch": "appmod/java-upgrade-20251227125443",
+  "runTests": true,
+  "target": {
+    "javaVersion": "",
+    "dependencies": [
+      {
+        "name": "Spring Boot",
+        "groupId": "org.springframework.boot",
+        "artifactId": "*",
+        "version": "3.5.x",
+        "dependencies": [
+          {
+            "groupId": "java",
+            "artifactId": "*",
+            "version": ">=17 <=25"
+          }
+        ],
+        "recipes": [
+          {
+            "id": "com.microsoft.java.UpgradeToSpringBoot_3_5",
+            "name": "Upgrading from Spring Boot 3.4 to 3.5",
+            "description": "Upgrading from Spring Boot 3.4 to 3.5 using AI.",
+            "content": "- Refer to [Upgrading to Spring Boot 3.5 from 3.4](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.5-Release-Notes#upgrading-from-spring-boot-34) for more instructions about upgrading to Spring Boot 3.5 from 3.4.",
+            "url": "https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.5-Release-Notes"
+          }
+        ],
+        "supportedSources": [
+          {
+            "groupId": "org.springframework.boot",
+            "artifactId": "*",
+            "version": "3.4.x"
+          },
+          {
+            "name": "Spring Boot",
+            "groupId": "org.springframework.boot",
+            "artifactId": "*",
+            "version": "3.4.x",
+            "dependencies": [
+              {
+                "groupId": "java",
+                "artifactId": "*",
+                "version": ">=17 <=24"
+              }
+            ],
+            "recipes": [
+              {
+                "id": "com.microsoft.java.UpgradeToSpringBoot_3_4",
+                "name": "Upgrading from Spring Boot 3.3 to 3.4",
+                "description": "Upgrading from Spring Boot 3.3 to 3.4 using AI.",
+                "content": "- Refer to [Upgrading to Spring Boot 3.4 from 3.3](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.4-Release-Notes#upgrading-from-spring-boot-33) for more instructions about upgrading to Spring Boot 3.4 from 3.3.",
+                "url": "https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.4-Release-Notes"
+              }
+            ],
+            "supportedSources": [
+              {
+                "groupId": "org.springframework.boot",
+                "artifactId": "*",
+                "version": "3.3.x"
+              },
+              {
+                "name": "Spring Boot",
+                "groupId": "org.springframework.boot",
+                "artifactId": "*",
+                "version": "3.3.x",
+                "dependencies": [
+                  {
+                    "groupId": "java",
+                    "artifactId": "*",
+                    "version": ">=17 <=23"
+                  }
+                ],
+                "recipes": [
+                  {
+                    "id": "com.microsoft.java.UpgradeToSpringBoot_3_3",
+                    "name": "Upgrade Spring Boot to 3.3",
+                    "description": "Migrate low-level to Spring Boot 3.3 directly.",
+                    "url": "https://docs.openrewrite.org/recipes/java/spring/boot3/upgradespringboot_3_3",
+                    "content": "\n- Apply OpenRewrite recipe `org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_3` in recipe lib `org.openrewrite.recipe:rewrite-spring:5.25.1` to make initial code changes for upgrading Spring Boot to 3.3 from any previous version.\n"
+                  }
+                ],
+                "supportedSources": [
+                  {
+                    "groupId": "org.springframework.boot",
+                    "artifactId": "*",
+                    "version": "<=3.3.12"
+                  },
+                  {
+                    "name": "Spring Boot",
+                    "groupId": "org.springframework.boot",
+                    "artifactId": "*",
+                    "version": "2.7.x",
+                    "dependencies": [
+                      {
+                        "groupId": "java",
+                        "artifactId": "*",
+                        "version": ">=8 <=21"
+                      }
+                    ],
+                    "recipes": [
+                      {
+                        "id": "com.microsoft.java.UpgradeToSpringBoot_2_7",
+                        "name": "Upgrade Spring Boot to 2.7",
+                        "description": "Migrate low-level to Spring Boot 2.7 directly.",
+                        "url": "https://docs.openrewrite.org/recipes/java/spring/boot2/upgradespringboot_2_7",
+                        "content": "\n-  Apply OpenRewrite recipe `org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_7` in recipe lib `org.openrewrite.recipe:rewrite-spring:5.25.1` to make initial code changes for upgrading Spring Boot to 2.7 from any previous version.\n"
+                      }
+                    ],
+                    "supportedSources": [
+                      {
+                        "groupId": "org.springframework.boot",
+                        "artifactId": "*",
+                        "version": "<=2.7.18"
+                      }
+                    ],
+                    "effects": [
+                      {
+                        "groupId": "org.springframework.boot",
+                        "artifactId": "*",
+                        "version": "2.7.x"
+                      },
+                      {
+                        "groupId": "java",
+                        "artifactId": "*",
+                        "version": "8"
+                      },
+                      {
+                        "groupId": "org.springframework",
+                        "artifactId": "*",
+                        "version": "5.3.x"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Spring Boot",
+                    "groupId": "org.springframework.boot",
+                    "artifactId": "*",
+                    "version": "3.2.x",
+                    "dependencies": [
+                      {
+                        "groupId": "java",
+                        "artifactId": "*",
+                        "version": ">=17 <=21"
+                      }
+                    ],
+                    "recipes": [
+                      {
+                        "id": "com.microsoft.java.UpgradeToSpringBoot_3_2",
+                        "name": "Upgrade Spring Boot to 3.2",
+                        "description": "Migrate low-level to Spring Boot 3.2 directly.",
+                        "url": "https://docs.openrewrite.org/recipes/java/spring/boot3/upgradespringboot_3_2",
+                        "content": "\n- Apply OpenRewrite recipe `org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_2` in recipe lib `org.openrewrite.recipe:rewrite-spring:5.25.1` to make initial code changes for upgrading Spring Boot to 3.2 from any previous version.\n"
+                      }
+                    ],
+                    "supportedSources": [
+                      {
+                        "groupId": "org.springframework.boot",
+                        "artifactId": "*",
+                        "version": "<=3.2.12"
+                      },
+                      {
+                        "name": "Spring Boot",
+                        "groupId": "org.springframework.boot",
+                        "artifactId": "*",
+                        "version": "2.7.x",
+                        "dependencies": [
+                          {
+                            "groupId": "java",
+                            "artifactId": "*",
+                            "version": ">=8 <=21"
+                          }
+                        ],
+                        "recipes": [
+                          {
+                            "id": "com.microsoft.java.UpgradeToSpringBoot_2_7",
+                            "name": "Upgrade Spring Boot to 2.7",
+                            "description": "Migrate low-level to Spring Boot 2.7 directly.",
+                            "url": "https://docs.openrewrite.org/recipes/java/spring/boot2/upgradespringboot_2_7",
+                            "content": "\n-  Apply OpenRewrite recipe `org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_7` in recipe lib `org.openrewrite.recipe:rewrite-spring:5.25.1` to make initial code changes for upgrading Spring Boot to 2.7 from any previous version.\n"
+                          }
+                        ],
+                        "supportedSources": [
+                          {
+                            "groupId": "org.springframework.boot",
+                            "artifactId": "*",
+                            "version": "<=2.7.18"
+                          }
+                        ],
+                        "effects": [
+                          {
+                            "groupId": "org.springframework.boot",
+                            "artifactId": "*",
+                            "version": "2.7.x"
+                          },
+                          {
+                            "groupId": "java",
+                            "artifactId": "*",
+                            "version": "8"
+                          },
+                          {
+                            "groupId": "org.springframework",
+                            "artifactId": "*",
+                            "version": "5.3.x"
+                          }
+                        ]
+                      }
+                    ],
+                    "effects": [
+                      {
+                        "groupId": "org.springframework.boot",
+                        "artifactId": "*",
+                        "version": "3.2.x"
+                      },
+                      {
+                        "groupId": "java",
+                        "artifactId": "*",
+                        "version": "17"
+                      },
+                      {
+                        "groupId": "org.springframework",
+                        "artifactId": "*",
+                        "version": "6.1.x"
+                      }
+                    ]
+                  }
+                ],
+                "effects": [
+                  {
+                    "groupId": "org.springframework.boot",
+                    "artifactId": "*",
+                    "version": "3.3.x"
+                  },
+                  {
+                    "groupId": "java",
+                    "artifactId": "*",
+                    "version": "17"
+                  },
+                  {
+                    "groupId": "org.springframework",
+                    "artifactId": "*",
+                    "version": "6.1.x"
+                  }
+                ]
+              }
+            ],
+            "effects": [
+              {
+                "groupId": "org.springframework.boot",
+                "artifactId": "*",
+                "version": "3.4.x"
+              }
+            ]
+          }
+        ],
+        "effects": [
+          {
+            "groupId": "org.springframework.boot",
+            "artifactId": "*",
+            "version": "3.5.x"
+          }
+        ]
+      }
+    ],
+    "jdk": {
+      "name": "java",
+      "path": "C:\\Program Files\\Java\\jdk-22\\bin",
+      "version": "22"
+    }
+  },
+  "guidelines": ""
+}
+2025-12-27T12:56:08.561Z [INFO] Project configuration and upgrade options initialized successfully.
+2025-12-27T12:56:08.715Z [INFO] working tree is cleaned.
+2025-12-27T12:56:08.715Z [INFO] Start prechecking...
+2025-12-27T12:56:45.080Z [INFO] Precheck completed successfully.
+2025-12-27T12:56:45.229Z [INFO] main
+
+2025-12-27T12:56:45.243Z [INFO] Create or reuse the working branch appmod/java-upgrade-20251227125443
+2025-12-27T12:56:45.391Z [ERROR] Switched to a new branch 'appmod/java-upgrade-20251227125443'
+
+2025-12-27T12:56:45.400Z [INFO] Switched the working branch from main to appmod/java-upgrade-20251227125443
+2025-12-27T12:56:45.400Z [INFO] Git working branch is set up.
+2025-12-27T12:56:45.467Z [INFO] a40bd66aa9b3e5067260c21bc9c79c829ab04618
+

@@ -1,0 +1,9 @@
+2025-12-27T12:57:30.948Z [INFO] [Task.commitChanges](5.1): Committing changes for C:/Users/Eduardo/Documents/Projetos/maisLeite with message: Bump Spring Boot parent to 3.4.0 (milestone 1)
+2025-12-27T12:57:31.289Z [INFO] [appmod/java-upgrade-20251227125443 20afb23] Bump Spring Boot parent to 3.4.0 (milestone 1)
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+
+2025-12-27T12:57:31.361Z [INFO] 20afb23955a65a09bd388b44042217326f3a6ccd
+
+2025-12-27T12:57:31.444Z [INFO] 6	6	pom.xml
+
+2025-12-27T12:57:31.462Z [INFO] [Task.commitChanges](5.1): Committed changes for C:/Users/Eduardo/Documents/Projetos/maisLeite with message: Bump Spring Boot parent to 3.4.0 (milestone 1)

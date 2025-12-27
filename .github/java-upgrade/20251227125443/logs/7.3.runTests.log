@@ -1,0 +1,20 @@
+2025-12-27T12:59:02.344Z [INFO] [BaseBuildTool] Firing config modified event for mvnw, sleeping for 5 seconds
+2025-12-27T12:59:02.345Z [INFO] [Environment] Running command (Java 22): mvnw --version
+Apache Maven 3.6.3 (cecedd343002696d0abb50b32b541b8a6ba2883f)
+Maven home: C:\Users\Eduardo\.m2\wrapper\dists\apache-maven-3.6.3-bin\1iopthnavndlasol9gbrbg6bf2\apache-maven-3.6.3
+Java version: 22.0.2, vendor: Oracle Corporation, runtime: C:\Program Files\Java\jdk-22
+Default locale: pt_BR, platform encoding: UTF-8
+OS name: "windows 11", version: "10.0", arch: "amd64", family: "windows"
+2025-12-27T12:59:02.713Z [INFO] [BaseBuildTool] New version of mvnw: 3.6.3 -> 3.6.3
+2025-12-27T12:59:02.714Z [INFO] [MavenBuildTool] Getting Java version of C:/Users/Eduardo/Documents/Projetos/maisLeite from pom.xml
+2025-12-27T12:59:02.714Z [INFO] [MavenBuildTool] Searching for pom.xml files in C:/Users/Eduardo/Documents/Projetos/maisLeite
+2025-12-27T12:59:02.714Z [INFO] [MavenBuildTool] Found pom.xml files: C:\Users\Eduardo\Documents\Projetos\maisLeite\pom.xml
+2025-12-27T12:59:02.715Z [INFO] [MavenBuildTool] Java version found in C:\Users\Eduardo\Documents\Projetos\maisLeite\pom.xml: 22
+2025-12-27T12:59:02.715Z [INFO] [BaseBuildTool] Notifying Java version/Config change: '22' || '21'
+2025-12-27T12:59:02.718Z [INFO] Running tests...
+2025-12-27T12:59:02.718Z [INFO] [MavenBuildTool] Running test cases of C:/Users/Eduardo/Documents/Projetos/maisLeite using Maven
+2025-12-27T12:59:02.718Z [INFO] [Environment] Running command (Java 22): mvnw clean test -q -B -fn
+2025-12-27T12:59:16.789Z [INFO] [MavenBuildTool] loading surefire reports.
+2025-12-27T12:59:16.798Z [INFO] [MavenBuildTool] summarizing surefire reports.
+2025-12-27T12:59:16.798Z [INFO] [MavenBuildTool] Cleaning C:/Users/Eduardo/Documents/Projetos/maisLeite using Maven
+2025-12-27T12:59:16.799Z [INFO] [Environment] Running command (Java 22): mvnw clean -q -B -fn

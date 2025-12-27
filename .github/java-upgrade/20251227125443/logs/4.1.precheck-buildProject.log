@@ -1,0 +1,7 @@
+2025-12-27T12:56:08.765Z [INFO] [MavenBuildTool] Getting build errors of C:/Users/Eduardo/Documents/Projetos/maisLeite using Maven
+2025-12-27T12:56:08.765Z [INFO] [Environment] Running command (Java 22): mvnw clean test-compile -q -B -fn
+2025-12-27T12:56:18.781Z [INFO] [MavenBuildTool] parsing compilation errors.
+2025-12-27T12:56:18.782Z [INFO] [BaseBuildTool] Found 1 modules: .
+2025-12-27T12:56:18.796Z [INFO] [BaseBuildTool] Finish counting Java and class files
+2025-12-27T12:56:18.797Z [INFO] [MavenBuildTool] Cleaning C:/Users/Eduardo/Documents/Projetos/maisLeite using Maven
+2025-12-27T12:56:18.797Z [INFO] [Environment] Running command (Java 22): mvnw clean -q -B -fn

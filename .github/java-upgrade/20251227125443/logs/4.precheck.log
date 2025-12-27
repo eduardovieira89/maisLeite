@@ -1,0 +1,172 @@
+2025-12-27T12:56:08.763Z [INFO] Prechecking project maisLeite...
+2025-12-27T12:56:08.763Z [INFO] Prechecking build status...
+2025-12-27T12:56:20.659Z [INFO] Prechecking CVEs...
+2025-12-27T12:56:27.822Z [INFO] Prechecking tests...
+2025-12-27T12:56:27.822Z [INFO] Run tests before upgrading...
+2025-12-27T12:56:45.033Z [INFO] Prepare initial state...
+2025-12-27T12:56:45.034Z [INFO] [Project maisLeite]: getting project state.
+2025-12-27T12:56:45.034Z [INFO] [Project maisLeite]: getting Java version.
+2025-12-27T12:56:45.034Z [INFO] [Project maisLeite]: got Java version: 22
+2025-12-27T12:56:45.035Z [INFO] [Project maisLeite]: getting dependencies promise.
+2025-12-27T12:56:45.036Z [INFO] Project initial state: {
+  "javaVersion": "22",
+  "dependencies": [
+    {
+      "groupId": "org.springframework.boot",
+      "artifactId": "spring-boot-starter-actuator",
+      "type": "jar",
+      "version": "3.3.2",
+      "scope": "compile",
+      "module": "maisLeite"
+    },
+    {
+      "groupId": "org.springframework.boot",
+      "artifactId": "spring-boot-starter-data-jpa",
+      "type": "jar",
+      "version": "3.3.2",
+      "scope": "compile",
+      "module": "maisLeite"
+    },
+    {
+      "groupId": "org.springframework.data",
+      "artifactId": "spring-data-rest-webmvc",
+      "type": "jar",
+      "version": "4.3.2",
+      "scope": "compile",
+      "module": "maisLeite"
+    },
+    {
+      "groupId": "org.springframework.boot",
+      "artifactId": "spring-boot-starter-security",
+      "type": "jar",
+      "version": "3.3.2",
+      "scope": "compile",
+      "module": "maisLeite"
+    },
+    {
+      "groupId": "org.springframework.boot",
+      "artifactId": "spring-boot-starter-web",
+      "type": "jar",
+      "version": "3.3.2",
+      "scope": "compile",
+      "module": "maisLeite"
+    },
+    {
+      "groupId": "com.mysql",
+      "artifactId": "mysql-connector-j",
+      "type": "jar",
+      "version": "8.3.0",
+      "scope": "runtime",
+      "module": "maisLeite"
+    },
+    {
+      "groupId": "org.projectlombok",
+      "artifactId": "lombok",
+      "type": "jar",
+      "version": "1.18.34",
+      "scope": "compile",
+      "module": "maisLeite"
+    },
+    {
+      "groupId": "io.jsonwebtoken",
+      "artifactId": "jjwt-api",
+      "type": "jar",
+      "version": "0.11.5",
+      "scope": "compile",
+      "module": "maisLeite"
+    },
+    {
+      "groupId": "io.jsonwebtoken",
+      "artifactId": "jjwt-impl",
+      "type": "jar",
+      "version": "0.11.5",
+      "scope": "compile",
+      "module": "maisLeite"
+    },
+    {
+      "groupId": "io.jsonwebtoken",
+      "artifactId": "jjwt-jackson",
+      "type": "jar",
+      "version": "0.11.5",
+      "scope": "compile",
+      "module": "maisLeite"
+    },
+    {
+      "groupId": "org.springframework.boot",
+      "artifactId": "spring-boot-starter-test",
+      "type": "jar",
+      "version": "3.3.2",
+      "scope": "test",
+      "module": "maisLeite"
+    },
+    {
+      "groupId": "org.springframework.security",
+      "artifactId": "spring-security-test",
+      "type": "jar",
+      "version": "6.3.1",
+      "scope": "test",
+      "module": "maisLeite"
+    },
+    {
+      "groupId": "org.springframework.boot",
+      "artifactId": "spring-boot-starter-validation",
+      "type": "jar",
+      "version": "3.3.2",
+      "scope": "compile",
+      "module": "maisLeite"
+    },
+    {
+      "groupId": "com.h2database",
+      "artifactId": "h2",
+      "type": "jar",
+      "version": "2.2.224",
+      "scope": "test",
+      "module": "maisLeite"
+    },
+    {
+      "groupId": "org.junit.platform",
+      "artifactId": "junit-platform-runner",
+      "type": "jar",
+      "version": "1.10.3",
+      "scope": "test",
+      "module": "maisLeite"
+    },
+    {
+      "groupId": "java",
+      "artifactId": "*",
+      "version": "22"
+    }
+  ],
+  "buildResult": {
+    "numOfJavaFiles": 109,
+    "numOfClassFiles": 109,
+    "modulesBuildResult": {
+      ".": {
+        "numOfJavaFiles": 109,
+        "numOfClassFiles": 109
+      }
+    },
+    "errors": [],
+    "command": "mvnw clean test-compile -q -B -fn"
+  },
+  "testResult": {
+    "errors": [],
+    "failures": [],
+    "summary": {
+      "tests": 0,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "reports": [
+      {
+        "name": "com.leiteria.AnimalRepositoryTest",
+        "time": 0.007,
+        "tests": 0,
+        "errors": 0,
+        "skipped": 0,
+        "failures": 0
+      }
+    ]
+  }
+}

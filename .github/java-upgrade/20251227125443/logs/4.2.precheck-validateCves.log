@@ -1,0 +1,42 @@
+2025-12-27T12:56:20.660Z [INFO] getting CVEs for dependencies:
+ - org.springframework.boot:spring-boot-starter-actuator:3.3.2
+  - org.springframework.boot:spring-boot-starter-data-jpa:3.3.2
+  - org.springframework.data:spring-data-rest-webmvc:4.3.2
+  - org.springframework.boot:spring-boot-starter-security:3.3.2
+  - org.springframework.boot:spring-boot-starter-web:3.3.2
+  - com.mysql:mysql-connector-j:8.3.0
+  - org.projectlombok:lombok:1.18.34
+  - io.jsonwebtoken:jjwt-api:0.11.5
+  - io.jsonwebtoken:jjwt-impl:0.11.5
+  - io.jsonwebtoken:jjwt-jackson:0.11.5
+  - org.springframework.boot:spring-boot-starter-test:3.3.2
+  - org.springframework.security:spring-security-test:6.3.1
+  - org.springframework.boot:spring-boot-starter-validation:3.3.2
+  - com.h2database:h2:2.2.224
+  - org.junit.platform:junit-platform-runner:1.10.3
+  - java:*:22...
+2025-12-27T12:56:20.660Z [INFO] getting gitHub access token...
+2025-12-27T12:56:27.453Z [INFO] Processing batch 1/1, size: 16
+2025-12-27T12:56:27.455Z [INFO] listing CVEs from GitHub for dependencies [
+  "org.springframework.boot:spring-boot-starter-actuator:3.3.2",
+  "org.springframework.boot:spring-boot-starter-data-jpa:3.3.2",
+  "org.springframework.data:spring-data-rest-webmvc:4.3.2",
+  "org.springframework.boot:spring-boot-starter-security:3.3.2",
+  "org.springframework.boot:spring-boot-starter-web:3.3.2",
+  "com.mysql:mysql-connector-j:8.3.0",
+  "org.projectlombok:lombok:1.18.34",
+  "io.jsonwebtoken:jjwt-api:0.11.5",
+  "io.jsonwebtoken:jjwt-impl:0.11.5",
+  "io.jsonwebtoken:jjwt-jackson:0.11.5",
+  "org.springframework.boot:spring-boot-starter-test:3.3.2",
+  "org.springframework.security:spring-security-test:6.3.1",
+  "org.springframework.boot:spring-boot-starter-validation:3.3.2",
+  "com.h2database:h2:2.2.224",
+  "org.junit.platform:junit-platform-runner:1.10.3",
+  "java:*:22"
+]
+2025-12-27T12:56:27.817Z [INFO] Fetched 1 total advisories across all pages
+2025-12-27T12:56:27.818Z [INFO] grouping CVEs and finding max patched version by dep...
+2025-12-27T12:56:27.818Z [INFO] done getting 0 CVEs for 16 dependencies
+2025-12-27T12:56:27.819Z [INFO] calculating patched version by dep...
+2025-12-27T12:56:27.819Z [INFO] finished getting CVEs for dependencies.
